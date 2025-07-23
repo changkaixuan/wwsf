@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.TaskDimensionMapper" >
+
+	<resultMap id="taskDimensionMap" type="TaskDimension">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
+	    <result column="DMSN_NAME" property="dmsnName" jdbcType="VARCHAR"/>
+	    <result column="DMSN_PRODUCT" property="dmsnProduct" jdbcType="VARCHAR"/>
+	    <result column="ENTITY_NAME" property="entityName" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	
+  	<select id="queryTaskDimensionPage" parameterType="java.util.Map" resultMap="taskDimensionMap">
+		select * from ww_task_dimension where 1=1
+		<if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+	</select>
+	
+	<select id="distinctTaskDimName" parameterType="java.util.Map" resultType="java.lang.String">
+		select distinct entity_name from ww_task_dimension where 1=1
+		<if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+	</select>
+	
+	<insert id="insertTaskDimension" parameterType="TaskDimension" >
+	    insert into ww_task_dimension (job_id,task_id,dmsn_name,dmsn_product,entity_name)
+	    values (#{jobId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{dmsnName,jdbcType=VARCHAR},#{dmsnProduct,jdbcType=VARCHAR},#{entityName,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteTaskDimension" parameterType="java.util.Map" >
+	    delete from ww_task_dimension where 1=1 
+	    <if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+	</delete>
+	
+	<delete id="deleteTaskDimensionByProduct" parameterType="java.util.Map" >
+	    delete from ww_task_dimension  
+	    	where job_id in (select job_id from ww_job where product=#{product})
+	</delete>
+	
+	<select id="getTaskDmsnNameList" parameterType="java.util.Map" resultType="java.lang.String">
+		select distinct td.dmsn_name from ww_task_dimension td where td.job_id=#{jobId} and td.task_id=#{taskId} order by td.dmsn_name
+	</select>
+	
+	<select id="getTaskEntityNameList" parameterType="java.util.Map" resultType="java.lang.String">
+		select distinct td.entity_name from ww_task_dimension td where td.job_id=#{jobId} and td.task_id=#{taskId}
+		<if test="lEntityName != null ">
+			and instr(td.entity_name,#{lEntityName}) > 0
+		</if>
+		order by td.entity_name
+	</select>
+	
+</mapper>

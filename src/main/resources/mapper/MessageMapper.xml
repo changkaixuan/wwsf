@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.MessageMapper" >
+
+	<resultMap id="messageMap" type="Message">
+	    <result column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="VARCHAR" />
+		<result column="M_LEVEL" property="mLevel" jdbcType="VARCHAR" />
+		<result column="M_READ" property="mRead" jdbcType="VARCHAR" />
+		<result column="M_INFO" property="mInfo" jdbcType="VARCHAR" />
+		<result column="M_TIME_SEC" property="mTimeSec" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+    <select id="countMessageByLoginName" parameterType="java.util.Map" resultType="java.lang.Long">
+	     select count(1) from ww_message m where m.m_read = '0'
+		   and exists (
+		     select distinct p.p_id from ww_sys_user su,ww_product p,ww_sys_user_product_ref supr
+		       where su.login_name = supr.user_id and p.p_id = supr.product_id and m.product=p.p_id
+		         and su.login_name = #{loginName}
+		   )
+	</select>
+	
+	<select id="getMessageByLoginName" parameterType="java.util.Map" resultMap="messageMap" databaseId="oracle">
+	   select t.*,(sysdate-to_date(t.create_time,'yyyy-MM-dd HH24:mi:ss'))*24*60*60 m_time_sec from (
+	     select * from ww_message m where
+		   exists (
+		     select distinct p.p_id from ww_sys_user su,ww_product p,ww_sys_user_product_ref supr
+		       where su.login_name = supr.user_id and p.p_id = supr.product_id and m.product=p.p_id
+		         and su.login_name = #{loginName}
+		   )
+	     order by m.m_read,m.create_time desc
+	   ) t where rownum <![CDATA[ <= ]]> #{fetchRowNum}
+	</select>
+	
+	<select id="getMessageByLoginName" parameterType="java.util.Map" resultMap="messageMap" databaseId="mysql">
+       select m.*,UNIX_TIMESTAMP(SYSDATE()) - UNIX_TIMESTAMP(STR_TO_DATE(m.create_time,'%Y-%m-%d %H:%i:%s')) m_time_sec from ww_message m where
+	     exists (
+	       select distinct p.p_id from ww_sys_user su,ww_product p,ww_sys_user_product_ref supr
+	         where su.login_name = supr.user_id and p.p_id = supr.product_id and m.product=p.p_id
+	           and su.login_name = #{loginName}
+	     )
+       order by m.m_read,m.create_time desc
+       limit #{fetchRowNum}
+	</select>
+	
+	<select id="queryMessage" parameterType="java.util.Map" resultMap="messageMap">
+		select * from ww_message m where 1=1
+		<if test="loginName != null ">
+			and exists (
+	    	  select distinct p.p_id from ww_sys_user su,ww_product p,ww_sys_user_product_ref supr
+	      	    where su.login_name = supr.user_id and p.p_id = supr.product_id and m.product=p.p_id
+	        	  and su.login_name = #{loginName}
+	        )
+	    </if>
+	    <if test="id != null ">
+			and id = #{id}
+		</if>
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="lMLevel != null ">
+			and instr(m_level,#{lMLevel}) > 0
+		</if>
+		<if test="mRead != null ">
+			and m_read = #{mRead}
+		</if>
+		order by create_time desc
+	</select>
+	
+	<update id="updateMessage" parameterType="java.util.Map" >
+	    update ww_message 
+	    set m_read = #{mRead}
+	    where id in
+		    <foreach collection="idArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+	</update>
+	
+</mapper>

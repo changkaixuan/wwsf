@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.SysUserMapper" >
+
+	<resultMap id="sysUserMap" type="SysUser">
+		<result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+		<result column="LOGIN_NAME" property="loginName" jdbcType="VARCHAR" />
+		<result column="USER_PWD" property="userPwd" jdbcType="VARCHAR" />
+		<result column="USER_STAT" property="userStat" jdbcType="VARCHAR" />
+		<result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+		<result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR" />
+		<result column="LOCK_FLAG" property="lockFlag" jdbcType="VARCHAR" />
+		<result column="LOCK_TIME" property="lockTime" jdbcType="DATE" />
+		<result column="INVALID_DATE" property="invalidDate" jdbcType="DATE" />
+		<result column="VALID_DATE" property="validDate" jdbcType="DATE" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+		<result column="DEL_FLAG" property="delFlag" jdbcType="INTEGER" />
+  	</resultMap>
+  
+	<select id="querySysUser" parameterType="java.util.Map" resultMap="sysUserMap">
+		select * from ww_sys_user where 1=1
+		<if test="loginName != null ">
+			and login_name = #{loginName}
+		</if>
+		<if test="loginNameArr != null" >
+	      	and login_name in
+		    <foreach collection="loginNameArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		<if test="lLoginName != null ">
+			and instr(login_name,#{lLoginName}) > 0
+		</if>
+		<if test="lUserName != null ">
+			and instr(user_name,#{lUserName}) > 0
+		</if>
+		<if test="lUserEmail != null ">
+			and instr(user_email,#{lUserEmail}) > 0
+		</if>
+		<if test="delFlag != null ">
+			and del_flag = #{delFlag}
+		</if>
+		<if test="lockFlag != null ">
+			and lock_flag = #{lockFlag}
+		</if>
+		<if test="prod_id != null ">
+			and prod_id = #{prodId}
+		</if>
+	</select>
+	
+	<insert id="insertSysUser" parameterType="SysUser" >
+	    insert into ww_sys_user (login_name,user_pwd,user_stat,user_name,user_mobile,user_email,del_flag,create_time,lock_flag,valid_date,invalid_date)
+	    values (#{loginName,jdbcType=VARCHAR},#{userPwd,jdbcType=VARCHAR},#{userStat,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userMobile,jdbcType=VARCHAR},
+	            #{userEmail,jdbcType=VARCHAR}, #{delFlag,jdbcType=INTEGER}, #{dCreateTime,jdbcType=DATE},#{lockFlag,jdbcType=VARCHAR},#{dValidDate,jdbcType=VARCHAR},
+	            #{dInvalidDate,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateSysUser" parameterType="SysUser" >
+	    update ww_sys_user 
+	    set user_name = #{userName}
+		   ,user_mobile = #{userMobile}
+		   ,user_email = #{userEmail}
+		   ,valid_date = #{dValidDate,jdbcType=DATE}
+		   ,invalid_date = #{dInvalidDate,jdbcType=DATE}
+		   <if test="delFlag != null ">
+		   ,del_flag = #{delFlag}
+		   </if>
+	    where login_name = #{loginName} 
+	</update>
+	
+	<update id="updateSysUserPassword" parameterType="java.util.Map" >
+	    update ww_sys_user 
+	    set user_pwd = #{userPwd}
+	    where login_name = #{loginName} 
+	</update>
+	
+	<delete id="deleteSysUsers" parameterType="java.util.Map" >
+	    update ww_sys_user 
+	    set del_flag = 0
+	    where 1=1
+	    <if test="loginNameArr != null" >
+	      	and login_name in
+		    <foreach collection="loginNameArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</delete>
+  
+</mapper>

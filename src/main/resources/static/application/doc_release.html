@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">文档</li>
+    <li class="breadcrumb-item active">应用版本</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+
+<div class="subheader my-2">
+	<h1 class="subheader-title">
+		<i class='subheader-icon fal fa-paper-plane'></i>应用版本说明及安装包下载
+	</h1>
+</div>
+
+<p class="mt-2 mb-1">WWS所有新版本将会提交到本页面，开放给使用者自由下载，版本升级说明中将包含BUG修正，新的功能，基础依赖升级等。 </p>
+<p class="mt-1 mb-1">安装包主要由两部分组成：批量程序包，WEB前端程序包。， </p>
+<p class="mt-1 mb-4">帮助文档为PDF格式，如果未提供下载，请访问“产品说明”界面，在线查看。 </p>
+
+<div id="release_list">
+	<!-- ko foreach: apis,as: 'irestful' -->
+	<div class="panel">
+		<div class="panel-hdr">
+	    	<h2 class="fw-700 m-0" style="font-size:1.375rem;"><!--ko text: time--><!--/ko--></h2>
+		</div>
+		<div class="panel-container">
+		    <div class="panel-content">
+		    	<div data-bind="html: textHtml"></div>
+				<table class="table table-md table-bordered">
+					<tbody>
+						<tr>
+							<td width="50">批量</td>
+							<td>
+								<a data-bind="attr: {href:'release/'+batchZipUrl}" target="_blank"><!--ko text: batchZipUrl--><!--/ko--></a>
+								<span class="badge badge-info badge-pill ml-2" data-bind="text: batchZipSize"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>前端</td>
+							<td>
+								<a data-bind="attr: {href:'release/'+consoleZipUrl}" target="_blank"><!--ko text: consoleZipUrl--><!--/ko--></a>
+								<span class="badge badge-info badge-pill ml-2" data-bind="text: consoleZipSize"></span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		    </div>
+		</div>
+	</div>
+	<!-- /ko -->
+</div>

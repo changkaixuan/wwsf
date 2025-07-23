@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.DimensionEntityMapper" >
+
+	<resultMap id="dimensionEntityMap" type="DimensionEntity">
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="DMSN_NAME" property="name" jdbcType="VARCHAR" />
+		<result column="ENTITY_NAME" property="entity" jdbcType="VARCHAR" />
+		<result column="ENTITY_DESC" property="entityDesc" jdbcType="VARCHAR" />
+		<result column="TITLE" property="tags" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+	<select id="queryDimensionEntityPage" parameterType="java.util.Map" resultMap="dimensionEntityMap">
+		select * from ww_dimension_entity where 1=1
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+		<if test="entityName != null ">
+			and entity_name = #{entityName}
+		</if>
+		<if test="lEntityName != null ">
+			and instr(entity_name,#{lEntityName}) > 0
+		</if>
+		<if test="title != null ">
+			and instr(title,#{title}) > 0
+		</if>
+		order by product,dmsn_name,entity_name
+	</select>
+	
+	<insert id="insertDimensionEntity" parameterType="DimensionEntity" >
+	    insert into ww_dimension_entity (product,dmsn_name,entity_name,entity_desc,title)
+	    values (#{product,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{entity,jdbcType=VARCHAR}, #{entityDesc,jdbcType=VARCHAR}, #{tags,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateDimensionEntity" parameterType="java.util.Map">
+    	update ww_dimension_entity
+    	set title = #{title}
+    	where 1=1
+    	<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+		<if test="entityName != null ">
+			and entity_name = #{entityName}
+		</if>
+    </update>
+    
+    <update id="updateDmsnEntity" parameterType="DimensionEntity">
+    	update ww_dimension_entity
+    	set entity_desc = #{entityDesc,jdbcType=VARCHAR}
+    	   ,title = #{tags,jdbcType=VARCHAR}
+    	where product = #{product}
+			and dmsn_name = #{name}
+			and entity_name = #{entity}
+    </update>
+	
+	<delete id="deleteDimensionEntity" parameterType="java.util.Map" >
+	    delete from ww_dimension_entity where 1=1 
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+		<if test="entityName != null ">
+			and entity_name = #{entityName}
+		</if>
+	</delete>
+	
+	<delete id="deleteDimensionEntityByProduct" parameterType="java.util.Map" >
+	    delete from ww_dimension_entity 
+	     where dmsn_name in (select d.dmsn_name from ww_dimension d where d.product = #{product})
+	</delete>
+	
+	<insert id="batchInsertDimensionEntity" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_dimension_entity (product,dmsn_name,entity_name,entity_desc,title)
+	    values 
+	    <foreach collection="list" item="dimensionEntity" index="index" separator=",">
+	    	(#{dimensionEntity.product,jdbcType=VARCHAR}, #{dimensionEntity.name,jdbcType=VARCHAR}, #{dimensionEntity.entity,jdbcType=VARCHAR}, #{dimensionEntity.entityDesc,jdbcType=VARCHAR}, #{dimensionEntity.tags,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<insert id="batchInsertDimensionEntity" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="dimensionEntity" open="BEGIN" index="index" separator=";" close=";END;">
+	    	insert into ww_dimension_entity (product,dmsn_name,entity_name,entity_desc,title)
+	    	values (#{dimensionEntity.product,jdbcType=VARCHAR}, #{dimensionEntity.name,jdbcType=VARCHAR}, #{dimensionEntity.entity,jdbcType=VARCHAR}, #{dimensionEntity.entityDesc,jdbcType=VARCHAR}, #{dimensionEntity.tags,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	 <update id="batchUpdateDimensionEntity" parameterType="java.util.List" databaseId="mysql">
+	 	<foreach collection="list" item="dimensionEntity" index="index" separator=";">
+	    	update ww_dimension_entity
+	    	set entity_desc = #{dimensionEntity.entityDesc,jdbcType=VARCHAR}
+	    	   ,title = #{dimensionEntity.tags,jdbcType=VARCHAR}
+	    	where product = #{dimensionEntity.product}
+			  and dmsn_name = #{dimensionEntity.name}
+			  and entity_name = #{dimensionEntity.entity}
+		</foreach>
+    </update>
+    
+    <update id="batchUpdateDimensionEntity" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="dimensionEntity" open="BEGIN" index="index" separator=";" close=";END;">
+	        update ww_dimension_entity
+	        set entity_desc = #{dimensionEntity.entityDesc,jdbcType=VARCHAR}
+	    	   ,title = #{dimensionEntity.tags,jdbcType=VARCHAR}
+	        where product = #{dimensionEntity.product}
+			  and dmsn_name = #{dimensionEntity.name}
+			  and entity_name = #{dimensionEntity.entity}
+		</foreach>
+    </update>
+  
+</mapper>

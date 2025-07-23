@@ -1,0 +1,2171 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<ol class="breadcrumb page-breadcrumb">
+	<li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+	<li class="breadcrumb-item">文档</li>
+	<li class="breadcrumb-item active">产品说明</li>
+	<li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="subheader my-2">
+	<h1 class="subheader-title">
+		<i class='subheader-icon fal fa-users'></i>介绍及安装使用说明 
+	</h1>
+</div>
+<p class="mt-2 mb-4">从
+	<a href="#" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary">背景</span></a>
+	<a href="#" data-liftaction="#pro_vision"><span class="badge badge-primary">目标</span></a>
+	<a href="#" data-liftaction="#pro_architecture"><span class="badge badge-primary">架构</span></a>
+	<a href="#" data-liftaction="#pro_deploy"><span class="badge badge-primary">部署</span></a>
+	<a href="#" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+	<a href="#" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	（点此链接，可电梯直达，后续每节标题右侧都有超链接）几个方面了解wws分布式调度工具，并通过快速搭建，示例来完成自己的第一个任务调度。 
+</p>
+
+<div class="panel mb-g" id="pro_bg_introduction">
+	<div class="panel-hdr">
+	       <h2 class="fw-700 m-0" style="font-size:1.375rem;">背景</h2>
+	       <div class="panel-toolbar">
+				<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	       </div>
+	   </div>
+	   <div class="panel-container">
+	       <div class="panel-content">
+				<h3>1. 云平台迁移项目</h3>
+				<p>随着行内云平台应用迁移项目开始实施，外围和后线OLAP类系统急需一个能在x86平台上运行的，自动化程度较高，且高可用的作业调度工具。</p>
+				<p>将应用从小型机迁移到x86平台后，应用服务器的数量成倍式的增长，单节点的资源有限，因此作业的调度执行需要支持分布式。</p>
+				<p>在云平台项目实施过程中，目标应用的子系统或模块较多，用户希望能有一个具有集中式管理的统一调度平台，当新增一个子系统，只需将一个新的服务器节点纳入调度平台统一管理，并实现资源隔离的目的。</p>
+				<hr class="my-4">
+				<h3>2. MPP架构数据库在行内的推广</h3>
+				<p>2018年经过总行选型，确定GBASE为MPP数据库供应商.</p>
+				<p>由于GBASE产品并没有提供对应的调度工具，根据前期调研情况，在MPP产品选型落地后，需要调度工具除支持Oracle作业外，还需对分布式数据库有良好支持，在调度作业时能够屏蔽因不同数据库类型而带来的额外操作。</p>
+				<hr class="my-4">
+				<h3>3. 中银金科挂牌成立</h3>
+				<p>2019年6月13日中银金科挂牌,由中行软件中心（上海）转制成立.</p>
+				<p>姚总用生动朴实的语言，告诉了我们中银金科公司既不是软件中心的翻版，也不是博科公司的再现。</p>
+				<p>今后我们要突破原有的思维定式，开拓视野，学习最新前沿技术，培养敏捷思维，更有活力地投身到工作中去。从做“别人家的事儿”、“掺和着做事儿”，转变为在做“自己家的事儿”，我们要化被动为主动，完成普通兵到特种兵、轻骑兵的转变，大家一起抗住“负重前行”“空中加油”的阻力，不再蹚浑水，完成公司制的完美蜕变。不忘初心、牢记使命，勇于担当，咬定目标，同心同德，攻坚克难，通过大家共同的努力将中银金科公司打造成行业一流、服务高效、客户满意、党建出色、受人尊敬的金融科技公司。</p>
+	       </div>
+	</div>
+</div>
+
+<div class="panel mb-g" id="pro_vision">
+	<div class="panel-hdr">
+	       <h2 class="fw-700 m-0" style="font-size:1.375rem;">目标 </h2>
+	       <div class="panel-toolbar">
+				<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	       </div>
+	   </div>
+	   <div class="panel-container">
+	       <div class="panel-content">
+				<p>
+					<span class="badge badge-primary fw-800 ">十万级作业调度</span>
+					<span class="badge badge-primary fw-800 ">稳定</span>
+					<span class="badge badge-primary fw-800 ">功能完善</span>
+					<span class="badge badge-primary fw-800 ">良好的用户体验</span>
+					<span class="badge badge-primary fw-800 ">调度云服务</span>
+					<span class="badge badge-primary fw-800 ">智能调度</span>
+				</p>
+	       </div>
+	</div>
+</div>
+
+<div class="panel" id="pro_architecture">
+	<div class="panel-hdr">
+	       <h2 class="fw-700 m-0" style="font-size:1.375rem;">架构 </h2>
+	       <div class="panel-toolbar">
+				<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	       </div>
+	   </div>
+	   <div class="panel-container">
+	       <div class="panel-content">
+				<p>调度工具的开发采用Zookeeper + RDB + OSGi等技术组件或规范，以插件开发应用模式， 在任务负载均衡，作业类型适配，基础服务等方面提供热部署及动态配置切换。Zookeeper提供分布式节点管理和插件服务注册，任务的配置信息和运行信息存储在RDB当中，目前支持MySQL和Oracle数据库，对于Job运行时热点表，应用采用分片技术，极大提高作业调度的效率。</p>
+				<div class="row clearfix">
+					<div class="col-md-4 column m-auto">
+						<div class="container p-0 m-0">
+							<h3>灵活简单分布式作业调度</h3>
+							<p>渐进式基础开发框架，为作业的调度或执行提供更多的服务支持。</p>
+							<blockquote class="blockquote">
+									&nbsp;&nbsp;Scheduler ：<br> &nbsp;&nbsp;&nbsp;&nbsp;集群管理，任务驱动，负载均衡，信息采集，计划任务<br>
+									&nbsp;&nbsp;Slaver ：<br> &nbsp;&nbsp;&nbsp;&nbsp;任务执行，插件注册，计划任务<br>
+									&nbsp;&nbsp;Registry ：<br> &nbsp;&nbsp;&nbsp;&nbsp;插件注册中心，分布式锁，节点及插件注册，Master选举
+							</blockquote>
+						</div>
+					</div>
+					<div class="col-md-8 column m-auto">
+						<img src="img/demo/wws/wws-architecture.png" class="img-fluid rounded border p-2"/>
+					</div>
+				</div>
+				<h3 class="mt-2">方案一: 简单部署（单机）</h3>
+				<hr class="mb-2">
+				<div class="row clearfix">
+					<div class="col-md-4 column m-auto">
+						<div class="container p-0 m-0">
+							<h4>单机模式部署</h4>
+							<p>无高可用要求，单一产品作业量不多的情况，建议1台数据库服务器，1台调度服务器，1台Zookeeper服务器。</p>
+							<blockquote class="blockquote">
+									&nbsp;&nbsp;WWSMaster ：<br> &nbsp;&nbsp;&nbsp;&nbsp;启动两个进程，批量进程和WEB控制台进程。批量进程即执行调度计算，也执行具体的作业任务，因此会有相互影响可能。<br>
+									&nbsp;&nbsp;Zookeeper ：<br> &nbsp;&nbsp;&nbsp;&nbsp;单机部署，也可集群部署，3-n个节点，n为大于3的奇数<br>
+									&nbsp;&nbsp;DBServer ：<br> &nbsp;&nbsp;&nbsp;&nbsp;数据库服务器，支持MySQL和Oracle数据库
+							</blockquote>
+						</div>
+					</div>
+					<div class="col-md-8 column m-auto">
+						<img src="img/demo/wws/wws-signal-top.png" class="img-fluid rounded border p-2" style="max-width:60%"/>
+					</div>
+				</div>
+				<h3 class="mt-2">方案二: 高可用部署（集群）</h3>
+				<hr class="mb-2">
+				<div class="row clearfix">
+					<div class="col-md-4 column m-auto">
+						<div class="container p-0 m-0">
+							<h4>集群模式部署</h4>
+							<p>要求高可用，多产品作业量较多的情况，建议2台数据库服务器，3台（或更多，根据作业执行压力自行适当增加Slave节点）调度服务器（WebConsole不考虑高可用情况），3台Zookeeper服务器。</p>
+							<blockquote class="blockquote">
+									&nbsp;&nbsp;WWSMaster ：<br> &nbsp;&nbsp;&nbsp;&nbsp;启动两个进程，批量进程和WEB控制台进程。批量进程即执行调度计算，也执行具体的作业任务，因此会有相互影响可能。<br>
+									&nbsp;&nbsp;WWSSlave ：<br> &nbsp;&nbsp;&nbsp;&nbsp;执行某一个产品或模块具体作业的服务器节点。<br>
+									&nbsp;&nbsp;Zookeeper ：<br> &nbsp;&nbsp;&nbsp;&nbsp;最少3个节点，或3-n个节点，n为大于3的奇数<br>
+									&nbsp;&nbsp;DBServer ：<br> &nbsp;&nbsp;&nbsp;&nbsp;数据库服务器，支持MySQL和Oracle数据库，
+							</blockquote>
+						</div>
+					</div>
+					<div class="col-md-8 column m-auto">
+						<img src="img/demo/wws/wws-cluster-top.png" class="img-fluid rounded border p-4" style="max-width:70%"/>
+					</div>
+				</div>
+       </div>
+	</div>
+</div>
+
+<div class="panel" id="pro_deploy">
+	<div class="panel-hdr">
+	       <h2 class="fw-700 m-0" style="font-size:1.375rem;">部署</h2>
+	       <div class="panel-toolbar">
+				<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	       </div>
+	   </div>
+	   <div class="panel-container">
+	       <div class="panel-content">
+				<p> 本节为WWS调度 Master，Slave，WebConsole三个应用程序的安装说明，Zookeeper和数据库的安装，在此不做赘述。</p>
+				<h2 class="mt-4">1. 端口使用说明</h2>
+				<hr>
+				<p>WWS运行时，需要开放
+					<span class="badge badge-pill badge-danger fw-800">1099</span>
+					<span class="badge badge-pill badge-danger fw-800">44444</span>
+					<span class="badge badge-pill badge-danger fw-800">8101</span>
+					<span class="badge badge-pill badge-danger fw-800">8585</span>四个端口，其中
+					<span class="badge badge-pill badge-danger fw-800">1099</span>
+					<span class="badge badge-pill badge-danger fw-800">44444</span>为调度集群各节点间JMX通信端口；
+					<span class="badge badge-pill badge-danger fw-800">8585</span>为WebConsole绑定端口；
+					<span class="badge badge-pill badge-danger fw-800">8101</span>为字符终端命令行端口。</p>
+				<p>请在启动前确认端口是否被占用，如果上述端口已被其他应用占用，安装时，将修改更多配置文件。</p>
+				<h2 class="mt-4">2. 环境要求</h2>
+				<hr>
+				<p>1）Java8或更高版本</p>
+				<p>2）ZOOKEEPER3.4.12或更高版本</p>
+				<p>3）MySQL（ORACLE）</p>
+				
+				<p>JDK版本验证:</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/$java -version<br>
+				java version "1.8.0_191"<br>
+				Java(TM) SE Runtime Environment (build 1.8.0_191-b12)<br>
+				Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)<br>
+				wws@WWS-MASTER-1:/wws/$
+				</code>
+				<h2 class="mt-4">3. ZOOKEEPER配置调优说明</h2>
+				<p><h3>参数调优</h3></p>
+				<p>鉴于以下三种情况，会导致wws进行停止，所以建议修改zookeeper的配置文件，调整seession的timeout值和快照机制：</p>
+				<p>&nbsp;&nbsp;1） 网络抖动，导致wws与zookeeper的session超时</p>
+				<p>&nbsp;&nbsp;2） zookeeper的负载过高（比如aof时间过长），导致wws与zookeeper的session超时</p>
+				<p>&nbsp;&nbsp;3） wws进程虚拟机负载过高（线程太多、GC）,导致心跳响应超时</p>
+				<p>如果zookeeper为多个应用共同使用或者zookeeper上写入的数据太大时，更应该考虑调整参数设置，具体操作如下：</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					#进入zookeeper安装目录，找到/usr/local/zookeeper/conf/zoo.cfg文件(位置因环境而异)，确认文件中是否含有：<br>
+					# minSessionTimeout ： 最小的客户端session超时时间，默认值为2个tickTime，单位是毫秒<br>
+					# maxSessionTimeout ： 最大的客户端session超时时间，默认值为20个tickTime，单位是毫秒<br>
+					minSessionTimeout=10000<br>
+					maxSessionTimeout=60000<br>
+					# 优化快照机制<br>
+					autopurge.purgeInterval=2<br>
+					autopurge.snapRetainCount=10<br>
+					snapCount=1000000<br>
+					# 允许的客户端连接数量<br>
+					maxClientCnxns=2000<br>
+					
+				</code>
+				<p>增加zookeeper JVM堆栈内存</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					#进入zookeeper安装目录，找到/usr/local/zookeeper/conf/java.env文件(位置因环境而异)，确认文件是否存在，不存在则创建<br>
+					touch /usr/local/zookeeper/conf/java.env <br>
+					# 写入内容,注意jdk路径需要根据环境而定<br>
+					#!/bin/sh<br>
+					export JAVA_HOME=/usr/local/jdk<br>
+					export JVMFLAGS="-Xms2048m -Xmx4096m $JVMFLAGS"<br>
+					# 重启zookeeper，查看进程确认是否堆栈大小是否调整成功<br>
+					ps -ef|grep zookeeper|grep "-Xm*"<br>
+				</code>
+				
+				<p><h3>访问控制配置</h3></p>
+				<p>安全级别较高的应用系统，由于信息安全要求，需要对zookeeper进行ACL设置，WWSF可通过配置的方式支持ACL，如果zookeeper为WWSF独占可按照以下步骤设置ACL</p>
+				<p>（缺省配置为两个Digest用户wwsguest和wwsadmin，其中wwsguest只有read权限，默认密码“wg!2019”，wwsadmin拥有所有权限，默认密码“wa!2019”）:</p>
+				<p>首先我们必须将zookeeper的根节点和缺省节点（znode）都需要进行ACL设置</p>
+				<p>&nbsp;&nbsp;#登陆zookeeper客户端执行如下三条命令，其中密码必须进行SHA1-BASE64编码处理</p>
+				<p>&nbsp;&nbsp;setAcl / digest:wwsguest:PUyozWsnHJAl+xQhqjYULQw46kM=:r,digest:wwsadmin:ZDJILJg2sY8ftjC2ZZ3QtPQ5V7w=:cdrwa</p>
+				<p>&nbsp;&nbsp;setAcl /zookeeper digest:wwsguest:PUyozWsnHJAl+xQhqjYULQw46kM=:r,digest:wwsadmin:ZDJILJg2sY8ftjC2ZZ3QtPQ5V7w=:cdrwa</p>
+				<p>&nbsp;&nbsp;setAcl /zookeeper/quota digest:wwsguest:PUyozWsnHJAl+xQhqjYULQw46kM=:r,digest:wwsadmin:ZDJILJg2sY8ftjC2ZZ3QtPQ5V7w=:cdrwa</p>
+				<p>&nbsp;&nbsp;#密码加密处理，可在ZOOKEEPER安装服务器上执行如下命令获取，注意ZOOKEEPER安装路径，版本因环境而异</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					java -cp d:/Program/zookeeper-3.4.6/zookeeper-3.4.6.jar;d:/Program/zookeeper-3.4.6/lib/slf4j-api-1.6.1.jar \<br>
+					org.apache.zookeeper.server.auth.DigestAuthenticationProvider \<br>
+					&lt;user&gt;:&lt;password&gt;
+				</code>
+				<p>也可使用openssl命令</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					echo -n &lt;user&gt;:&lt;password&gt; | openssl dgst -binary -sha1 | openssl base64
+				</code>
+				<p>&nbsp;&nbsp;#使用zookeeper的自带客户端登陆，进入客户端后，执行如下指令，然后才能进行已授权的相关操作了：</p>
+				<p>&nbsp;&nbsp;只查看数据（r）：</p>
+				<p>&nbsp;&nbsp;addauth digest wwsguest:wg!2019</p>
+				<p>&nbsp;&nbsp;操作数据（cdrwa）：</p>
+				<p>&nbsp;&nbsp;addauth digest wwsadmin:wa!2019</p>
+				
+				<p>&nbsp;&nbsp;#如何在wwsf中设置ACL：</p>
+				<p>&nbsp;&nbsp;修改批量程序中配置文件 etc/wws.cfg，设置参数zoo.acl.string值：“31,wwsadmin:wa!2019/1,wwsguest:wg!2019”</p>
+				<p>&nbsp;&nbsp;修改WEB程序中application.properties文件，设置参数zoo.acl.string值：“31,wwsadmin:wa!2019/1,wwsguest:wg!2019”</p>
+				<p>&nbsp;&nbsp;#如何在wwsf中取消ACL：</p>
+				<p>&nbsp;&nbsp;修改批量程序中配置文件 etc/wws.cfg，注释掉参数zoo.acl.string</p>
+				<p>&nbsp;&nbsp;修改WEB程序中application.properties文件，注释掉参数zoo.acl.string</p>
+				<p>&nbsp;&nbsp;修改后需重启批量和WEB服务</p>
+				<h2 class="mt-4">4. WebConsole服务安装</h2>
+				<hr>
+				<p>wws WebConsole为基于BS的管理控制台，建议资源足够时，也可独立部署。安装包目录结构如下：</p>
+				<ul>
+					<li>lib&nbsp;&nbsp;&nbsp;&nbsp;--基础Java类库存放目录</li>
+					<li>logs&nbsp;&nbsp;&nbsp;&nbsp;--日志存放目录</li>
+					<li>release&nbsp;&nbsp;&nbsp;&nbsp;--程序下载包路径，当作为主站时，可将安装包放在此目录，作为应用安装时，无需操作此目录</li>
+					<li>application.properties&nbsp;&nbsp;&nbsp;&nbsp;--核心配置文件</li>
+					<li>console.bat&nbsp;&nbsp;&nbsp;&nbsp;--win平台启动应用</li>
+					<li>console.sh&nbsp;&nbsp;&nbsp;&nbsp;--linux平台启动应用</li>
+					<li>cryptor.bat&nbsp;&nbsp;&nbsp;&nbsp;--win平台敏感信息加解命令，用于加密application.properties中密码等敏感信息</li>
+					<li>cryptor.sh&nbsp;&nbsp;&nbsp;&nbsp;--linux平台敏感信息加解密命令</li>
+					<li>logback.xml&nbsp;&nbsp;&nbsp;&nbsp;--日志打印设置</li>
+					<li>stop.sh&nbsp;&nbsp;&nbsp;&nbsp;--linux平台停止应用</li>
+				</ul>
+				<p>使用FTP工具或命令行ftp命令将安装包上传至master服务器。</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				ftp 22.188.9.160 <br>
+				连接到 22.188.9.160。 <br>
+				220 (vsFTPd 2.2.2) <br>
+				用户(22.188.9.160:(none)): wws <br>
+				331 Please specify the password. <br>
+				密码: <br>
+				230 Login successful. <br>
+				ftp> bin <br>
+				200 Switching to Binary mode. <br>
+				ftp> prom <br>
+				交互模式 关 。 <br>
+				ftp> cd /wws/ <br>
+				250 Directory successfully changed 。 <br>
+				ftp> lcd d:\wwsf <br>
+				目前的本地目录 D:\wwsf。 <br>
+				ftp> mput wwsf-console-v1.0.0-20190823.zip <br>
+				200 PORT command successful. Consider using PASV. <br>
+				150 Ok to send data. <br>
+				226 Transfer complete. <br>
+				ftp: 发送 55837708 字节，用时 0.52秒 108422.73千字节/秒。 <br>
+				</code>
+				<p>确定安装目录，这里以/wws/console/为例，使用PieTTY或CRT登陆服务器22.188.9.160，并解压缩安装包后改名目录。</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				login as: wws <br>
+				wws@22.188.9.160's password: *** <br>
+				Last login: Fri Aug 16 18:35:09 2019 from 22.189.28.120 <br>
+				******************************************************************************* <br>
+				*                                                                             * <br>
+				*       Welcome to X86 Version release 7.3!                                   * <br>
+				*                                                                             * <br>
+				*   ======Please use the environment safely======                             * <br>
+				*                                                                             * <br>
+				******************************************************************************* <br>
+				wws@WWS-MASTER-1:/wws/$<br>
+				wws@WWS-MASTER-1:/wws/$ls<br>
+				master wwsf-v1.0.0-20190823.zip wwsf-console-v1.0.0-20190823.zip<br>
+				wws@WWS-MASTER-1:/wws/$unzip wwsf-console-v1.0.0-20190828.zip<br>
+				Archive:  wwsf-console-v1.0.0-20190823.zip<br>
+				  &nbsp;&nbsp;&nbsp;creating: console/<br>
+				  &nbsp;&nbsp;&nbsp;creating: console/lib/<br>
+				  &nbsp;&nbsp;&nbsp;creating: console/logs/<br>
+				  &nbsp;&nbsp;&nbsp;creating: console/release/<br>
+				  &nbsp;&nbsp;inflating: console/application.properties<br>
+				  &nbsp;&nbsp;inflating: console/console.bat<br>
+				  &nbsp;&nbsp;inflating: console/console.sh<br>
+				  &nbsp;&nbsp;inflating: console/cryptor.bat<br>
+				  &nbsp;&nbsp;inflating: console/cryptor.sh<br>
+				  &nbsp;&nbsp;inflating: console/lib/jasypt-1.9.4.jar<br>
+				  &nbsp;&nbsp;inflating: console/lib/wwsf.webconsole-1.0.0.jar<br>
+				  &nbsp;&nbsp;inflating: console/logback.xml<br>
+				  &nbsp;&nbsp;inflating: console/release/tpl_dimension.xls<br>
+				  &nbsp;&nbsp;inflating: console/release/tpl_job.xls<br>
+				  &nbsp;&nbsp;inflating: console/release/tpl_mail.html<br>
+				  &nbsp;&nbsp;inflating: console/release/MySQL-DUMP.SQL<br>
+				  &nbsp;&nbsp;inflating: console/release/ORA-DUMP.SQL<br>
+				  &nbsp;&nbsp;inflating: console/release/PLUGIN_GBASELOAD_MySQL_DUMP.SQL<br>
+				  &nbsp;&nbsp;inflating: console/stop.sh<br>
+				wws@WWS-MASTER-1:/wws/$ls<br>
+				master console wwsf-v1.0.0-20190823.zip wwsf-console-v1.0.0-20190823.zip<br>
+				</code>
+				<p>配置文件/wws/console/application.properties中配置项说明</p>
+				<p>在2.X版本中配置文件application.properties分割成了三个配置文件：app-api.properties；app-console.properties；app-comm.properties。但配置项几乎一致。</p>
+				<div class="table-responsive mb-2">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 280px">属性</th>
+								<th style="width: 100px">必填</th>
+								<th style="width: 200px">含义</th>
+								<th>描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>server.port</code></td>
+								<td>是</td>
+								<td>web访问端口</td>
+								<td>默认8585访问端口。</td>
+							</tr>
+							<tr>
+								<td><code>file.releasePath</code></td>
+								<td>是</td>
+								<td>wws版本包存放目录</td>
+								<td>此目录为绝对路径，指向webconsole安装目录下的release目录即可。</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.driver-class-name</code></td>
+								<td>是</td>
+								<td>数据库驱动类</td>
+								<td>MySQL：com.mysql.jdbc.Driver<br>
+									ORACLE：oracle.jdbc.OracleDriver</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.url</code></td>
+								<td>是</td>
+								<td>数据库jdbc连接字符串</td>
+								<td>MySQL：jdbc:mysql://127.0.0.1:3306/wws?characterEncoding=utf-8&allowMultiQueries=true<br>
+									ORACLE：jdbc:oracle:thin:@127.0.0.1:1521:ora_wws</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.username</code></td>
+								<td>是</td>
+								<td>数据库用户名</td>
+								<td>如果调度独立数据库，可使用wws作为用户名，如果与应用库共用，则使用应用库的用户名</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.password</code></td>
+								<td>是</td>
+								<td>数据库密码</td>
+								<td>数据库密码，密码明文和密码密文都支持</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.initialSize</code></td>
+								<td>是</td>
+								<td>数据库线程池初始化连接数</td>
+								<td>默认为5个，一般不需要修改</td>
+							</tr>
+							<tr>
+								<td><code>spring.datasource.maxActive</code></td>
+								<td>是</td>
+								<td>数据库线程池最大连接数</td>
+								<td>默认为20个，一般不需要修改，当webconsole访问的人数较多时，可适当增加</td>
+							</tr>
+							<tr>
+								<td><code>zoo.connect.string</code></td>
+								<td>是</td>
+								<td>Zookeeper连接字符串</td>
+								<td>集群连接串，zookeeper配置ip和端口号，多个节点请使用逗号隔开<br>
+									单机环境配置：例‘22.19.8.10:2181’<br>
+									集群环境配置：例‘22.19.8.10:2181,22.19.8.11:2181,22.19.8.12:2181’</td>
+							</tr>
+							<tr>
+								<td><code>zoo.namespace</code></td>
+								<td>是</td>
+								<td>调度在Zookeeper上命名空间</td>
+								<td>与调度master节点的my.name相同，默认值wws，当一个zookeeper实例被多套wws集群使用时，需修改此值。</td>
+							</tr>
+							<tr>
+								<td><code>zoo.acl.string</code></td>
+								<td>否</td>
+								<td>zookeeper访问控制</td>
+								<td>如果zookeeper不做访问控制，可注释掉该参数，如果需要则可设置默认值（31,wwsadmin:wa!2019/1,wwsguest:wg!2019）</td>
+							</tr>
+							<tr>
+								<td><code>wws.jmx.user</code></td>
+								<td>是</td>
+								<td>webconsole连接master节点的jmx用户名</td>
+								<td>一般无需修改</td>
+							</tr>
+							<tr>
+								<td><code>wws.jmx.password</code></td>
+								<td>是</td>
+								<td>webconsole连接master节点的jmx密码</td>
+								<td>一般无需修改</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p class="mt-3">使用<code>cryptor.bat</code>加密或解密敏感信息，application.properties中所有配置项都可进行加密操作。</p>
+				<p class="mt-3">当application.properties某一项参数使用数据加密时，须给密文加上前缀“ENC(”和后缀“)”。</p>
+				ENC(OAlzgQ6ti2v/q6F57e50FP/fzPBuTfZZ)
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				#解密<br>
+				D:\wws\console>cryptor.bat -d "Dwz+kDl4Dq6tpNRfoyVNILIRpLuByUQwWH4qbLGfWEQ="<br>
+				<br>
+				D:\wws\console>echo off<br>
+				<br>
+				----ENVIRONMENT-----------------<br>
+				<br>
+				Runtime: Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.121-b13<br>
+				<br>
+				<br>
+				----ARGUMENTS-------------------<br>
+				<br>
+				algorithm: PBEWithMD5AndDES<br>
+				input: Dwz+kDl4Dq6tpNRfoyVNILIRpLuByUQwWH4qbLGfWEQ=<br>
+				password: DCEA49D1876805B18F736C8E12F8BFBA<br>
+				<br>
+				<br>
+				----OUTPUT----------------------<br>
+				<br>
+				11<br>
+				<br>
+				#加密<br>
+				D:\wws\console>cryptor.bat -e "wws"<br>
+				<br>
+				D:\wws\console>echo off<br>
+				<br>
+				----ENVIRONMENT-----------------<br>
+				<br>
+				Runtime: Oracle Corporation Java HotSpot(TM) 64-Bit Server VM 25.121-b13<br>
+				<br>
+				<br>
+				----ARGUMENTS-------------------<br>
+				<br>
+				algorithm: PBEWithMD5AndDES<br>
+				input: wws<br>
+				password: DCEA49D1876805B18F736C8E12F8BFBA<br>
+				<br>
+				<br>
+				----OUTPUT----------------------<br>
+				<br>
+				t1TbKJHW1O7kQToDrhtcKGgylFrdm96QEsVklkQyzXs=<br>
+				<br>
+				</code>
+				<p>修改配置文件/wws/console/application.properties,绑定端口以8585为例，以下参数值根据实际环境而定：</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				server.port 8585<br>
+				file.releasePath /wws/console/release/<br>
+				spring.datasource.driver-class-name oracle.jdbc.driver.OracleDriver<br>
+				spring.datasource.url jdbc:oracle:thin:@22.188.9.160:1521:orau12c<br>
+				spring.datasource.username uxxx<br>
+				spring.datasource.password ENC(t1TbKJHW1O7kQToDrhtcKGgylFrdm96QEsVklkQyzXs=)<br>
+				zoo.connect.url 22.188.9.160:2181
+				</code>
+				<p>脚本可执行权限设置</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/$cd /wws/console<br>
+				wws@WWS-MASTER-1:/wws/console/$chmod u+x *.sh<br>
+				</code>
+				<p>数据库初始化操作</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					# 如果数据库为ORACLE数据库，请使用PLSQL Developer工具执行/wws/console/release/ORA-DUMP.SQL<br>
+					# 如没有以上工具，请使用SQLPLUS客户端执行脚本<br><br>
+					\wws>sqlplus<br>
+					SQL*Plus: Release 12.2.0.1.0 Production on 星期一 8月 26 11:11:49 2019<br>
+					Copyright (c) 1982, 2017, Oracle.  All rights reserved.<br>
+					#2.0.0-20210108版本前在/wws/master/etc/ORA-DUMP.SQL<br>
+					>@/wws/console/release/ORA-DUMP.SQL<br>
+					>commit;<br>
+				</code>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					# 如果数据库为MySQL数据库，请使用Navicat for MySQL或MySQL Workbench工具执行/wws/console/release/MySQL-DUMP.SQL<br>
+					# 如没有以上工具，请使用mysql客户端执行脚本<br><br>
+					\wws>mysql -uwws -pxxxxxx<br>
+					mysql>use wws<br>
+					Database changed<br>
+					#2.0.0-20210108版本前在/wws/master/etc/MySQL-DUMP.SQL<br>
+					mysql>@/wws/console/release/MySQL-DUMP.SQL<br>
+					......<br>
+					mysql>commit;<br>
+				</code>
+				<p>启动WebConsole应用</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/$cd /wws/console<br>
+				wws@WWS-MASTER-1:/wws/console/$sh console.sh
+				</code>
+				<p>使用浏览器访问地址：</p>
+				<code>http://22.188.9.60:8585</code>出现如下界面，说明安装成功，接下来可以登陆系统，开始使用。
+				<div class="row clearfix my-4">
+					<div class="col column m-auto">
+						<img src="img/demo/wws/webhome.png" class="img-fluid rounded border" style="max-width:80%"/>
+					</div>
+				</div>
+				<h2 class="mt-4">5. 快速安装master节点和slave节点</h2>
+				<hr>
+				<p>通过WebConsole（http://22.188.9.60:8585）菜单（代理服务器/服务器）自动安装master或slave节点。</p>
+				<p>服务器指master节点或slave节点。</p>
+				<p>点击菜单【代理服务器/服务器】，打开服务器管理界面。</p>
+				<p><img src="img/demo/wws/doc-user-guide/server-list.png" class="img-fluid rounded border" style="max-width:80%"></img></p>
+				<p>可以根据产品、节点编号和标签，查询服务器。</p>
+			    <p>服务器管理界面，选中服务器列表前复选框，可进行如下操作：</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;新增：新增节点信息（不需选中服务器列表前复选框）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改：修改节点信息（状态值为未安装或安装失败，才可修改）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;删除：删除节点信息（状态值为非联机，才可删除）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;安装：安装节点（状态值为未安装或安装失败，才可安装）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;卸载：卸载节点（状态值为脱机，才可卸载）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;启动：启动节点（状态值为脱机，才可联机）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;停止：关闭节点（状态值为联机，才可脱机）；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;线程资源信息：可查看调度线程资源信息和插件线程资源信息（状态值为联机，才可查看线程资源信息）。</p>
+				<p>新增服务器<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，点击“新增”按钮，打开服务器编辑界面。</p>
+				<p>修改服务器<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（1）服务器管理界面，选中服务器列表前复选框（单选），点击“修改”按钮，打开服务器编辑界面；</p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（2）服务器管理界面，鼠标双击服务器列表行，打开服务器编辑界面。</p>
+				<p><img src="img/demo/wws/doc-user-guide/server-edit.png" class="img-fluid rounded border" style="max-width:70%"></img></p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器属性说明<p>
+				<ul>
+				    <li>
+						<p>产品<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;通过菜单【系统管理/产品管理】维护产品；通过菜单【系统管理/用户管理】维护用户产品关系。</p>
+					</li>
+					<li>
+						<p>节点编号<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;所有节点编号不能重复。</p>
+					</li>
+					<li>
+						<p>地址<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;服务器IP地址。</p>
+					</li>
+					<li>
+						<p>客户端接口<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;客户端接口需开通并保持不要被其他进程占用。</p>
+					</li>
+					<li>
+						<p>RMI注册端口<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;RMI注册端口需开通并保持不要被其他进程占用。</p>
+					</li>
+					<li>
+						<p>RMI服务器端口<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;RMI服务器端口需开通并保持不要被其他进程占用。</p>
+					</li>
+					<li>
+						<p>节点类型<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;master【主节点】或slave【从节点】。</p>
+					</li>
+					<li>
+						<p>系统用户名<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;服务器用户名。</p>
+					</li>
+					<li>
+						<p>系统SSHD登陆密码<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;服务器SSHD登陆密码。</p>
+					</li>
+					<li>
+						<p>安装目录<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;输入的系统用户名，需对安装目录有操作权限。</p>
+					</li>
+					<li>
+						<p>系统SSHD登陆端口<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;服务器SSHD登陆端口。</p>
+					</li>
+					<li>
+						<p>zookeeper连接字符串<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;单机【127.0.0.1:2181】或集群【127.0.0.1:2181,127.0.0.1:2182,127.0.0.1:2183】。</p>
+					</li>
+					<li>
+						<p>忽略插件<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;忽略的插件不涉及线程池。</p>
+					</li>
+					<li>
+						<p>标签<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;方便为Task，CronJob设定执行节点范围。</p>
+					</li>
+					<li>
+						<p>描述<p>
+					    <p>&nbsp;&nbsp;&nbsp;&nbsp;服务器描述。</p>
+					</li>
+				</ul>
+				<p>修改SSH密码<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表前复选框（单选），点击“修改SSH密码”按钮，打开修改SSH密码界面进行修改。</p>
+				<p>删除服务器<p>
+		        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为非联机的记录前复选框（单选），点击“删除”按钮，将删除服务器配置信息，不删除已安装过的文件。</p>
+			    <p>安装服务器<p>
+			    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为未安装或安装失败的记录前复选框（单选），点击“安装”按钮，选择安装文件进行安装。</p>
+			    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;执行安装时，需将版本安装文件准备好，放在指定目录，安装文件： </p>
+		        <ul>
+		            <li>服务器安装文件放置路径：application.properties --> file.releasePath配置项制定的地址/wws/console/release/</li>
+		            <li>将下载的三个安装文件移动到指定路径：wwsf-vn.n.n-yyyymmdd.zip，wwsf-console-vn.n.n-yyyymmdd.zip, wwsf-release-vn.n.n-yyyymmdd.html</li>
+		            <li>例如：wwsf-v2.0.0-20210108.zip，wwsf-console-v2.0.0-20210108.zip，wwsf-release-v2.0.0-20210108.html（版本说明文件）</li>
+		        </ul>
+				<p>卸载服务器<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为脱机的记录前复选框（单选），点击“卸载”按钮，将卸载服务器。</p>
+				<p>启动服务器<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为脱机的记录前复选框（单选），点击“联机”按钮，将启动服务器。</p>
+				<p>停止服务器<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为联机的记录前复选框（单选），点击“脱机”按钮，将停止服务器。</p>
+			    <p>线程资源信息<p>
+				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;服务器管理界面，选中服务器列表中状态为联机的记录前复选框（单选），点击“线程资源信息”按钮，可查看调度线程资源信息和插件线程资源信息。</p>
+				<h2 class="mt-4">6. master手动安装</h2>
+				<hr>
+				<p>使用FTP工具或命令行ftp命令将安装包上传至master服务器或standby服务器。</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				ftp 22.188.9.160 <br>
+				连接到 22.188.9.160。 <br>
+				220 (vsFTPd 2.2.2) <br>
+				用户(22.188.9.160:(none)): wws <br>
+				331 Please specify the password. <br>
+				密码: <br>
+				230 Login successful. <br>
+				ftp> bin <br>
+				200 Switching to Binary mode. <br>
+				ftp> prom <br>
+				交互模式 关 。 <br>
+				ftp> cd /home/wws/ <br>
+				250 Directory successfully changed 。 <br>
+				ftp> lcd d:\wws <br>
+				目前的本地目录 D:\wwsf。 <br>
+				ftp> mput wwsf-v1.0.0-20190823.zip <br>
+				200 PORT command successful. Consider using PASV. <br>
+				150 Ok to send data. <br>
+				226 Transfer complete. <br>
+				ftp: 发送 55837708 字节，用时 0.52秒 108422.73千字节/秒。 <br>
+				</code>
+				<p>确定安装目录，这里以/wws/master/为例，使用PieTTY或CRT登陆服务器22.188.9.160，并解压缩安装包后改名目录。</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				login as: wws <br>
+				wws@22.188.9.160's password: *** <br>
+				Last login: Fri Aug 16 18:35:09 2019 from 22.189.28.120 <br>
+				******************************************************************************* <br>
+				*                                                                             * <br>
+				*       Welcome to X86 Version release 7.3!                                   * <br>
+				*                                                                             * <br>
+				*   ======Please use the environment safely======                             * <br>
+				*                                                                             * <br>
+				******************************************************************************* <br>
+				wws@WWS-MASTER-1:/wws/$<br>
+				wws@WWS-MASTER-1:/wws/$ls<br>
+				wwsf-v1.0.0-20190823.zip<br>
+				wws@WWS-MASTER-1:/wws/$unzip wwsf-v1.0.0-20190823.zip<br>
+				&nbsp;&nbsp;...<br>
+				&nbsp;&nbsp;inflating: wwsf/system/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar<br>
+		  		&nbsp;&nbsp;inflating: wwsf/system/org/slf4j/slf4j-log4j12/1.7.7/slf4j-log4j12-1.7.7.jar<br>
+				wws@WWS-MASTER-1:/wws/$ls<br>
+				wwsf wwsf-v1.0.0-20190823.zip<br>
+				wws@WWS-MASTER-1:/wws/$mv wwsf master<br>
+				wws@WWS-MASTER-1:/wws/$ls<br>
+				master wwsf-v1.0.0-20190823.zip<br>
+				</code>
+				<p><code>/wws/master</code>目录结构说明</p>
+				<ul>
+					<li>bin
+						<ul>
+							<li>start&nbsp;&nbsp;&nbsp;&nbsp;--linux启动脚本</li>
+							<li>start.bat&nbsp;&nbsp;&nbsp;&nbsp;--win启动脚本</li>
+							<li>stop&nbsp;&nbsp;&nbsp;&nbsp;--linux停止脚本</li>
+							<li>stop.bat&nbsp;&nbsp;&nbsp;&nbsp;--win停止脚本</li>
+							<li>setenv&nbsp;&nbsp;&nbsp;&nbsp;--linux设置环境变量脚本</li>
+							<li>setenv.bat&nbsp;&nbsp;&nbsp;&nbsp;--win设置环境变量脚本</li>
+							<li>client&nbsp;&nbsp;&nbsp;&nbsp;--linux进入wws命令行脚本</li>
+							<li>client.bat&nbsp;&nbsp;&nbsp;&nbsp;--win进入wws命令行脚本</li>
+							<li>status&nbsp;&nbsp;&nbsp;&nbsp;--linux查看状态脚本</li>
+							<li>status.bat&nbsp;&nbsp;&nbsp;&nbsp;--win查看状态脚本</li>
+						</ul>
+					</li>
+					<li>etc
+						<ul>
+							<li>wws.cfg&nbsp;&nbsp;&nbsp;&nbsp;--WWS应用的主配置文件</li>
+							<li>org.apache.karaf.shell.cfg&nbsp;&nbsp;&nbsp;&nbsp;--wws提供的sshd客户端（字符终端）访问配置</li>
+							<li>org.apache.karaf.management.cfg&nbsp;&nbsp;&nbsp;&nbsp;--批量提供jmx服务接口配置</li>
+						</ul>
+					</li>
+					<li>deploy&nbsp;&nbsp;&nbsp;&nbsp;--动态发布组件目录</li>
+					<li>lib&nbsp;&nbsp;&nbsp;&nbsp;--基础Java类库存放目录</li>
+					<li>system&nbsp;&nbsp;&nbsp;&nbsp;--系统Java类库存放目录</li>
+				</ul>
+				
+				<p>设置脚本环境变量(jvm内存，jdk路径，wws根目录)</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					wws@WWS-MASTER-1:/wws/$cd /wws/master/bin<br>
+					wws@WWS-MASTER-1:/wws/master/bin/$vi setenv<br>
+					#在文件末尾添加三个环境变量<br>
+					......<br>
+					#jvm内存，大小根据需求设置，一般设置2G<br>
+					export JAVA_MAX_MEM=2G<br>
+					#jdk安装根目录，根据所在环境实际情况修改<br>
+					export JAVA_HOME=/usr/java/jdk1.8.0_191<br>
+					#wws安装根目录，根据所在环境实际情况修改<br>
+					export KARAF_HOME=/wws/master<br>
+					:wq!<br>
+					wws@WWS-MASTER-1:/wws/master/bin/$<br>
+				</code>
+				<p>配置文件/wws/master/etc/wws.cfg常用配置项说明</p>
+				<div class="table-responsive mb-2">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">属性</th>
+								<th style="width: 100px">必填</th>
+								<th style="width: 200px">含义</th>
+								<th>描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><code>node.id</code></td>
+								<td>是</td>
+								<td>节点编号（字母，数字，下划线组成的字符串）</td>
+								<td>wws集群中，为每一个节点分配的唯一逻辑编号，建议采用‘产品_IP短地址识别‘，请使用字母，数字，下划线组成唯一节点标识，master节点请使用10000作为编号，master备机节点使用20000作为编号。</td>
+							</tr>
+							<tr>
+								<td><code>node.ip</code></td>
+								<td>否</td>
+								<td>节点IP地址</td>
+								<td>当服务器含有多个网卡时，请指定IP地址。</td>
+							</tr>
+							<tr>
+								<td><code>node.type</code></td>
+								<td>是</td>
+								<td>节点类型</td>
+								<td>范围值，{master，slave},wws有两个节点类型：<br>
+									master：主节点，主节点的备份节点<br>
+									slave：从节点</td>
+							</tr>
+							<tr>
+								<td><code>node.product</code></td>
+								<td>是</td>
+								<td>节点所属产品</td>
+								<td>请使用产品简称，由字母构成的字符串，master节点值为’wws'。</td>
+							</tr>
+							<tr>
+								<td><code>zoo.connect.string</code></td>
+								<td>是</td>
+								<td>Zookeeper连接字符串</td>
+								<td>集群连接串，zookeeper配置ip和端口号，多个节点请使用逗号隔开<br>
+									单机环境配置：例‘22.19.8.10:2181’<br>
+									集群环境配置：例‘22.19.8.10:2181,22.19.8.11:2181,22.19.8.12:2181’</td>
+							</tr>
+							<tr>
+								<td><code>zoo.namespace</code></td>
+								<td>是</td>
+								<td>应用命名空间（字母组成的字符串）</td>
+								<td>zookeeper连接时，指定的命名空间，主要应对在一个zookeeper实例上部署多个wws应用，采用不同命名空间，防止冲突。</td>
+							</tr>
+							<tr>
+								<td><code>zoo.acl.string</code></td>
+								<td>否</td>
+								<td>zookeeper访问控制</td>
+								<td>如果zookeeper不做访问控制，可注释掉该参数，如果需要则可设置默认值（31,wwsadmin:wa!2019/1,wwsguest:wg!2019）</td>
+							</tr>
+							<tr>
+								<td><code>mybatis.driver</code></td>
+								<td>是</td>
+								<td>数据库驱动类</td>
+								<td>MySQL：com.mysql.jdbc.Driver<br>
+									ORACLE：oracle.jdbc.OracleDriver</td>
+							</tr>
+							<tr>
+								<td><code>mybatis.url</code></td>
+								<td>是</td>
+								<td>数据库jdbc连接字符串</td>
+								<td>MySQL：jdbc:mysql://127.0.0.1:3306/wws?characterEncoding=utf-8<br>
+									ORACLE：jdbc:oracle:thin:@127.0.0.1:1521:ora_wws</td>
+							</tr>
+							<tr>
+								<td><code>mybatis.username</code></td>
+								<td>是</td>
+								<td>数据库用户名</td>
+								<td>如果调度独立数据库，可使用wws作为用户名，如果与应用库共用，则使用应用库的用户名</td>
+							</tr>
+							<tr>
+								<td><code>mybatis.password</code></td>
+								<td>是</td>
+								<td>数据库密码</td>
+								<td>数据库密码，密码明文和密码密文都支持</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<p>打开/wws/master/etc/wws.cfg修改配置项,不是所有的配置项都需要修改，以下为可能需要修改的配置项,配置项值根据实际环境而定:</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				node.id 10000<br>
+				node.type master<br>
+				#node.ip 127.0.0.1 &nbsp;&nbsp;&nbsp;&nbsp;--当服务器单网卡时，可注释掉，当多网卡时，可指定其中一个的IP地址<br>
+				node.product wws<br>
+				node.product wws-scheduler &nbsp;&nbsp;&nbsp;&nbsp;--当需要使用中文时，需使用jdk自带工具native2ascii进行转换，如'中国'-->'\u4e2d\u56fd'<br>
+				mybatis.driver oracle.jdbc.OracleDriver<br>
+				mybatis.url jdbc:oracle:thin:@22.188.9.160:1521:orau12c<br>
+				mybatis.username uxxx<br>
+				mybatis.password pxxx<br>
+				zoo.connect.string 22.188.9.160:2181
+				</code>
+				<p>脚本可执行权限设置</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/$cd /wws/master/bin<br>
+				wws@WWS-MASTER-1:/wws/master/bin/$chmod u+x *<br>
+				</code>
+				<p>启动master节点</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/$cd /wws/master/bin<br>
+				wws@WWS-MASTER-1:/wws/master/bin/$sh start<br>
+				#3到5秒钟之后使用client登陆到wws的命令行<br>
+				wws@WWS-MASTER-1:/wws/master/bin/$sh client<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__<br>
+				&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______&nbsp;&nbsp;&nbsp;________&nbsp;&nbsp;____&nbsp;&nbsp;_________&nbsp;&nbsp;/&nbsp;/__<br>
+				|&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;___/&nbsp;/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;__&nbsp;\/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;/&nbsp;_&nbsp;\<br>
+				|&nbsp;|/&nbsp;|/&nbsp;/|&nbsp;|/&nbsp;|/&nbsp;(__&nbsp;&nbsp;)&nbsp;/&nbsp;/__/&nbsp;/_/&nbsp;/&nbsp;/&nbsp;/&nbsp;(__&nbsp;&nbsp;)&nbsp;/_/&nbsp;/&nbsp;/&nbsp;&nbsp;__/<br>
+				|__/|__/&nbsp;|__/|__/____/&nbsp;&nbsp;\___/\____/_/&nbsp;/_/____/____/_/\___/<br>
+				<br>
+				    Net-Dimension Scheduler<br>
+				    Product by 软件中心(上海)-数据平台服务团队<br>
+				    Base on Apache Karaf<br>
+				<br>
+				Hit '&lt;tab&gt;' for a list of available commands<br>
+				and '[cmd] --help' for help on a specific command.<br>
+				Hit '&lt;ctrl-d&gt;' or 'osgi:shutdown' or 'logout' to shutdown Karaf.<br>
+				<br>
+				karaf@root()><br>
+				karaf@root()> lwws<br>
+				&nbsp;19 │ Active   │  85 │ 1.0.0              │ wwsf :: config<br>
+				&nbsp;20 │ Active   │  93 │ 1.0.0              │ wwsf :: controller<br>
+				&nbsp;21 │ Active   │  85 │ 1.0.0              │ wwsf :: core<br>
+				&nbsp;22 │ Active   │  85 │ 1.0.0              │ wwsf :: cryptography<br>
+				&nbsp;23 │ Active   │  80 │ 1.0.0              │ wwsf :: gbase<br>
+				&nbsp;24 │ Active   │  90 │ 1.0.0              │ wwsf :: persistent<br>
+				116 │ Active   │  95 │ 1.0.0              │ wwsf :: cron<br>
+				117 │ Active   │  95 │ 1.0.0              │ wwsf :: ds<br>
+				118 │ Active   │  95 │ 1.0.0              │ wwsf :: fel<br>
+				119 │ Active   │  96 │ 1.0.0              │ wwsf :: plugins<br>
+				120 │ Active   │  96 │ 1.0.0              │ wwsf :: shell<br>
+				karaf@root()><br>
+				#所有组件状态都为Active，说明master启动成功
+				</code>
+				<h2 class="mt-4">7. master备机节点安装</h2>
+				<hr>
+				<p>master备机节点安装与master节点安装基本一致，只需要在修改配置文件/wws/master/etc/wws.cfg时设置不同的node.id值即可:<br>
+					node.id 20000</p>
+				<p>验证master备机节点启动成功方法:</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-2:/wws/master/bin/$sh client<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__<br>
+				&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______&nbsp;&nbsp;&nbsp;________&nbsp;&nbsp;____&nbsp;&nbsp;_________&nbsp;&nbsp;/&nbsp;/__<br>
+				|&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;___/&nbsp;/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;__&nbsp;\/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;/&nbsp;_&nbsp;\<br>
+				|&nbsp;|/&nbsp;|/&nbsp;/|&nbsp;|/&nbsp;|/&nbsp;(__&nbsp;&nbsp;)&nbsp;/&nbsp;/__/&nbsp;/_/&nbsp;/&nbsp;/&nbsp;/&nbsp;(__&nbsp;&nbsp;)&nbsp;/_/&nbsp;/&nbsp;/&nbsp;&nbsp;__/<br>
+				|__/|__/&nbsp;|__/|__/____/&nbsp;&nbsp;\___/\____/_/&nbsp;/_/____/____/_/\___/<br>
+				<br>
+				    Net-Dimension Scheduler<br>
+				    Product by 软件中心(上海)-数据平台服务团队<br>
+				    Base on Apache Karaf<br>
+				<br>
+				Hit '&lt;tab&gt;' for a list of available commands<br>
+				and '[cmd] --help' for help on a specific command.<br>
+				Hit '&lt;ctrl-d&gt;' or 'osgi:shutdown' or 'logout' to shutdown Karaf.<br>
+				<br>
+				karaf@root()><br>
+				karaf@root()> lwws<br>
+				&nbsp;19 │ Active   │  85 │ 1.0.0              │ wwsf :: config<br>
+				&nbsp;20 │ Active   │  93 │ 1.0.0              │ wwsf :: controller<br>
+				&nbsp;21 │ Active   │  85 │ 1.0.0              │ wwsf :: core<br>
+				&nbsp;22 │ Active   │  85 │ 1.0.0              │ wwsf :: cryptography<br>
+				&nbsp;23 │ Active   │  80 │ 1.0.0              │ wwsf :: gbase<br>
+				&nbsp;24 │ Active   │  90 │ 1.0.0              │ wwsf :: persistent<br>
+				karaf@root()><br>
+				#master备机节点上只有6个组件，且状态都为Active，说明master备机节点启动成功
+				</code>
+				<p>并且进入主节点的wws命令行，执行nodes命令查看结果如下：</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+				wws@WWS-MASTER-1:/wws/master/bin/$sh client<br>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__<br>
+				&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;___&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_______&nbsp;&nbsp;&nbsp;________&nbsp;&nbsp;____&nbsp;&nbsp;_________&nbsp;&nbsp;/&nbsp;/__<br>
+				|&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;|&nbsp;/|&nbsp;/&nbsp;/&nbsp;___/&nbsp;/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;__&nbsp;\/&nbsp;___/&nbsp;__&nbsp;\/&nbsp;/&nbsp;_&nbsp;\<br>
+				|&nbsp;|/&nbsp;|/&nbsp;/|&nbsp;|/&nbsp;|/&nbsp;(__&nbsp;&nbsp;)&nbsp;/&nbsp;/__/&nbsp;/_/&nbsp;/&nbsp;/&nbsp;/&nbsp;(__&nbsp;&nbsp;)&nbsp;/_/&nbsp;/&nbsp;/&nbsp;&nbsp;__/<br>
+				|__/|__/&nbsp;|__/|__/____/&nbsp;&nbsp;\___/\____/_/&nbsp;/_/____/____/_/\___/<br>
+				<br>
+				    Net-Dimension Scheduler<br>
+				    Product by 软件中心(上海)-数据平台服务团队<br>
+				    Base on Apache Karaf<br>
+				<br>
+				Hit '&lt;tab&gt;' for a list of available commands<br>
+				and '[cmd] --help' for help on a specific command.<br>
+				Hit '&lt;ctrl-d&gt;' or 'osgi:shutdown' or 'logout' to shutdown Karaf.<br>
+				<br>
+				karaf@root()> nodes<br>
+				-------------------------------------------------------------------------------------------------------------------<br>
+				|&nbsp;Product&nbsp;|&nbsp;NodeId&nbsp;|&nbsp;Role&nbsp;&nbsp;&nbsp;|&nbsp;Master&nbsp;|&nbsp;Local&nbsp;|&nbsp;Ip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;SSHD&nbsp;|&nbsp;JMX&nbsp;&nbsp;|&nbsp;Identity&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br>
+				-------------------------------------------------------------------------------------------------------------------<br>
+				|&nbsp;WWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;20000&nbsp;&nbsp;|&nbsp;master&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;22.189.28.123&nbsp;|&nbsp;8100&nbsp;|&nbsp;1098&nbsp;|&nbsp;bcd2e76b-102b-45f0-9ddb-c26158b38ca5&nbsp;|<br>
+				|&nbsp;WWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;10000&nbsp;&nbsp;|&nbsp;master&nbsp;|&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;22.189.28.123&nbsp;|&nbsp;8101&nbsp;|&nbsp;1099&nbsp;|&nbsp;9d8d79c7-9458-455c-9a6b-ab6f34be5e75&nbsp;|<br>
+				-------------------------------------------------------------------------------------------------------------------<br>
+				karaf@root()> 
+				</code>
+				<h2 class="mt-4">8. slave节点手动安装</h2>
+				<hr>
+				<p>slave节点安装与master节点安装基本一致，只需要在修改配置文件/wws/slave/etc/wws.cfg时设置不同的值即可(以安装AIAP的slave节点为例):</p>
+				<code class="bg-fusion-500 d-block w-100 pt-2 pr-3 pb-2 pl-3 fw-700 mb-3">
+					node.type slave<br>
+					node.product AIAP<br>
+					node.id AIAP_690
+				</code>
+				<p>至此安装结束！</p>
+				<p>感谢您的使用，在安装中有任何问题，请联系[罗焱学/开发二部/上海/软件中心/总行/BOC][021-38973973][18601671563]</p>
+	       </div>
+	</div>
+</div>
+
+<div class="panel mb-g" id="pro_config_tab">
+	<div class="panel-hdr">
+	       <h2 class="fw-700 m-0" style="font-size:1.375rem;">作业配置表</h2>
+	       <div class="panel-toolbar">
+				<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+				<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+	       </div>
+	   </div>
+	   <div class="panel-container">
+	       <div class="panel-content">
+				<h2 class="fw-700 mb-g">
+					WWSF与WWS对比，在配置表上的变化情况
+					<small class="mb-2 mt-2"><span style="font-weight:blod;">ww_jobs</span><br>
+					&emsp;&emsp;表更名为<code>ww_job</code><br>
+					&emsp;&emsp;新增<code>schedule_rid</code>字段<br>
+					&emsp;&emsp;删除<code>is_enabled</code>字段</small>
+					<small class="mb-2"><span style="font-weight:blod;">ww_tasks</span><br>
+					&emsp;&emsp;表更名为<code>ww_task</code><br>
+					&emsp;&emsp;原字段 <code>program</code>修改字段名为  <code>program_name</code><br>
+					&emsp;&emsp;原字段 <code>error_maxnum_count</code> 修改字段名为 <code>error_max_num</code><br>
+					&emsp;&emsp;原字段<code> use_job_def_dimension</code> 修改字段名为<code>use_job_dimension</code><br>
+					&emsp;&emsp;删除<code>node_type</code>，<code>is_enabled</code>，<code>cycle</code>，<code>cycle_interval</code>字段<br>
+					</small>
+					<small class="mb-2"><span style="font-weight:blod;">ww_dimension_entities</span><br>
+					&emsp;&emsp;表更名为<code>ww_dimension_entity</code></small>
+					<small class="mb-2"><span style="font-weight:blod;">ww_datasources</span><br>
+					&emsp;&emsp;表更名为<code>ww_ds</code><br>
+					&emsp;&emsp;主键发生改变，由组合主键<code>product</code>、<code>agent</code>、<code>name</code>改为<code>name</code></small>
+					<small class="mb-2 mt-2"><span style="font-weight:blod;">ww_cron</span><br>
+					&emsp;&emsp;删除<code>Inherent</code>字段<br>
+					&emsp;&emsp;新增<code>model</code>字段</small>
+					<small class="mb-2"><span style="font-weight:blod;">ww_ins_jobs</span><br>
+					&emsp;&emsp;表更名为 <code>ww_job_instance</code><br>
+					&emsp;&emsp;新增<code>schedule_rid</code>字段<br>
+					&emsp;&emsp;删除<code>batch_date</code>、<code>is_enable</code>、<code>job_priority</code>字段</small>
+					<small class="mb-2"><span style="font-weight:blod;">ww_ins_tasks</span><br>
+					&emsp;&emsp;表更名为<code>ww_task_instance</code><br>
+					&emsp;&emsp;删除<code>leans</code>，<code>mutexs</code>，<code>beleans</code>字段<br>
+					&emsp;&emsp;原字段<code>program</code>修改字段名为 <code>program_name</code><br>
+					&emsp;&emsp;原字段 <code>error_maxnum_count</code>修改字段名为<code>error_max_num</code><br>
+					&emsp;&emsp;原字段 <code>use_job_def_dimension</code>修改字段名为 <code>use_job_dimension</code></small>
+				</h2>
+				<h2 class="fw-700 mb-g">
+					WWSF配置表信息一览
+					<small class="mb-2 mt-2">作业的主要的配置表有四张：
+						<a href="#" class="mr-1" data-liftaction="#ww_job"><span class="badge badge-primary ml-auto">WW_JOB</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task"><span class="badge badge-primary ml-auto">WW_TASK</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task_lean"><span class="badge badge-primary ml-auto">WW_TASK_LEAN</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_parameter"><span class="badge badge-primary ml-auto">WW_PARAMETER</span></a>
+					</small>
+					<small class="mb-2">使用网维模型时,涉及到额外的五张张配置表,根据需求不同可选择性配置： 
+						<a href="#" class="mr-1" data-liftaction="#ww_dimension"><span class="badge badge-primary ml-auto">WW_DIMENSION</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_dimension_entity"><span class="badge badge-primary ml-auto">WW_DIMENSION_ENTITY</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_job_dimension"><span class="badge badge-primary ml-auto">WW_JOB_DIMENSION</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task_dimension"><span class="badge badge-primary ml-auto">WW_TASK_DIMENSION</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task_special_lean"><span class="badge badge-primary ml-auto">WW_TASK_SPECIAL_LEAN</span></a>
+					</small>
+					<small class="mb-2">使用以上配置表可覆盖大多少调度场景。</small>
+					<small class="mb-2 mt-2">作业运行时数据表有三张：
+						<a href="#" class="mr-1" data-liftaction="#ww_job_instance"><span class="badge badge-primary ml-auto">WW_JOB_INSTANCE</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task_instance"><span class="badge badge-primary ml-auto">WW_TASK_INSTANCE</span></a>
+						<a href="#" class="mr-1" data-liftaction="#ww_task_instance_lean"><span class="badge badge-primary ml-auto">WW_TASK_INSTANCE_LEAN</span></a>
+					</small>
+				</h2>
+				<table class="table table-md table-bordered table-striped">
+					<thead class="thead-light">
+						<tr>
+							<th style="width: 200px">表名</th>
+							<th style="width: 200px">表中文名</th>
+							<th>描述</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>ww_job</td>
+							<td>job模板配置表</td>
+							<td>配置job模板</td>
+						</tr>
+						<tr>
+							<td>ww_task</td>
+							<td>task模板定义表</td>
+							<td>配置job模板下的某个task模板</td>
+						</tr>
+						<tr>
+							<td>ww_task_lean</td>
+							<td>job内部task依赖关系表</td>
+							<td>配置同一个job模板下job模板之间的依赖关系</td>
+						</tr>
+						<tr>
+							<td>ww_parameter</td>
+							<td>资源对象的属性列表</td>
+							<td>配置job模板，task模板，插件的独立参数和公共参数等</td>
+						</tr>
+						<tr>
+							<td>ww_dimension</td>
+							<td>维度表</td>
+							<td>配置维度信息</td>
+						</tr>
+						<tr>
+							<td>ww_dimension_entity</td>
+							<td>维度实体表</td>
+							<td>配置某个维度包含的维度实体信息</td>
+						</tr>
+						<tr>
+							<td>ww_job_dimension</td>
+							<td>job模板维度方案表</td>
+							<td>配置job模板的维度方案</td>
+						</tr>
+						<tr>
+							<td>ww_task_dimension</td>
+							<td>task维度设置表</td>
+							<td>配置task模板的维度方案</td>
+						</tr>
+						<tr>
+							<td>ww_task_special_lean</td>
+							<td>task维度特殊依赖关系表</td>
+							<td>配置基于维度实体，标签的task模板之间的依赖关系</td>
+						</tr>
+						<tr>
+							<td>ww_job_instance</td>
+							<td>job模板实例表</td>
+							<td>启动job模板之后，存储生成的job模板实例</td>
+						</tr>
+						<tr>
+							<td>ww_task_instance</td>
+							<td>task模板实例表</td>
+							<td>启动job模板之后，存储生成的task模板实例</td>
+						</tr>
+						<tr>
+							<td>ww_task_instance_lean</td>
+							<td>任务运行时依赖关系表</td>
+							<td>启动job模板之后，存储生成的task模板实例之间的依赖关系</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h2 class="mt-4">1.ww_job</h2>
+				<small> 在WWS中配置作业有两个概念：Job和Task，他们都可以理解为任务，Job为一项具有相对独立性的任务。在范围上比Task要大 ，代表的是一项目标，我们更关注于他的完成状态。如：<code>12张财报加工</code><code>核心C64表加工</code>.</small>
+				<hr>
+				<div class="table-responsive" id="ww_job">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号唯一，不允许重复，主键约束。由数字，大小写字母，下划线组成</td>
+							</tr>
+							<tr>
+								<td>product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>job模板从属产品</td>
+							</tr>
+							<tr>
+								<td>job_name</td>
+								<td>中文名称</td>
+								<td><code>String</code></td>
+								<td>中文名称</td>
+							</tr>
+							<tr>
+								<td>job_mode</td>
+								<td>模式</td>
+								<td><code>int</code></td>
+								<td>1-网状模型，2-网维模型</td>
+							</tr>
+							<tr>
+								<td>schedule_rid</td>
+								<td>调度资源编号</td>
+								<td><code>String</code></td>
+								<td>通常情况，启动Job实例后，调度会为实例分配一定的独享线程资源进行调度，实例完成后回收。如果在此设置调度资源编号，此Job模板产生的所有实例都将使用同一份调度资源，并且不会销毁。一般用于短，频，快的任务</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>标签</td>
+								<td><code>String</code></td>
+								<td>可配置多个标签，前后以逗号隔开</td>
+							</tr>
+							<tr>
+								<td>version</td>
+								<td>版本</td>
+								<td><code>String</code></td>
+								<td>版本号</td>
+							</tr>
+							<tr>
+								<td>create_time</td>
+								<td>创建时间</td>
+								<td><code>Date</code></td>
+								<td>创建时间，默认系统时间</td>
+							</tr>
+							<tr>
+								<td>creator</td>
+								<td>创建者</td>
+								<td><code>String</code></td>
+								<td>job模板创建者</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">2.ww_task</h2>
+				<small>范围比Job小的一种作业，同一个Job下可以配置多个Task作业.</small>
+				<hr>
+				<div class="table-responsive" id="ww_task">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>Job编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号，由数字，大小写字母，下划线组成</td>
+							</tr>
+							<tr>
+								<td>task_id</td>
+								<td>Task编号</td>
+								<td><code>String</code></td>
+								<td>同一个job下，Task编号唯一，不允许重复,由数字，大小写字母，下划线组成</td>
+							</tr>
+							<tr>
+								<td>task_name</td>
+								<td>task中文描述</td>
+								<td><code>String</code></td>
+								<td>中文名称</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>标签</td>
+								<td><code>String</code></td>
+								<td>标签,可配置多个,前后需逗号隔开</td>
+							</tr>
+							<tr>
+								<td>task_plugin</td>
+								<td>执行插件</td>
+								<td><code>String</code></td>
+								<td>task任务插件</td>
+							</tr>
+							<tr>
+								<td>program_name</td>
+								<td>执行应用程序</td>
+								<td><code>String</code></td>
+								<td>task程序名称，与插件名称不一致时，会根据插件名称和程序名称从ww_parameter获取公共参数，可视为通用参数配置，固化某插件的一部分参数值</td>
+							</tr>
+							<tr>
+								<td>allowed_rerun</td>
+								<td>故障后是否需自动重新执行</td>
+								<td><code>int</code></td>
+								<td>默认值0，当故障节点任务接管时，正在执行的任务将不会重新运行，而被置为‘需人工干预’状态；当设置为1时，故障节点任务接管时，无论任务处于何种状态，都会被重新执行。</td>
+							</tr>
+							<tr>
+								<td>period</td>
+								<td>周期</td>
+								<td><code>String</code></td>
+								<td>task执行的时间（系统时间或自然时间）区间</td>
+							</tr>
+							<tr>
+								<td>working_day</td>
+								<td>工作日设定</td>
+								<td><code>String</code></td>
+								<td>配置task假日编排计划。需要与WW_CALENDAR配合使用，可以让TASK在你预期的工作日才执行，非工作日直接忽略通过，不执行作业逻辑，也不影响整个流程的执行。
+								</td>
+							</tr>
+							<tr>
+								<td>error_delay</td>
+								<td>错误延迟执行时间间隔</td>
+								<td><code>int</code></td>
+								<td>出错时延迟执行的时间，单位秒，只有在error_max_num等于0或大于1时才生效，如果配置为0，系统视为未配置，则系统会默认30秒延迟执行时间。</td>
+							</tr>
+							<tr>
+								<td>error_ignore</td>
+								<td>是否错误忽略通过</td>
+								<td><code>int</code></td>
+								<td>当作业出现错误，而error_ignore值为1时，会忽略错误通过，让整个流程继续往下运行。默认为不忽略错误</td>
+							</tr>
+							<tr>
+								<td>error_max_num</td>
+								<td>错误最大尝试次数</td>
+								<td><code>int</code></td>
+								<td>任务出现错误最大重复执行次数，0为重试n次，直到任务成功为止；1为只执行一次，失败即task失败；大于1为重试执行设定次数，执行成功终止，或重试设定次数都失败后任务失败。</td>
+							</tr>
+							<tr>
+								<td>use_job_dimension</td>
+								<td>是否使用job模板默认维度配置方案</td>
+								<td><code>String</code></td>
+								<td>默认不使用</td>
+							</tr>
+							<tr>
+								<td>agent_scope</td>
+								<td>指定可执行的代理节点范围</td>
+								<td><code>String</code></td>
+								<td>设置task可执行节点范围，后续调度在此节点范围内，选择节点发送任务</td>
+							</tr>
+							<tr>
+								<td>create_time</td>
+								<td>创建时间</td>
+								<td><code>Date</code></td>
+								<td>创建时间，默认系统时间</td>
+							</tr>
+							<tr>
+								<td>creator</td>
+								<td>创建人</td>
+								<td><code>String</code></td>
+								<td>创建人</td>
+							</tr>
+							<tr>
+								<td>point_x</td>
+								<td>X坐标</td>
+								<td><code>int</code></td>
+								<td>图形编辑界面task显示位置的坐标点x</td>
+							</tr>
+							<tr>
+								<td>point_y</td>
+								<td>Y坐标</td>
+								<td><code>int</code></td>
+								<td>图形编辑界面task显示位置的坐标点y</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">3.ww_task_lean</h2>
+				<small>同一个Job下的Task之间可能存在着依赖关系,存在着执行的先后问题,如A依赖于B,则B执行完之后才可以执行A.</small>
+				<hr>
+				<div class="table-responsive" id="ww_task_lean">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号</td>
+							</tr>
+							<tr>
+								<td>task_id</td>
+								<td>task编号</td>
+								<td><code>String</code></td>
+								<td>同一个job下，task模板编号唯一，不允许重复</td>
+							</tr>
+							<tr>
+								<td>lean_job_id</td>
+								<td>被依赖job模板编号</td>
+								<td><code>String</code></td>
+								<td>被依赖job模板编号，可为空，即指同job内task依赖</td>
+							</tr>
+							<tr>
+								<td>lean_task_id</td>
+								<td>被依赖task模板编号</td>
+								<td><code>String</code></td>
+								<td>同一个被依赖job下，task模板编号唯一，不允许重复</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">4.ww_parameter</h2>
+				<small>用来存储运行时需要的参数,如Job模板的参数、插件的参数、公共的参数等.</small>
+				<hr>
+				<div class="table-responsive" id="ww_parameter">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号</td>
+							</tr>
+							<tr>
+								<td>source_id</td>
+								<td>资源对象编号</td>
+								<td><code>String</code></td>
+								<td>和job模板编号联合使用：当存储job模板的参数时，job_id和source_id都存对应job模板的job_id；
+								当存储task模板的参数时，job_id存储task模板的job_id，source_id存储task模板的task_id；
+								当存储插件的参数时，job_id和source_id都存对应的插件名称；
+								当存储公共参数时，job_id和source_id存储用户自定义的名称.</td>
+							</tr>
+							<tr>
+								<td>name</td>
+								<td>属性名称</td>
+								<td><code>String</code></td>
+								<td>参数的名称，由[0-9A-Za-z._]组成</td>
+							</tr>
+							<tr>
+								<td>value</td>
+								<td>属性值</td>
+								<td><code>String</code></td>
+								<td>参数的默认值</td>
+							</tr>
+							<tr>
+								<td>required</td>
+								<td>是否必填</td>
+								<td><code>int</code></td>
+								<td>参数是否必填，0-不必填 1-必填</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">5.ww_dimension</h2>
+				<small>Job模板可以包含不同的维度,如客户类型维度、省行维度、数据表维度等,根据维度可以拆分Task,控制Task之间的依赖关系.</small>
+				<hr>
+				<div class="table-responsive" id="ww_dimension">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>维度所属于的产品</td>
+							</tr>
+							<tr>
+								<td>dmsn_name</td>
+								<td>维度名称</td>
+								<td><code>String</code></td>
+								<td>维度的英文名称</td>
+							</tr>
+							<tr>
+								<td>dmsn_desc</td>
+								<td>维度中文描述</td>
+								<td><code>String</code></td>
+								<td>维度的中文名称</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">6.ww_dimension_entity</h2>
+				<small>维度应该包含有对应的实体,如省行维度应包括中国各大省行等.</small>
+				<hr>
+				<div class="table-responsive" id="ww_dimension_entity">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>维度所属于的产品</td>
+							</tr>
+							<tr>
+								<td>dmsn_name</td>
+								<td>维度名称</td>
+								<td><code>String</code></td>
+								<td>维度的英文名称</td>
+							</tr>
+							<tr>
+								<td>entity_name</td>
+								<td>实体名称</td>
+								<td><code>String</code></td>
+								<td>维度的某个实体的英文名称</td>
+							</tr>
+							<tr>
+								<td>entity_desc</td>
+								<td>实体中文描述</td>
+								<td><code>String</code></td>
+								<td>维度的某个实体的中文名称</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>标签</td>
+								<td><code>String</code></td>
+								<td>维度实体包含的标签，多个逗号隔开，前后逗号保留，例：[,888,999,]</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">7.ww_job_dimension</h2>
+				<small>用来配置Job维度方案信息，可配置多套方案，以方便Job中Task设置.</small>
+				<hr>
+				<div class="table-responsive" id="ww_job_dimension">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号</td>
+							</tr>
+							<tr>
+								<td>model_no</td>
+								<td>方案NO</td>
+								<td><code>String</code></td>
+								<td>维度方案的编号</td>
+							</tr>
+							<tr>
+								<td>dmsn_name</td>
+								<td>维度名称</td>
+								<td><code>String</code></td>
+								<td>维度的英文名称</td>
+							</tr>
+							<tr>
+								<td>dmsn_product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>维度所属的产品</td>
+							</tr>
+							<tr>
+								<td>entity_name</td>
+								<td>维度实体名称</td>
+								<td><code>String</code></td>
+								<td>维度方案包含的维度实体，标签可使用tag:开头；正则表达式以reg:开头；多维度请使用^分隔，例：TAG:MYTAB,YOURTAB|SPYY^01A3030D.I180</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<h2 class="mt-4">8.ww_task_dimension</h2>
+				<small>用来配置Task相关的维度信息.</small>
+				<hr>
+				<div class="table-responsive" id="ww_task_dimension">
+					<table class="table table-md table-bordered table-striped">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号</td>
+							</tr>
+							<tr>
+								<td>task_id</td>
+								<td>task模板编号</td>
+								<td><code>String</code></td>
+								<td>task模板编号</td>
+							</tr>
+							<tr>
+								<td>dmsn_name</td>
+								<td>维度名称</td>
+								<td><code>String</code></td>
+								<td>维度的英文名称</td>
+							</tr>
+							<tr>
+								<td>dmsn_product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>维度所属的产品</td>
+							</tr>
+							<tr>
+								<td>entity_name</td>
+								<td>维度实体名称</td>
+								<td><code>String</code></td>
+								<td>维度方案包含的维度实体，标签可使用tag:开头；正则表达式以reg:开头；多维度请使用^分隔，例：TAG:MYTAB,YOURTAB|SPYY^01A3030D.I180</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h2 class="mt-4">9.ww_task_special_lean</h2>
+				<small>用来配置Task之间基于维度的特殊依赖关系.</small>
+				<hr>
+				<div class="table-responsive" id="ww_task_special_lean">
+					<table class="table table-bordered table-striped table-md">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job模板编号</td>
+							</tr>
+							<tr>
+								<td>task_id</td>
+								<td>task模板编号</td>
+								<td><code>String</code></td>
+								<td>task模板编号</td>
+							</tr>
+							<tr>
+								<td>task_dim_entities</td>
+								<td>task维度实体</td>
+								<td><code>String</code></td>
+								<td>task模板的包含的维度实体</td>
+							</tr>
+							<tr>
+								<td>lean_job_id</td>
+								<td>被依赖job编号</td>
+								<td><code>String</code></td>
+								<td>被依赖job编号</td>
+							</tr>
+							<tr>
+								<td>lean_task_id</td>
+								<td>被依赖task编号</td>
+								<td><code>String</code></td>
+								<td>被依赖task编号</td>
+							</tr>
+							<tr>
+								<td>lean_task_dim_entities</td>
+								<td>被依赖task维度实体</td>
+								<td><code>String</code></td>
+								<td>被依赖task模板的包含的维度实体，标签可使用tag:开头；正则表达式以reg:开头；多维度请使用^分隔，例：TAG:MYTAB,YOURTAB|SPYY^01A3030D.I180</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h2 class="mt-4">10.ww_job_instance</h2>
+				<small>启动job模板之后，会生成job模板实例，存储在这个表里. 对于每一个实例，可以进行 重新运行，设为通过，暂停，继续运行，驱动运行等操作..</small>
+				<hr>
+				<div class="table-responsive" id="ww_job_instance">
+					<table class="table table-bordered table-striped table-md">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_ins_id</td>
+								<td>job实例编号</td>
+								<td><code>long</code></td>
+								<td>job实例编号唯一，不允许重复，主键约束</td>
+							</tr>
+							<tr>
+								<td>product</td>
+								<td>所属产品</td>
+								<td><code>String</code></td>
+								<td>job实例属于哪个产品</td>
+							</tr>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>job实例属于哪个job模板</td>
+							</tr>
+							<tr>
+								<td>job_state</td>
+								<td>job实例状态</td>
+								<td><code>int</code></td>
+								<td>有初始化、正在运行、强制运行结束、执行结束等状态</td>
+							</tr>
+							<tr>
+								<td>job_name</td>
+								<td>名称</td>
+								<td><code>String</code></td>
+								<td>job实例的中文名称</td>
+							</tr>
+							<tr>
+								<td>job_mode</td>
+								<td>模式</td>
+								<td><code>int</code></td>
+								<td>1-网状模型，2-网维模型</td>
+							</tr>
+							<tr>
+								<td>batch</td>
+								<td>批量</td>
+								<td><code>String</code></td>
+								<td>job实例属于哪个批量</td>
+							</tr>
+							<tr>
+								<td>schedule_rid</td>
+								<td>使用资源编号</td>
+								<td><code>String</code></td>
+								<td>调度时分配资源用</td>
+							</tr>
+							<tr>
+								<td>parameters</td>
+								<td>实际参数</td>
+								<td><code>String</code></td>
+								<td>job实例运行时的输入参数，实际参数</td>
+							</tr>
+							<tr>
+								<td>properties</td>
+								<td>形式参数</td>
+								<td><code>String</code></td>
+								<td>job实例运行时的输入参数，形式参数</td>
+							</tr>
+							<tr>
+								<td>accut_date</td>
+								<td>会计日期</td>
+								<td><code>String</code></td>
+								<td>会计日期</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>标签</td>
+								<td><code>String</code></td>
+								<td>job实例标签，继承于job模板</td>
+							</tr>
+							<tr>
+								<td>is_paused</td>
+								<td>是否暂停</td>
+								<td><code>int</code></td>
+								<td>0-否 1-是</td>
+							</tr>
+							<tr>
+								<td>version</td>
+								<td>版本</td>
+								<td><code>String</code></td>
+								<td>job实例的版本号，继承于job模板</td>
+							</tr>
+							<tr>
+								<td>init_time</td>
+								<td>初始化时间</td>
+								<td><code>String</code></td>
+								<td>job实例最近一次初始化的时间</td>
+							</tr>
+							<tr>
+								<td>begin_time</td>
+								<td>开始时间</td>
+								<td><code>String</code></td>
+								<td>job实例最近一次开始运行的时间</td>
+							</tr>
+							<tr>
+								<td>end_time</td>
+								<td>结束时间</td>
+								<td><code>String</code></td>
+								<td>job实例最近一次结束运行的时间</td>
+							</tr>
+							<tr>
+								<td>create_time</td>
+								<td>创建时间</td>
+								<td><code>String</code></td>
+								<td>job实例生成的时间，默认系统时间</td>
+							</tr>
+							<tr>
+								<td>creator</td>
+								<td>创建者</td>
+								<td><code>String</code></td>
+								<td>job实例创建者，继承于job模板</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h2 class="mt-4">11.ww_task_instance</h2>
+				<small>启动job模板之后，会生成task模板实例，存储在这个表里. 对于每一个实例，可以执行重跑，设为通过等操作..</small>
+				<hr>
+				<div class="table-responsive" id="ww_task_instance">
+					<table class="table table-bordered table-striped table-md">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_ins_id</td>
+								<td>job实例编号</td>
+								<td><code>long</code></td>
+								<td>task实例属于哪个job实例</td>
+							</tr>
+							<tr>
+								<td>job_id</td>
+								<td>job模板编号</td>
+								<td><code>String</code></td>
+								<td>task实例属于哪个job模板</td>
+							</tr>
+							<tr>
+								<td>task_ins_id</td>
+								<td>task实例编号</td>
+								<td><code>String</code></td>
+								<td>task实例编号</td>
+							</tr>
+							<tr>
+								<td>task_id</td>
+								<td>task模板编号</td>
+								<td><code>String</code></td>
+								<td>task实例属于哪个task模板</td>
+							</tr>
+							<tr>
+								<td>task_state</td>
+								<td>task实例状态</td>
+								<td><code>int</code></td>
+								<td>有初始化、准备执行、正在执行、错误延迟、执行结果返回中、失败、需人工干预、执行延迟中、成功通过、忽略通过、周期不满足通过，人工置无效通过、人工置失败通过等状态</td>
+							</tr>
+							<tr>
+								<td>batch</td>
+								<td>批量</td>
+								<td><code>String</code></td>
+								<td>task实例属于哪个批量</td>
+							</tr>
+							<tr>
+								<td>task_name</td>
+								<td>名称</td>
+								<td><code>String</code></td>
+								<td>task实例中文名称</td>
+							</tr>
+							<tr>
+								<td>use_job_dimension</td>
+								<td>是否使用job模板默认维度配置方案</td>
+								<td><code>String</code></td>
+								<td>0-否 1-是 默认为0，不使用，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>title</td>
+								<td>标签</td>
+								<td><code>String</code></td>
+								<td>task实例标签，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>task_plugin</td>
+								<td>执行插件</td>
+								<td><code>String</code></td>
+								<td>task实例用到的插件名称，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>program_name</td>
+								<td>执行应用程序</td>
+								<td><code>String</code></td>
+								<td>task实例程序名称，继承于task模板，与插件名称不一致时，会根据插件名称和程序名称从资源对象属性列表再取一次公共参数</td>
+							</tr>
+							<tr>
+								<td>error_delay</td>
+								<td>错误延迟执行时间间隔</td>
+								<td><code>int</code></td>
+								<td>task实例出错时延迟执行的时间，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>error_ignore</td>
+								<td>是否错误忽略通过</td>
+								<td><code>int</code></td>
+								<td>task实例不忽略错误通过，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>error_max_num</td>
+								<td>错误最大尝试次数</td>
+								<td><code>int</code></td>
+								<td>task实例重新执行的次数，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>error_current_num</td>
+								<td>当前错误次数</td>
+								<td><code>int</code></td>
+								<td>task实例当前执行错误次数</td>
+							</tr>
+							<tr>
+								<td>period</td>
+								<td>周期</td>
+								<td><code>String</code></td>
+								<td>task实例可以执行的时间区间，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>allowed_rerun</td>
+								<td>支持故障后可重复执行</td>
+								<td><code>int</code></td>
+								<td>默认0次，不重复执行，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>working_day</td>
+								<td>工作日设定</td>
+								<td><code>String</code></td>
+								<td>task实例执行时间，可单独日期，日期区间，表达式等，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>task_result</td>
+								<td>执行结果</td>
+								<td><code>int</code></td>
+								<td>task实例的执行结果(0/1)</td>
+							</tr>
+							<tr>
+								<td>information</td>
+								<td>执行日志</td>
+								<td><code>String</code></td>
+								<td>task实例运行产生的日志</td>
+							</tr>
+							<tr>
+								<td>next_execute_time</td>
+								<td>下次执行时间</td>
+								<td><code>String</code></td>
+								<td>配置task实例下次执行时间</td>
+							</tr>
+							<tr>
+								<td>dimension_group</td>
+								<td>任务维度方案</td>
+								<td><code>String</code></td>
+								<td>task实例维度方案</td>
+							</tr>
+							<tr>
+								<td>agent_scope</td>
+								<td>指定可执行的代理节点范围</td>
+								<td><code>String</code></td>
+								<td>task实例可在哪些节点上运行，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>agent</td>
+								<td>执行代理节点</td>
+								<td><code>String</code></td>
+								<td>task实例实际在哪个节点上执行</td>
+							</tr>
+							<tr>
+								<td>task_parameter</td>
+								<td>执行参数</td>
+								<td><code>String</code></td>
+								<td>task实例执行时用到的参数</td>
+							</tr>
+							<tr>
+								<td>leans_in_batch</td>
+								<td>依赖关系</td>
+								<td><code>String</code></td>
+								<td>task实例在这个批量中依赖的其它task实例</td>
+							</tr>
+							<tr>
+								<td>beleans_in_batch</td>
+								<td>被依赖关系</td>
+								<td><code>String</code></td>
+								<td>task实例在这个批量中被依赖的其它task实例</td>
+							</tr>
+							<tr>
+								<td>begin_time</td>
+								<td>开始时间</td>
+								<td><code>String</code></td>
+								<td>task实例开始执行的时间</td>
+							</tr>
+							<tr>
+								<td>end_time</td>
+								<td>结束时间</td>
+								<td><code>String</code></td>
+								<td>task实例结束执行的时间</td>
+							</tr>
+							<tr>
+								<td>create_time</td>
+								<td>创建时间</td>
+								<td><code>Date</code></td>
+								<td>task实例的创建时间，默认系统时间，继承于task模板</td>
+							</tr>
+							<tr>
+								<td>creator</td>
+								<td>创建人</td>
+								<td><code>String</code></td>
+								<td>task实例的创建人，继承于task模板</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<h2 class="mt-4">12.ww_task_instance_lean</h2>
+				<small>运行job实例时，task实例之间可能存在着依赖关系，存储在这张表中.如A依赖于B，则B执行结束之后方可执行A..</small>
+				<hr>
+				<div class="table-responsive" id="ww_task_instance_lean">
+					<table class="table table-bordered table-striped table-md">
+						<thead class="thead-light">
+							<tr>
+								<th style="width: 200px">字段名</th>
+								<th style="width: 200px">中文名</th>
+								<th style="width: 100px">数据类型</th>
+								<th>字段说明</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>job_ins_id</td>
+								<td>job实例编号</td>
+								<td><code>long</code></td>
+								<td>job实例编号</td>
+							</tr>
+							<tr>
+								<td>task_ins_id</td>
+								<td>task实例编号</td>
+								<td><code>String</code></td>
+								<td>task实例编号</td>
+							</tr>
+							<tr>
+								<td>lean_task_ins_id</td>
+								<td>被依赖task实例编号</td>
+								<td><code>String</code></td>
+								<td>被依赖的task实例编号</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+	       </div>
+	</div>
+</div>
+
+<div class="panel mb-g" id="pro_fel_expression">
+	<div class="panel-hdr">
+       <h2 class="fw-700 m-0" style="font-size:1.375rem;">FEL表达式使用说明</h2>
+       <div class="panel-toolbar">
+			<a href="#" class="mr-1" data-liftaction="#pro_bg_introduction"><span class="badge badge-primary ml-auto">背景</span></a>
+			<a href="#" class="mr-1" data-liftaction="#pro_vision"><span class="badge badge-primary ml-auto">目标</span></a>
+			<a href="#" class="mr-1" data-liftaction="#pro_architecture"><span class="badge badge-primary ml-auto">架构</span></a>
+			<a href="#" class="mr-1" data-liftaction="#pro_deploy"><span class="badge badge-primary ml-auto">部署</span></a>
+			<a href="#" class="mr-1" data-liftaction="#pro_config_tab"><span class="badge badge-primary">数据库表</span></a>
+			<a href="#" class="mr-1" data-liftaction="#pro_fel_expression"><span class="badge badge-primary">EL表达式</span></a>
+       </div>
+   </div>
+   <div class="panel-container">
+       <div class="panel-content">
+			<h2 class="fw-700 mb-g">
+				时间处理函数
+				<small class="mb-2 mt-2"><span style="font-weight:blod;">date</span></small>
+			</h2>
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped table-md">
+					<thead class="thead-light">
+						<tr>
+							<th style="width: 180px">函数名</th>
+							<th style="width: 200px">函数</th>
+							<th style="width: 180px">函数返回</th>
+							<th style="width: 200px">函数说明</th>
+							<th>实例</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>date</td>
+							<td><code>date()</code></td>
+							<td>java.util.Date</td>
+							<td>获取当前时间</td>
+							<td><code>date()</code>返回当前时间Date</td>
+						</tr>
+						<tr>
+							<td>date</td>
+							<td><code>date(String pattern)</code></td>
+							<td>java.lang.String</td>
+							<td>获取当前时间</td>
+							<td><code>date('yyyyMMdd HH:mm:ss')</code>返回当前时间字符串20210114 10:30</td>
+						</tr>
+						<tr>
+							<td>date</td>
+							<td><code>date(Integer increment, String field)</code></td>
+							<td>java.util.Date</td>
+							<td>以今日日期为基础，获取计算后日期</td>
+							<td>field取值范围：<br>
+							'year'--Calendar.YEAR<br>
+							'month'--Calendar.MONTH<br>
+							'week'-- Calendar.WEEK_OF_YEAR<br>
+							'day'--Calendar.DAY_OF_MONTH<br>
+							'hour'--Calendar.HOUR<br>
+							'second'--Calendar.SECOND<br>
+							'millisecond'--Calendar.MILLISECOND<br>
+							<code>date(1,'day')</code>返回明天的日期；<code>date(-1,'month')</code>返回上月的今天的日期</td>
+						</tr>
+						<tr>
+							<td>date</td>
+							<td><code>date(String pattern, Integer increment, String field)</code></td>
+							<td>java.lang.String</td>
+							<td>以今日日期为基础，获取计算后日期字符串</td>
+							<td>field取值范围：<br>
+							'year'--Calendar.YEAR<br>
+							'month'--Calendar.MONTH<br>
+							'week'-- Calendar.WEEK_OF_YEAR<br>
+							'day'--Calendar.DAY_OF_MONTH<br>
+							'hour'--Calendar.HOUR<br>
+							'second'--Calendar.SECOND<br>
+							'millisecond'--Calendar.MILLISECOND<br>
+							<code>date('yyyyMMdd',1,'day')</code>返回明天的日期字符串；<code>date('yyyyMMdd',-1,'month')</code>返回上月的今天的日期字符串</td>
+						</tr>
+						<tr>
+							<td>to_char</td>
+							<td><code>to_char(Date date,String pattern)</code></td>
+							<td>java.lang.String</td>
+							<td>日期转换为字符串</td>
+							<td>
+							<code>to_char(date(),'yyyyMMdd')</code>返回当前时间字符串,与表达式date('yyyyMMdd')返回的结果相同</td>
+						</tr>
+						<tr>
+							<td>to_char</td>
+							<td><code>to_char(Date date,String pattern, Integer increment, String field)</code></td>
+							<td>java.lang.String</td>
+							<td>日期转换为字符串</td>
+							<td>
+							<code>to_char(date(),'yyyyMMdd', 1,'day')</code>按yyyyMMdd指定格式，返回明天的日期字符串</td>
+						</tr>
+						<tr>
+							<td>to_date</td>
+							<td><code>to_date(String date,String pattern)</code></td>
+							<td>java.util.Date</td>
+							<td>字符串转换为日期</td>
+							<td>
+							<code>to_char('20210112','yyyyMMdd')</code>返回日期20210112</td>
+						</tr>
+						<tr>
+							<td>to_date</td>
+							<td><code>to_date(String date,String pattern, Integer increment, String field)</code></td>
+							<td>java.util.Date</td>
+							<td>字符串转换为日期</td>
+							<td>
+							<code>to_char('20210112','yyyyMMdd', 1,'day')</code>返回日期20210113</td>
+						</tr>
+						<tr>
+							<td>to_monthend</td>
+							<td><code>to_monthend(Date date, Integer increment)</code></td>
+							<td>java.util.Date</td>
+							<td>获取月末最后一天</td>
+							<td>
+							<code>to_monthend(date(), 1)</code>返回本月月末最后一天</td>
+						</tr>
+						<tr>
+							<td>to_weekday</td>
+							<td><code>to_weekday(Date date, Integer increment)</code></td>
+							<td>java.util.Date</td>
+							<td>获取周日期（跨度为周）</td>
+							<td>
+							<code>to_weekday(date(), 1)</code>当前周四（1月14日），则返回下周四（1月21日）</td>
+						</tr>
+						<tr>
+							<td>next_day</td>
+							<td><code>next_day()</code></td>
+							<td>java.lang.String</td>
+							<td>获取明日的日期字符串</td>
+							<td>
+							<code>next_day()</code>获取明日的日期字符串</td>
+						</tr>
+						<tr>
+							<td>next_day</td>
+							<td><code>next_day(Integer dayOffset)</code></td>
+							<td>java.lang.String</td>
+							<td>获取dayOffset天后（负数则是dayOffset天前）的日期字符串</td>
+							<td>
+							<code>next_day(-5)</code>获取五天前的日期字符串</td>
+						</tr>
+						<tr>
+							<td>next_day</td>
+							<td><code>next_day(String perfixAndDate)</code></td>
+							<td>java.lang.String</td>
+							<td>返回明日的日期字符串（带有前缀），为计算时间类型的批量号</td>
+							<td>
+							<code>next_day('BATCH20210114')</code>获取明日的日期字符串,返回'BATCH20210115'</td>
+						</tr>
+						<tr>
+							<td>next_day</td>
+							<td><code>next_day(String perfixAndDate，Integer dayOffset)</code></td>
+							<td>java.lang.String</td>
+							<td>返回dayOffset天后（负数则是dayOffset天前）的日期字符串（带有前缀），为计算时间类型的批量号</td>
+							<td>
+							<code>next_day('BATCH20210114', 5)</code>获取明日的日期字符串,返回'BATCH20210119'</td>
+						</tr>
+						<tr>
+							<td>next_month</td>
+							<td><code>next_month()</code></td>
+							<td>java.lang.String</td>
+							<td>下月的今天，如果下月没有（如2月只有28天）则返回月末最后一天</td>
+							<td>
+							<code>next_month()</code>今天日期2021年1月12日，则返回'20210212'；今天日期2021年1月31日，则返回'20210228'</td>
+						</tr>
+						<tr>
+							<td>next_month</td>
+							<td><code>next_month(String perfixAndDate)</code></td>
+							<td>java.lang.String</td>
+							<td>计算给定日期下月的今天（带有前缀），为计算时间类型的批量号</td>
+							<td>
+							<code>next_month('BATCH_20210228')</code>返回'BATCH_20210328'</td>
+						</tr>
+						<tr>
+							<td>next_month</td>
+							<td><code>next_month(String perfixAndDate, String stepper)</code></td>
+							<td>java.lang.String</td>
+							<td>计算给定日期下月根据stepper计算出的某一天日期字符串（带有前缀），为计算时间类型的批量号</td>
+							<td>
+							 stepper取值说明：<br>
+							 "L" -- 月末最后一天，6L 月末倒数第6天 <br>
+							 "F" -- 月第一天 F5 月5号<br>
+							  当NL中N值大于月最大天数时，则NL等同于F，当FN中N值大于月最大天数时，则FN等同于L<br>
+							<code>next_month('BATCH_20210228', 'L')</code>返回'BATCH_20210331'；<code>next_month('BATCH_20210228', 'F15')</code>返回'BATCH_20210315'（下月中旬）</td>
+						</tr>
+						<tr>
+							<td>next_month</td>
+							<td><code>next_month(String perfixAndDate, String stepper, Integer monthOffset)</code></td>
+							<td>java.lang.String</td>
+							<td>计算给定日期monthOffset月后（负数则是monthOffset月前）的由stepper计算出的某一天日期字符串（带有前缀），为计算时间类型的批量号</td>
+							<td>
+							<code>next_month('20210228', 'L', 1)</code>返回'20210331'；<code>next_month('20210228', 'F15', 2)</code>返回'20210415'（两月后的中旬）</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

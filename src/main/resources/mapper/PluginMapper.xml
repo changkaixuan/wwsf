@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.PluginMapper" >
+
+	<resultMap id="pluginMap" type="Plugin">
+		<result column="PLUGINNAME" property="name" jdbcType="VARCHAR" />
+		<result column="PLUGINDESC" property="desc" jdbcType="VARCHAR" />
+		<result column="FEATURE_NAME" property="feature" jdbcType="VARCHAR" />
+		<result column="VERSION" property="version" jdbcType="VARCHAR" />
+		<collection property="parameters" ofType="Parameter">
+		    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+		    <result column="SOURCE_ID" property="sourceId" jdbcType="VARCHAR" />
+		    <result column="PNAME" property="name" jdbcType="VARCHAR"/>
+		    <result column="PVALUE" property="value" jdbcType="VARCHAR"/>
+		    <result column="REQUIRED" property="required" jdbcType="INTEGER"/>
+		    <result column="PARAMTYPE" property="paramType" jdbcType="VARCHAR" />
+		    <result column="DATA_RANGE" property="dataRange" jdbcType="VARCHAR" />
+		</collection>
+  	</resultMap>
+  	
+  	<resultMap id="pluginListPageMap" type="Plugin">
+		<result column="PLUGINNAME" property="name" jdbcType="VARCHAR" />
+		<result column="PLUGINDESC" property="desc" jdbcType="VARCHAR" />
+		<result column="FEATURE_NAME" property="feature" jdbcType="VARCHAR" />
+		<result column="VERSION" property="version" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<resultMap id="pluginParameterMap" type="PluginParameter">
+			<result column="PLUGIN_NAME" property="pluginName" jdbcType="VARCHAR" />
+			<result column="PARAM_NAME" property="paramName" jdbcType="VARCHAR" />
+			<result column="DATA_TYPE" property="dataType" jdbcType="VARCHAR" />
+			<result column="PARAM_DEF_VALUE" property="paramDefValue" jdbcType="VARCHAR" />
+			<result column="IS_REQUIRED" property="isRequired" jdbcType="VARCHAR" />
+			<result column="PARAM_DESC" property="paramDesc" jdbcType="VARCHAR" />
+			<result column="DATA_RANGE" property="dataRange" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<resultMap id="pluginParamMap" type="Plugin">
+		<result column="PLUGINNAME" property="name" jdbcType="VARCHAR" />
+		<result column="PLUGINDESC" property="desc" jdbcType="VARCHAR" />
+		<result column="FEATURE_NAME" property="feature" jdbcType="VARCHAR" />
+		<result column="VERSION" property="version" jdbcType="VARCHAR" />
+		<collection property="pluginParameters" ofType="PluginParameter">
+		   	<result column="PLUGIN_NAME" property="pluginName" jdbcType="VARCHAR" />
+			<result column="PARAM_NAME" property="paramName" jdbcType="VARCHAR" />
+			<result column="DATA_TYPE" property="dataType" jdbcType="VARCHAR" />
+			<result column="PARAM_DEF_VALUE" property="paramDefValue" jdbcType="VARCHAR" />
+			<result column="IS_REQUIRED" property="isRequired" jdbcType="VARCHAR" />
+			<result column="PARAM_DESC" property="paramDesc" jdbcType="VARCHAR" />
+			<result column="DATA_RANGE" property="dataRange" jdbcType="VARCHAR" />
+		</collection>
+  	</resultMap>
+  	
+  	<select id="pluginListPage" parameterType="java.util.Map" resultMap="pluginListPageMap">
+		select
+			wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version
+		  from ww_plugin wp
+		where 1=1
+		<if test="name != null">
+			and wp.name = #{name}
+		</if>
+		<if test="lName != null">
+			and instr(wp.name, #{lName}) > 0
+		</if>
+	</select>
+	
+	<select id="pluginList" parameterType="java.util.Map" resultMap="pluginMap">
+		select
+			wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version,
+			p.job_id,
+			p.source_id,
+			p.name pName,
+			p.value pValue,
+			p.required,
+			(select data_type from ww_plugin_parameter where plugin_name=wp.name and param_name=p.name) paramType
+		  from ww_plugin wp left join ww_parameter p on wp.name = p.source_id and wp.name = p.job_id
+		where 1=1
+		<if test="name != null">
+			and wp.name = #{name}
+		</if>
+		<if test="lName != null">
+			and instr(wp.name, #{lName}) > 0
+		</if>
+		<!-- select
+			wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version
+		  from ww_plugin wp
+		where 1=1
+		<if test="name != null">
+			and wp.name = #{name}
+		</if>
+		<if test="lName != null">
+			and instr(wp.name, #{lName}) > 0
+		</if> -->
+	</select>
+	
+	<select id="queryPluList" parameterType="java.util.Map" resultMap="pluginMap">
+		select
+			wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version
+		  from ww_plugin wp
+	</select>
+	
+	<!-- CRON、JOB实例任务页面用此插件数据 -->
+	<select id="getPluginParameter" parameterType="java.util.Map" resultMap="pluginMap">
+		select
+		    wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version,
+			p.param_name pName,
+			p.param_def_value pValue,
+			p.is_required required,
+			p.data_type paramType,
+			p.data_range
+		   from ww_plugin wp left join ww_plugin_parameter p on wp.name = p.plugin_name
+         where 1=1
+		<if test="name != null">
+		   and wp.name = #{name}
+		</if>
+		<if test="lName != null">
+		   and instr(wp.name, #{lName}) > 0
+		</if>
+	</select>
+	
+	<select id="getPluginParameters" parameterType="java.util.Map" resultMap="pluginParamMap">
+		select
+		    wp.name pluginName,
+			wp.plugin_desc pluginDesc,
+			wp.feature_name,
+			wp.version,
+			p.plugin_name,
+			p.param_name,
+			p.data_type,
+			p.param_def_value,
+			p.is_required,
+			p.param_desc,
+			p.data_range 
+		   from ww_plugin wp left join ww_plugin_parameter p on wp.name = p.plugin_name
+         where 1=1
+		<if test="name != null">
+		   and wp.name = #{name}
+		</if>
+		<if test="lName != null">
+		   and instr(wp.name, #{lName}) > 0
+		</if>
+	</select>
+	
+	<select id="queryPluginParameter" parameterType="java.util.Map" resultMap="pluginParameterMap">
+		select
+			p.plugin_name,
+			p.param_name,
+			p.data_type,
+			p.param_def_value,
+			p.is_required,
+			p.param_desc,
+			p.data_range 
+		   from ww_plugin_parameter p
+         where 1=1
+		<if test="pluginName != null">
+		   and p.plugin_name = #{pluginName}
+		</if>
+		<if test="paramName != null">
+		   and p.param_name = #{paramName}
+		</if>
+	</select>
+	
+	<insert id="insertPlugin" parameterType="Plugin" >
+	    insert into ww_plugin (name,plugin_desc,feature_name,version)
+	    values (#{name,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, #{feature,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updatePlugin" parameterType="Plugin" >
+		  UPDATE ww_plugin
+	    set 
+		   plugin_desc = #{desc,jdbcType=VARCHAR},
+		   feature_name = #{feature,jdbcType=VARCHAR},
+		   version = #{version,jdbcType=VARCHAR}
+		WHERE name = #{name}
+	</update>
+	
+	<insert id="insertPluginParameter" parameterType="Plugin" >
+	    insert into ww_plugin_parameter (plugin_name,param_name,data_type,param_def_value,is_required,param_desc,data_range)
+	    values (#{pluginName,jdbcType=VARCHAR}, #{paramName,jdbcType=VARCHAR}, #{dataType,jdbcType=VARCHAR}, #{paramDefValue,jdbcType=VARCHAR}, #{isRequired,jdbcType=INTEGER}, #{paramDesc,jdbcType=VARCHAR}, #{dataRange,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updatePluginParameter" parameterType="PluginParameter" >
+		  UPDATE ww_plugin_parameter
+	    set 
+		   data_type = #{dataType,jdbcType=VARCHAR},
+		   param_def_value = #{paramDefValue,jdbcType=VARCHAR},
+		   is_required = #{isRequired,jdbcType=INTEGER},
+		   param_desc = #{paramDesc,jdbcType=VARCHAR},
+		   data_range = #{dataRange,jdbcType=VARCHAR}
+		WHERE plugin_name = #{pluginName} and param_name = #{paramName}
+	</update>
+	
+	<!-- <insert id="pluginEdit" parameterType="Plugin" resultType="java.lang.Integer">
+		
+	</insert> -->
+</mapper>

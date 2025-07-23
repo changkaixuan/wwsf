@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.TaskLeanMapper" >
+
+	<resultMap id="taskLeanMap" type="TaskLean">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
+	    <result column="LEAN_JOB_ID" property="leanJobId" jdbcType="VARCHAR"/>
+	    <result column="LEAN_TASK_ID" property="leanTaskId" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	
+  	<resultMap id="taskEdgesMap" type="TaskEdges">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+	    <result column="TARGET" property="target" jdbcType="VARCHAR"/>
+	    <result column="DATA" property="data" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	
+  	<resultMap id="taskLeanPageMap" type="TaskLean">
+	    <result column="LEAN_TASK_ID" property="leanTaskId" jdbcType="VARCHAR"/>
+	    <result column="TYPE" property="type" jdbcType="INTEGER"/>
+	    <result column="INCLUDEDIMENSION" property="includeDimension" jdbcType="INTEGER"/>
+  	</resultMap>
+  	
+  	<resultMap id="taskBeleanPageMap" type="TaskLean">
+	    <result column="TASK_ID" property="taskId" jdbcType="VARCHAR"/>
+	    <result column="TYPE" property="type" jdbcType="INTEGER"/>
+	    <result column="INCLUDEDIMENSION" property="includeDimension" jdbcType="INTEGER"/>
+  	</resultMap>
+  	
+  	<select id="queryTaskLeanPage" parameterType="java.util.Map" resultMap="taskLeanMap">
+		select * from ww_task_lean where 1=1
+		<if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+		<if test="leanTaskId != null">
+			and lean_task_id = #{leanTaskId}
+		</if>
+	    <!-- <if test="leanJobId != null">
+			and lean_job_id = #{leanJobId}
+		</if> -->
+		<if test="leanJobIdIsNull != null">
+			and (lean_job_id is null or lean_job_id=job_id)
+		</if>
+		<if test="orderByTaskId != null">
+			order by task_id
+		</if>
+	</select>
+	
+	<insert id="insertTaskLean" parameterType="TaskLean" >
+	    insert into ww_task_lean (job_id,task_id,lean_job_id,lean_task_id)
+	    values (#{jobId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{leanJobId,jdbcType=VARCHAR},#{leanTaskId,jdbcType=VARCHAR})
+	</insert>
+	
+	 <update id="updateTasklean" parameterType="TaskLean">
+    	update ww_task_lean
+    	set lean_job_id = #{leanJobId,jdbcType=VARCHAR}
+    	where job_id = #{jobId}
+			and task_id = #{taskId}
+			and lean_task_id = #{leanTaskId}
+    </update>
+	
+	<delete id="deleteTaskLean" parameterType="java.util.Map" >
+	    delete from ww_task_lean where 1=1 
+	    <if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<!-- <if test="taskId != null">
+			and task_id = #{taskId}
+		</if> -->
+		<if test="taskId != null">
+			and (task_id = #{taskId} or lean_task_id = #{taskId})
+		</if>
+		<if test="leanJobId != null">
+			and lean_job_id = #{leanJobId} 
+		</if>
+		<if test="leanJobIdIsNull != null">
+			and (lean_job_id is null or lean_job_id=job_id)
+		</if>
+	</delete>
+	
+	<delete id="deleteTaskLean2" parameterType="java.util.Map" >
+	    delete from ww_task_lean where 1=1 
+	    <if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+		<!-- <if test="leanJobId != null">
+			and lean_job_id = #{leanJobId} 
+		</if> -->
+		<if test="leanTaskId != null">
+			and lean_task_id = #{leanTaskId}
+		</if>
+		<if test="leanTaskIdArr != null" >
+	      	and lean_task_id in
+		    <foreach collection="leanTaskIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and (lean_job_id is null or lean_job_id=job_id)
+	</delete>
+	
+	<delete id="deleteTaskLeanByProduct" parameterType="java.util.Map" >
+	   delete from ww_task_lean 
+		   	where job_id in (select job_id from ww_job where product=#{product})
+	</delete>
+	
+	<select id="queryTaskBeLean" parameterType="java.util.Map" resultMap="taskLeanMap">
+		select * 
+		from ww_task_lean 
+		where job_id = #{jobId}
+		and (lean_job_id is null or lean_job_id=job_id)
+	</select>
+	
+	<!-- task/edges start -->
+  	<select id="queryTaskEdges" parameterType="java.util.Map" resultMap="taskEdgesMap" databaseId="oracle">
+		select l.job_id,l.lean_task_id||'.'||s.task_plugin source,l.task_id||'.'||t.task_plugin target,'{"type":"s:e","lineType":"1"}' data 
+		  from ww_task_lean l,ww_task s,ww_task t
+		where l.job_id = s.job_id and l.lean_task_id=s.task_id 
+		  and l.job_id = t.job_id and l.task_id=t.task_id
+		<if test="jobId != null">
+		  and l.job_id = #{jobId}
+		</if>
+	</select>
+	<select id="queryTaskEdges" parameterType="java.util.Map" resultMap="taskEdgesMap" databaseId="mysql">
+		select l.job_id,concat(l.lean_task_id,'.',s.task_plugin) source,concat(l.task_id,'.',t.task_plugin) target,'{"type":"s:e","lineType":"1"}' data 
+		  from ww_task_lean l,ww_task s,ww_task t
+		where l.job_id = s.job_id and l.lean_task_id=s.task_id 
+		  and l.job_id = t.job_id and l.task_id=t.task_id
+		<if test="jobId != null">
+		  and l.job_id = #{jobId}
+		</if>
+	</select>
+	<!-- task/edges end -->
+	
+	<!-- 任务项页面/设置依赖 -->
+	<select id="taskLeanPage" parameterType="java.util.Map" resultMap="taskLeanPageMap" databaseId="mysql">
+		select a.lean_task_id, a.type, IF(t.use_job_dimension = '0',(select count(1) from ww_task_dimension td where td.job_id=a.job_id and td.task_id=a.lean_task_id), 1) includeDimension                                                  
+		from (
+		  select tl.job_id,tl.lean_task_id, '1' type from ww_task_lean tl where tl.job_id=#{jobId} and tl.task_id=#{taskId}
+		  union all
+		  select distinct tsl.job_id,tsl.lean_task_id, '2' type from ww_task_special_lean tsl where tsl.job_id=#{jobId} and tsl.task_id=#{taskId}
+		) a, ww_task t
+		where a.job_id = t.job_id and a.lean_task_id = t.task_id
+		order by a.lean_task_id
+	</select>
+	<select id="taskLeanPage" parameterType="java.util.Map" resultMap="taskLeanPageMap" databaseId="oracle">
+		select a.lean_task_id, a.type, decode(t.use_job_dimension,'0',(select count(1) from ww_task_dimension td where td.job_id=a.job_id and td.task_id=a.lean_task_id),1) includeDimension                                                  
+		from (
+		  select tl.job_id,tl.lean_task_id, '1' type from ww_task_lean tl where tl.job_id=#{jobId} and tl.task_id=#{taskId}
+		  union all
+		  select distinct tsl.job_id,tsl.lean_task_id, '2' type from ww_task_special_lean tsl where tsl.job_id=#{jobId} and tsl.task_id=#{taskId}
+		) a, ww_task t
+		where a.job_id = t.job_id and a.lean_task_id = t.task_id
+		order by a.lean_task_id
+	</select>
+	
+	<select id="taskBeleanPage" parameterType="java.util.Map" resultMap="taskBeleanPageMap" databaseId="mysql">
+		select a.task_id, a.type, IF(t.use_job_dimension = '0',(select count(1) from ww_task_dimension td where td.job_id=a.job_id and td.task_id=a.task_id), 1) includeDimension                                                  
+		from (
+		  select tl.job_id,tl.task_id, '1' type from ww_task_lean tl where tl.job_id=#{jobId} and tl.lean_task_id=#{taskId}
+		  union all
+		  select distinct tsl.job_id,tsl.task_id, '2' type from ww_task_special_lean tsl where tsl.job_id=#{jobId} and tsl.lean_task_id=#{taskId}
+		) a, ww_task t
+		where a.job_id = t.job_id and a.task_id = t.task_id
+		order by a.task_id
+	</select>
+	<select id="taskBeleanPage" parameterType="java.util.Map" resultMap="taskBeleanPageMap" databaseId="oracle">
+		select a.task_id, a.type, decode(t.use_job_dimension,'0',(select count(1) from ww_task_dimension td where td.job_id=a.job_id and td.task_id=a.task_id),1) includeDimension                                                  
+		from (
+		  select tl.job_id,tl.task_id, '1' type from ww_task_lean tl where tl.job_id=#{jobId} and tl.lean_task_id=#{taskId}
+		  union all
+		  select distinct tsl.job_id,tsl.task_id, '2' type from ww_task_special_lean tsl where tsl.job_id=#{jobId} and tsl.lean_task_id=#{taskId}
+		) a, ww_task t
+		where a.job_id = t.job_id and a.task_id = t.task_id
+		order by a.task_id
+	</select>
+	
+	<insert id="batchInsertTaskLean" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_task_lean (job_id,task_id,lean_job_id,lean_task_id)
+	    values
+	    <foreach collection="list" item="taskLean" index="index" separator=",">
+	    	(#{taskLean.jobId,jdbcType=VARCHAR}, #{taskLean.taskId,jdbcType=VARCHAR}, #{taskLean.leanJobId,jdbcType=VARCHAR},#{taskLean.leanTaskId,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<insert id="batchInsertTaskLean" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="taskLean" open="BEGIN" index="index" separator=";" close=";END;">
+	    	insert into ww_task_lean (job_id,task_id,lean_job_id,lean_task_id)
+	    	values (#{taskLean.jobId,jdbcType=VARCHAR}, #{taskLean.taskId,jdbcType=VARCHAR}, #{taskLean.leanJobId,jdbcType=VARCHAR},#{taskLean.leanTaskId,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+</mapper>

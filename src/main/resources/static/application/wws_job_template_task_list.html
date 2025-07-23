@@ -1,0 +1,21 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div data-bind="attr:{'id':elid+'_tb_task_template_toolbar'}" class="form-inline">
+	<div class="btn-group">
+		<button data-bind="attr:{'id':elid+'_btn_task_add'}" type="button" class="btn btn-default btn-sm">新增</button>
+        <button data-bind="attr:{'id':elid+'_btn_task_delete'}" type="button" class="btn btn-default btn-sm">删除</button>
+        <button data-bind="attr:{'id':elid+'_btn_task_lean_setting'}" type="button" class="btn btn-default btn-sm">设置依赖</button>
+	</div>
+	<div class="form-group ml-2">
+		<input type="text" name="taskId" class="form-control-sm mr-1" placeholder="任务项编号">
+		<button type="button" data-bind="attr:{'id':elid+'_btn_task_query'}" class="btn btn-sm btn-primary mr-1">查询</button>
+		<button type="button" data-bind="attr:{'id':elid+'_btn_task_clear'}" class="btn btn-sm btn-primary">重置</button>
+	</div>
+</div>
+
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0 pb-2">
+			<table data-id="tb_task_template" data-bind="attr:{'id':elid+'_tb_task_template'}" class="table table-sm"></table>
+		</div>
+	</div>
+</div>

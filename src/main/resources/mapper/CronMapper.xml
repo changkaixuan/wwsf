@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.CronMapper" >
+
+	<resultMap id="cronMap" type="Cron">
+		<result column="job_id" property="jobId" />
+		<result column="job_name" property="jobName" />
+		<result column="cron_expression" property="cronExpression" />
+		<result column="program_name" property="programName" />
+		<result column="auto_start" property="autoStart" />
+		<result column="create_time" property="createTime" />
+  	</resultMap>
+  
+	<select id="kvspage" parameterType="java.util.Map" resultMap="cronMap">
+		select 
+			t.job_id,
+			t.model,
+			t.product,
+			t.agent,
+			t.job_name,
+			t.cron_expression,
+			t.plugin,
+			t.program_name,
+			t.auto_start,
+			t.create_time,
+			t.creator
+		from ww_cron t
+		where 1=1
+		<if test="product != null &amp;&amp; product != ''">
+		and t.product = #{product}
+		</if>
+		<if test="nullOrProduct != null &amp;&amp; nullOrProduct != ''">
+		and (t.product = #{nullOrProduct} or t.product is null)
+		</if>
+		
+		<if test="agent != null &amp;&amp; agent != ''">
+		and t.agent = #{agent}
+		</if>
+		<if test="nullOrAgent != null &amp;&amp; nullOrAgent != ''">
+		and (t.agent = #{nullOrAgent} or t.agent is null)
+		</if>
+		<if test="lAgent != null &amp;&amp; lAgent != ''">
+		and instr(t.agent, #{lAgent}) > 0
+		</if>
+		
+		<if test="jobId != null &amp;&amp; jobId != ''">
+		and t.job_id = #{jobId}
+		</if>
+		<if test="lJobId != null &amp;&amp; lJobId != ''">
+		and instr(t.job_id, #{lJobId}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and (tp.p_id=t.product or t.product is null) and tsu.login_name=#{loginName}
+		) 
+		</if>
+		<if test="jobIdArr != null" >
+	      	and t.job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<insert id="cronAdd" parameterType="Cron" >
+	     insert into ww_cron(auto_start,job_id,model,product,agent,job_name,cron_expression,plugin, program_name,create_time,creator)
+	     values(#{autoStart, jdbcType=INTEGER},#{jobId, jdbcType=VARCHAR},#{model, jdbcType=VARCHAR},#{product, jdbcType=VARCHAR},#{agent, jdbcType=VARCHAR},
+	            #{jobName, jdbcType=VARCHAR},#{cronExpression, jdbcType=VARCHAR},#{plugin, jdbcType=VARCHAR},#{programName, jdbcType=VARCHAR},#{createTime, jdbcType=VARCHAR},
+	            #{creator, jdbcType=VARCHAR})
+	</insert>
+	
+	 <select id="getCronCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="oracle">
+		select * from ww_cron where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and rownum = 1
+	</select>
+	
+	<update id="updateCronNotAutoStart" parameterType="java.util.Map" >
+	    UPDATE ww_cron set auto_start = 0
+		 WHERE job_id in
+	    <foreach collection="ids" item="item" index="index" open="(" close=")" separator=",">
+			#{item}
+		</foreach>
+	</update>
+
+	 <select id="getCronCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="mysql">
+		select * from ww_cron where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		limit 1
+	</select>
+	
+	<update id="updateCron" parameterType="Cron" >
+	    UPDATE ww_cron
+	    <set>
+	    		job_id = #{jobId}
+	    	<if test="product != null">
+	    		,product = #{product}
+	    	</if>
+	    	
+	    	<if test="agent != null">
+	    		,agent = #{agent}
+	    	</if>
+	    	
+	    	<if test="jobName != null">
+	    		,job_name = #{jobName}
+	    	</if>
+	    	
+	    	<if test="cronExpression != null">
+	    		,cron_expression = #{cronExpression}
+	    	</if>
+	    	
+	    	<if test="plugin != null">
+	    		,plugin = #{plugin}
+	    	</if>
+	    	
+	    	<if test="programName != null">
+	    		,program_name = #{programName}
+	    	</if>
+	    	
+	    	<if test="model != null">
+	    		,model = #{model}
+	    	</if>
+	    	
+	    	<if test="autoStart != null">
+	    		,auto_start = #{autoStart}
+	    	</if>
+	    	<if test="creator != null">
+	    		,creator = #{creator}
+	    	</if>
+	    </set>
+		WHERE job_id = #{jobId}
+	</update>
+	
+	<delete id="deleteCronByProduct" parameterType="java.util.Map" >
+	    delete from ww_cron where product=#{product}
+	</delete>
+</mapper>

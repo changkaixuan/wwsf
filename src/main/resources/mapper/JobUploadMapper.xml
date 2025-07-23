@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.JobUploadMapper" >
+
+	<resultMap id="jobUploadMap" type="JobUpload">
+		<result column="U_ID" property="uId" jdbcType="VARCHAR" />
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="UPLOAD_FILE" property="uploadFile" jdbcType="VARCHAR" />
+		<result column="BACK_FILE" property="backFile" jdbcType="VARCHAR" />
+		<result column="MSG" property="msg" jdbcType="VARCHAR" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="TRIGGER_TIME" property="triggerTime" jdbcType="DATE" />
+  	</resultMap>
+  	
+	<select id="queryJobUpload" parameterType="java.util.Map" resultMap="jobUploadMap">
+		select * from ww_job_upload where 1=1
+		<if test="uId != null ">
+			and u_id = #{uId}
+		</if>
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="uploadFile != null ">
+			and upload_file = #{uploadFile}
+		</if>
+	</select>
+	
+	<insert id="insertJobUpload" parameterType="JobUpload" >
+	    insert into ww_job_upload (u_id,product,upload_file,back_file,msg,creator,create_time,status,trigger_time)
+	    values (#{uId,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{uploadFile,jdbcType=VARCHAR}, #{backFile,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR},
+	            #{creator,jdbcType=VARCHAR},#{dCreateTime,jdbcType=DATE},#{status,jdbcType=INTEGER},#{dTriggerTime,jdbcType=DATE})
+	</insert>
+	
+	<update id="updateJobUpload" parameterType="JobUpload" >
+	    update ww_job_upload 
+	    set msg = #{msg,jdbcType=VARCHAR}
+	       ,status = #{status,jdbcType=INTEGER}
+	    where u_id = #{uId}
+	</update>
+	
+	<delete id="deleteJobUpload" parameterType="java.util.Map" >
+	    delete from ww_job_upload where 1=1 
+	    <if test="uId != null ">
+			and u_id = #{uId}
+		</if>
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="uploadFile != null ">
+			and upload_file = #{uploadFile}
+		</if>
+	</delete>
+	
+</mapper>

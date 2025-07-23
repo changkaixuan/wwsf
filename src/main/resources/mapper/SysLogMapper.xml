@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.SysLogMapper" >
+ 	<resultMap id="SysLogMap" type="SysLog">
+		<result column="ID" property="id" />
+		<result column="LOG_DESC" property="logDesc" />
+		<result column="LOG_TYPE" property="logType" />
+		<result column="MOD_NAME" property="modName" />
+		<result column="OPT_DATE" property="optDate" />
+		<result column="OPT_NAME" property="optName" />
+		<result column="USER_ID" property="userId" />
+		<result column="OPT_RST" property="optRst" />
+		<result column="USER_UIP" property="userUip" />
+		<result column="TARGET_TAB" property="targetTab" />
+	</resultMap>
+	
+	<select id="querySysLog" parameterType="java.util.Map" resultMap="SysLogMap">
+		select * from ww_sys_log
+		where 1=1
+		<if test="lModName != null">
+			and instr(MOD_NAME,#{lModName}) > 0
+		</if>
+		<if test="optDateStart!=null">
+			and OPT_DATE >= #{optDateStart}
+		</if>
+		<if test="optDateEnd!=null">
+			 <![CDATA[and OPT_DATE <= #{optDateEnd} ]]>
+		</if>
+		<if test="lOptName != null">
+			and instr(OPT_NAME,#{lOptName}) > 0
+		</if>
+		<if test="lUserId != null">
+			and instr(USER_ID,#{lUserId}) > 0
+		</if>
+		<if test="optRst != null">
+			and OPT_RST = #{optRst}
+		</if>
+		<if test="id != null">
+			and ID = #{id}
+		</if>
+		order by opt_date desc
+	</select>
+	
+	<insert id="insertSysLog" parameterType="SysLog" >
+	    insert into ww_sys_log (
+	    		ID,
+	    	    LOG_DESC,
+	    	    LOG_TYPE,
+	    	    MOD_NAME,
+	    	    OPT_DATE,
+	    	    OPT_NAME,
+	    	    USER_ID,
+	    	    OPT_RST,
+	    	    USER_UIP,
+	    	    TARGET_TAB)
+	    values (
+	    		#{id,jdbcType=VARCHAR},
+	    		#{logDesc,jdbcType=VARCHAR},
+	    		#{logType,jdbcType=VARCHAR},
+	    		#{modName,jdbcType=VARCHAR},
+	    		#{optDate,jdbcType=VARCHAR},
+	    		#{optName,jdbcType=VARCHAR},
+	    		#{userId,jdbcType=VARCHAR},
+	    		#{optRst,jdbcType=VARCHAR},
+	    		#{userUip,jdbcType=VARCHAR},
+	    		#{targetTab,jdbcType=VARCHAR})
+	</insert>
+</mapper>

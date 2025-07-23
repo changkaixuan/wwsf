@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>WWS-分布式调度</title>
+        <meta name="description" content="Introduction">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+        <!-- Call App Mode on ios devices -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Remove Tap Highlight on Windows Phone IE -->
+        <meta name="msapplication-tap-highlight" content="no">
+        <!-- base css -->
+        <link rel="stylesheet" media="screen, print" href="css/vendors.css">
+        <link rel="stylesheet" media="screen, print" href="js/bootstrap/css/bootstrap-tagsinput.css">
+        <link rel="stylesheet" media="screen, print" href="js/bootstrap/css/bootstrap-table.css">
+        <link rel="stylesheet" media="screen, print" href="js/bootstrap/css/bootstrap-switch.css">
+        <link rel="stylesheet" media="screen, print" href="js/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" media="screen, print" href="js/jquery-editable/css/jquery-editable.css">
+        <link rel="stylesheet" media="screen, print" href="js/jsplumb/css/jsplumbtoolkit-defaults.css">
+		<link rel="stylesheet" media="screen, print" href="js/jsplumb/css/jsplumbtoolkit-demo.css">
+		<link rel="stylesheet" media="screen, print" href="js/jsplumb/css/demo.css">
+		<link rel="stylesheet" media="screen, print" href="js/jsplumb/css/app.css">
+        <link rel="stylesheet" media="screen, print" href="css/app.css">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+        <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg">
+    </head>
+    <body class="mod-bg-1 desktop chrome webkit pace-done">
+	    <div class="pace  pace-inactive">
+	    	<div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+	  			<div class="pace-progress-inner"></div>
+			</div>
+			<div class="pace-activity"></div>
+		</div>
+        <!-- DOC: script to save and load page settings -->
+        <script>
+            /**
+             *	This script should be placed right after the body tag for fast execution 
+             *	Note: the script is written in pure javascript and does not depend on thirdparty library
+             **/
+            'use strict';
+
+            var classHolder = document.getElementsByTagName("BODY")[0],
+                /** 
+                 * Load from localstorage
+                 **/
+                themeSettings = (localStorage.getItem('themeSettings')) ? JSON.parse(localStorage.getItem('themeSettings')) :
+                {},
+                themeURL = themeSettings.themeURL || '',
+                themeOptions = themeSettings.themeOptions || '';
+            /** 
+             * Load theme options
+             **/
+            if (themeSettings.themeOptions) {
+                classHolder.className = themeSettings.themeOptions;
+                console.log("%c✔ Theme settings loaded", "color: #148f32");
+            } else {
+                console.log("Heads up! Theme settings is empty or does not exist, loading default settings...");
+            }
+            if (themeSettings.themeURL && !document.getElementById('mytheme')) {
+                var cssfile = document.createElement('link');
+                cssfile.id = 'mytheme';
+                cssfile.rel = 'stylesheet';
+                cssfile.href = themeURL;
+                document.getElementsByTagName('head')[0].appendChild(cssfile);
+            }
+            /** 
+             * Save to localstorage 
+             **/
+            var saveSettings = function() {
+                themeSettings.themeOptions = String(classHolder.className).split(/[^\w-]+/).filter(function(item) {
+                    return /^(nav|header|mod|display)-/i.test(item);
+                }).join(' ');
+                if (document.getElementById('mytheme')) {
+                    themeSettings.themeURL = document.getElementById('mytheme').getAttribute("href");
+                };
+                localStorage.setItem('themeSettings', JSON.stringify(themeSettings));
+            }
+            /** 
+             * Reset settings
+             **/
+            var resetSettings = function() {
+                localStorage.setItem("themeSettings", "");
+            }
+        </script>
+        <!-- BEGIN Page Wrapper -->
+        <div class="page-wrapper">
+            <div class="page-inner">
+                <!-- BEGIN Left Aside -->
+                <aside class="page-sidebar list-filter-active">
+                    <div class="page-logo align-items-center">
+                        <a href="#" class="page-logo-link press-scale-down d-flex align-items-center">
+                            <img src="img/logo.png" alt="Boc WWS Console" aria-roledescription="logo">
+                            <span class="page-logo-text mr-1">Boc WWS Console</span>
+                        </a>
+                    </div>
+                    <!-- BEGIN PRIMARY NAVIGATION -->
+                    <nav id="js-primary-nav" class="primary-nav js-list-filter" role="navigation">
+                        <div class="info-card">
+                            <img src="img/demo/avatars/avatar-admin.png" class="profile-image rounded-circle" alt="wws Admin">
+                            <div class="info-card-text">
+                                <a href="http://www.boc.cn" class="d-flex align-items-center text-white">
+                                    <span class="text-truncate text-truncate-sm d-inline-block">
+                                        wws Admin
+                                    </span>
+                                </a>
+                                <span class="d-inline-block text-truncate text-truncate-sm">Bank Of China Software</span>
+                            </div>
+                            <img src="img/card-backgrounds/cover-2-lg.png" class="cover" alt="cover">
+                            <a href="#" onclick="return false;" class="pull-trigger-btn" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar" data-focus="nav_filter_input">
+                                <i class="fal fa-angle-down"></i>
+                            </a>
+                        </div>
+                        <div class="nav-filter">
+                            <div class="position-relative">
+                                <input type="text" id="nav_filter_input" placeholder="Filter menu" class="form-control" tabindex="0">
+                                <a href="#" onclick="return false;" class="btn-primary btn-search-close js-waves-off" data-action="toggle" data-class="list-filter-active" data-target=".page-sidebar">
+                                    <i class="fal fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <ul id="js-nav-menu" class="nav-menu">
+                        	<li>
+                                <a href="#" title="首页" 
+                                	data-module="home"
+                                	data-target="#js-page-content" 
+                                	data-filter-tags="navLink wws home">
+                                	<i class="fal fa-home"></i>
+                                    <span class="nav-link-text" data-i18n="nav.wws_home">首页</span>
+                                    <span class="dl-ref bg-primary-500 hidden-nav-function-minify hidden-nav-function-top">12,500+</span>
+                                </a>
+                            </li>
+                            <li class="nav-title">任务 &amp; 计划任务</li>
+                            <li>
+                                <a href="#" title="任务管理 " data-filter-tags="任务管理">
+                                    <i class="fal fa-list"></i>
+                                    <span class="nav-link-text" data-i18n="nav.wwsjob.mgr">任务管理</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" title="任务模板" 
+	                                        data-module="wws_job_template_layout"
+	                                		data-target="#js-page-content" 
+	                                		data-filter-tags="navLink 任务 管理  模板">
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_template">任务模板</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="任务实例"
+                                        	data-module="wws_job_instance"
+                                			data-target="#js-page-content"
+                                        	data-filter-tags="navLink 任务 管理  实例 job instance">
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_instance">任务实例</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="计划任务" 
+                                        	data-module="wws_cron"
+                                			data-target="#js-page-content"
+                                        	data-filter-tags="navLink 任务 管理  计划任务" >
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_cron">计划任务</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="维度" 
+                                        	data-module="wws_dimension"
+                                			data-target="#js-page-content"
+                                        	data-filter-tags="navLink 任务 管理  维度">
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_dimension">任务维度</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="产品 插件" 
+                                        	data-module="wws_agent_plu"
+                                			data-target="#js-page-content"
+                                        	data-filter-tags="navLink 任务 管理  产品 插件">
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_agent_plus">产品插件</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="工作日编排" 
+                                        	data-module="wws_calendar"
+                                			data-target="#js-page-content"
+                                        	data-filter-tags="navLink 任务管理  假日 编排">
+                                            <span class="nav-link-text" data-i18n="nav.wwsjob_workday">假日编排</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="DataSouce" data-filter-tags="数据源">
+                                    <i class="fal fa-database"></i>
+                                    <span class="nav-link-text" data-i18n="nav.wwsds">数据源</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" title="Zookeeper" 
+                                        	data-module="settings_zookeeper"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 数据源  zookeeper">
+                                            <span class="nav-link-text" data-i18n="nav.wws_ds_zookeeper">Zookeeper</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Jdbc DataSource"
+                                        	data-module="wws_datasource"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 数据源  Jndi Jdbc DataSource">
+                                            <span class="nav-link-text" data-i18n="nav.wws_ds_jdbc_ds">DataSource</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-title">统计 &amp; 监控 &amp; 日志</li>
+                            <li>
+                                <a href="#" title="Batch" data-filter-tags="wws_batch">
+                                    <i class="fal fa-tasks"></i>
+                                    <span class="nav-link-text" data-i18n="nav.notifications">任务批量</span>
+                                </a>
+                                <ul>
+                               		<li>
+                                        <a href="#" title="Batch Info"
+                                        	data-module="wws_batch"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink batch tasks 批量 任务">
+                                            <span class="nav-link-text" data-i18n="nav.wws_batch_info">批量任务</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Rate Of Progress" 
+                                        	data-module="wws_batch_statistics"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink batch progress 批量 进度">
+                                            <span class="nav-link-text" data-i18n="nav.wws_batch_progress">批量进度</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Batch View" 
+                                        	data-module="wws_batch_sview"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink batch view 批量 视图">
+                                            <span class="nav-link-text" data-i18n="nav.wws_batch_sview">批量单一视图</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="Log" data-filter-tags="wwslog">
+                                    <i class="fal fa-exclamation-circle"></i>
+                                    <span class="nav-link-text" data-i18n="nav.notifications">日志</span>
+                                </a>
+                                <ul>
+                               		<li>
+                                        <a href="#" title="System Log" data-filter-tags="wwslog system_log">
+                                            <span class="nav-link-text" data-i18n="nav.wwslog_system_log">系统日志</span>
+                                            <span class="dl-ref bg-primary-500 hidden-nav-function-minify hidden-nav-function-top">待完成</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Job Log" data-filter-tags="wwslog job_log">
+                                            <span class="nav-link-text" data-i18n="nav.wwslog_job_log">任务日志</span>
+                                            <span class="dl-ref bg-primary-500 hidden-nav-function-minify hidden-nav-function-top">待完成</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-title">说明文档 &amp; 设置</li>
+                            <li>
+                                <a href="#" title="Documents" data-filter-tags="说明文档">
+                                    <i class="fal fa-file"></i>
+                                    <span class="nav-link-text" data-i18n="nav.wwsdoc">说明文档</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" title="Documents" 
+                                        	data-module="document"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 说明文档  documents">
+                                            <span class="nav-link-text" data-i18n="nav.wwsdoc_readme">产品说明</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Cron Expression" 
+                                        	data-module="doc_quartz_cron"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 说明文档  表达式">
+                                            <span class="nav-link-text" data-i18n="nav.wwsdoc_cron_expression">定时任务表达式详解</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Rest Interface" 
+                                        	data-module="doc_rest_interface"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 说明文档  rest interface 开放接口">
+                                            <span class="nav-link-text" data-i18n="nav.wwsdoc_rest_interface">开放接口</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="关于我们" 
+                                        	data-module="settings_contact"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 说明文档  关于我们 contact">
+                                            <span class="nav-link-text" data-i18n="nav.wwsdoc_contactme">关于我们</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="SysManager" data-filter-tags="系统管理">
+                                    <i class="fal fa-user"></i>
+                                    <span class="nav-link-text" data-i18n="nav.wwssys.mgr">系统管理</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" title="用户管理"
+                                        	data-module="wws_sys_user"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 系统管理  用户管理">
+                                            <span class="nav-link-text" data-i18n="nav.wws_sys_user">用户管理</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="产品管理"
+                                        	data-module="wws_product"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 系统管理  产品管理">
+                                            <span class="nav-link-text" data-i18n="nav.wws_product">产品管理</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="角色管理"
+                                        	data-module="wws_sys_role"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink 系统管理  角色管理">
+                                            <span class="nav-link-text" data-i18n="nav.wws_sys_role">角色管理</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" title="Settings" data-filter-tags="theme settings 设置">
+                                    <i class="fal fa-cogs"></i>
+                                    <span class="nav-link-text" data-i18n="nav.theme_settings">设置</span>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a href="#" title="Layout Options" 
+                                        	data-module="settings_layout_options"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink theme settings 设置  layout options">
+                                            <span class="nav-link-text" data-i18n="nav.theme_settings_layout_options">Layout Options</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Saving to Database" 
+                                        	data-module="settings_saving_db"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink theme settings 设置  saving to database">
+                                            <span class="nav-link-text" data-i18n="nav.theme_settings_saving_to_database">Saving to Database</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="Skin Options" 
+                                        	data-module="settings_skin_options"
+                                        	data-target="#js-page-content" 
+                                        	data-filter-tags="navLink theme settings skin options">
+                                            <span class="nav-link-text" data-i18n="nav.theme_settings_skin_options">Skin Options</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="filter-message js-filter-message bg-success-600"></div>
+                    </nav>
+                    <!-- END PRIMARY NAVIGATION -->
+                </aside>
+                <!-- END Left Aside -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN Page Header -->
+                    <header class="page-header" role="banner">
+                        <!-- we need this logo when user switches to nav-function-top -->
+                        <div class="page-logo">
+                            <a href="#" class="page-logo-link press-scale-down d-flex align-items-center">
+                                <img src="img/logo.png" alt="Bocsoft WWS" aria-roledescription="logo">
+                                <span class="page-logo-text mr-1">Bocsoft WWS</span>
+                                <i class="fal fa-angle-down d-inline-block ml-1 fs-lg color-primary-300"></i>
+                            </a>
+                        </div>
+                        <!-- DOC: nav menu layout change shortcut -->
+                        <div class="hidden-md-down dropdown-icon-menu position-relative">
+                            <a href="#" class="header-btn btn js-waves-off" data-action="toggle" data-class="nav-function-hidden" title="Hide Navigation">
+                                <i class="ni ni-menu"></i>
+                            </a>
+                            <ul>
+                                <li>
+                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-minify" title="Minify Navigation">
+                                        <i class="ni ni-minify-nav"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="btn js-waves-off" data-action="toggle" data-class="nav-function-fixed" title="Lock Navigation">
+                                        <i class="ni ni-lock-nav"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- DOC: mobile button appears during mobile width -->
+                        <div class="hidden-lg-up">
+                            <a href="#" class="header-btn btn press-scale-down waves-effect waves-themed" data-action="toggle" data-class="mobile-nav-on">
+                                <i class="ni ni-menu"></i>
+                            </a>
+                        </div>
+                        <div class="ml-auto d-flex">
+                            <!-- app settings -->
+                            <div class="hidden-md-down">
+                                <a href="#" class="header-icon" data-toggle="modal" data-target=".js-modal-settings">
+                                    <i class="fal fa-cog"></i>
+                                </a>
+                            </div>
+                            <!-- app notification -->
+                            <div>
+                                <a href="#" class="header-icon" data-toggle="dropdown" title="You got 11 notifications">
+                                    <i class="fal fa-bell"></i>
+                                    <span class="badge badge-icon">11</span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-animated dropdown-xl">
+                                    <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center rounded-top">
+                                        <h4 class="m-0 text-center color-white">
+                                            11 Messages
+                                            <small class="mb-0 opacity-80">User Notifications About WWS</small>
+                                        </h4>
+                                    </div>
+			                    	<div class="tab-notification custom-scroll h-100">
+		                       			<ul class="notification" style="overflow: hidden; width: auto; height: 100%;">
+				                           <li class="unread">
+				                               <a href="#" class="d-flex align-items-center">
+				                                   <span class="d-flex flex-column flex-1 ml-1">
+				                                       <span class="name">Adison Lee</span>
+				                                       <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+				                                       <span class="fs-nano text-muted mt-1">2 minutes ago</span>
+				                                   </span>
+				                               </a>
+				                           </li>
+				                           <li>
+				                               <a href="#" class="d-flex align-items-center">
+				                                   <span class="d-flex flex-column flex-1 ml-1">
+				                                       <span class="name">Oliver Kopyuv</span>
+				                                       <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+				                                       <span class="fs-nano text-muted mt-1">3 days ago</span>
+				                                   </span>
+				                               </a>
+				                           </li>
+				                           <li>
+				                               <a href="#" class="d-flex align-items-center">
+				                                   <span class="d-flex flex-column flex-1 ml-1">
+				                                       <span class="name">Oliver Kopyuv</span>
+				                                       <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+				                                       <span class="fs-nano text-muted mt-1">3 days ago</span>
+				                                   </span>
+				                               </a>
+				                           </li>
+				                           <li>
+				                               <a href="#" class="d-flex align-items-center">
+				                                   <span class="d-flex flex-column flex-1 ml-1">
+				                                       <span class="name">Oliver Kopyuv</span>
+				                                       <span class="msg-a fs-sm">Msed quia non numquam eius</span>
+				                                       <span class="fs-nano text-muted mt-1">3 days ago</span>
+				                                   </span>
+				                               </a>
+				                           </li>
+				                       </ul>
+				                    </div>
+                                    <div class="py-2 px-3 bg-faded d-block rounded-bottom text-right border-faded border-bottom-0 border-right-0 border-left-0">
+                                        <a href="#" class="fs-xs fw-500 ml-auto">view all notifications</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- app user menu -->
+                            <div>
+                                <a href="#" data-toggle="dropdown" title="luoyanxue@126.com" class="header-icon d-flex align-items-center justify-content-center ml-2">
+                                    <img src="img/demo/avatars/avatar-admin.png" class="profile-image rounded-circle" alt="WWS Adminstrator">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-animated dropdown-lg">
+                                    <div class="dropdown-header bg-trans-gradient d-flex flex-row py-4 rounded-top">
+                                        <div class="d-flex flex-row align-items-center mt-1 mb-1 color-white">
+                                            <span class="mr-2">
+                                                <img src="img/demo/avatars/avatar-admin.png" class="rounded-circle profile-image" alt="Dr. Codex Lantern">
+                                            </span>
+                                            <div class="info-card-text">
+                                                <div class="fs-lg text-truncate text-truncate-lg">wws Admin</div>
+                                                <span class="text-truncate text-truncate-md opacity-80">luoyanxue@126.com</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a href="#" class="dropdown-item" data-action="app-reset">
+                                        <span data-i18n="drpdwn.reset_layout">Reset Layout</span>
+                                    </a>
+                                    <a href="#" class="dropdown-item" data-toggle="modal" data-target=".js-modal-settings">
+                                        <span data-i18n="drpdwn.settings">Settings</span>
+                                    </a>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a href="#" class="dropdown-item" data-action="app-fullscreen">
+                                        <span data-i18n="drpdwn.fullscreen">Fullscreen</span>
+                                        <i class="float-right text-muted fw-n">F11</i>
+                                    </a>
+                                    <a href="#" class="dropdown-item" data-action="app-print">
+                                        <span data-i18n="drpdwn.print">Print</span>
+                                        <i class="float-right text-muted fw-n">Ctrl + P</i>
+                                    </a>
+                                    <div class="dropdown-multilevel dropdown-multilevel-left">
+                                        <div class="dropdown-item">
+                                            Language
+                                        </div>
+                                        <div class="dropdown-menu">
+                                            <a href="#?lang=fr" class="dropdown-item" data-action="lang" data-lang="fr">Français</a>
+                                            <a href="#?lang=en" class="dropdown-item active" data-action="lang" data-lang="en">English (US)</a>
+                                            <a href="#?lang=es" class="dropdown-item" data-action="lang" data-lang="es">Español</a>
+                                            <a href="#?lang=ru" class="dropdown-item" data-action="lang" data-lang="ru">Русский язык</a>
+                                            <a href="#?lang=jp" class="dropdown-item" data-action="lang" data-lang="jp">日本語</a>
+                                            <a href="#?lang=ch" class="dropdown-item" data-action="lang" data-lang="ch">中文</a>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-divider m-0"></div>
+                                    <a class="dropdown-item fw-500 pt-3 pb-3" href="#">
+                                        <span data-i18n="drpdwn.page-logout">Logout</span>
+                                        <span class="float-right fw-n">wwsAdmin</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+                    <!-- END Page Header -->
+                    <!-- BEGIN Page Content -->
+                    <!-- the #js-page-content id is needed for some plugins to initialize -->
+                    <main id="js-page-content" role="main" class="page-content">
+                    	
+                    </main>
+                    <!-- this overlay is activated only when mobile menu is triggered -->
+                    <div class="page-content-overlay" data-action="toggle" data-class="mobile-nav-on"></div> <!-- END Page Content -->
+                    <!-- BEGIN Page Footer -->
+                    <footer class="page-footer" role="contentinfo">
+                        <div class="d-flex align-items-center flex-1 text-muted">
+                            <span class="hidden-md-down fw-700">2019 © wws by&nbsp;<a href="http://www.boc.cn" class="text-primary fw-500" target="_blank">BANK OF CHINA</a>,&nbsp;&nbsp;Product by &nbsp;数据平台服务团队(AIAP,DCDS,WWS)</span>
+                        </div>
+                        <div>
+                            <ul class="list-table m-0">
+                                <li><a href="#" class="text-secondary fw-700">About</a></li>
+                                <li class="pl-3"><a href="#" class="text-secondary fw-700">License</a></li>
+                                <li class="pl-3"><a href="#" class="text-secondary fw-700">Documentation</a></li>
+                                <li class="pl-3 fs-xl"><a href="#" class="text-secondary"><i class="fal fa-question-circle" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </footer>
+                    <!-- END Page Footer -->
+                </div>
+            </div>
+        </div>
+        <!-- END Page Wrapper -->
+        <!-- BEGIN Quick Menu -->
+        <nav class="shortcut-menu hidden-sm-down">
+            <input type="checkbox" class="menu-open" name="menu-open" id="menu_open">
+            <label for="menu_open" class="menu-open-button ">
+                <span class="app-shortcut-icon d-block"></span>
+            </label>
+            <a href="#" class="menu-item btn waves-effect waves-themed" data-toggle="tooltip" data-placement="left" title="" data-original-title="Scroll Top">
+                <i class="fal fa-arrow-up"></i>
+            </a>
+            <a href="#" class="menu-item btn waves-effect waves-themed" data-toggle="tooltip" data-placement="left" title="" data-original-title="Logout">
+                <i class="fal fa-sign-out"></i>
+            </a>
+            <a href="#" class="menu-item btn waves-effect waves-themed" data-action="app-fullscreen" data-toggle="tooltip" data-placement="left" title="" data-original-title="Full Screen">
+                <i class="fal fa-expand"></i>
+            </a>
+            <a href="#" class="menu-item btn waves-effect waves-themed" data-action="app-print" data-toggle="tooltip" data-placement="left" title="" data-original-title="Print page">
+                <i class="fal fa-print"></i>
+            </a>
+        </nav>
+        <!-- END Quick Menu -->
+        <!-- BEGIN Page Settings -->
+        <div class="modal fade js-modal-settings modal-backdrop-transparent" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-right modal-md">
+                <div class="modal-content">
+                    <div class="dropdown-header bg-trans-gradient d-flex justify-content-center align-items-center w-100">
+                        <h4 class="m-0 text-center color-white">
+                            Layout Settings
+                            <small class="mb-0 opacity-80">User Interface Settings</small>
+                        </h4>
+                        <button type="button" class="close text-white position-absolute pos-top pos-right p-2 m-1 mr-2" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="fal fa-times"></i></span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div class="settings-panel">
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        App Layout
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="fh">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="header-function-fixed"></a>
+                                <span class="onoffswitch-title">Fixed Header</span>
+                                <span class="onoffswitch-title-desc">header is in a fixed at all times</span>
+                            </div>
+                            <div class="list" id="nff">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-fixed"></a>
+                                <span class="onoffswitch-title">Fixed Navigation</span>
+                                <span class="onoffswitch-title-desc">left panel is fixed</span>
+                            </div>
+                            <div class="list" id="nfm">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-minify"></a>
+                                <span class="onoffswitch-title">Minify Navigation</span>
+                                <span class="onoffswitch-title-desc">Skew nav to maximize space</span>
+                            </div>
+                            <div class="list" id="nfh">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-hidden"></a>
+                                <span class="onoffswitch-title">Hide Navigation</span>
+                                <span class="onoffswitch-title-desc">roll mouse on edge to reveal</span>
+                            </div>
+                            <div class="list" id="nft">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-function-top"></a>
+                                <span class="onoffswitch-title">Top Navigation</span>
+                                <span class="onoffswitch-title-desc">Relocate left pane to top</span>
+                            </div>
+                            <div class="list" id="mmb">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-main-boxed"></a>
+                                <span class="onoffswitch-title">Boxed Layout</span>
+                                <span class="onoffswitch-title-desc">Encapsulates to a container</span>
+                            </div>
+                            <div class="expanded">
+                                <ul class="">
+                                    <li>
+                                        <div class="bg-fusion-50" data-action="toggle" data-class="mod-bg-1"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-warning-200" data-action="toggle" data-class="mod-bg-2"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-primary-200" data-action="toggle" data-class="mod-bg-3"></div>
+                                    </li>
+                                    <li>
+                                        <div class="bg-success-300" data-action="toggle" data-class="mod-bg-4"></div>
+                                    </li>
+                                </ul>
+                                <div class="list" id="mbgf">
+                                    <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-fixed-bg"></a>
+                                    <span class="onoffswitch-title">Fixed Background</span>
+                                </div>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Mobile Menu
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="nmp">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-push"></a>
+                                <span class="onoffswitch-title">Push Content</span>
+                                <span class="onoffswitch-title-desc">Content pushed on menu reveal</span>
+                            </div>
+                            <div class="list" id="nmno">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-no-overlay"></a>
+                                <span class="onoffswitch-title">No Overlay</span>
+                                <span class="onoffswitch-title-desc">Removes mesh on menu reveal</span>
+                            </div>
+                            <div class="list" id="sldo">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="nav-mobile-slide-out"></a>
+                                <span class="onoffswitch-title">Off-Canvas <sup>(beta)</sup></span>
+                                <span class="onoffswitch-title-desc">Content overlaps menu</span>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Accessibility
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="mbf">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-bigger-font"></a>
+                                <span class="onoffswitch-title">Bigger Content Font</span>
+                                <span class="onoffswitch-title-desc">content fonts are bigger for readability</span>
+                            </div>
+                            <div class="list" id="mhc">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-high-contrast"></a>
+                                <span class="onoffswitch-title">High Contrast Text (WCAG 2 AA)</span>
+                                <span class="onoffswitch-title-desc">4.5:1 text contrast ratio</span>
+                            </div>
+                            <div class="list" id="mcb">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-color-blind"></a>
+                                <span class="onoffswitch-title">Daltonism <sup>(beta)</sup> </span>
+                                <span class="onoffswitch-title-desc">color vision deficiency</span>
+                            </div>
+                            <div class="list" id="mpc">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-pace-custom"></a>
+                                <span class="onoffswitch-title">Preloader Inside</span>
+                                <span class="onoffswitch-title-desc">preloader will be inside content</span>
+                            </div>
+                            <div class="mt-4 d-table w-100 px-5">
+                                <div class="d-table-cell align-middle">
+                                    <h5 class="p-0">
+                                        Global Modifications
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="list" id="mcbg">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-clean-page-bg"></a>
+                                <span class="onoffswitch-title">Clean Page Background</span>
+                                <span class="onoffswitch-title-desc">adds more whitespace</span>
+                            </div>
+                            <div class="list" id="mhni">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-hide-nav-icons"></a>
+                                <span class="onoffswitch-title">Hide Navigation Icons</span>
+                                <span class="onoffswitch-title-desc">invisible navigation icons</span>
+                            </div>
+                            <div class="list" id="dan">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-disable-animation"></a>
+                                <span class="onoffswitch-title">Disable CSS Animation</span>
+                                <span class="onoffswitch-title-desc">Disables CSS based animations</span>
+                            </div>
+                            <div class="list" id="mhic">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-hide-info-card"></a>
+                                <span class="onoffswitch-title">Hide Info Card</span>
+                                <span class="onoffswitch-title-desc">Hides info card from left panel</span>
+                            </div>
+                            <div class="list" id="mlph">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-lean-subheader"></a>
+                                <span class="onoffswitch-title">Lean Subheader</span>
+                                <span class="onoffswitch-title-desc">distinguished page header</span>
+                            </div>
+                            <div class="list" id="mnl">
+                                <a href="#" onclick="return false;" class="btn btn-switch" data-action="toggle" data-class="mod-nav-link"></a>
+                                <span class="onoffswitch-title">Hierarchical Navigation</span>
+                                <span class="onoffswitch-title-desc">Clear breakdown of nav links</span>
+                            </div>
+                            <div class="list mt-3">
+                                <span class="onoffswitch-title">Global Font Size <small>(RESETS ON REFRESH)</small> </span>
+                                <div class="btn-group btn-group-sm btn-group-toggle my-2" data-toggle="buttons">
+                                    <label class="btn btn-default btn-sm waves-effect waves-themed" data-action="toggle-swap" data-class="root-text-sm" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> SM
+                                    </label>
+                                    <label class="btn btn-default btn-sm waves-effect waves-themed" data-action="toggle-swap" data-class="root-text" data-target="html">
+                                        <input type="radio" name="changeFrontSize" checked> MD
+                                    </label>
+                                    <label class="btn btn-default btn-sm waves-effect waves-themed" data-action="toggle-swap" data-class="root-text-lg" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> LG
+                                    </label>
+                                    <label class="btn btn-default btn-sm waves-effect waves-themed" data-action="toggle-swap" data-class="root-text-xl" data-target="html">
+                                        <input type="radio" name="changeFrontSize"> XL
+                                    </label>
+                                </div>
+                                <span class="onoffswitch-title-desc d-block mb-g">Change <strong>root</strong> font size to effect rem values</span>
+                            </div>
+                            <hr class="m-0">
+                            <div class="p-3 d-flex align-items-center justify-content-center bg-faded">
+                                <a href="#" class="btn btn-outline-danger fw-500 mr-2 waves-effect waves-themed" data-action="app-reset">Reset Settings</a>
+                                <a href="#" class="btn btn-danger fw-500 waves-effect waves-themed" data-action="factory-reset">Factory Reset</a>
+                            </div>
+                        </div>
+                        <span id="saving"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<!-- END Page Settings -->
+		<!-- START 蓝白色条纹加载条 -->
+		<div class="modal hide" id="myLoaddingModal" tabindex="-1" aria-hidden="true" data-backdrop='static'>
+			<div class="modal-dialog modal-sm">
+				<div class="progress progress-striped" style="margin-bottom:0;width:100%;height:26px;">
+					<div class="progress-bar active" style="width:100%;">
+						<span style="font-weight: bold;"><i class="fal fa-cog fa-spin mr-1"></i>加载中 <i class="fal fa-coffee mx-1"></i>请稍等...</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- END 蓝白色条纹加载条 -->
+		<script src="js/jquery-3.4.1.js"></script>
+        <script src="js/vendors.js"></script>
+        <script src="js/app.js"></script>
+        <script data-main="main" src="js/require-2.3.6.js"></script>
+        <script type="text/x-jtk-templates" src="js/jsplumb/jsplumbtoolkit-wwsjob.tpl"></script>
+	</body>
+</html>

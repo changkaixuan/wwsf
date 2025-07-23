@@ -1,0 +1,2082 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<ol class="breadcrumb page-breadcrumb">
+	<li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+	<li class="breadcrumb-item">文档</li>
+	<li class="breadcrumb-item active">命令</li>
+	<li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="subheader mt-3">
+	<h1 class="subheader-title">
+		<i class='subheader-icon fal fa-tag'></i> 字符终端说明
+		<small class="mt-2">WWS任务调度系统是需要字符命令执行完成，熟练掌握和使用每一个命令是正确使用调度系统的前提。成功启动字符终端后就可以执行相关的调度命令。</small>
+	</h1>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			字符终端命令一览
+			<small class="mb-2 mt-1"> 
+			批量操作命令: 
+						<code><a href="#batch">batch</a></code><br/>
+			定时任务命令: 
+						 <code><a href="#c-cj-list">c-cj-list</a></code> 
+						 <code><a href="#cj-install">cj-install</a></code> 
+						 <code><a href="#cj-start">cj-start</a></code> 
+						 <code><a href="#cj-stop">cj-stop</a></code> 
+						 <code><a href="#cj-list">cj-list</a></code><br/>
+			数据源命令: 
+						<code><a href="#c-ds-info">c-ds-info</a></code> 
+					    <code><a href="#c-ds-list">c-ds-list</a></code> 
+					    <code><a href="#ds-create">ds-create</a></code> 
+						<code><a href="#ds-destroy">ds-destroy</a></code> 
+						<code><a href="#ds-info">ds-info</a></code> 
+						<code><a href="#ds-install">ds-install</a></code> 
+						<code><a href="#ds-list">ds-list</a></code> <br/>
+			节点操作命令: 	   
+						<code><a href="#c-plu-pools">c-plu-pools</a></code> 
+						<code><a href="#c-plu-pool-resize">c-plu-pool-resize</a></code> 
+						<code><a href="#nodes">nodes</a></code> 
+						<code><a href="#plu-pools">plu-pools</a></code> 
+						<code><a href="#plu-pool-resize">plu-pool-resize</a></code> 
+						<code><a href="#spof">spof</a></code> 
+						<code><a href="#sr-info">sr-info</a></code> 
+						<code><a href="#sr-mqueue">sr-mqueue</a></code> 
+						<code><a href="#sr-release">sr-release</a></code> <br/>
+			加解密命令:
+						<code><a href="#decrypt-key">decrypt-key</a></code> 
+						<code><a href="#decrypt-text">decrypt-text</a></code> 
+						<code><a href="#encrypt-key">encrypt-key</a></code> 
+						<code><a href="#encrypt-text">encrypt-text</a></code><br/>
+			job操作命令:
+						<code><a href="#j-disable">j-disable</a></code> 
+						<code><a href="#j-driver">j-driver</a></code> 
+						<code><a href="#j-info">j-info</a></code> 
+						<code><a href="#j-ins">j-ins</a></code> 
+						<code><a href="#j-pause">j-pause</a></code> 
+						<code><a href="#j-query">j-query</a></code> 
+						<code><a href="#j-renovate">j-renovate</a></code> 
+						<code><a href="#j-rerun">j-rerun</a></code> 
+						<code><a href="#j-rerunfailed">j-rerunfailed</a></code> 
+						<code><a href="#j-rerununpassed">j-rerununpassed</a></code> 
+						<code><a href="#j-update">j-update</a></code> 
+						<code><a href="#t-info">t-info</a></code> 
+						<code><a href="#t-update">t-update</a></code> 
+						<code><a href="#t-updatebytid">t-updatebytid</a></code><br/>
+			sql操作命令:
+						<code><a href="#exe-sqlfile">exe-sqlfile</a></code> <br/>
+			</small>
+		</h2>
+	</div>
+</div>
+<!-- ------------------------------ 批量操作命令  start  ---------------------------------- -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			批量操作命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>batch</td>
+						<td>展示批量任务列表</td>
+						<td>wws:batch [options] [batch]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="batch">batch</a></code> <small>展示批量任务列表</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>batch</td>
+						<td>无</td>
+						<td>否</td>
+						<td>查询的批次号</td>
+					</tr>
+					<tr>
+						<td>-s</td>
+						<td>30</td>
+						<td>否</td>
+						<td>每页显示的记录数目</td>
+					</tr>
+					<tr>
+						<td>-p</td>
+						<td>1</td>
+						<td>否</td>
+						<td>当前显示的第几页</td>
+					</tr>
+					<tr>
+						<td>-i</td>
+						<td>无</td>
+						<td>否</td>
+						<td>打印的间隔时间(s)，如设置，需大于0</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>当设置-i，未设置-t时，-t默认不限次数打印</td>
+						<td>否</td>
+						<td>job运行状态打印次数,如果该参数count大于0,则打印count次，如果小于0,则不限次数打印</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ 批量操作命令  end  ---------------------------------- -->
+
+<!-- ------------------------------ 定时任务命令  start  ---------------------------------- -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			定时任务命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>c-cj-list</td>
+						<td>展示cron列表</td>
+						<td>wws:c-cj-list [options] [displayParameters]</td>
+					</tr>
+					<tr>
+						<td>cj-install</td>
+						<td>安装一个cron任务</td>
+						<td>wws:cj-install [options]</td>
+					</tr>
+					<tr>
+						<td>cj-start</td>
+						<td>开始一个cron任务</td>
+						<td>wws:cj-start [options] [clean shared data.]</td>
+					</tr>
+					<tr>
+						<td>cj-stop</td>
+						<td>停止一个cron任务</td>
+						<td>wws:cj-stop [options]</td>
+					</tr>
+					<tr>
+						<td>cj-list</td>
+						<td>展示cron任务列表</td>
+						<td>wws:cj-list [displayParameters]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="c-cj-list">c-cj-list</a></code> <small>展示cron列表</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>displayParameters</td>
+						<td>false</td>
+						<td>否</td>
+						<td>是否显示此cron任务的参数</td>
+					</tr>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点号</td>
+					</tr>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>否</td>
+						<td>cron任务编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="cj-install">cj-install</a></code> <small>安装一个cron任务</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>cfg</td>
+						<td>无</td>
+						<td>是</td>
+						<td>cron任务的配置信息，json格式字符串，键必须包含jobId, cronExpression, plugin, programName</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="cj-start">cj-start</a></code> <small>开始一个cron任务</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>clean shared data.</td>
+						<td>false</td>
+						<td>否</td>
+						<td>是否清除历史数据</td>
+					</tr>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>cron任务编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="cj-stop">cj-stop</a></code> <small>停止一个cron任务</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>cron任务编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="cj-list">cj-list</a></code> <small>展示cron任务列表</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>displayParameters</td>
+						<td>false</td>
+						<td>否</td>
+						<td>是否展示cron任务的参数</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ 定时任务命令  end  ---------------------------------- -->
+
+<!-- ------------------------------ 数据源命令  start  ---------------------------------- -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			数据源命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>c-ds-info</td>
+						<td>展示数据源的详细信息</td>
+						<td>wws:c-ds-info [options] dataSource</td>
+					</tr>
+					<tr>
+						<td>c-ds-list</td>
+						<td>展示数据源列表</td>
+						<td>wws:c-ds-list [options]</td>
+					</tr>
+					<tr>
+						<td>ds-create</td>
+						<td>创建本地数据源</td>
+						<td>wws:ds-create --name</td>
+					</tr>
+					<tr>
+						<td>ds-destroy</td>
+						<td>销毁本地数据源</td>
+						<td>wws:ds-destroy --name</td>
+					</tr>
+					<tr>
+						<td>ds-info</td>
+						<td>显示数据源详细信息</td>
+						<td>wws:ds-info --name</td>
+					</tr>
+					<tr>
+						<td>ds-install</td>
+						<td>安装一个数据源</td>
+						<td>wws:ds-install [options]</td>
+					</tr>
+					<tr>
+						<td>ds-list</td>
+						<td>展示数据源列表</td>
+						<td>wws:ds-list</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="c-ds-info">c-ds-info</a></code> <small>展示数据源的详细信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>dataSource</td>
+						<td>无</td>
+						<td>是</td>
+						<td>数据源的名称</td>
+					</tr>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="c-ds-list">c-ds-list</a></code> <small>展示数据源列表</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="ds-create">ds-create</a></code> <small>创建本地数据源</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>--name</td>
+						<td>无</td>
+						<td>是</td>
+						<td>数据源名称</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="ds-destroy">ds-destroy</a></code> <small>销毁本地数据源</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>--name</td>
+						<td>无</td>
+						<td>是</td>
+						<td>数据源名称</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="ds-info">ds-info</a></code> <small>显示数据源详细信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>--name</td>
+						<td>无</td>
+						<td>是</td>
+						<td>数据源名称</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="ds-install">ds-install</a></code> <small>安装一个数据源</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>cfg</td>
+						<td>无</td>
+						<td>是</td>
+						<td>数据源的配置信息，json格式字符串，键必须包含driverClass, name, jdbcUrl, jdbcUser, jdbcPassword, driverName</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="ds-list">ds-list</a></code> <small>展示数据源列表</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ 数据源命令  end  ------------------------------------ -->
+
+<!-- ------------------------------ 节点操作命令  start  ---------------------------------- -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			节点操作命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>c-plu-pools</td>
+						<td>打印节点上插件执行信息</td>
+						<td>wws:c-plu-pools [options]</td>
+					</tr>
+					<tr>
+						<td>c-plu-pool-resize</td>
+						<td>设置执行的插件池的某个插件的核心容量和最大容量</td>
+						<td>wws:c-plu-pool-resize [options]</td>
+					</tr>
+					<tr>
+						<td>nodes</td>
+						<td>打印节点列表</td>
+						<td>wws:nodes [options]</td>
+					</tr>
+					<tr>
+						<td>plu-pools</td>
+						<td>打印节点上的插件执行信息</td>
+						<td>wws:plu-pools [options]</td>
+					</tr>
+					<tr>
+						<td>plu-pool-resize</td>
+						<td>重设执行插件的核心容量和最大容量</td>
+						<td>wws:plu-pool-resize [options]</td>
+					</tr>
+					<tr>
+						<td>spof</td>
+						<td>接管某个节点上出了故障的task</td>
+						<td>wws:spof [options]</td>
+					</tr>
+					<tr>
+						<td>sr-info</td>
+						<td>打印主节点资源信息</td>
+						<td>wws:sr-info [options]</td>
+					</tr>
+					<tr>
+						<td>sr-mqueue</td>
+						<td>打印主节点接受队列信息</td>
+						<td>wws:sr-mqueue [job instance id]</td>
+					</tr>
+					<tr>
+						<td>sr-release</td>
+						<td>释放资源</td>
+						<td>wws:sr-release [schedule resource id]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="c-plu-pools">c-plu-pools</a></code> <small>打印节点上插件执行信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="c-plu-pool-resize">c-plu-pool-resize</a></code> <small>设置执行的插件池的某个插件的核心容量和最大容量</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点</td>
+					</tr>
+					<tr>
+						<td>-name</td>
+						<td>无</td>
+						<td>是</td>
+						<td>插件名称</td>
+					</tr>
+					<tr>
+						<td>-m</td>
+						<td>无</td>
+						<td>是</td>
+						<td>最大容量</td>
+					</tr>
+					<tr>
+						<td>-c</td>
+						<td>无</td>
+						<td>是</td>
+						<td>核心容量</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="nodes">nodes</a></code> <small>打印节点信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>否</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="plu-pools">plu-pools</a></code> <small>打印节点上插件的执行信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-t</td>
+						<td>1</td>
+						<td>否</td>
+						<td>打印次数</td>
+					</tr>
+					<tr>
+						<td>-s</td>
+						<td>2</td>
+						<td>否</td>
+						<td>打印的间隔时间(s)</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="plu-pool-resize">plu-pool-resize</a></code> <small>重设执行的插件的核心容量和最大容量</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>插件名称</td>
+					</tr>
+					<tr>
+						<td>-m</td>
+						<td>无</td>
+						<td>是</td>
+						<td>最大容量</td>
+					</tr>
+					<tr>
+						<td>-c</td>
+						<td>无</td>
+						<td>是</td>
+						<td>核心容量</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="spof">spof</a></code> <small>接管某个节点上出了故障的task</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>产品</td>
+					</tr>
+					<tr>
+						<td>-n</td>
+						<td>无</td>
+						<td>是</td>
+						<td>节点</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="sr-info">sr-info</a></code> <small>打印主节点资源信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-t</td>
+						<td>1</td>
+						<td>否</td>
+						<td>打印次数</td>
+					</tr>
+					<tr>
+						<td>-s</td>
+						<td>2</td>
+						<td>否</td>
+						<td>打印时间间隔</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="sr-mqueue">sr-mqueue</a></code> <small>打印主节点接收队列信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>job instance id</td>
+						<td>无</td>
+						<td>否</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="sr-release">sr-release</a></code> <small>释放资源</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>sechedule resource id</td>
+						<td>无</td>
+						<td>是</td>
+						<td>资源编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ 节点操作命令  end  ------------------------------------ -->
+
+<!-- ------------------------------ 加解密命令  start  ------------------------------------ -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			加解密命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>decrypt-key</td>
+						<td>解密key</td>
+						<td>wws:decrypt-key ciphertext</td>
+					</tr>
+					<tr>
+						<td>decrypt-text</td>
+						<td>解密密码或其他keys</td>
+						<td>wws:decrypt-text ciphertext</td>
+					</tr>
+					
+					<tr>
+						<td>encrypt-key</td>
+						<td>加密密码或者其它keys</td>
+						<td>wws:encrypt-key [options]</td>
+					</tr>
+					<tr>
+						<td>encrypt-text</td>
+						<td>加密密码或者其它keys</td>
+						<td>wws:encrypt-text [options]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="decrypt-key">decrypt-key</a></code> <small>解密key</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>ciphertext</td>
+						<td>无</td>
+						<td>是</td>
+						<td>加密的key</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="decrypt-text">decrypt-text</a></code> <small>解密密码或者其它keys</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>ciphertext</td>
+						<td>无</td>
+						<td>是</td>
+						<td>加密的密码或者其它keys</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="encrypt-key">encrypt-key</a></code> <small>加密密码或者其它keys</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>明文</td>
+					</tr>
+					<tr>
+						<td>-c</td>
+						<td>无</td>
+						<td>是</td>
+						<td>确认明文</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="encrypt-text">encrypt-text</a></code> <small>加密密码或者其它keys</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>明文</td>
+					</tr>
+					<tr>
+						<td>-c</td>
+						<td>无</td>
+						<td>是</td>
+						<td>确认明文</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ 加解密命令  end  -------------------------------------- -->
+
+<!-- ------------------------------ job操作命令 start ------------------------------------ -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			job操作命令
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>j-disable</td>
+						<td>将job实例下面task实例状态设为通过</td>
+						<td>wws:j-disable [options]</td>
+					</tr>
+					<tr>
+						<td>j-driver</td>
+						<td>驱动一个job实例</td>
+						<td>wws:j-driver [options]</td>
+					</tr>
+					<tr>
+						<td>j-info</td>
+						<td>打印一个job实例详细信息</td>
+						<td>wws:j-info [options]</td>
+					</tr>
+					<tr>
+						<td>j-ins</td>
+						<td>实例化一个job模板</td>
+						<td>wws:j-ins [options]</td>
+					</tr>
+					<tr>
+						<td>j-pause</td>
+						<td>暂停一个job实例</td>
+						<td>wws:j-pause [options]</td>
+					</tr>
+					<tr>
+						<td>j-query</td>
+						<td>查询一个job实例运行信息</td>
+						<td>wws:j-query [options]</td>
+					</tr>
+					<tr>
+						<td>j-renovate</td>
+						<td>更新一个job实例</td>
+						<td>wws:j-renovate [options]</td>
+					</tr>
+					<tr>
+						<td>j-rerun</td>
+						<td>重跑一个job实例</td>
+						<td>wws:j-rerun [options]</td>
+					</tr>
+					<tr>
+						<td>j-rerunfailed</td>
+						<td>重跑一个job实例下失败的task实例</td>
+						<td>wws:j-rerunfailed [options]</td>
+					</tr>
+					<tr>
+						<td>j-rerununpassed</td>
+						<td>重跑一个job实例下未通过的task实例</td>
+						<td>wws:j-rerununpassed [options]</td>
+					</tr>
+					<tr>
+						<td>j-update</td>
+						<td>更新一个job实例的参数信息</td>
+						<td>wws:j-update [options]</td>
+					</tr>
+					
+					<tr>
+						<td>t-info</td>
+						<td>打印task实例详细信息</td>
+						<td>wws:t-info [options]</td>
+					</tr>
+					<tr>
+						<td>t-update</td>
+						<td>更新task实例属性</td>
+						<td>wws:t-update [options]</td>
+					</tr>
+					<tr>
+						<td>t-updatebytid</td>
+						<td>更新task模板属性</td>
+						<td>wws:t-updatebytid [options]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-disable">j-disable</a></code> <small>将job实例下面task实例状态设为通过</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-t</td>
+						<td>不传时默认全部task实例</td>
+						<td>否</td>
+						<td>task实例编号，可传多个</td>
+					</tr>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-driver">j-driver</a></code> <small>驱动一个job实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-t</td>
+						<td>不传时默认全部task实例</td>
+						<td>否</td>
+						<td>task实例编号，可传多个</td>
+					</tr>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-info">j-info</a></code> <small>打印一个job实例详细信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-ins">j-ins</a></code> <small>实例化一个job模板</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job模板编号</td>
+					</tr>
+					<tr>
+						<td>-p</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job模板所属产品</td>
+					</tr>
+					<tr>
+						<td>-v</td>
+						<td>无</td>
+						<td>否</td>
+						<td>job模板实例化的参数</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-pause">j-pause</a></code> <small>暂停一个job实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-c</td>
+						<td>false</td>
+						<td>否</td>
+						<td>是否继续执行这个暂停的job</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-query">j-query</a></code> <small>查询一个job实例执行信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-s</td>
+						<td>30</td>
+						<td>否</td>
+						<td>每页显示的记录数量</td>
+					</tr>
+					<tr>
+						<td>-p</td>
+						<td>1</td>
+						<td>否</td>
+						<td>当前显示的第几页</td>
+					</tr>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-i</td>
+						<td>无</td>
+						<td>否</td>
+						<td>打印的间隔时间(s)，如设置，需大于0</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>当设置-i，未设置-t时，-t默认不限次数打印</td>
+						<td>否</td>
+						<td>job运行状态打印次数,如果该参数count大于0,则打印count次，如果小于0,则不限次数打印</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-renovate">j-renovate</a></code> <small>更新一个job实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>无</td>
+						<td>是</td>
+						<td>task实例编号,可输入多个</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-rerun">j-rerun</a></code> <small>重跑一个job实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>无</td>
+						<td>是</td>
+						<td>task实例编号,可输入多个</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-rerunfailed">j-rerunfailed</a></code> <small>重跑一个job实例下的失败的task实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>默认全部task实例</td>
+						<td>否</td>
+						<td>task实例编号,可输入多个</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-rerununpassed">j-rerununpassed</a></code> <small>重跑一个job实例下的未通过的task实例</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="j-update">j-update</a></code> <small>更新一个job实例的参数信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-v</td>
+						<td>无</td>
+						<td>是</td>
+						<td>参数信息， json格式字符串</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="t-info">t-info</a></code> <small>打印task实例详细信息</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-d</td>
+						<td>false</td>
+						<td>否</td>
+						<td>展示task实例基本信息</td>
+					</tr>
+					<tr>
+						<td>-i</td>
+						<td>false</td>
+						<td>否</td>
+						<td>展示运行日志</td>
+					</tr>
+					<tr>
+						<td>-l</td>
+						<td>false</td>
+						<td>否</td>
+						<td>展示依赖关系</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>无</td>
+						<td>是</td>
+						<td>task实例编号</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="t-update">t-update</a></code> <small>更新task实例属性</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>无</td>
+						<td>是</td>
+						<td>task实例编号</td>
+					</tr>
+					<tr>
+						<td>-v</td>
+						<td>无</td>
+						<td>是</td>
+						<td>参数，json格式字符串</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="t-updatebytid">t-updatebytid</a></code> <small>更新task模板属性</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-j</td>
+						<td>无</td>
+						<td>是</td>
+						<td>job实例编号</td>
+					</tr>
+					<tr>
+						<td>-t</td>
+						<td>无</td>
+						<td>是</td>
+						<td>task模板编号</td>
+					</tr>
+					<tr>
+						<td>-v</td>
+						<td>无</td>
+						<td>是</td>
+						<td>参数，json格式字符串</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ job操作命令  end  ------------------------------------- -->
+
+<!-- ------------------------------ sql操作命令  satrt  ----------------------------------- -->
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			sql操作命令 
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<tbody>
+					<tr>
+						<td style="width: 200px">命令</td>
+						<td>描述</td>
+						<td>语法</td>
+					</tr>
+					<tr>
+						<td>exe-sqlfile</td>
+						<td>执行sql文件(ddl dml)</td>
+						<td>wws:exe-sqlfile [options]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="card mb-g">
+	<div class="card-body">
+		<h2 class="fw-700 mb-g">
+			<code><a id="exe-sqlfile">exe-sqlfile</a></code> <small>执行sql文件(ddl dml)</small>
+		</h2>
+		<div class="table-responsive">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th style="width: 200px">参数/选项</th>
+						<th style="width: 150px">默认值</th>
+						<th style="width: 100px">是否必填</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>-f</td>
+						<td>无</td>
+						<td>是</td>
+						<td>sql文件名</td>
+					</tr>
+					<tr>
+						<td>-ds</td>
+						<td>如传空字符串，默认使用配置文件中的数据源名称</td>
+						<td>是</td>
+						<td>数据源名称</td>
+					</tr>
+					<tr>
+						<td>--help</td>
+						<td>无</td>
+						<td>否</td>
+						<td>显示命令的帮助信息</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- ------------------------------ sql操作命令  end  ------------------------------------- -->

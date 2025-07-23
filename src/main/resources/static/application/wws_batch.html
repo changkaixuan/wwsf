@@ -1,0 +1,93 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<ol class="breadcrumb page-breadcrumb">
+	<li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+	<li class="breadcrumb-item">任务批量</li>
+	<li class="breadcrumb-item active">批量任务</li>
+	<li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 py-2">
+			<form class="form-inline">
+				<div class="form-group input-group-sm mr-1 my-1">
+			   		<label>产品：</label>
+			   		<select class="form-control" name="cond_product"></select>
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>批量：</label> 
+				    <select class="form-control" name="batchNo"></select>
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>Job编号：</label> 
+				    <input type="text" name="jobId" class="form-control" >
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>Job实例编号：</label>
+					<input type="text" name="jobInsId" class="form-control">
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>Task编号：</label>
+					<input type="text" name="taskId" class="form-control">
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>Task实例编号：</label>
+					<input type="text" name="taskInsId" class="form-control">
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+			   		<label>任务状态：</label>
+			   		<select class="form-control" name="score" >
+					    <option value="-1">------全部状态------</option>
+					    <option value="11">初始化</option>
+					    <option value="12">准备执行</option>
+					    <option value="13">正在执行</option>
+						<option value="14">出错延迟</option>
+						<option value="15">执行结果返回中</option>
+						<option value="16">失败</option>
+						<option value="17">需人工干预</option>
+						<option value="18">执行延迟中</option>
+						<option value="20">成功通过</option>
+						<option value="21">忽略通过</option>
+						<option value="22">周期不满足通过</option>
+						<option value="23">人工置无效通过</option>
+						<option value="24">人工置失败通过</option>
+					</select>
+				</div>
+				<div class="form-group input-group-sm mr-1 my-1">
+				    <label>任务标签：</label>
+					<input type="text" name="taskTitle" class="form-control">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<button type="button" id="btn_redis_batchQuery" class="btn btn-sm btn-primary mr-1">
+						<i class="fal fa-binoculars fa-fw" aria-hidden="true"></i>查询
+					</button>
+					<button type="button" id="btn_wwsBatchList_clear" class="btn btn-sm btn-primary">
+						<i class="fal fa-registered fa-fw" aria-hidden="true"></i>重置
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="tb_wws_batch_toolbar" class="btn-group">
+    <!-- 重新运行任务 -->
+    <button type="button" class="btn btn-primary btn-sm" id="btn_taskins_rerun_select">
+        <i class="fal fa-paw fa-fw"></i>重跑
+    </button>
+    <button type="button" class="btn btn-primary btn-sm" id="btn_taskins_rerun_query">
+        <i class="fal fa-paw fa-fw"></i>按条件重跑
+    </button>
+    <!--   将未通过的任务设置为通过 -->
+    <button type="button" class="btn btn-primary btn-sm" id="btn_taskins_disabled_select">
+        <i class="fal fa-space-shuttle fa-fw"></i>设为通过
+    </button>
+    <button type="button" class="btn btn-primary btn-sm" id="btn_taskins_disabled_query">
+        <i class="fal fa-space-shuttle fa-fw"></i>按条件设为通过
+    </button>
+</div>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0 pb-2">
+			<table data-toggle="table" class="table table-sm table-striped" id="tb_wws_batch"></table>
+		</div>
+	</div>
+</div>

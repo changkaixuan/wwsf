@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.TaskSpecialLeanMapper" >
+	<resultMap id="taskSpecialLeanMap" type="TaskSpecialLean">
+		<result column="job_id" property="jobId" />
+		<result column="task_id" property="taskId" />
+		<result column="task_dim_entities" property="exp" />
+		<result column="lean_job_id" property="leanJobId" />
+		<result column="lean_task_id" property="beTaskId" />
+		<result column="lean_task_dim_entities" property="beExp" />
+  	</resultMap>
+  	
+  	<resultMap id="taskSpecialEdgesMap" type="TaskEdges">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="SOURCE" property="source" jdbcType="VARCHAR" />
+	    <result column="TARGET" property="target" jdbcType="VARCHAR"/>
+	    <result column="DATA" property="data" jdbcType="VARCHAR"/>
+  	</resultMap>
+  	
+  	<resultMap id="taskLeanMap" type="TaskLean">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
+	    <result column="LEAN_JOB_ID" property="leanJobId" jdbcType="VARCHAR"/>
+	    <result column="LEAN_TASK_ID" property="leanTaskId" jdbcType="VARCHAR"/>
+  	</resultMap>
+
+	<select id="getTaskSpecialLean" parameterType="java.util.Map" resultMap="taskSpecialLeanMap">
+		select 
+			t.job_id,
+			t.task_id,
+			t.task_dim_entities,
+			t.lean_job_id,
+			t.lean_task_id,
+			t.lean_task_dim_entities
+		from ww_task_special_lean t
+		where
+			t.job_id = #{jobId}
+		<if test="taskId != null ">
+			and t.task_id = #{taskId}
+		</if>
+		<if test="taskDimEntities != null ">
+			and t.task_dim_entities = #{taskDimEntities}
+		</if>
+		<if test="leanJobIdIsNull != null ">
+			and (t.lean_job_id is null or t.job_id=t.lean_job_id)
+		</if>
+		<if test="leanTaskId != null ">
+			and t.lean_task_id = #{leanTaskId}
+		</if>
+		<if test="leanTaskDimEntities != null ">
+			and t.lean_task_dim_entities = #{leanTaskDimEntities}
+		</if>
+	</select>
+	
+	<select id="queryTaskSpecialLean" parameterType="java.util.Map" resultMap="taskSpecialLeanMap">
+		select 
+			t.job_id,
+			t.task_id,
+			t.task_dim_entities,
+			t.lean_job_id,
+			t.lean_task_id,
+			t.lean_task_dim_entities
+		from ww_task_special_lean t
+		where 1=1
+		<if test="taskId != null ">
+			and t.task_id = #{taskId}
+		</if>
+	</select>
+	
+	<insert id="insertTaskSpecialLean" parameterType="TaskSpecialLean" >
+	    insert into ww_task_special_lean (job_id,task_id,task_dim_entities,lean_job_id,lean_task_id,lean_task_dim_entities)
+	    values (#{jobId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{exp,jdbcType=VARCHAR},#{leanJobId,jdbcType=VARCHAR}, #{beTaskId,jdbcType=INTEGER},
+	            #{beExp,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteTaskSpecialLean" parameterType="java.util.Map" >
+	    delete from ww_task_special_lean where 1=1 
+	    	and job_id = #{jobId}
+		<if test="taskId != null ">
+			and task_id = #{taskId}
+		</if>
+	</delete>
+	
+	<delete id="deleteTaskSpecialLean2" parameterType="java.util.Map" >
+	    delete from ww_task_special_lean where 1=1 
+	    	and job_id = #{jobId}
+			and task_id = #{taskId}
+		<if test="leanTaskId != null">
+			and lean_task_id = #{leanTaskId}
+		</if>
+		<if test="leanTaskIdArr != null" >
+	      	and lean_task_id in
+		    <foreach collection="leanTaskIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and (lean_job_id is null or lean_job_id=job_id)
+	</delete>
+	
+	<delete id="deleteTaskSpecialLeanByProduct" parameterType="java.util.Map" >
+	    delete from ww_task_special_lean 
+	    	where job_id in (select job_id from ww_job where product=#{product})
+	</delete>
+	
+	<!-- taskSpecial/edges2 start -->
+  	<select id="queryTaskSpecialEdges" parameterType="java.util.Map" resultMap="taskSpecialEdgesMap" databaseId="oracle">
+		select distinct l.job_id,l.lean_task_id||'.'||s.task_plugin source,l.task_id||'.'||t.task_plugin target,'{"type":"s:e","lineType":"2"}' data 
+		  from ww_task_special_lean l,ww_task s,ww_task t
+		where l.job_id = s.job_id and l.lean_task_id=s.task_id 
+		  and l.job_id = t.job_id and l.task_id=t.task_id
+		  and (l.lean_job_id is null or l.job_id = l.lean_job_id)
+		<if test="jobId != null">
+		  and l.job_id = #{jobId}
+		</if>
+	</select>
+	<select id="queryTaskSpecialEdges" parameterType="java.util.Map" resultMap="taskSpecialEdgesMap" databaseId="mysql">
+		select distinct l.job_id,concat(l.lean_task_id,'.',s.task_plugin) source,concat(l.task_id,'.',t.task_plugin) target,'{"type":"s:e","lineType":"2"}' data 
+		  from ww_task_special_lean l,ww_task s,ww_task t
+		where l.job_id = s.job_id and l.lean_task_id=s.task_id 
+		  and l.job_id = t.job_id and l.task_id=t.task_id
+		  and (l.lean_job_id is null or l.job_id = l.lean_job_id)
+		<if test="jobId != null">
+		  and l.job_id = #{jobId}
+		</if>
+	</select>
+	<!-- taskSpecial/edges2 end -->
+	
+	<select id="queryTaskLean" parameterType="java.util.Map" resultMap="taskLeanMap">
+		select distinct job_id,task_id,lean_job_id,lean_task_id from ww_task_special_lean where 1=1
+		<if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+		<if test="leanJobIdIsNull != null">
+			and (lean_job_id is null or lean_job_id=job_id)
+		</if>
+	</select>
+	
+	<insert id="batchInsertTaskSpecialLean" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_task_special_lean (job_id,task_id,task_dim_entities,lean_job_id,lean_task_id,lean_task_dim_entities)
+	    values 
+	    <foreach collection="list" item="taskSpecialLean" index="index" separator=",">
+	    	(#{taskSpecialLean.jobId,jdbcType=VARCHAR}, #{taskSpecialLean.taskId,jdbcType=VARCHAR}, #{taskSpecialLean.exp,jdbcType=VARCHAR},#{taskSpecialLean.leanJobId,jdbcType=VARCHAR}, #{taskSpecialLean.beTaskId,jdbcType=INTEGER},#{taskSpecialLean.beExp,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<insert id="batchInsertTaskSpecialLean" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="taskSpecialLean" open="BEGIN" index="index" separator=";" close=";END;">
+	    	insert into ww_task_special_lean (job_id,task_id,task_dim_entities,lean_job_id,lean_task_id,lean_task_dim_entities)
+	    	values (#{taskSpecialLean.jobId,jdbcType=VARCHAR}, #{taskSpecialLean.taskId,jdbcType=VARCHAR}, #{taskSpecialLean.exp,jdbcType=VARCHAR},#{taskSpecialLean.leanJobId,jdbcType=VARCHAR}, #{taskSpecialLean.beTaskId,jdbcType=INTEGER},#{taskSpecialLean.beExp,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+</mapper>

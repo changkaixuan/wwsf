@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.JobExeInfoMapper" >
+
+	<resultMap id="jobExeInfoMap" type="JobExeInfo">
+		<result column="INFO_ID" property="infoId" jdbcType="VARCHAR" />
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="INFO_DESC" property="infoDesc" jdbcType="VARCHAR" />
+		<result column="EXECUTE_TIME" property="executeTime" jdbcType="VARCHAR" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="INFO_PARAMETER" property="infoParameter" jdbcType="VARCHAR" />
+		<result column="TOP" property="top" jdbcType="INTEGER" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+  	</resultMap>
+  	
+	<select id="queryJobExeInfo" parameterType="java.util.Map" resultMap="jobExeInfoMap">
+		select * from ww_job_exe_info w where 1=1
+		<if test="product != null ">
+			and w.product = #{product}
+		</if>
+		<if test="jobId != null ">
+			and w.job_id = #{jobId}
+		</if>
+		<if test="status != null ">
+			and w.status = #{status}
+		</if>
+		<if test="infoId != null ">
+			and w.info_id = #{infoId}
+		</if>
+		<if test="creator != null ">
+			and w.creator = #{creator}
+		</if>
+		order by w.top desc, w.execute_time desc
+	</select>
+	
+	<insert id="insertJobExeInfo" parameterType="JobExeInfo" >
+	    insert into ww_job_exe_info
+	     (job_id,product,info_id,info_desc,execute_time,top, status,creator,info_parameter)
+	    values 
+	    (#{jobId,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, #{infoId,jdbcType=VARCHAR}, #{infoDesc,jdbcType=VARCHAR},#{executeTime,jdbcType=VARCHAR},
+	            #{top,jdbcType=INTEGER},#{status,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{infoParameter,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteJobExeInfo" parameterType="java.util.Map">
+	    DELETE FROM ww_job_exe_info 
+	    WHERE 1=1
+	    <if test="status != null">
+	    and status = #{status}
+	    </if>
+	    <if test="creator != null">
+	    and creator = #{creator}
+	    </if>
+	    <if test="infoId != null">
+	    and info_id = #{infoId}
+	    </if>
+	</delete>
+	
+	<update id="updateJobExeInfo" parameterType="java.util.Map" >
+	    update ww_job_exe_info 
+	    set info_parameter = #{infoParameter,jdbcType=VARCHAR}
+	       <if test="executeTime != null">
+	          ,execute_time = #{executeTime}
+	       </if>
+	       <if test="status != null">
+	          ,status = #{status}
+	       </if>
+	    where info_id = #{infoId} 
+	</update>
+	
+	<select id="queryJobExeDetail" parameterType="java.util.Map" resultType="Task">
+		select
+			task_id taskId
+		  from ww_job_exe_detail th
+		where 1=1
+		    and exists (select j.job_id from ww_job j,ww_task t,ww_job_exe_info jh where j.job_id=t.job_id and j.job_id=jh.JOB_ID and jh.info_id = th.info_id and t.task_id = th.task_id)
+		<if test="infoId != null">
+			and info_id = #{infoId}
+		</if>
+		<if test="tempVersion != null">
+			and info_id = (select info_id from ww_job_exe_info w where w.status=0 and w.creator=#{creator})
+		</if>
+		<if test="filterTaskId != null">
+			<![CDATA[and instr(task_id, #{filterTaskId}) < 1]]>
+		</if>
+		<if test="lTaskId != null ">
+			and instr(task_id,#{lTaskId}) > 0
+		</if>
+	</select>
+	
+	<insert id="insertJobExeDetail" parameterType="Task">
+	    insert into ww_job_exe_detail (info_id,task_id)
+	    values (#{jobId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteJobExeDetail" parameterType="java.util.Map" >
+	    DELETE FROM ww_job_exe_detail WHERE info_id = #{infoId}
+	    <if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+	</delete>
+</mapper>

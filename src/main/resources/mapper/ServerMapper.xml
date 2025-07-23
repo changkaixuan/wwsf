@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.ServerMapper" >
+
+	<resultMap id="serverMap" type="Server">
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="SERVER_ID" property="serverId" jdbcType="VARCHAR" />
+		<result column="SERVER_DESC" property="serverDesc" jdbcType="VARCHAR" />
+		<result column="IP_ADDR" property="ipAddr" jdbcType="VARCHAR" />
+		<result column="SSH_PORT" property="sshPort" jdbcType="INTEGER" />
+		<result column="RMI_REGISTRY_PORT" property="rmiRegistryPort" jdbcType="INTEGER" />
+		<result column="SERVER_TYPE" property="serverType" jdbcType="VARCHAR" />
+		<result column="TAGS" property="tags" jdbcType="VARCHAR" />
+		<result column="LATEST_ONLINE_TIME" property="latestOnlineTime" jdbcType="DATE" />
+		<result column="OS_SSH_USER" property="osSshUser" jdbcType="VARCHAR" />
+		<result column="OS_SSH_PSWD" property="osSshPswd" jdbcType="VARCHAR" />
+		<result column="ZOO_CONNECT_STR" property="zooConnectStr" jdbcType="VARCHAR" />
+		<result column="ZOO_NAMESPACE" property="zooNamespace" jdbcType="VARCHAR" />
+		<result column="HOME_DIR" property="homeDir" jdbcType="VARCHAR" />
+		<result column="OS_SSH_PORT" property="osSshPort" jdbcType="INTEGER" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="IGNORE_PLUGINS" property="ignorePlugins" jdbcType="VARCHAR" />
+		<result column="RMI_SERVER_PORT" property="rmiServerPort" jdbcType="INTEGER" />
+		<result column="VERSION_NO" property="versionNo" jdbcType="VARCHAR" />
+		<result column="CFG_VERSION" property="cfgVersion" jdbcType="BIGINT" />
+		<result column="INSTALL_CFG_VERSION" property="installCfgVersion" jdbcType="BIGINT" />
+  	</resultMap>
+  	
+  	<resultMap id="serverInstallLogMap" type="Server">
+  		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="SERVER_ID" property="serverId" jdbcType="VARCHAR" />
+		<result column="SERVER_DESC" property="serverDesc" jdbcType="VARCHAR" />
+		<result column="IP_ADDR" property="ipAddr" jdbcType="VARCHAR" />
+		<result column="SSH_PORT" property="sshPort" jdbcType="INTEGER" />
+		<result column="RMI_REGISTRY_PORT" property="rmiRegistryPort" jdbcType="INTEGER" />
+		<result column="SERVER_TYPE" property="serverType" jdbcType="VARCHAR" />
+		<result column="TAGS" property="tags" jdbcType="VARCHAR" />
+		<result column="LATEST_ONLINE_TIME" property="latestOnlineTime" jdbcType="DATE" />
+		<result column="OS_SSH_USER" property="osSshUser" jdbcType="VARCHAR" />
+		<result column="OS_SSH_PSWD" property="osSshPswd" jdbcType="VARCHAR" />
+		<result column="ZOO_CONNECT_STR" property="zooConnectStr" jdbcType="VARCHAR" />
+		<result column="ZOO_NAMESPACE" property="zooNamespace" jdbcType="VARCHAR" />
+		<result column="HOME_DIR" property="homeDir" jdbcType="VARCHAR" />
+		<result column="OS_SSH_PORT" property="osSshPort" jdbcType="INTEGER" />
+		<result column="STATUS" property="status" jdbcType="INTEGER" />
+		<result column="IGNORE_PLUGINS" property="ignorePlugins" jdbcType="VARCHAR" />
+		<result column="RMI_SERVER_PORT" property="rmiServerPort" jdbcType="INTEGER" />
+		<result column="VERSION_NO" property="versionNo" jdbcType="VARCHAR" />
+		<result column="CFG_VERSION" property="cfgVersion" jdbcType="BIGINT" />
+		<result column="INSTALL_CFG_VERSION" property="installCfgVersion" jdbcType="BIGINT" />
+		<result column="INSTALL_LOG" property="installLog" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<resultMap id="nodeInfoMap" type="NodeInfo">
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="SERVER_ID" property="nodeId" jdbcType="VARCHAR" />
+		<result column="IP_ADDR" property="ip" jdbcType="VARCHAR" />
+		<result column="SSH_PORT" property="sshdPort" jdbcType="INTEGER" />
+		<result column="RMI_REGISTRY_PORT" property="rmiRegistryPort" jdbcType="INTEGER" />
+		<result column="RMI_SERVER_PORT" property="rmiServerPort" jdbcType="INTEGER" />
+		<result column="SERVER_TYPE" property="type" jdbcType="VARCHAR" />
+		<result column="LATEST_ONLINE_TIME" property="registTime" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<resultMap id="selectTwoMap" type="SelectTwo">
+		<result column="TYPE" property="type" jdbcType="VARCHAR" />
+		<result column="SERVER_ID" property="serverId" jdbcType="VARCHAR" />
+  	</resultMap>
+  	
+  	<select id="selectByPrimaryKey" parameterType="java.util.Map" resultMap="nodeInfoMap">
+	    select * from ww_server where product = #{product,jdbcType=VARCHAR} and server_id = #{serverId,jdbcType=VARCHAR}
+  </select>
+  
+	<select id="queryServer" parameterType="java.util.Map" resultMap="serverMap">
+		select s.* from ww_server s
+		where 1=1
+		<if test="product != null ">
+			and s.product = #{product}
+		</if>
+		<if test="serverId != null ">
+			and s.server_id = #{serverId}
+		</if>
+		<if test="status != null ">
+			and s.status = #{status}
+		</if>
+		<if test="lServerId != null ">
+			and instr(s.server_id,#{lServerId}) > 0
+		</if>
+		<if test="lTags != null ">
+			and instr(s.tags,#{lTags}) > 0
+		</if>
+		<if test="loginName != null">
+			and exists (
+			  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+			    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+			      and tp.p_id=s.product and tsu.login_name=#{loginName}
+			) 
+		</if>
+		<if test="orderByServerId != null ">
+			order by server_id
+		</if>
+	</select>
+	
+	<insert id="insertServer" parameterType="Server" >
+	    insert into ww_server (product,server_id,server_desc,ip_addr,ssh_port,RMI_REGISTRY_PORT,RMI_SERVER_PORT,server_type,tags,latest_online_time,os_ssh_port,os_ssh_user,os_ssh_pswd,zoo_connect_str,home_dir,ignore_plugins,status,zoo_namespace,version_no)
+	    values (#{product,jdbcType=VARCHAR},#{serverId,jdbcType=VARCHAR},#{serverDesc,jdbcType=VARCHAR}, #{ipAddr,jdbcType=VARCHAR}, #{sshPort,jdbcType=INTEGER},
+	            #{rmiRegistryPort,jdbcType=INTEGER},#{rmiServerPort,jdbcType=INTEGER},#{serverType,jdbcType=VARCHAR},#{tags,jdbcType=VARCHAR},#{dLatestOnlineTime,jdbcType=DATE},
+	            #{osSshPort,jdbcType=INTEGER},#{osSshUser,jdbcType=VARCHAR},#{osSshPswd,jdbcType=VARCHAR},#{zooConnectStr,jdbcType=VARCHAR},#{homeDir,jdbcType=VARCHAR},
+	            #{ignorePlugins,jdbcType=VARCHAR},#{status,jdbcType=INTEGER},#{zooNamespace,jdbcType=VARCHAR},#{versionNo,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateServer" parameterType="Server" >
+	    update ww_server 
+	    set server_desc = #{serverDesc,jdbcType=VARCHAR}
+		   ,ip_addr = #{ipAddr,jdbcType=VARCHAR}
+		   ,ssh_port = #{sshPort,jdbcType=INTEGER}
+		   ,rmi_registry_port = #{rmiRegistryPort,jdbcType=INTEGER}
+		   ,server_type = #{serverType,jdbcType=VARCHAR}
+		   ,tags = #{tags,jdbcType=VARCHAR}
+		   ,latest_online_time = #{dLatestOnlineTime,jdbcType=DATE}
+		   ,os_ssh_user = #{osSshUser,jdbcType=VARCHAR}
+		   ,os_ssh_pswd = #{osSshPswd,jdbcType=VARCHAR}
+		   ,zoo_connect_str = #{zooConnectStr,jdbcType=VARCHAR}
+		   ,zoo_namespace = #{zooNamespace,jdbcType=VARCHAR}
+		   ,home_dir = #{homeDir,jdbcType=VARCHAR}
+		   ,os_ssh_port = #{osSshPort,jdbcType=INTEGER}
+		   ,rmi_server_port = #{rmiServerPort,jdbcType=INTEGER}
+		   ,ignore_plugins = #{ignorePlugins,jdbcType=VARCHAR}
+		   ,status = #{status,jdbcType=INTEGER}
+		   ,version_no = #{versionNo,jdbcType=VARCHAR}
+		   ,cfg_version = #{cfgVersion,jdbcType=BIGINT}
+	    where product = #{product}
+	      and server_id = #{serverId}
+	</update>
+	
+	<update id="updateServerOsSshPswd" parameterType="Server" >
+	    update ww_server 
+	    set os_ssh_pswd = #{osSshPswd,jdbcType=VARCHAR}
+	    where product = #{product}
+	      and server_id = #{serverId}
+	</update>
+	
+	<update id="updateServerStatus" parameterType="Server" >
+	    update ww_server 
+	    set status = #{status},
+	        version_no = #{versionNo,jdbcType=VARCHAR},
+	        install_log = #{installLog,jdbcType=VARCHAR},
+	        install_cfg_version = #{installCfgVersion,jdbcType=BIGINT}
+	    where product = #{product}
+	      and server_id = #{serverId}
+	</update>
+	
+	<delete id="deleteServers" parameterType="java.util.Map" databaseId="oracle">
+	    delete from ww_server where 1=1
+	    <if test="prodAndServerIdArr != null" >
+	      	and product||','||server_id in
+		    <foreach collection="prodAndServerIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</delete>
+	<delete id="deleteServers" parameterType="java.util.Map" databaseId="mysql">
+	    delete from ww_server where 1=1
+	    <if test="prodAndServerIdArr != null" >
+	      	and CONCAT(product,',',server_id) in
+		    <foreach collection="prodAndServerIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</delete>
+	
+	<select id="getServerInstallLog" parameterType="java.util.Map" resultMap="serverInstallLogMap">
+		select * from ww_server where product = #{product} and server_id = #{serverId}
+	</select>
+	
+	<select id="getServerIdAndTags" parameterType="java.util.Map" resultMap="selectTwoMap">
+		select type,server_id from (
+			select product,'id' type,server_id from ww_server where product = #{product} and server_id is not null and length(trim(server_id)) >= 1 
+           	<if test="agentScope != null" >
+                and instr(server_id,#{agentScope}) > 0
+            </if>
+			union 
+			select product,'tag' type,tags from ww_server where product = #{product} and tags is not null and length(trim(tags)) >= 1
+		) t 
+		order by type,server_id
+	</select>
+	
+</mapper>

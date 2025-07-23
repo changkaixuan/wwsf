@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.CleanRulesMapper" >
+	
+	<resultMap id="cleanRulesMap" type="CleanRules">
+		<result column="ID" property="id" />
+		<result column="PRODUCT" property="product" />
+		<result column="TYPE" property="type" />
+		<result column="JOB_IDS" property="jobIds" />
+		<result column="KEEP_TIME" property="keepTime" />
+		<result column="CLEAR_RUNNING_JOB" property="clearRunningJob" />
+		<result column="job_names" property="jobNames" />
+  	</resultMap>
+  	
+  	<select id="queryCleanRulesPage" parameterType="java.util.Map" resultMap="cleanRulesMap">
+		select * from ww_clean_rules where 1=1
+		<if test="id != null ">
+			and id = #{id}
+		</if>
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="type != null ">
+			and type = #{type}
+		</if>
+	</select>
+
+	<insert id="insertCleanRules" parameterType="CleanRules" >
+	    insert into ww_clean_rules (id,product,type,job_ids,keep_time,clear_running_job)
+	    values (#{id,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{type,jdbcType=VARCHAR},#{jobIds,jdbcType=VARCHAR},#{keepTime,jdbcType=VARCHAR},
+	    		#{clearRunningJob,jdbcType=INTEGER})
+	</insert>
+	
+	<update id="updateCleanRules" parameterType="CleanRules" >
+	    update ww_clean_rules 
+	    set job_ids = #{jobIds}
+	       ,keep_time = #{keepTime}
+		   ,clear_running_job = #{clearRunningJob}
+	    where id = #{id} 
+	</update>
+	
+	<delete id="deleteCleanRules" parameterType="java.util.Map" >
+	    delete from ww_clean_rules where 1=1
+	    <if test="idArr != null" >
+	      	and id in
+		    <foreach collection="idArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</delete>
+	
+	<select id="queryCleanRulesJobNames" parameterType="java.util.Map" resultMap="cleanRulesMap" databaseId="mysql">
+		select cr.*,
+		  if(cr.type='JOB',(select GROUP_CONCAT(CONCAT(job_id,'^^',job_name) separator '%%') from ww_job where instr(CONCAT(',',cr.job_ids,','),CONCAT(',',job_id,',')) > 0)
+                          ,(select GROUP_CONCAT(CONCAT(job_id,'^^',job_name) separator '%%') from ww_cron where instr(CONCAT(',',cr.job_ids,','),CONCAT(',',job_id,',')) > 0)
+          ) job_names
+		from ww_clean_rules cr where 1=1
+		<if test="idArr != null" >
+	      	and id in
+		    <foreach collection="idArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="queryCleanRulesJobNames" parameterType="java.util.Map" resultMap="cleanRulesMap" databaseId="oracle">
+		select cr.*,
+		  decode(cr.type,'JOB',(select listagg(job_id||'^^'||job_name,'%%') within group (order by job_id) from ww_job where instr(','||cr.job_ids||',',','||job_id||',') > 0)
+                              ,(select listagg(job_id||'^^'||job_name,'%%') within group (order by job_id) from ww_cron where instr(','||cr.job_ids||',',','||job_id||',') > 0)
+          ) job_names
+		FROM ww_clean_rules cr where 1=1
+		<if test="idArr != null" >
+	      	and id in
+		    <foreach collection="idArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="pWwsCronClear" statementType="CALLABLE" parameterType="java.util.Map">
+		{call p_wws_cron_clear(#{o_result,mode=OUT,jdbcType=INTEGER},#{o_log,mode=OUT,jdbcType=CLOB},#{p_clean_rules_id,mode=IN,jdbcType=VARCHAR})}
+	</select>
+	
+	<select id="pWwsJobClear" statementType="CALLABLE" parameterType="java.util.Map">
+		{call p_wws_job_clear(#{o_result,mode=OUT,jdbcType=INTEGER},#{o_log,mode=OUT,jdbcType=CLOB},#{p_clean_rules_id,mode=IN,jdbcType=VARCHAR})}
+	</select>
+	
+	<select id="pWwsJobExeinfoClear" statementType="CALLABLE" parameterType="java.util.Map">
+		{call p_wws_job_exeinfo_clear(#{o_result,mode=OUT,jdbcType=INTEGER},#{o_log,mode=OUT,jdbcType=CLOB},#{p_product,mode=IN,jdbcType=VARCHAR})}
+	</select>
+
+</mapper>

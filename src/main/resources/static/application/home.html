@@ -1,0 +1,81 @@
+﻿<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div class="jumbotron" style="padding: 2.5rem 2rem;color: black; background-image: url(img/home_bg.jpeg)">
+	<h1>The Platform for Job Sheduling And Also Provides Service Shared and Integration</h1>
+	<p>
+		网维分布式调度系统提供作业调度的基础平台，基于PaaS理念，提供集开发、部署、测试、监控于一体的渐进式基础开发框架，平台开发所有组件都符合SOA标准，并实现即插即用功能.平台基于RESTful规范开发了丰富开放式接口.
+	</p>
+	<p>
+		<button type="button" class="btn btn-large btn-primary" id="btn_to_learnmore_about_wws">
+			<i class="fal fa-binoculars fa-fw mr-2"></i>Learn more
+		</button>
+		<button type="button" class="btn btn-large btn-primary" id="btn_to_download_wws">
+			<i class="fal fa-download fa-fw mr-2"></i>Download
+		</button>
+		<button type="button" class="btn btn-large btn-primary" id="btn_to_wws_docs">
+			<i class="fal fa-file-pdf fa-fw mr-2"></i>Document
+		</button>
+	</p>
+</div>
+<div class="row clearfix">
+	<div class="col-md-4 column">
+		<h2>配置简单</h2>
+		<p>提供SHELL控制台和WEB控制台，用户能便捷的配置包括假日编排、维度、任务流、计划任务、数据源、调度节点、产品等信息。Job支持网状驱动模型和网维驱动模型两种，
+			网维模型旨在极少配置的情况下，运行更多任务（Less configuration and run more）。</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-4 column">
+		<h2>运行稳定，高效</h2>
+		<p>经过2年的发展，迭代版本20多个，目前在近20个产品的生产环境使用，日调度任务数量合计20万，系统稳定运行，在非投产变更期间，无需人工干预运行。
+		       在测试环境测试2万任务量运行（每个任务执行一个echo语句），在单个代理节点，20并行线程的情况下，用时不到5分钟跑完。平台已达到10万任务级以上调度能力。
+		       在AIAP生产环境4代理节点架构，日调度任务数量11万。
+		</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-4 column">
+		<h2>高可用，高容错</h2>
+		<p>部署架构可自由灵活选择，具有横向扩展能力。最小高可用集群Master-HA（两节点），Mlt-Slave（两节点）架构，具有故障转移恢复能力，Master宕机时，Master备机节点会接管任务驱动，保证作业流继续运行；
+		   Slave宕机时，其上的作业将会被接管分配到其他Slave上继续执行，作业支持错误重跑。
+		</p>
+		<p>
+			<a class="btn" href="#">View details »</a>
+		</p>
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-4 column">
+		<h2>可深度集成</h2>
+		<p>
+		提供39个Restful风格的公共接口，各语言及平台均可直接调用，具体接口说明请点击下方详细说明页面。可使用公共接口，将调度功能依据需求或个性化要求嵌入业务系统。
+		</p>
+		<p>
+			<a class="btn" href="#" id="btn_view_detail_rest_interface">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-4 column">
+		<h2>版本信息</h2>
+		<p><span style="color:red;font-weight:bold">wws v1.0(Not Active)</span><br>
+		2018年9月20日，X89<br>
+		java version support 8/9/10, karaf version 4.1.0</p>
+		<p><span style="color:red;font-weight:bold">wws, wws.webconsole v2.0(<span style="color:green">Not Active</span>)</span><br>
+		2018年11月26日，X811<br>
+		karaf upgrade to 4.2.0</p>
+		<p><span style="color:red;font-weight:bold">wwsf, wwsf-console v1.0(<span style="color:green">Not Active</span>)</span><br>
+		2019年08月28日<br>
+		简化架构，平台稳定，karaf upgrade to 4.2.4</p>
+		<p><span style="color:red;font-weight:bold">wwsf, wwsf-console v2.0(<span style="color:green">Stable</span>)</span><br>
+		2020年11月16日<br>
+		产品化，更多作业类型支持大数据体系，高效开发与运维，打造金科品牌</p>
+		<p>
+			<a class="btn" href="#" id="btn_view_detail_release">View details »</a>
+		</p>
+	</div>
+	<div class="col-md-4 column">
+		<h2>应用推广</h2>
+		<p>截至2020年底，WWSF被ADAS-AIAP、RDM、SSDRP、COMS、FPRS、ADAP、BOCIM（中银基金中银数仓）、ICMAP、DTAP、GMAP、CDMO、CCPS、ALMS、RDM-IRM、AIOS（中银消费数据中台）等近20个产品选用，每日调度作业近20万个，计划任务近200个，覆盖金科内部项目，厂商项目，附属机构项目。<br>
+		</p>
+	</div>
+</div>

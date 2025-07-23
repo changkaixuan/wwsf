@@ -1,0 +1,90 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<ol class="breadcrumb page-breadcrumb">
+	<li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+	<li class="breadcrumb-item">文档</li>
+	<li class="breadcrumb-item active">标准插件</li>
+	<li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="subheader mt-3">
+	<h1 class="subheader-title">
+		<i class='subheader-icon fal fa-tag'></i> 插件使用说明
+		<small class="mt-2">
+			插件主要是为了对各种类型作业的适配支持，wwsf将提供一些通用作业的适配插件，如对shell、bat作业；数据库SQL、存储过程作业；文件处理作业等。插件同时亦是一些经过封装的拥有某项基本功能的原子组件，如批量切换、信息采集等组件。插件为调度平台的最小任务执行单元。如果平台提供的标准插件无法满足要求时，用户还可以自定义插件来完美适配个性作业。<br/>
+			一个插件会定义一组输入参数，其中包含必填项和非必填项，必填项参数在插件执行时必须传值，是插件执行的必要参数。其表现形式类似于编程语言中的函数。<br/>
+			插件一般在计划任务和流程任务中使用。
+		</small>
+	</h1>
+</div>
+
+<div class="panel mb-g">
+	<div class="panel-hdr">
+		<h2 class="fw-700 m-0" style="font-size:1.35rem;">插件信息一览</h2>
+	</div>
+	<div class="panel-container">
+	    <div class="panel-content" >
+			<p class="my-2">基础插件如下（点击下列徽章即可快速定位到该插件详细说明章节）：</p>
+			<p class="mb-2" id="plu_badges"></p>
+			<p class="mb-2">插件描述：</p>
+			<div class="table-responsive mb-2">
+				<table id="tab_plu_overall" class="table table-sm table-bordered" style="width:80%"></table>
+			</div>
+  	    </div>
+	</div>
+</div>
+
+<div class="panel mb-g">
+	<div class="panel-hdr">
+		<h2 class="fw-700 m-0" style="font-size:1.35rem;">变量的使用</h2>
+	</div>
+	<div class="panel-container">
+	    <div class="panel-content" >
+	    	<p>
+				我们在实际配置当中，插件的参数值在大部分情况下是变化的，如果是一成不变的常量那作业配置缺乏灵活性，可复用性降低。那么如何在参数赋值时使用变量，让任务在执行时得到预期的参数赋值呢，这将是本小节主要讲解的内容。<br/>
+				任何一个参数赋值时，都可以使用${xxx}占位符的方式来引用变量，当然这个变量必须是Job中已配置的常量或者是用户在实例化Job时传入的参数，亦或是Jvm环境变量或调度提供的内置变量。因此在我们配置作业时，我们用到的变量一般有三种：用户JOB中配置的常量，用户实例化Job时传入的变量，以及调度提供的内置变量。<br/>
+				如下传平台12.3.gz.9格式文件名：${logic.name}.gz.${accutDate}0<br/>
+				针对${xxx}占位符替换优先级：Task维度  > Task传入参数  > Job传入参数  > Jvm内置变量。<br/>
+				以下为Jvm内置变量信息，常用的参数分为三部分，调度安装的目录信息，节点信息及操作系统信息,标红加粗的变量一般为配置中经常使用的内置变量：
+			</p>
+			<table class="table table-sm table-bordered table-hover" style="width:80%">
+				<thead class="thead-light">
+					<tr>
+						<th>变量名</th><th>示例赋值</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr><td>karaf.log</td><td>D:\wwsf\wwsf-v1.0.0-20190918\wwsf\bin\..\data\log</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">karaf.home</strong></td><td>D:\wwsf\wwsf-v1.0.0-20190918\wwsf</td></tr>
+					<tr><td>karaf.version</td><td>4.2.4</td></tr>
+					<tr><td>karaf.data</td><td>D:\wwsf\wwsf-v1.0.0-20190918\wwsf\data</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">karaf.base</strong></td><td>D:\wwsf\wwsf-v1.0.0-20190918\wwsf</td></tr>
+					<tr><td>karaf.etc</td><td>D:\wwsf\wwsf-v1.0.0-20190918\wwsf\etc</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">wws.node.id</strong></td><td>10000</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">wws.node.product</strong></td><td>WWS</td></tr>
+					<tr><td>wws.node.product.desc</td><td>网维调度</td></tr>
+					<tr><td>os.name</td><td>Windows 7</td></tr>
+					<tr><td>os.arch</td><td>amd64</td></tr>
+					<tr><td>os.version</td><td>6.1</td></tr>
+					<tr><td>user.name</td><td>admin</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">user.home</strong></td><td>C:\Users\admin</td></tr>
+					<tr><td>path.separator</td><td>;</td></tr>
+					<tr><td><strong style="font-weight:800;color:red;">file.separator</strong></td><td>\</td></tr>
+					<tr><td>line.separator</td><td></td></tr>
+					<tr><td>file.encoding</td><td>GBK</td></tr>
+				</tbody>
+			</table>
+			<div class="table-responsive mb-2">
+				<h2 class="fw-700 mt-3">内置变量的使用</h2>
+				<img src="img/demo/wws/doc-wws-plugins/doc-plu-variable.png" class="img-fluid rounded border p-2" style="max-width:60%"/>
+			</div>
+	    </div>
+	</div>
+</div>
+
+<div class="panel mb-g">
+	<div class="panel-hdr">
+		<h2 class="fw-700 m-0" style="font-size:1.35rem;">插件详细信息</h2>
+	</div>
+	<div class="panel-container">
+	    <div class="panel-content" id="plu-detail"></div>
+	</div>
+</div>

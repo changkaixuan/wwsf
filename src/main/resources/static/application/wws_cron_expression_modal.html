@@ -1,0 +1,567 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div class="modal fade in" id="expressionModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width:485px;">
+		<div class="modal-content">
+			<!-- <div class="modal-body"> -->
+				<div class="panel panel-default tabs m-1 border-0 border-0-noshadow">
+				    <!-- 选项卡start -->
+	                	<ul id="expressionModal_myTab" class="nav nav-tabs">
+	                    	<!-- <li class="nav-item"><a href="#expressionModal_second" data-toggle="tab" class="nav-link active mt-0 px-4" style="width:62px; text-align:center;">秒</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_min" data-toggle="tab" class="nav-link mt-0 px-4" style="width:62px; text-align:center;" >分</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_hour" data-toggle="tab" class="nav-link mt-0 px-4" style="width:62px; text-align:center;">时</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_day" data-toggle="tab" class="nav-link mt-0 px-4" style="width:62px; text-align:center;">日</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_week" data-toggle="tab" class="nav-link mt-0 px-4" style="width:62px; text-align:center;">周</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_month" data-toggle="tab" class="nav-link mt-0 px-4" style="width:62px; text-align:center;">月</a></li>
+	                    	<li class="nav-item"><a href="#expressionModal_year" data-toggle="tab" class="nav-link mt-0 px-4" style="width:60px; text-align:center;">年</a></li> -->
+	                	</ul>
+	            	<!-- 选项卡end -->
+	            	<!-- 选项卡具体项start -->
+	            	<div class="tab-content border border-top-0 p-2">
+	            		<!-- expressionModal_second -->
+                        <div class="tab-pane active" id="expressionModal_second">
+                        	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="secondType" value="per"></td>
+                        			<td width="10%">每秒</td>
+                        			<td>允许的通配符&nbsp;[, - * /]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="secondType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="58" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">秒,
+                        				 到<input type="number" max="59" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">秒
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="secondType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从<input type="number" max="58" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">秒开始,
+                        				每<input type="number" max="59" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">秒执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="secondType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_second_pointValue">
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="0">0</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">1</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">2</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">3</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">4</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">5</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">6</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">7</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="8">8</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="9">9</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="10">10</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="11">11</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="12">12</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="13">13</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="14">14</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="15">15</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="16">16</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="17">17</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="18">18</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="19">19</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="20">20</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="21">21</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="22">22</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="23">23</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="24">24</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="25">25</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="26">26</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="27">27</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="28">28</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="29">29</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="30">30</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="31">31</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="32">32</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="33">33</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="34">34</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="35">35</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="36">36</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="37">37</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="38">38</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="39">39</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="40">40</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="41">41</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="42">42</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="43">43</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="44">44</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="45">45</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="46">46</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="47">47</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="48">48</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="49">49</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="50">50</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="51">51</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="52">52</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="53">53</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="54">54</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="55">55</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="56">56</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="57">57</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="58">58</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="59">59</button></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>	
+	                    <!-- expressionModal_min -->
+	                    <div class="tab-pane fade" id="expressionModal_min">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="minType" value="per"></td>
+                        			<td width="10%">每分</td>
+                        			<td>允许的通配符[, - * /]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="minType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="58" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">分,
+                        				 到<input type="number" max="59" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">分
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="minType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从<input type="number" max="58" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">分开始,
+                        				每<input type="number" max="59" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">分执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="minType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_min_pointValue">
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="0">0</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">1</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">2</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">3</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">4</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">5</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">6</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">7</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="8">8</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="9">9</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="10">10</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="11">11</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="12">12</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="13">13</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="14">14</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="15">15</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="16">16</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="17">17</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="18">18</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="19">19</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="20">20</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="21">21</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="22">22</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="23">23</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="24">24</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="25">25</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="26">26</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="27">27</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="28">28</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="29">29</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="30">30</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="31">31</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="32">32</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="33">33</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="34">34</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="35">35</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="36">36</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="37">37</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="38">38</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="39">39</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="40">40</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="41">41</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="42">42</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="43">43</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="44">44</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="45">45</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="46">46</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="47">47</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="48">48</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="49">49</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="50">50</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="51">51</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="52">52</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="53">53</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="54">54</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="55">55</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="56">56</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="57">57</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="58">58</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="59">59</button></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <!-- expressionModal_hour -->
+	                    <div class="tab-pane fade" id="expressionModal_hour">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="hourType" value="per"></td>
+                        			<td width="10%">每时</td>
+                        			<td>允许的通配符[, - * /]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="hourType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="22" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">时,
+                        				 到<input type="number" max="23" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">时
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="hourType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从<input type="number" max="22" min="0" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">时开始,
+                        				每<input type="number" max="23" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">时执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="hourType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_hour_pointValue">
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="0">0</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">1</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">2</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">3</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">4</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">5</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">6</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">7</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="8">8</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="9">9</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="10">10</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="11">11</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="12">12</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="13">13</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="14">14</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="15">15</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="16">16</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="17">17</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="18">18</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="19">19</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="20">20</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="21">21</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="22">22</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="23">23</button></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <!-- expressionModal_day -->
+	                    <div class="tab-pane fade" id="expressionModal_day">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="dayType" value="per"></td>
+                        			<td width="10%">每日</td>
+                        			<td>允许的通配符[, - * / L W]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="dayType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="30" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">日,
+                        				 到<input type="number" max="31" min="2" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">日
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="dayType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从<input type="number" max="30" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">日开始,
+                        				每<input type="number" max="31" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">日执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="dayType" value="perMonth"></td>
+                        			<td>每月</td>
+                        			<td>
+                        				离<input type="number" max="31" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="latestWorkday">日, 最近工作日
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="dayType" value="curMonthLastDay"></td>
+                        			<td colspan="2">本月最后一天</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="dayType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_day_pointValue">
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">1</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">2</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">3</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">4</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">5</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">6</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">7</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="8">8</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="9">9</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="10">10</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="11">11</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="12">12</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="13">13</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="14">14</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="15">15</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="16">16</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="17">17</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="18">18</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="19">19</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="20">20</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="21">21</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="22">22</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="23">23</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="24">24</button></td>
+											</tr>
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="25">25</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="26">26</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="27">27</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="28">28</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="29">29</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="30">30</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="31">31</button></td>
+												<td></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <!-- expressionModal_week -->
+	                    <div class="tab-pane fade" id="expressionModal_week">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="weekType" value="per"></td>
+                        			<td width="10%">每周</td>
+                        			<td>允许的通配符[, - * / L #]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="weekType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从周<input type="number" max="6" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">,
+		                               	到周<input type="number" max="7" min="2" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="weekType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从周<input type="number" max="7" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">开始,
+                        				每隔<input type="number" max="7" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">天执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="weekType" value="appointWeekAndWeek"></td>
+                        			<td>指定</td>
+                        			<td>
+                        				第<input type="number" max="6" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="appointWeek">周的,
+                        				星期<input type="number" max="7" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="appointWeekDay">
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="weekType" value="curMonthLastOneWeek"></td>
+                        			<td colspan="2">
+                        				本月最后一个星期<input type="number" max="7" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="curMonthLastOneWeek">
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="weekType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_week_pointValue">
+											<tr>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">星期一</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">星期二</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">星期三</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">星期四</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">星期五</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">星期六</button></td>
+												<td align="center"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">星期日</button></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <!-- expressionModal_month -->
+	                    <div class="tab-pane fade" id="expressionModal_month">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="monthType" value="per"></td>
+                        			<td width="10%">每月</td>
+                        			<td>允许的通配符[, - * /]</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="monthType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="11" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart">月,
+                        				 到<input type="number" max="12" min="2" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd">月
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="monthType" value="loop"></td>
+                        			<td>循环</td>
+                        			<td>
+                        				从<input type="number" max="11" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopStart">月开始,
+                        				每<input type="number" max="12" min="1" style="width:42px;border-radius:15%;padding-left:2px" class="mx-1" name="loopEnd">月执行一次
+                        			</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="monthType" value="appoint"></td>
+                        			<td colspan="2">指定</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td colspan="3">
+                        				<table style="width:100%;" id="expressionModal_month_pointValue">
+											<tr>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="1">一月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="2">二月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="3">三月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="4">四月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="5">五月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="6">六月</button></td>
+											</tr>
+											<tr>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="7">七月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="8">八月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="9">九月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="10">十月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="11">十一月</button></td>
+												<td align="center" width="16%"><button type="button" class="btn btn-sm btn-default" style="width:100%;" value="12">十二月</button></td>
+											</tr>
+										</table>
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <!-- expressionModal_year -->
+	                    <div class="tab-pane fade" id="expressionModal_year">
+	                    	<table style="width:100%;">
+                        		<tr>
+                        			<td width="5%"><input type="radio" name="yearType" value="notAppoint"></td>
+                        			<td width="10%">不指定</td>
+                        			<td>允许的通配符[, - * /] 非必填</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="yearType" value="per"></td>
+                        			<td colspan="2">每年</td>
+                        		</tr>
+                        		<tr height="3px"><td colspan="3"></td></tr>
+                        		<tr>
+                        			<td><input type="radio" name="yearType" value="period"></td>
+                        			<td>周期</td>
+                        			<td>
+		                               	 从<input type="number" max="9999" min="2018" style="width:52px;border-radius:15%;padding-left:2px" class="mx-1" name="periodStart" >年,
+                        				 到<input type="number" max="9999" min="2018" style="width:52px;border-radius:15%;padding-left:2px" class="mx-1" name="periodEnd" >年
+                        			</td>
+                        		</tr>
+                        	</table>
+	                    </div>
+	                    <table id="expressionModal_submit">
+	                        <tr height="3px"><td colspan="3"></td></tr>
+                   			<tr>
+                   				<td width="397px"><input type="text" name="expression" class="form-control-sm" style="width:100%;"  value="* * * * * ?"/></td>
+                   				<td width="3px"></td>
+                   				<!-- <td><button type="button" name="submit" class="btn btn-sm btn-primary" style="width:50px;">确定</button></td> -->
+                   				<td><input type="button" name="submit" class="btn btn-sm btn-primary" value="确定" ></td>
+                   			</tr>
+                   		</table>
+	            	</div>
+	            	<!-- 选项卡具体项end -->
+				</div>
+			<!-- </div> -->
+		</div>
+	</div>
+</div>

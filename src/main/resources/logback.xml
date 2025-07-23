@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%-5level] %date %method:%L -%msg%n</pattern>
+		</layout>
+	</appender>
+	
+	<appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%-5level] %date %method:%L -%msg%n</pattern>
+		</layout>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/run.log.%d{yyyyMMdd}</fileNamePattern>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+		</filter>
+	</appender>
+	
+	<root level="INFO">
+		<appender-ref ref="console" />
+		<appender-ref ref="file" />
+	</root>
+</configuration>

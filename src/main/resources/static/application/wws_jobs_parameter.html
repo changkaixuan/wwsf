@@ -1,0 +1,53 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div class="modal fade in" id="wwsJobsParameterModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static">
+	<div class="modal-dialog" style="min-width:600px">
+		<div class="modal-content">
+			<div class="modal-body px-3 pt-1 pb-2">
+			    <div class="container-fluid">
+					<div class="row">
+						<div class="col-9 p-0">
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a href="#wws_jobs_parameter_tabs_public" data-toggle="tab" class="nav-link active mt-2 px-4" >共享属性</a>
+								</li>
+								<li class="nav-item">
+									<a href="#wws_jobs_parameter_tabs_jobs" data-toggle="tab" class="nav-link mt-2 px-4" >任务列表</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3 border-bottom p-0 clearfix" >
+							<button type="button" id="wws_jobs_parameter_btn_close" class="btn btn-sm btn-outline-primary float-right py-1 mt-1 ml-1" aria-hidden="true">
+								<i class="fal fa-times fa-fw"></i>关闭
+							</button>
+							<button type="button" id="wws_jobs_parameter_btn_save" class="btn btn-sm btn-outline-primary float-right py-1 mt-1" aria-hidden="true">
+								<i class="fal fa-save fa-fw"></i>保存
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content border border-top-0 p-1">
+				    <div class="tab-pane active" id="wws_jobs_parameter_tabs_public">
+				    	<table id="tab_wwsJobsParameter_public" class="table table-sm table-striped" style="table-layout:fixed;width:100%;scroll:no;word-break:break-all;"></table>
+					</div>
+					<div class="tab-pane" id="wws_jobs_parameter_tabs_jobs">
+		    			<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 py-0 px-0">
+									<select class="form-control-sm" name="job" style="min-width:40%;max-width:55%;"></select>
+									<button type="button" name="btnAppend" class="btn btn-sm btn-outline-primary py-1 " aria-hidden="true">
+										<i class="fal fa-plus fa-fw"></i>追加
+									</button>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-12 pt-1 px-0">
+									<table id="tab_wwsJobsParameter_jobs" class="table table-sm table-striped" style="table-layout:fixed;width:100%;scroll:no;word-break:break-all;"></table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,101 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<div class="modal fade in" id="messageModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="panel mb-2">
+				<div class="panel-container">
+					<div class="panel-content px-3 py-2">
+						<form class="form-inline" onsubmit="return false;">
+							<div class="form-group mr-1 my-1">
+								<label >产品：</label>
+								<select class="form-control-sm" id="message_q_product"></select>
+							</div>
+							<div class="form-group mr-1 my-1">
+								<label >消息级别：</label>
+								<input type="text" id="message_q_mLevel" class="form-control-sm" placeholder="请输入消息级别">
+							</div>
+							<div class="form-group mr-1 my-1">
+								<label >已阅：</label>
+								<select id="message_q_mRead" class="form-control-sm" >
+									<option value="">请选择是否已阅</option>
+									<option value="1">是</option>
+									<option value="0">否</option>
+								</select>
+							</div>
+							<div class="form-group mr-1 my-1">
+								<button type="button" id="btn_message_query" class="btn btn-sm btn-primary mr-1">
+									<i class="fal fa-binoculars fa-fw"></i>查询
+								</button>
+								<button type="button" id="btn_message_clear" class="btn btn-sm btn-primary">
+									<i class="fal fa-registered fa-fw"></i>重置
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="message_tab_toolbar" class="btn-group">
+				<button class="btn btn-primary btn-sm" type="button" id="btn_message_read">
+			        <i class="fal fa-plus fa-fw"></i>已阅
+			    </button>
+			</div>
+			<div class="panel mb-2">
+				<div class="panel-container">
+					<div class="panel-content px-3 pt-0 pb-2">
+						<table data-toggle="table" class="table table-sm table-striped" id="tb_message"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- <div class="modal fade in" id="messageViewModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header py-2">
+                <h6 class="modal-title h6">消息视图窗口</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     &times; 
+                </button>
+            </div>
+			<div class="modal-body px-3 pt-0 pb-2">
+				<form>
+					<table class="table table-sm table-striped table-bordered table-condensed table-form">
+						<tbody>
+							<tr>
+								<td style="width:20%;text-align:right;"><span>产品：</span></td>
+								<td >
+									<label style="margin:5px;" data-name="product"></label>
+								</td>
+							</tr>
+							<tr>
+								<td><span>创建时间：</span></td>
+								<td style="text-align:left;">
+									<label style="margin:5px;" data-name="createTime"></label>
+								</td>
+							</tr>
+							<tr>
+								<td><span>消息级别：</span></td>
+								<td style="text-align:left;">
+									<label style="margin:5px;" data-name="mLevel"></label>
+								</td>
+							</tr>
+							<tr>
+								<td><span>已阅读：</span></td>
+								<td style="text-align:left;">
+									<label style="margin:5px;" data-name="mRead"></label>
+								</td>
+							</tr>
+							<tr>
+								<td><span>消息内容：</span></td>
+								<td style="text-align:left;">
+									<label style="margin:5px;" data-name="mInfo"></label>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</div> -->

@@ -1,0 +1,143 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+<!--
+.blog_font {
+	font-family: "Noto Serif","DejaVu Sans","Microsoft YaHei", serif !important;
+	color: rgb(0,0,0,.8) !important;
+}
+.blog_body {
+	padding: 30px;
+	padding-top: 15px;
+    padding-left: 45px;
+}
+.blog_body p{
+	line-height: 1.8;
+   	font-size: 0.95rem;
+	letter-spacing: -.01em;
+	font-style: normal;
+	font-weight:400;
+	margin-bottom: 0;
+}
+.blog_title {
+	color: #a91718;
+	padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+-->
+</style>
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">文档</li>
+    <li class="breadcrumb-item active">计划任务表达式</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="subheader pt-3 mb-3 blog_font">
+	<h1 class="subheader-title">
+		<i class='subheader-icon fal fa-clock fa-fw mr-1'></i>计划任务表达式详细介绍
+		<small>wws调度中计划任务的实现，是基于中间件Quartz，因此计划任务表达式的规则也采用Quartz的表达式，与Linux操作系统中CronTab表达式是有差异的。 </small>
+	</h1>
+</div>
+<p>cron表达式用于平台计划任务和假日编排两个模块。</p>
+<div class="panel panel-info">
+	<div class="panel-body">
+		<div class="blog_body blog_font">
+			<p>cron表达式用于配置cronTrigger的实例。cron表达式实际上是由七个子表达式组成。这些表达式之间用空格分隔。</p>
+			<p>
+				1. Seconds（秒）<br>
+				2. Minutes（分）<br>
+				3. Hours（小时）<br>
+				4. Day-of-Month（天）<br>
+				5. Month（月）<br>
+				6. Day-of-Week（周）<br>
+				7. Year（年）
+			</p>
+			<p>例：<code>0 0 12 ? * WED</code> 意思是：每个星期三的中午12点执行。</p>
+			<p>&nbsp;</p>
+			<p>个别子表达式可以包含范围或者列表。例如：上面例子中的WED可以换成"MON-FRI"，"MON,WED,FRI"，甚至"MON-WED,SAT"。</p>
+			<p>
+				<strong>子表达式范围：</strong><br>
+				1. Seconds (0~59)<br>
+				2. Minutes (0~59)<br>
+				3. Hours (0~23)<br>
+				4. Day-of-Month (1~31,但是要注意有些月份没有31天)<br>
+				5. Month (0~11，或者"JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV,DEC")<br>
+				6. Day-of-Week (1~7,1=SUN 或者"SUN, MON, TUE, WED, THU, FRI, SAT”)<br>
+				7. Year (1970~2099)
+			</p>
+			<p>&nbsp;</p>
+			<p>cron表达式的格式：秒 分 时 日 月 周 年(可选)</p>
+			<table class="table table-sm table-bordered" style="width:60%">
+				<thead class="thead-light">
+					<tr><th>字段名</th><th>允许的值</th><th>允许的特殊字符</th></tr>
+				</thead>
+				<tbody>
+					<tr><td>秒</td><td>0-59</td><td>, - * /</td></tr>
+					<tr><td>分</td><td>0-59</td><td>, - * /</td></tr>
+					<tr><td>时</td><td>0-23</td><td>, - * /</td></tr>
+					<tr><td>日</td><td>1-31</td><td>, - * ? / L W C</td></tr>
+					<tr><td>月</td><td>1-12 or JAN-DEC</td><td>, - * /</td></tr>
+					<tr><td>周</td><td>1-7 or SUN-SAT</td><td>, - * ? / L C # </td></tr>
+					<tr><td>年(可选)</td><td>empty</td><td>1970-2099 , - * /</td></tr>
+				</tbody>
+			</table>
+			<p>&nbsp;</p>
+			<p>
+				<strong>字符含义：</strong>
+			</p>
+			<ul>
+				<li><p><strong style="font-weight:800;color:red;">*</strong>&nbsp;：代表所有可能的值。因此，“*”在Month中表示每个月，在Day-of-Month中表示每天，在Hours表示每小时</p></li>
+				<li><p><strong style="font-weight:800;color:red;">-</strong>&nbsp;：表示指定范围。</p></li>
+				<li><p><strong style="font-weight:800;color:red;">,</strong>&nbsp;：表示列出枚举值。例如：在Minutes子表达式中，“5,20”表示在5分钟和20分钟触发。</p>
+				<li><p><strong style="font-weight:800;color:red;">/</strong>&nbsp;：被用于指定增量。例如：在Minutes子表达式中，“0/15”表示从0分钟开始，每15分钟执行一次。"3/20"表示从第三分钟开始，每20分钟执行一次。和"3,23,43"（表示第3，23，43分钟触发）的含义一样。</p></li>
+				<li><p><strong style="font-weight:800;color:red;">?</strong>&nbsp;：用在Day-of-Month和Day-of-Week中，指“没有具体的值”。当两个子表达式其中一个被指定了值以后，为了避免冲突，需要将另外一个的值设为“?”。例如：想在每月20日触发调度，不管20号是星期几，只能用如下写法：<code>0 0 0 20 * ?</code>，其中最后以为只能用“?”，而不能用“*”。</p></li>
+				<li><p><strong style="font-weight:800;color:red;">L</strong>&nbsp;：用在day-of-month和day-of-week字串中。它是单词“last”的缩写。它在两个子表达式中的含义是不同的。<br>在day-of-month中，“L”表示一个月的最后一天，一月31号，3月30号。<br>在day-of-week中，“L”表示一个星期的最后一天，也就是“7”或者“SAT”<br>如果“L”前有具体内容，它就有其他的含义了。例如：“6L”表示这个月的倒数第六天。“FRIL”表示这个月的最后一个星期五。<br>注意：在使用“L”参数时，不要指定列表或者范围，这样会出现问题。</p></li>
+				<li><p><strong style="font-weight:800;color:red;">W</strong>&nbsp;：“Weekday”的缩写。只能用在day-of-month字段。用来描叙最接近指定天的工作日（周一到周五）。例如：在day-of-month字段用“15W”指“最接近这个月第15天的工作日”，即如果这个月第15天是周六，那么触发器将会在这个月第14天即周五触发；如果这个月第15天是周日，那么触发器将会在这个月第
+					16天即周一触发；如果这个月第15天是周二，那么就在触发器这天触发。注意一点：这个用法只会在当前月计算值，不会越过当前月。“W”字符仅能在
+					day-of-month指明一天，不能是一个范围或列表。也可以用“LW”来指定这个月的最后一个工作日，即最后一个星期五。
+				</p></li>
+				<li><p><strong style="font-weight:800;color:red;">#</strong>&nbsp;：只能用在day-of-week字段。用来指定这个月的第几个周几。例：在day-of-week字段用"6#3" or "FRI#3"指这个月第3个周五（6指周五，3指第3个）。如果指定的日期不存在，触发器就不会触发。</p></li>
+			</ul>
+			<p>
+				<strong>示例：</strong>
+			</p>
+			<div class="table-responsive mb-2">
+				<table class="table table-sm table-bordered" style="width:60%">
+					<thead class="thead-light">
+						<tr>
+							<th style="text-align:center">表达式</th>
+							<th>含义</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr><td align="center">0 * * * * ?</td><td>每分钟触发一次</td></tr>
+						<tr><td align="center">0 0 * * * ?</td><td>每天每小时触发一次</td></tr>
+						<tr><td align="center">0 0 10 * * ?</td><td>每天的10点触发一次</td></tr>
+						<tr><td align="center">0 * 14 * * ?</td><td>在每天下午2点到下午2:59期间的每分钟触发一次</td></tr>
+						<tr><td align="center">0 30 9 1 * ?</td><td>每月1号上午9点半</td></tr>
+						<tr><td align="center">0 15 10 15 * ?</td><td>每月15日上午10:15触发</td></tr>
+						<tr><td align="center">*/5 * * * * ?</td><td>每隔5秒执行一次</td></tr>
+						<tr><td align="center">0 */1 * * * ?</td><td>每隔1分钟执行一次</td></tr>
+						<tr><td align="center">0 0 5-15 * * ?</td><td>每天5-15点整点触发</td></tr>
+						<tr><td align="center">0 0/3 * * * ?</td><td>每三分钟触发一次</td></tr>
+						<tr><td align="center">0 0-5 14 * * ?</td><td>在每天下午2点到下午2:05期间的每1分钟触发</td></tr>
+						<tr><td align="center">0 0/5 14 * * ?</td><td>在每天下午2点到下午2:55期间的每5分钟触发</td></tr>
+						<tr><td align="center">0 0/5 14,18 * * ?</td><td>在每天下午2点到2:55期间和下午6点到6:55期间的每5分钟触发</td></tr>
+						<tr><td align="center">0 0/30 9-17 * * ?</td><td>朝九晚五工作时间内每半小时</td></tr>
+						<tr><td align="center">0 0 10,14,16 * * ?</td><td>每天上午10点，下午2点，4点</td></tr>
+						<tr><td align="center">0 0 12 ? * WED</td><td>表示每个星期三中午12点</td></tr>
+						<tr><td align="center">0 0 17 ? * TUES,THUR,SAT</td><td>每周二、四、六下午五点</td></tr>
+						<tr><td align="center">0 10,44 14 ? 3 WED</td><td>每年三月的星期三的下午2:10和2:44触发</td></tr>
+						<tr><td align="center">0 15 10 ? * MON-FRI</td><td>周一至周五的上午10:15触发</td></tr>
+						<tr><td align="center">0 0 23 L * ?</td><td>每月最后一天23点执行一次</td></tr>
+						<tr><td align="center">0 15 10 L * ?</td><td>每月最后一日的上午10:15触发</td></tr>
+						<tr><td align="center">0 15 10 ? * 6L</td><td>每月的最后一个星期五上午10:15触发</td></tr>
+						<tr><td align="center">0 15 10 * * ? 2005</td><td>2005年的每天上午10:15触发</td></tr>
+						<tr><td align="center">0 15 10 ? * 6L 2002-2005</td><td>2002年至2005年的每月的最后一个星期五上午10:15触发</td></tr>
+						<tr><td align="center">0 15 10 ? * 6#3</td><td>每月的第三个星期五上午10:15触发</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

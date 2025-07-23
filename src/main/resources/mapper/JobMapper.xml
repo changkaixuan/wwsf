@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.JobMapper" >
+
+	<resultMap id="jobMap" type="Job">
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="JOB_NAME" property="name" jdbcType="VARCHAR" />
+		<result column="JOB_MODE" property="mode" jdbcType="INTEGER" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="VERSION" property="version" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="SCHEDULE_RID" property="scheduleRid" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+	<select id="queryJobPage" parameterType="java.util.Map" resultMap="jobMap">
+		select * from ww_job w where 1=1
+		<if test="product != null ">
+			and w.product = #{product}
+		</if>
+		<if test="jobId != null ">
+			and w.job_id = #{jobId}
+		</if>
+		<if test="lJobId != null ">
+			and instr(w.job_id,#{lJobId}) > 0
+		</if>
+		<if test="jobMode != null ">
+			and w.job_mode = #{jobMode}
+		</if>
+		<if test="loginName !=null ">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=w.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		<if test="exclusionJobIdArr != null" >
+	      	and w.job_id not in
+		    <foreach collection="exclusionJobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		<if test="includeJobIdArr != null" >
+	      	and w.job_id in
+		    <foreach collection="includeJobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		<if test="orderBy_productJobId_asc != null ">
+			order by w.product,w.job_id
+		</if>
+	</select>
+	
+	<insert id="insertJob" parameterType="Job" >
+	    insert into ww_job (job_id,product,job_name,job_mode,title,version,create_time,creator,schedule_rid)
+	    values (#{jobId,jdbcType=VARCHAR}, #{product,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{mode,jdbcType=INTEGER},#{title,jdbcType=VARCHAR},
+	            #{version,jdbcType=VARCHAR},#{dCreateTime,jdbcType=DATE},#{creator,jdbcType=VARCHAR},#{scheduleRid,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateJob" parameterType="Job" >
+	    update ww_job 
+	    set job_name = #{name}
+	       ,job_mode = #{mode}
+	       ,title = #{title}
+	       ,version = #{version}
+	       ,creator = #{creator}
+	       <if test="dCreateTime != null ">
+		   ,create_time = #{dCreateTime}
+		   </if>
+		   ,schedule_rid = #{scheduleRid}
+	    where job_id = #{jobId} 
+	      and product = #{product}
+	</update>
+	
+	<delete id="deleteJob" parameterType="java.util.Map" >
+	    delete from ww_job where 1=1 
+	    <if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+	</delete>
+	
+	<delete id="deleteJobByProduct" parameterType="java.util.Map" >
+	    delete from ww_job where product = #{product}
+	</delete>
+  
+  	<select id="getJobListIgnoreMode" resultMap="jobMap">
+		select * from ww_job
+	</select>
+	
+	<select id="getCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="oracle">
+		select * from ww_job where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and rownum = 1
+	</select>
+	
+	<select id="getCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="mysql">
+		select * from ww_job where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		limit 1
+	</select>
+	
+</mapper>

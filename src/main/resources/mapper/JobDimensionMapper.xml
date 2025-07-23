@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.JobDimensionMapper" >
+
+	<resultMap id="jobDimensionMap" type="JobDimension">
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+		<result column="MODEL_NO" property="modelNo" jdbcType="VARCHAR" />
+		<result column="DMSN_NAME" property="dmsnName" jdbcType="VARCHAR" />
+		<result column="DMSN_PRODUCT" property="dmsnProduct" jdbcType="VARCHAR" />
+		<result column="ENTITY_NAME" property="entityName" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+	<select id="queryJobDimensionPage" parameterType="java.util.Map" resultMap="jobDimensionMap">
+		select * from ww_job_dimension where 1=1
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="jobIdArr != null" >
+	      	and job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+		<if test="dmsnProduct != null ">
+			and dmsn_product = #{dmsnProduct}
+		</if>
+		<if test="modelNo != null ">
+			and model_no = #{modelNo}
+		</if>
+		<if test="entityName != null ">
+			and entity_name = #{entityName}
+		</if>
+		order by dmsn_product,job_id,model_no,dmsn_name
+	</select>
+	
+	<insert id="insertJobDimension" parameterType="JobDimension" >
+	    insert into ww_job_dimension (job_id,model_no,dmsn_name,dmsn_product,entity_name)
+	    values (#{jobId,jdbcType=VARCHAR}, #{modelNo,jdbcType=VARCHAR}, #{dmsnName,jdbcType=VARCHAR}, #{dmsnProduct,jdbcType=VARCHAR},#{entityName,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteJobDimension" parameterType="java.util.Map" >
+	    delete from ww_job_dimension where 1=1 
+	    <if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+	</delete>
+	
+	<delete id="deleteJobDimensionByProduct" parameterType="java.util.Map" >
+	    delete from ww_job_dimension 
+	     where job_id in (select j.job_id from ww_job j where j.product = #{product})
+	</delete>
+	
+	<select id="distinctDmsnName" parameterType="java.util.Map" resultType="java.lang.String">
+		select DISTINCT dmsn_name from ww_job_dimension where 1=1
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="modelNo != null ">
+			and model_no = #{modelNo}
+		</if>
+	</select>
+	
+	<select id="distinctJobDimName" parameterType="java.util.Map" resultType="java.lang.String">
+		select DISTINCT entity_name from ww_job_dimension where 1=1
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="modelNo != null ">
+			and model_no = #{modelNo}
+		</if>
+	</select>
+	
+	<select id="getJobDmsnNameList" parameterType="java.util.Map" resultType="java.lang.String">
+		select distinct jd.dmsn_name from ww_task t,ww_job_dimension jd where t.job_id=jd.job_id and t.use_job_dimension=jd.model_no and t.job_id=#{jobId} and t.task_id=#{taskId} order by jd.dmsn_name
+	</select>
+  
+    <select id="getJobEntityNameList" parameterType="java.util.Map" resultType="java.lang.String">
+		select distinct jd.entity_name from ww_task t,ww_job_dimension jd where t.job_id=jd.job_id and t.use_job_dimension=jd.model_no and t.job_id=#{jobId} and t.task_id=#{taskId}
+		<if test="lEntityName != null ">
+			and instr(jd.entity_name,#{lEntityName}) > 0
+		</if>
+		order by jd.entity_name
+	</select>
+	
+	<insert id="batchInsertJobDimension" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_job_dimension (job_id,model_no,dmsn_name,dmsn_product,entity_name)
+	    values
+	    <foreach collection="list" item="jobDimension" index="index" separator=",">
+	    	(#{jobDimension.jobId,jdbcType=VARCHAR}, #{jobDimension.modelNo,jdbcType=VARCHAR}, #{jobDimension.dmsnName,jdbcType=VARCHAR}, #{jobDimension.dmsnProduct,jdbcType=VARCHAR},#{jobDimension.entityName,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+	<insert id="batchInsertJobDimension" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="jobDimension" open="BEGIN" index="index" separator=";" close=";END;">
+	    	insert into ww_job_dimension(job_id,model_no,dmsn_name,dmsn_product,entity_name) 
+	    	values (#{jobDimension.jobId,jdbcType=VARCHAR}, #{jobDimension.modelNo,jdbcType=VARCHAR}, #{jobDimension.dmsnName,jdbcType=VARCHAR}, #{jobDimension.dmsnProduct,jdbcType=VARCHAR},#{jobDimension.entityName,jdbcType=VARCHAR})
+	    </foreach>
+	</insert>
+	
+</mapper>

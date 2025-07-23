@@ -1,0 +1,3367 @@
+{
+	"info": {
+		"_postman_id": "963cddf8-3ffa-4c36-87ec-7c0e72467e27",
+		"name": "wws",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cron",
+			"item": [
+				{
+					"name": "/wws/cron/start",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/start?cronId=CJ_DCDS_031&clearShared=false",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"start"
+							],
+							"query": [
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_031",
+									"description": "CronJob编号"
+								},
+								{
+									"key": "clearShared",
+									"value": "false",
+									"description": "启动时是否清理Shared数据"
+								}
+							]
+						},
+						"description": "启动CronJob"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/start",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/start?cronId=CJ_DCDS_031&clearShared=false",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"start"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_031",
+											"description": "CronJob编号"
+										},
+										{
+											"key": "clearShared",
+											"value": "false",
+											"description": "启动时是否清理Shared数据"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:46:02 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: cron job not exists\",\"success\":false}"
+						},
+						{
+							"name": "/wws/cron/start",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/start?cronId=CJ_DCDS_03&clearShared=false",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"start"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										},
+										{
+											"key": "clearShared",
+											"value": "false",
+											"description": "启动时是否清理Shared数据"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 13 Nov 2018 07:34:45 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron/restart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/restart?cronId=CJ_DCDS_031&clearShared=false",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"restart"
+							],
+							"query": [
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_031",
+									"description": "CronJob编号"
+								},
+								{
+									"key": "clearShared",
+									"value": "false",
+									"description": "启动时是否清理Shared数据"
+								}
+							]
+						},
+						"description": "重新启动CronJob"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/restart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/restart?cronId=CJ_DCDS_031&clearShared=false",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"restart"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_031",
+											"description": "CronJob编号"
+										},
+										{
+											"key": "clearShared",
+											"value": "false",
+											"description": "启动时是否清理Shared数据"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:47:05 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: cron job not exists\",\"success\":false}"
+						},
+						{
+							"name": "/wws/cron/restart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/restart?cronId=CJ_DCDS_03&clearShared=false",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"restart"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										},
+										{
+											"key": "clearShared",
+											"value": "false",
+											"description": "启动时是否清理Shared数据"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "85"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:46:48 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: cron job already is running\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron/stop",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/stop?cronId=CJ_DCDS_031",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"stop"
+							],
+							"query": [
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_031",
+									"description": "CronJob编号"
+								}
+							]
+						},
+						"description": "停止CronJob运行"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/stop",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/stop?cronId=CJ_DCDS_03",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"stop"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:47:43 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						},
+						{
+							"name": "/wws/cron/stop",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/stop?cronId=CJ_DCDS_031",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"stop"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_031",
+											"description": "CronJob编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:47:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: cron job not exists\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron?cronId=CJ_DCDS_031",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron"
+							],
+							"query": [
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_031",
+									"description": "CronJob编号"
+								}
+							]
+						},
+						"description": "停止CronJob运行，并删除wws上cron配置信息"
+					},
+					"response": [
+						{
+							"name": "/wws/cron",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron?cronId=CJ_DCDS_031",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_031",
+											"description": "CronJob编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:47:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: cron job not exists\",\"success\":false}"
+						},
+						{
+							"name": "/wws/cron",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron?cronId=CJ_DCDS_03",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:47:43 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron/sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/sync?cronId=CJ_DCDS_03&clearShared=false",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_03",
+									"description": "CronJob编号"
+								},
+								{
+									"key": "clearShared",
+									"value": "false",
+									"description": "启动时是否清理Shared数据"
+								}
+							]
+						},
+						"description": "提供给CronJob及Job模板存储在数据库的用户使用，同步Cronjob及所涉及的Job模板信息，并启动运行"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/sync?cronId=CJ_DCDS_03&clearShared=false",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										},
+										{
+											"key": "clearShared",
+											"value": "false",
+											"description": "启动时是否清理Shared数据"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 13:18:29 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: Cron job is running, Please stop it and next do sync\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron/existed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/existed?product=wws&agent=10000&cronId=CJ_DCDS_03",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"existed"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								},
+								{
+									"key": "agent",
+									"value": "10000",
+									"description": "WWS代理服务器编号"
+								},
+								{
+									"key": "cronId",
+									"value": "CJ_DCDS_03",
+									"description": "CronJob编号"
+								}
+							]
+						},
+						"description": "判断CronJob是否正在运行"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/existed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/existed?product=wws&agent=10000&cronId=CJ_DCDS_03",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"existed"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "WWS代理服务器编号"
+										},
+										{
+											"key": "cronId",
+											"value": "CJ_DCDS_03",
+											"description": "CronJob编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:48:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"res\":false,\"success\":true} // res：为逻辑结果，success：代表请求成功，并不代表cron正在运行"
+						}
+					]
+				},
+				{
+					"name": "/wws/cron/online",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/cron/online?product=wws&agent=10000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"cron",
+								"online"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								},
+								{
+									"key": "agent",
+									"value": "10000",
+									"description": "WWS代理服务器编号"
+								}
+							]
+						},
+						"description": "获取WWS代理服务器上正在运行的CronJob名称列表"
+					},
+					"response": [
+						{
+							"name": "/wws/cron/online",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/cron/online?product=wws&agent=10000",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"cron",
+										"online"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "WWS代理服务器编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 13:13:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{\"crons\":[\"CJ_DCDS_03\"]},\"success\":true}"
+						}
+					]
+				}
+			],
+			"description": "CronJob操作的相关接口"
+		},
+		{
+			"name": "DataSource",
+			"item": [
+				{
+					"name": "/wws/ds/online",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/online?product=wws&agent=10000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"online"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								},
+								{
+									"key": "agent",
+									"value": "10000",
+									"description": "代理节点编号"
+								}
+							]
+						},
+						"description": "获取WWS代理节点正在运行DataSource列表"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/online",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/online?product=wws&agent=10000",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"online"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "代理节点编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "356"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:50:31 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"db.version\": \"5.7.17-log\",\n            \"name\": \"jobtpl\",\n            \"db.product\": \"MySQL\",\n            \"state\": \"OK\",\n            \"url\": \"jdbc:mysql://localhost:3306/wwsp?characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false\"\n        },\n        {\n            \"db.version\": \"5.7.17-log\",\n            \"name\": \"luoyanxue\",\n            \"db.product\": \"MySQL\",\n            \"state\": \"OK\",\n            \"url\": \"jdbc:mysql://localhost:3306/wwsp?characterEncoding=UTF-8\"\n        }\n    ],\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/info?name=luoyanxue1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"info"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue1",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "获取DataSouce的详细信息"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/info?name=luoyanxue1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"info"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue1",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:51:02 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: DataSource luoyanxue1 not defined\",\"success\":false}"
+						},
+						{
+							"name": "/wws/ds/info",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/info?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"info"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "318"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:51:17 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"driver.version\": \"mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )\",\n        \"db.version\": \"5.7.17-log\",\n        \"db.product\": \"MySQL\",\n        \"url\": \"jdbc:mysql://localhost:3306/wwsp?characterEncoding=UTF-8\",\n        \"driver.name\": \"MySQL Connector Java\",\n        \"username\": \"wwsp@localhost\"\n    },\n    \"success\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/existed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/existed?name=luoyanxue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"existed"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "DataSource是否已经创建"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/existed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/existed?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"existed"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "37"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:51:52 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"res\":true,\"success\":true}"
+						},
+						{
+							"name": "/wws/ds/existed",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/existed?name=luoyanxue1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"existed"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue1",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "38"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:51:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"res\":false,\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds?name=luoyanxue1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue1",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "销毁DataSouce，并删除wws上配置信息"
+					},
+					"response": [
+						{
+							"name": "/wws/ds",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:52:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						},
+						{
+							"name": "/wws/ds",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds?name=luoyanxue1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue1",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:52:28 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: DataSource luoyanxue1 not defined\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/destroy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/destroy?name=luoyanxue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"destroy"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "销毁DataSouce,不删除wws上DataSource配置信息"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/destroy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/destroy?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"destroy"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:52:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						},
+						{
+							"name": "/wws/ds/destroy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/destroy?name=luoyanxue1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"destroy"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue1",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:52:28 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: DataSource luoyanxue1 not defined\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds?name=luoyanxue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "创建数据源"
+					},
+					"response": [
+						{
+							"name": "/wws/ds",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:53:18 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/agent?product=wws&agent=10000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"agent"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								},
+								{
+									"key": "agent",
+									"value": "10000",
+									"description": "WWS代理服务器编号"
+								}
+							]
+						},
+						"description": "创建WWS代理服务器上的所有DataSource"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/agent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/agent?product=wws&agent=10000",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"agent"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "WWS代理服务器编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:53:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/sync?name=luoyanxue",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "luoyanxue",
+									"description": "数据源名称"
+								}
+							]
+						},
+						"description": "仅限配置信息在数据中的情，将数据库中的指定name的数据源配置同步到wws，并创建数据源"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/sync?name=luoyanxue",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "luoyanxue",
+											"description": "数据源名称"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 05:18:51 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"master nofound\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/ds/sync-agent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/ds/sync-agent?product=wws&agent=10000",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"ds",
+								"sync-agent"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								},
+								{
+									"key": "agent",
+									"value": "10000",
+									"description": "WWS代理服务器编号"
+								}
+							]
+						},
+						"description": "仅限DataSource定义在数据库的用户使用\n同步指定agent节点上所有已定义的DataSource，并创建数据源"
+					},
+					"response": [
+						{
+							"name": "/wws/ds/sync-agent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/sync-agent?product=wws&agent=10000",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"sync-agent"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "WWS代理服务器编号"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 03:13:27 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2018-11-15T03:13:27.632+0000\",\n    \"status\": 404, //<span style='color:red;font-weight:bold'>当服务器接口未定义时返回404</span>\n    \"error\": \"Not Found\",\n    \"message\": \"No message available\",\n    \"path\": \"/wws/ds-sync\"\n}"
+						},
+						{
+							"name": "/wws/ds/sync_agent",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/ds/sync-agent?product=wws&agent=10000",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"ds",
+										"sync-agent"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										},
+										{
+											"key": "agent",
+											"value": "10000",
+											"description": "WWS代理服务器编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 03:18:00 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"master nofound\",\"success\":false}"
+						}
+					]
+				}
+			],
+			"description": "DataSource操作相关的接口",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "af9e4b40-14b8-4077-b687-7247086bedfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fe06d411-2b07-4e31-84fa-e473b39a0b97",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "job",
+			"item": [
+				{
+					"name": "/wws/job/rerununpassed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/rerununpassed?product=wws&jobInsId=10000001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"rerununpassed"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "10000001",
+									"description": "Job实例编号"
+								}
+							]
+						},
+						"description": "重新运行Job中状态为失败的Task"
+					},
+					"response": [
+						{
+							"name": "/wws/job/rerununpassed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/rerununpassed?product=wws&jobInsId=10000001",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"rerununpassed"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "10000001",
+											"description": "Job实例编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "125"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:53:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"com.bocsoft.wws.core.schedule.exception.JobNotExistException: job not exist wws|10000001\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/pause",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/pause?product=wws&jobInsId=10000013",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"pause"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "10000013",
+									"description": "Job实例编号"
+								}
+							]
+						},
+						"description": "暂停正在运行的Job"
+					},
+					"response": [
+						{
+							"name": "/wws/job/pause",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/pause?product=wws&jobInsId=10000013",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"pause"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "10000013",
+											"description": "Job实例编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:53:54 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: Job must in running\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/renovate",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/renovate?product=wws&jobInsId=10000013",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"renovate"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "10000013",
+									"description": "Job实例编号"
+								}
+							]
+						},
+						"description": "重置job为初始状态，所有task将重跑"
+					},
+					"response": [
+						{
+							"name": "/wws/job/renovate",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/renovate?product=wws&jobInsId=10000013",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"renovate"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "10000013",
+											"description": "Job实例编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "77"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:53:54 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: Job must in running\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/continue",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/continue?product=wws&jobInsId=1000001",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"continue"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "1000001",
+									"description": "Job实例编号"
+								}
+							]
+						},
+						"description": "启动运行已暂停的Job"
+					},
+					"response": [
+						{
+							"name": "/wws/job/continue",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/continue?product=wws&jobInsId=1000001",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"continue"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "1000001",
+											"description": "Job实例编号"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "67"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:56:59 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.NullPointerException\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/init",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/init?product=dcds&jobId=JB_20000&params={\"batch\":\"20181206\"}",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"init"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "dcds",
+									"description": "产品"
+								},
+								{
+									"key": "jobId",
+									"value": "JB_20000",
+									"description": "JOB编号"
+								},
+								{
+									"key": "params",
+									"value": "{\"batch\":\"20181206\"}",
+									"description": "输入参数（json字符串）"
+								}
+							]
+						},
+						"description": "启动运行已暂停的Job"
+					},
+					"response": []
+				},
+				{
+					"name": "/wws/job/rerun",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/rerun?product=wws&jobInsId=1000001&taskInsIds&recursion=true&exceptRunning=true",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"rerun"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "1000001",
+									"description": "Job实例编号"
+								},
+								{
+									"key": "taskInsIds",
+									"value": null,
+									"description": "需要重新运行的Task列表"
+								},
+								{
+									"key": "recursion",
+									"value": "true",
+									"description": "是否按照依赖关系递归操作"
+								},
+								{
+									"key": "exceptRunning",
+									"value": "true",
+									"description": "正在运行的Task设为列外"
+								}
+							]
+						},
+						"description": "重新运行Job中的Task"
+					},
+					"response": [
+						{
+							"name": "/wws/job/rerun",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/rerun?product=wws&jobInsId=1000001&taskInsIds&recursion=true&exceptRunning=true",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"rerun"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "1000001",
+											"description": "Job实例编号"
+										},
+										{
+											"key": "taskInsIds",
+											"value": null,
+											"description": "需要重新运行的Task列表"
+										},
+										{
+											"key": "recursion",
+											"value": "true",
+											"description": "是否按照依赖关系递归操作"
+										},
+										{
+											"key": "exceptRunning",
+											"value": "true",
+											"description": "正在运行的Task设为列外"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:54:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"com.bocsoft.wws.core.schedule.exception.JobNotExistException: job not exist wws|1000001\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/rerunfailed",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/rerunfailed?product=wws&jobInsId=1000001&taskInsIds",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"rerunfailed"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "1000001",
+									"description": "Job实例编号"
+								},
+								{
+									"key": "taskInsIds",
+									"value": null,
+									"description": "需要重新运行的失败Task列表"
+								}
+							]
+						},
+						"description": "重新运行Job中指定已失败的Task，如未指定则job所有已失败的task都将重跑"
+					},
+					"response": [
+						{
+							"name": "/wws/job/rerunfailed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/rerunfailed?product=wws&jobInsId=1000001&taskInsIds",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"rerunfailed"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "1000001",
+											"description": "Job实例编号"
+										},
+										{
+											"key": "taskInsIds",
+											"value": null,
+											"description": "需要重新运行的失败Task列表"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:54:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"com.bocsoft.wws.core.schedule.exception.JobNotExistException: job not exist wws|1000001\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/driver",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/driver?product=wws&jobInsId=1000001&taskInsIds",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"driver"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "1000001",
+									"description": "Job实例编号"
+								},
+								{
+									"key": "taskInsIds",
+									"value": null,
+									"description": "需要驱动运行的Task列表"
+								}
+							]
+						},
+						"description": "驱动Job实例继续运行。此接口仅实现向master发送一条驱动指令，真正驱动运行是由master判断Job中是否存在满足可运行条件的task，若有则可立即驱动运行。"
+					},
+					"response": [
+						{
+							"name": "/wws/job/driver",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/driver?product=wws&jobInsId=1000001&taskInsIds",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"driver"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "1000001",
+											"description": "Job实例编号"
+										},
+										{
+											"key": "taskInsIds",
+											"value": null,
+											"description": "需要驱动运行的Task列表"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "124"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:54:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"com.bocsoft.wws.core.schedule.exception.JobNotExistException: job not exist wws|1000001\",\"success\":false}"
+						}
+					]
+				},
+				{
+					"name": "/wws/job/disable",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/job/disable?product=wws&jobInsId=10000013&taskInsIds=111",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"job",
+								"disable"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "Job所属产品"
+								},
+								{
+									"key": "jobInsId",
+									"value": "10000013",
+									"description": "Job实例编号"
+								},
+								{
+									"key": "taskInsIds",
+									"value": "111",
+									"description": "需要重新运行的Task列表"
+								}
+							]
+						},
+						"description": "将Job中的选定Task设置为通过"
+					},
+					"response": [
+						{
+							"name": "/wws/job/disable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/job/disable?product=wws&jobInsId=10000013&taskInsIds=111",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"job",
+										"disable"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "Job所属产品"
+										},
+										{
+											"key": "jobInsId",
+											"value": "10000013",
+											"description": "Job实例编号"
+										},
+										{
+											"key": "taskInsIds",
+											"value": "111",
+											"description": "需要重新运行的Task列表"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 14 Nov 2018 00:54:37 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"java.lang.Exception: job not in running\",\"success\":false}"
+						}
+					]
+				}
+			],
+			"description": "WWS平台Job操作开放接口"
+		},
+		{
+			"name": "dimension",
+			"item": [
+				{
+					"name": "/wws/dimension/sync",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/dimension/sync?product=wws",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"dimension",
+								"sync"
+							],
+							"query": [
+								{
+									"key": "product",
+									"value": "wws",
+									"description": "产品"
+								}
+							]
+						},
+						"description": "仅限配置信息在数据库时使用，将产品对应的Demension信息同步到WWS平台"
+					},
+					"response": [
+						{
+							"name": "/wws/dimension/sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/dimension/sync?product=wws",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"dimension",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 16 Nov 2018 00:35:40 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"success\":true}"
+						},
+						{
+							"name": "/wws/dimension/sync",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/dimension/sync?product=wws",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"dimension",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 13:16:55 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{},\"info\":\"No such operation: syncDimension\",\"success\":false}"
+						},
+						{
+							"name": "/wws/dimension/sync",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/dimension/sync?product=wws",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"dimension",
+										"sync"
+									],
+									"query": [
+										{
+											"key": "product",
+											"value": "wws",
+											"description": "产品"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 12:52:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timestamp\": \"2018-11-15T12:52:10.765+0000\",\n    \"status\": 404,\n    \"error\": \"Not Found\",\n    \"message\": \"No message available\",\n    \"path\": \"/wws/dimension/sync\"\n}"
+						}
+					]
+				}
+			],
+			"description": "维度信息操作"
+		},
+		{
+			"name": "cryption",
+			"item": [
+				{
+					"name": "/wws/encryption/text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/encryption/text?plaintext=123&confirm=123",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"encryption",
+								"text"
+							],
+							"query": [
+								{
+									"key": "plaintext",
+									"value": "123",
+									"description": "需加密处理的敏感信息明文"
+								},
+								{
+									"key": "confirm",
+									"value": "123",
+									"description": "重复敏感信息明文"
+								}
+							]
+						},
+						"description": "敏感信息加密"
+					},
+					"response": [
+						{
+							"name": "/wws/encryption/text",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/encryption/text?plaintext=123&confirm=123",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"encryption",
+										"text"
+									],
+									"query": [
+										{
+											"key": "plaintext",
+											"value": "123",
+											"description": "需加密处理的敏感信息明文"
+										},
+										{
+											"key": "confirm",
+											"value": "123",
+											"description": "重复敏感信息明文"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "69"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 14:03:30 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{\"cipher\":\"53F27B199A4E47A2BFC31660E9120A0E\"},\"success\":true}"
+						}
+					]
+				},
+				{
+					"name": "/wws/decryption/text",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8585/wws/decryption/text?ciphertext=53F27B199A4E47A2BFC31660E9120A0E",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8585",
+							"path": [
+								"wws",
+								"decryption",
+								"text"
+							],
+							"query": [
+								{
+									"key": "ciphertext",
+									"value": "53F27B199A4E47A2BFC31660E9120A0E",
+									"description": "需解密的敏感信息密文"
+								}
+							]
+						},
+						"description": "敏感信息解密"
+					},
+					"response": [
+						{
+							"name": "/wws/decryption/text",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://127.0.0.1:8585/wws/decryption/text?ciphertext=53F27B199A4E47A2BFC31660E9120A0E",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8585",
+									"path": [
+										"wws",
+										"decryption",
+										"text"
+									],
+									"query": [
+										{
+											"key": "ciphertext",
+											"value": "53F27B199A4E47A2BFC31660E9120A0E",
+											"description": "需解密的敏感信息密文"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 15 Nov 2018 14:03:53 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\"data\":{\"plain\":\"123\"},\"success\":true}"
+						}
+					]
+				}
+			],
+			"description": "敏感信息加解密操作"
+		}
+	]
+}

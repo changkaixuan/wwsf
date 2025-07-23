@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.DimensionMapper" >
+
+	<resultMap id="dimensionMap" type="Dimension">
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="DMSN_NAME" property="name" jdbcType="VARCHAR" />
+		<result column="DMSN_DESC" property="description" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+	<select id="queryDimensionPage" parameterType="java.util.Map" resultMap="dimensionMap">
+		select t.* from ww_dimension t where 1=1
+		<if test="product != null ">
+			and t.product = #{product}
+		</if>
+		<if test="dmsnName != null ">
+			and t.dmsn_name = #{dmsnName}
+		</if>
+		<if test="lDmsnName != null ">
+			and instr(t.dmsn_name,#{lDmsnName}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=t.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		order by dmsn_name
+	</select>
+	
+	<insert id="insertDimension" parameterType="Dimension" >
+	    insert into ww_dimension (product,dmsn_name,dmsn_desc)
+	    values (#{product,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateDimension" parameterType="Dimension" >
+	    UPDATE ww_dimension
+	    set 
+		   dmsn_desc = #{description,jdbcType=VARCHAR}
+		WHERE product = #{product} and dmsn_name = #{name}
+	</update>
+	
+	<delete id="deleteDimension" parameterType="java.util.Map" >
+	    delete from ww_dimension where 1=1 
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="dmsnName != null ">
+			and dmsn_name = #{dmsnName}
+		</if>
+	</delete>
+	
+	<delete id="deleteDimensionByProduct" parameterType="java.util.Map" >
+	    delete from ww_dimension where product = #{product}
+	</delete>
+  
+    <select id="getDimensionCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="oracle">
+		select * from ww_dimension where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and rownum = 1
+	</select>
+
+    <select id="getDimensionCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="mysql">
+		select * from ww_dimension where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		limit 1
+	</select>
+	
+</mapper>

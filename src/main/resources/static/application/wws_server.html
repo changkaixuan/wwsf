@@ -1,0 +1,380 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">服务管理</li>
+    <li class="breadcrumb-item active">服务管理</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 py-2">
+			<form class="form-inline" id="serverQueryForm">
+				<div class="form-group mr-1 my-1">
+					<label >产品：</label>
+					<select class="form-control-sm" name="qProduct" ></select>
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >节点编号：</label>
+					<input type="text" name="qServerId" class="form-control-sm" placeholder="请输入节点号">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >标签：</label>
+					<input type="text" class="form-control-sm" name="qTags" placeholder="请输入标签">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<button type="button" id="btn_server_query" class="btn btn-sm btn-primary mr-1">
+						<i class="fal fa-binoculars fa-fw"></i>查询
+					</button>
+					<button type="button" id="btn_server_clear" class="btn btn-sm btn-primary">
+						<i class="fal fa-registered fa-fw"></i>重置
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="server_tab_toolbar" class="btn-group">
+	<button class="btn btn-primary btn-sm" type="button" id="btn_server_add">
+        <i class="fal fa-plus fa-fw"></i>新增
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_edit">
+        <i class="fal fa-edit fa-fw"></i>修改
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_del">
+        <i class="fal fa-minus fa-fw"></i>删除
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_install">
+        <i class="fal fa-gear fa-fw"></i>安装
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_uninstall">
+        <i class="fal fa-trash-alt fa-fw"></i>卸载
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_start">
+        <i class="fal fa-play fa-fw"></i>启动
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_stop" >
+        <i class="fal fa-pause fa-fw"></i>停止
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_look" >
+        <i class="fal fa-microchip fa-fw"></i>线程资源
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_ssh_karaf" >
+        <i class="fal fa-tv fa-fw mr-1"></i>karaf
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_server_ssh_shell" >
+        <i class="fal fa-tv fa-fw mr-1"></i>sshd
+    </button>
+</div>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0 pb-2">
+			<table data-toggle="table" class="table table-sm table-striped" id="tb_server"></table>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="serverEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl" style="min-width:680px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0">
+				服务器编辑 
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="modal-body p-1">
+				<div class="panel m-0 border-0-noshadow">
+					<div class="panel-container">
+						<div class="panel-content px-3 pt-0">
+							<div class="container-fluid">
+							<div class="row">
+								<div class="col-9 p-0">
+									<ul class="nav nav-tabs" role="tablist">
+										<li class="nav-item">
+											<a href="#tabs_sysuser_baseinfo" data-toggle="tab" role="tab" class="nav-link active mt-1 px-4" >基本信息</a>
+										</li>
+									</ul>
+								</div>
+								<div class="col-3 border-bottom p-0 clearfix" >
+									<button type="button" id="btn_server_save" class="btn btn-sm btn-outline-primary float-right py-1" style="margin-top:2px" aria-hidden="true">
+										<i class="fal fa-save fa-fw"></i>保存
+									</button>
+								</div>
+							</div>
+							</div>
+							<div class="tab-content border border-top-0 p-1">
+								<div class="tab-pane m-2 active" role="tabpanel" id="tabs_sysuser_baseinfo">
+									<form>
+									    <input type="hidden" name="cfgVersion">
+										<table class="table table-sm table-striped table-bordered table-form">
+											<tbody>
+												<tr>
+													<td style="width:18%;"><span>产品：</span></td>
+													<td style="text-align:left;">
+														<select class="form-control-sm" name="product" style="width:90%"></select>
+													</td>
+													<td style="width:18%;">
+														<span>节点编号：</span>
+													</td>
+													<td>
+														<input type="text" class="form-control-sm" name="serverId" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+													<td><span>地址：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="ipAddr" style="width:90%">
+													</td>
+													<td>
+														<span>客户端接口：</span>
+													</td>
+													<td>
+														<input type="text" class="form-control-sm" name="sshPort" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+													<td><span>RMI注册端口：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="rmiRegistryPort" style="width:90%">
+													</td>
+													<td><span>RMI服务器端口：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="rmiServerPort" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+												    <td>
+														<span>节点类型：</span>
+													</td>
+													<td>
+														<select name="serverType" class="form-control-sm" style="width:90%">
+															<option value=''>请选择服务类型</option>
+															<option value='master'>master</option>
+															<option value='slave'>slave</option>
+														</select>
+													</td>
+													<td><span>系统用户名：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="osSshUser" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+												    <td>
+														<span>系统SSHD登陆密码：</span>
+													</td>
+													<td>
+														<input type="password" class="form-control-sm" name="osSshPswd" style="width:90%">
+													</td>
+													<td>
+														<span>安装目录：</span>
+													</td>
+													<td>
+														<input type="text" class="form-control-sm" name="homeDir" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+												    <td><span>系统SSHD登陆端口：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="osSshPort" style="width:90%">
+													</td>
+													<td><span>zookeeper命名空间：</span></td>
+													<td>
+														<input type="text" class="form-control-sm" name="zooNamespace" style="width:90%">
+													</td>
+												</tr>
+												<tr>
+													<td><span>zookeeper连接字符串：</span></td>
+													<td colspan="3">
+														<input type="text" class="form-control-sm" name="zooConnectStr" style="width:75%">
+													</td>
+												</tr>
+												<tr>
+													<td><span>忽略插件：</span></td>
+													<td colspan="3">
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 mt-1" id="ignorePlugins"></div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td><span>标签：</span></td>
+													<td colspan="3">
+														<input type="text" class="form-control-sm" id="server_edit_tags" name="tags" style="width:75%">
+													</td>
+												</tr>
+												<tr>
+													<td><span>描述：</span></td>
+													<td colspan="3">
+														<textarea name="serverDesc" class="form-control" rows="3" style="width:96.4%"></textarea>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="serverPassEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl" style="width:500px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				修改SSH密码
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="tab-content border border-0 px-1" style="margin-bottom:-4px; margin-top:-4px;">
+				<div class="tab-pane m-2 active" role="tabpanel">
+					<form>
+						<table class="table table-sm table-striped table-form">
+							<tbody>
+								<tr>
+									<td style="text-align:right;">系统SSHD登陆密码：</td>
+									<td><input type="password" class="form-control-sm" name="osSshPswd" style="width:80%"></td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer py-2 border border-bottom-0 border-left-0 border-right-0 mt-1">
+				<button type="button" class="btn btn-sm btn-outline-primary" data-dismiss="modal">关闭</button>
+				<button  type="button" id="btn_server_passSave" class="btn btn-sm btn-primary">保存</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="serverInstallModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" style="min-width:600px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				安装WWSF节点
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="modal-body">
+				<form role="form">
+				    <input type="hidden" name="product">
+				    <input type="hidden" name="serverId">
+				    <input type="hidden" name="installCfgVersion">
+				    <div class="form-group mb-2">
+						<label for="installFileName" >安装文件：</label>
+						<select class="form-control" name="installFileName" style="width:95%"></select>
+					</div>
+					<button type="button" id="btn_server_install_save" class="btn btn-sm btn-primary">开始安装</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="serverInstallLogInfoWindowModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				<span><i class="fal fa-info fa-fw mr-1"></i>执行日志</span>
+				<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<div class="panel-tag" style="white-space:pre-wrap;word-break:break-all;word-wrap:break-all;" id="log_info_area"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="serverPluginQueueModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" style="min-width:600px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				<span><i class="fal fa-microchip fa-fw mr-1"></i>线程资源</span>
+				<button type="button"  class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body px-3 pt-0 pb-2">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-9 p-0">
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a href="#tab_panel_sheduler_resources" data-toggle="tab" class="nav-link mt-2 px-4" >
+										<i class="fal fa-random fa-fw mr-1"></i>调度线程资源列表
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#tab_panel_plugin_pools" data-toggle="tab" class="nav-link active mt-2 px-4" >
+										<i class="fal fa-puzzle-piece fa-fw mr-1"></i>插件线程资源列表
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3 border-bottom p-0 clearfix" >
+							<button type="button" class="btn btn-sm btn-outline-primary float-right py-1 mt-2 btn_refresh_pluginqueue"><i class="fal fa-sync fa-fw"></i>刷新</button>
+							<button type="button" id="btn_save_pluginqueue" class="btn btn-sm btn-primary float-right py-1 mx-1 mt-2"><i class="fal fa-save fa-fw"></i>保存</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content border border-top-0 p-1">
+					<div class="tab-pane" id="tab_panel_sheduler_resources">
+						<table id="table_siqrInfo" class="table table-sm table-striped"></table>
+						<table id="table_srInfo" class="table table-sm table-striped"></table>
+					</div>
+					<div class="tab-pane active" id="tab_panel_plugin_pools">
+						<table id="table_serverPluginInfo" class="table table-sm table-striped"></table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade in" id="sshShellModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" style="min-width:600px;">
+		<div class="modal-content" id="sshShellModalContent">
+			<div class="modal-header py-0 px-1 border border-top-0 border-left-0 border-right-0">
+				<i class="fal fa-tv fa-fw pt-2"></i>&nbsp;<label id="displayIpAddr" class="pt-1"></label>
+				<button type="button" class="close pt-4 pr-4" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body pt-1 pb-1 px-1">
+		    	<ul class="nav nav-pills pb-1">  
+		    		<li class="pr-1">    
+		    			<!-- btn-primary btn-link btn-dark btn-light dropdown-toggle-->
+			    		<button type="button" class="btn btn-light btn-mini" id="dropdownReconnect" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    			Connect
+			    		</button>
+			    		<div class="dropdown-menu py-0 px-0" aria-labelledby="dropdownReconnect">
+		    				<a class="dropdown-item py-1 px-0" href="#" id="displayReconnect" style="height:28px;">
+		    					&nbsp;&nbsp;<label class="displayReconnect"></label>&nbsp;&nbsp;Reconnect
+		    				</a>
+			    		</div>
+		    		</li>
+		    		<li class="pr-1">    
+			    		<button type="button" class="btn btn-light btn-mini" id="dropdownView" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    			View
+			    		</button>
+			    		<div class="dropdown-menu py-0 px-0" aria-labelledby="dropdownView">
+		    				<a class="dropdown-item py-1 px-0" href="#" id="displayFullscreen" style="height:28px;">
+		    					&nbsp;&nbsp;<label class="displayFullscreen"></label>&nbsp;&nbsp;Fullscreen
+		    				</a>
+			    		</div>
+		    		</li> 
+		    		<li class="pr-1">    
+			    		<button type="button" class="btn btn-light btn-mini" id=dropdownEncoding data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    			Encoding
+			    		</button>
+			    		<div class="dropdown-menu py-0 px-0" aria-labelledby="dropdownEncoding">
+		    				<a class="dropdown-item py-1 px-0" href="#" id="displayEncodingUTF-8" style="height:28px;">
+		    					&nbsp;&nbsp;<label class="displayEncodingUTF-8"></label>&nbsp;&nbsp;UTF-8
+		    				</a>
+		    				<a class="dropdown-item py-1 px-0" href="#" id="displayEncodingGBK" style="height:28px;">
+		    					&nbsp;&nbsp;<label class="displayEncodingGBK"></label>&nbsp;&nbsp;GBK
+		    				</a>
+			    		</div>
+		    		</li> 
+		    	</ul>
+				<div id="shellCommandWindow" style="height:432px;"></div>
+			</div>
+		</div>
+	</div>
+</div>

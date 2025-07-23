@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.DataSourceMapper" >
+
+	<resultMap id="dataSourceMap" type="DataSource">
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR" />
+		<result column="AGENT" property="agent" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="DRIVER_NAME" property="driverName" jdbcType="VARCHAR" />
+		<result column="DRIVER_CLASS" property="driverClass" jdbcType="VARCHAR" />
+		<result column="DATABASE_NAME" property="databaseName" jdbcType="VARCHAR" />
+		<result column="DATABASE_TYPE" property="databaseType" jdbcType="VARCHAR" />
+		<result column="JDBC_URL" property="jdbcUrl" jdbcType="VARCHAR" />
+		<result column="JDBC_USER" property="jdbcUser" jdbcType="VARCHAR" />
+		<result column="JDBC_PASSWORD" property="jdbcPassword" jdbcType="VARCHAR" />
+		<result column="AUTO_START" property="autoStart" jdbcType="INTEGER" />
+		<result column="POOL" property="pool" jdbcType="VARCHAR" />
+		<result column="XA" property="xa" jdbcType="VARCHAR" />
+		<result column="POOL_PROPERTIES" property="poolProperties" jdbcType="VARCHAR" />
+  	</resultMap>
+  
+	<select id="queryDataSourcePage" parameterType="java.util.Map" resultMap="dataSourceMap">
+		select * from ww_ds t where 1=1
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="nullAndProduct != null ">
+			and (product = #{nullAndProduct} or product is null)
+		</if>
+		<if test="agent != null ">
+			and agent = #{agent}
+		</if>
+		<if test="nullAndAgent != null ">
+			and (agent = #{nullAndAgent} or agent is null)
+		</if>
+		<if test="lAgent != null ">
+			and instr(agent,#{lAgent}) > 0
+		</if>
+		<if test="name != null ">
+			and name = #{name}
+		</if>
+		<if test="lName != null ">
+			and instr(name,#{lName}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and (tp.p_id=t.product or t.product is null) and tsu.login_name=#{loginName}
+		) 
+		</if>
+	</select>
+	
+	<select id="selectDsByNm" parameterType="java.lang.String" resultType="DataSource">
+		select * from ww_ds t where  name = #{name}
+	</select>
+	
+	<insert id="insertDataSource" parameterType="DataSource" >
+	    insert into ww_ds (product,agent,name,driver_name,driver_class,database_name,database_type,jdbc_url,jdbc_user,jdbc_password,auto_start,pool,xa,pool_properties)
+	    values (#{product,jdbcType=VARCHAR}, #{agent,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{driverName,jdbcType=VARCHAR},#{driverClass,jdbcType=VARCHAR},
+	            #{databaseName,jdbcType=VARCHAR}, #{databaseType,jdbcType=VARCHAR}, #{jdbcUrl,jdbcType=VARCHAR}, #{jdbcUser,jdbcType=VARCHAR},#{jdbcPassword,jdbcType=VARCHAR},
+	            #{autoStart,jdbcType=INTEGER}, #{pool,jdbcType=VARCHAR}, #{xa,jdbcType=VARCHAR}, #{poolProperties,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateDataSource" parameterType="DataSource" >
+	    update ww_ds 
+	    set product = #{product,jdbcType=VARCHAR}
+	       ,agent = #{agent,jdbcType=VARCHAR}
+	       ,driver_name = #{driverName,jdbcType=VARCHAR}
+	       ,driver_class = #{driverClass,jdbcType=VARCHAR}
+	       <if test="databaseName != null ">
+			,database_name = #{databaseName,jdbcType=VARCHAR}
+		   </if>
+	       ,database_type = #{databaseType,jdbcType=VARCHAR}
+	       ,jdbc_url = #{jdbcUrl,jdbcType=VARCHAR}
+	       ,jdbc_user = #{jdbcUser,jdbcType=VARCHAR}
+	       ,jdbc_password = #{jdbcPassword,jdbcType=VARCHAR}
+	       ,auto_start = #{autoStart,jdbcType=INTEGER}
+	       ,pool = #{pool,jdbcType=VARCHAR}
+	       ,xa = #{xa,jdbcType=VARCHAR}
+	       ,pool_properties = #{poolProperties,jdbcType=VARCHAR}
+	    where name = #{name} 
+	</update>
+	
+	<update id="updateDataSourceAllValue" parameterType="DataSource" >
+	    update ww_ds 
+	    set product = #{product,jdbcType=VARCHAR}
+	       ,agent = #{agent,jdbcType=VARCHAR}
+	       ,driver_name = #{driverName,jdbcType=VARCHAR}
+	       ,driver_class = #{driverClass,jdbcType=VARCHAR}
+		   ,database_name = #{databaseName,jdbcType=VARCHAR}
+	       ,database_type = #{databaseType,jdbcType=VARCHAR}
+	       ,jdbc_url = #{jdbcUrl,jdbcType=VARCHAR}
+	       ,jdbc_user = #{jdbcUser,jdbcType=VARCHAR}
+	       ,jdbc_password = #{jdbcPassword,jdbcType=VARCHAR}
+	       ,auto_start = #{autoStart,jdbcType=INTEGER}
+	       ,pool = #{pool,jdbcType=VARCHAR}
+	       ,xa = #{xa,jdbcType=VARCHAR}
+	       ,pool_properties = #{poolProperties,jdbcType=VARCHAR}
+	    where name = #{name} 
+	</update>
+	
+	<delete id="deleteDataSource" parameterType="java.util.Map" >
+	    delete from ww_ds where 1=1 
+	    <if test="name != null ">
+			and name = #{name}
+		</if>
+	</delete>
+	
+	<delete id="deleteDataSourceByProduct" parameterType="java.util.Map" >
+	    delete from ww_ds where product = #{product}
+	</delete>
+  
+    <select id="getDataSourceCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="oracle">
+		select * from ww_ds where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and rownum = 1
+	</select>
+
+    <select id="getDataSourceCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="mysql">
+		select * from ww_ds where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		limit 1
+	</select>
+	
+</mapper>

@@ -1,0 +1,151 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">系统管理</li>
+    <li class="breadcrumb-item active">产品管理</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+
+
+<ul class="nav nav-pills" role="tablist" id="nav_jtpl">
+	<li class="nav-item mr-1 mb-1" role="presentation">
+		<a class="nav-link active" data-toggle="tab" role="tab" id="nav_jtpl_list" href="#nav_jtpl_content_list">
+			<i class="fal fa-home mr-1"></i>产品列表
+		</a>
+	</li>
+</ul>
+
+
+
+
+<div class="tab-content p-0" id="nav_jtpl_content">
+	<div class="tab-pane fade active show" role="tabpanel" id="nav_jtpl_content_list" >
+
+		<div class="panel mb-2">
+			<div class="panel-container">
+				<div class="panel-content px-3 py-2">
+					<form class="form-inline" onsubmit="return false;">
+						<div class="form-group mr-1 my-1">
+							<label >产品英文名：</label>
+							<input type="text" name="qPId" class="form-control-sm" placeholder="请输入产品英文名">
+						</div>
+						<div class="form-group mr-1 my-1">
+							<button type="button" id="btn_product_query" class="btn btn-sm btn-primary mr-1">
+								<i class="fal fa-binoculars fa-fw"></i>查询
+							</button>
+							<button type="button" id="btn_product_clear" class="btn btn-sm btn-primary">
+								<i class="fal fa-registered fa-fw"></i>重置
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div id="product_tab_toolbar" class="btn-group">
+			<button class="btn btn-primary btn-sm" type="button" id="btn_product_add">
+				<i class="fal fa-plus fa-fw"></i>新增
+			</button>
+			<button class="btn btn-primary btn-sm" type="button" id="btn_product_edit">
+				<i class="fal fa-edit fa-fw"></i>修改
+			</button>
+			<button class="btn btn-primary btn-sm" type="button" id="btn_product_del">
+				<i class="fal fa-minus fa-fw"></i>删除
+			</button>
+			<button class="btn btn-primary btn-sm" type="button" id="btn_product_param_config">
+				<i class="fal fa-lock fa-fw"></i>认证信息管理
+			</button>
+		</div>
+
+		<div class="panel mb-2">
+			<div class="panel-container">
+				<div class="panel-content px-3 pt-0 pb-2">
+					<table data-toggle="table" class="table table-sm table-striped" id="tb_product"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+<div class="modal fade in" id="productEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg" style="min-width:480px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				<span>产品编辑</span>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="modal-body p-3">
+				<form role="form">
+					<div class="form-group mb-1">
+						<label for="pId" >产品英文名</label>
+						<input type="text" class="form-control" name="pId">
+					</div>
+					<div class="form-group mb-1">
+						<label for="pName" >产品中文名</label>
+						<input type="text" class="form-control" name="pName">
+					</div>
+					<div class="form-group mb-1">
+						<label for="pDesc" >产品描述</label>
+						<textarea name="pDesc" class="form-control" rows="6"></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer pt-0">
+				<button type="button" id="saveProduct" class="btn btn-sm btn-primary" >
+					<i class="fal fa-save fa-fw"></i>保存
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade in"   id="productParamEditModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-sm" style="min-width:680px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				<span>认证信息</span>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="modal-body">
+				<form class="form">
+					<div class="form-group mb-1">
+						<label class="control-label">产品：</label>
+						<input type="text" class="form-control" id='pId'>
+					</div>
+
+					<div class="form-group mb-1">
+						<label class="control-label">认证信息编号：</label>
+						<input type="text" class="form-control" id='authId'>
+					</div>
+					<div class="form-group mb-1">
+						<label class="control-label">用户名：</label>
+						<input type="text" class="form-control" id='userId'>
+					</div>
+					<div class="form-group mb-1">
+						<label class="control-label">协议：</label>
+						<select class="form-control" id='protocal'>
+							<option>FTP</option>
+							<option>CD</option>
+							<option>SSH</option>
+							<option>ELSE</option>
+						</select>
+					</div>
+					<div class="form-group mb-1">
+						<label class="control-label">密码(密钥)：</label>
+						<textarea class="form-control" id="publicKey" rows="10"></textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer pt-0">
+				<button type="button"  id="saveNewProductParm" class="btn btn-sm btn-primary" >保存</button>
+				<button type="button" data-dismiss="modal" class="btn btn-sm btn-info">关闭</button>
+			</div>
+		</div>
+	</div>
+</div>

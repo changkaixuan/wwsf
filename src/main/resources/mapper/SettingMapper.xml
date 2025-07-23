@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.SettingMapper" >
+	
+	<resultMap id="settingMap" type="Setting">
+		<result column="P_NAME" property="name" />
+		<result column="P_VALUE" property="value" />
+		<result column="P_DESC" property="desc" />
+		<result column="P_MODAL" property="modal" />
+		<result column="P_OPEN" property="open" />
+  	</resultMap>
+  
+	<select id="querySettingList" parameterType="java.util.Map" resultMap="settingMap">
+		select 
+		   t.p_name, 
+	       t.p_value, 
+	       t.p_desc, 
+	       t.p_modal, 
+	       t.p_open 
+		from ww_setting t
+		where 1=1
+		<if test="modal != null">
+		and t.p_modal = #{modal}
+		</if>
+	</select>
+	
+	<update id="updateSetting" parameterType="Setting" >
+	    update ww_setting 
+	    set p_modal = #{modal, jdbcType=VARCHAR}
+	   		 <if test="value != null">
+			,p_value = #{value, jdbcType=VARCHAR}
+			</if>
+			<if test="desc != null">
+		   ,p_desc = #{desc, jdbcType=VARCHAR}
+		   </if>
+		   <if test="open != null">
+		   ,p_open = #{open, jdbcType=INTEGER}
+		   </if>
+	    where p_modal = #{modal}
+	    and p_name = #{name}
+	</update>
+</mapper>

@@ -1,0 +1,94 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style type="text/css">
+</style>
+<ol class="breadcrumb page-breadcrumb">
+	<li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+	<li class="breadcrumb-item">代理服务器</li>
+	<li class="breadcrumb-item active">网络拓扑</li>
+	<li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+
+<div class="row">
+	<div class="col-xl-9 col-sm-8">
+		<div class="panel mb-0">
+	    	<div class="panel-hdr">
+	            <h2><i class="fal fa-share-alt fw mr-1"></i><span>网络拓扑结构图</span></h2>
+	            <div class="panel-toolbar">
+	                <span class="badge badge-primary fw-800 ml-auto">Topological Graph</span>
+	            </div>
+	        </div>
+	        <div class="panel-container show">
+	            <div class="panel-content pt-1">
+	            	<div class="card">
+	            		<div class="card-body py-2 m-auto">
+	            			<label class="font-weight-bold font-italic">图标释义：</label>
+		            		<img src="js/vis/master-server.png" class="rounded ml-2" style="width:35px"><label>master</label>
+	            			<img src="js/vis/slave-server.png" class="rounded ml-2" style="width:35px"><label>slave</label>
+	            			<img src="js/vis/off-server-border.png" class="rounded ml-2 p-1" style="width:32px"><label class="ml-1">脱机状态</label>
+	            			
+	            			<label class="font-weight-bold font-italic ml-3">展示：</label>
+	            			<button type="button" id="btn_vis_topo_refresh" class="btn btn-xs btn-outline-primary ml-2"><i class="fal fa-sync-alt"></i></button>
+	            			<button type="button" id="btn_vis_topo_up_down" class="btn btn-xs btn-outline-primary ml-1"><i class="fal fa-long-arrow-alt-down"></i></button>
+	            			<button type="button" id="btn_vis_topo_left_right" class="btn btn-xs btn-outline-primary ml-1"><i class="fal fa-long-arrow-alt-right"></i></button>
+	            		</div>
+	            	</div>
+	            	<div id="mygraph" style="height:720px;"></div>
+	            </div>
+	        </div>
+	     </div>
+	</div>
+	<div class="col-xl-3 col-sm-4">
+		<div class="panel">
+	    	<div class="panel-hdr">
+	            <h2><i class="fal fa-info fw mr-1"></i><span>节点详细信息</span></h2>
+	            <div class="panel-toolbar">
+	                <span class="badge badge-primary fw-800 ml-auto">Detail Infomation</span>
+	            </div>
+	        </div>
+	        <div class="panel-container show">
+	            <div class="panel-content p-0">
+	            	<table class="table table-md table-striped table-bordered table-form">
+						<tbody>
+							<tr>
+								<td width="130px"><span>产品：</span></td>
+								<td style="text-align:left" class="_product"></td>
+							</tr>
+							<tr>
+								<td><span>节点类型：</span></td>
+								<td style="text-align:left" class="_type"></td>
+							</tr>
+							<tr>
+								<td><span>地址：</span></td>
+								<td style="text-align:left" class="_nodeIp"></td>
+							</tr>
+							<tr>
+								<td><span>节点编号：</span></td>
+								<td style="text-align:left" class="_nodeId"></td>
+							</tr>
+							<tr>
+								<td><span>RMI注册端口：</span></td>
+								<td style="text-align:left" class="_rmiRegistryPort"></td>
+							</tr>
+							<tr>
+								<td><span>RMI服务端口：</span></td>
+								<td style="text-align:left" class="_rmiServerPort"></td>
+							</tr>
+							<tr>
+								<td><span>SSHD接口：</span></td>
+								<td style="text-align:left" class="_sshPort"></td>
+							</tr>
+							<tr>
+								<td><span>注册时间：</span></td>
+								<td style="text-align:left" class="_registTime"></td>
+							</tr>
+							<tr>
+								<td><span>是否可用：</span></td>
+								<td style="text-align:left" class="_available clearfix"></td>
+							</tr>
+						</tbody>
+					</table>
+	            </div>
+	        </div>
+	     </div>
+	</div>
+</div>

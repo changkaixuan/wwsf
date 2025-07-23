@@ -1,0 +1,117 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<style>
+input.noborder{
+	border:0;
+	background-color:#fff;
+	width: 58%;
+}
+#zkNodeNow{
+	width:90%;
+}
+#zkNodeShow > div{
+	padding: 2px 0;
+	cursor:pointer;
+}
+#zkNodeShow > div:hover { 
+	border-bottom: 1px solid #337ab7;
+}
+#zkNodeShow > div > a[data-event='zoo_node_detail_link']:hover { 
+	cursor:move;
+}
+
+.form-group-separated .form-group [class^="col-md-"]{
+	padding: 3px 10px;
+}
+</style>
+<script type="text/javascript" src="js/jquery.pagination.js"></script>
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">数据源</li>
+    <li class="breadcrumb-item active">Zookeeper</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="alert alert-success" style="margin-bottom:10px;padding: 0.6rem 0.6rem;">
+	<label class="form-inline mb-0">当前路径：<input id="zkNodeNow" type="text" class="noborder" style="font-weight:bold;background:none;" readonly="readonly" value="/"></label>
+</div>
+<div class="row">
+	<div class="col-xl-4 col-sm-6">
+		<div class="panel" style="padding:20px 30px;margin-bottom: 0.5rem;">
+			<div class="row">
+	   			<div id="mypagin" class="col-md-12">
+	   				<div id="pagination" class="right flickr"></div>
+	   			</div>
+				<div id="zkNodeShow" class="col-md-12" style="margin-top:10px"></div>
+			</div>
+		</div>
+		<div class="container-fluid panel" id="zk_detail_form" style="margin-bottom: 0.5rem;">
+			<div class="row mt-3">
+			  <div class="col-4 text-right"><label class="control-label">创建时间：</label></div>
+			  <div class="col-8"><input type="text" name="CreateTime" class="noborder" readonly="readonly"></div>
+			</div>
+			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">创建事务编号：</label></div>
+			  <div class="col-8"><input type="text" name="CreateID" class="noborder" readonly="readonly"></div>
+			</div>
+			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">修改时间：</label></div>
+			  <div class="col-8"><input type="text" name="LastModifiedTime" class="noborder" readonly="readonly"></div>
+			</div>
+			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">修改事务编号：</label></div>
+			  <div class="col-8"><input type="text" name="ModifiedID" class="noborder" readonly="readonly"></div>
+			</div>
+			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">数据长度：</label></div>
+			  <div class="col-8"><input type="text" name="DataLength" class="noborder" readonly="readonly"></div>
+ 			</div>
+ 			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">子节点数量：</label></div>
+			  <div class="col-8"><input type="text" name="NumberOfChildren" class="noborder" readonly="readonly"></div>
+ 			</div>
+ 			<div class="row mt-1">
+			  <div class="col-4 text-right"><label class="control-label">ACL版本：</label></div>
+			  <div class="col-8"><input type="text" name="ACLVersion" class="noborder" readonly="readonly"></div>
+			</div>
+			<div class="row mt-1  mb-2">
+			  <div class="col-4 text-right"><label class="control-label">数据版本：</label></div>
+			  <div class="col-8"><input type="text" name="DataVersion" class="noborder" readonly="readonly"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-8 col-sm-6">
+		<div id="zk_btnSave_form" class="panel" style="margin-bottom: 0.5rem;">
+            <div class="panel-container show">
+            	<div class="panel-content">
+            		<div class="form-group">
+                        <label>&nbsp;节点：(必须以/开头)</label>
+                        <input type="text" id="zkNode" name="zkNode" class="form-control" style="width:95%;">
+                    </div>
+                    <div class="form-group" id="stringContent">
+                        <label>&nbsp;内容：</label>
+                       	<textarea class="form-control input-sm" rows="8" id="zkNodeData" name="zkNodeData" style="width:95%;"></textarea>
+                    </div>
+                    <button class="btn btn-outline-danger" id = "zk_edit_btnSave" type="button" data-action="app-reset"><strong>保存</strong></button>
+                	<button class="btn btn-outline-success" id = "btn_zoo_jsonformat" type="button" id="ng_eventlog_clear"><strong>Json-Format</strong></button>
+            	</div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="modal-zoo-data-edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content" >
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+				JSON编辑器
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
+			</div>
+			<div class="modal-body">
+				<pre id="json-display" class="mb-0"></pre>
+			</div>
+			<div class="modal-footer border border-bottom-0 border-left-0 border-right-0 py-2">
+				<button class="btn btn-sm btn-primary" id = "btn_zoo_data_tran">确认</button>
+				<button class="btn btn-sm btn-primary" data-dismiss="modal" >关闭</button>
+			</div>
+		</div>
+	</div>
+</div>

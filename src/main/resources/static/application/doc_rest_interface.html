@@ -1,0 +1,81 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+<!--
+#rest_list ul{padding-inline-start: 0;padding: 0;}
+#rest_list ul,li{list-style:none}
+-->
+</style>
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">文档</li>
+    <li class="breadcrumb-item active">开放接口</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="row">
+	<div class="col-xl-9" id="rest_list">
+    	<!-- ko foreach: apis,as: 'irestful' -->
+        <div class="panel">
+        	<div class="panel-hdr">
+                <h2>
+                    <span data-bind="text: $data.request.method"></span>
+                    <span class="fw-500"><i><!--ko text: name--><!--/ko--></i></span>
+                </h2>
+                <div class="panel-toolbar">
+                    <span class="badge badge-primary fw-800 ml-auto">Restful</span>
+                    <span class="badge badge-warning fw-800 ml-1"><!--ko text: $parent.module--><!--/ko--></span>
+                    <span  
+                    	data-bind="text: $data.request.method,css: {'badge-danger': $data.request.method=='DELETE', 'badge-warning': $data.request.method=='POST' , 'badge-success' : $data.request.method=='GET'}"
+                    	class="badge badge-primary fw-800 ml-1"></span>
+                </div>
+            </div>
+            <div class="panel-container show">
+                <div class="panel-content">
+			        <ul data-bind="foreach: {data: $data.request}">
+			            <li>
+			            	<span>请求方法：</span><br>
+			                <span data-bind="text: method,style:{'color': $data.method=='DELETE' ? '#FF0000' : ($data.method=='POST' ? '#FF7F00' : '#006400')}" style="padding-left:20px;font-weight:bold"></span>
+			            </li>
+			            <li>
+			                <span>接口功能：</span><br>
+			                <span data-bind="text: description" style="padding-left:20px;font-weight:bold"></span>
+			            </li>
+			            <li>
+			            	<span>地址示例：</span><br>
+			                <span data-bind="text: $data.url.raw" style="padding-left:20px;color:green;font-weight:bold"></span>
+			            </li>
+			            <li>
+			            	<span>接口参数：</span><br>
+							<table class="table table-hover table-sm" style="width:80%;margin-left:20px">
+							    <thead>
+							        <tr><th>Key</th><th>Value(for test)</th><th>Description</th></tr>
+							    </thead>
+							    <tbody data-bind="foreach: { data: $data.url.query }">
+							        <tr>
+							            <td data-bind="text: key"></td>
+							            <td data-bind="text: value"></td>
+							            <td data-bind="text: description"></td>
+							        </tr>
+							    </tbody>
+							</table>
+			            </li>
+			            <li>
+			            	<span>返回数据：('success',意为请求服务器成功，没有出现错误或异常情况)</span><br>
+			            	<!-- ko foreach: $parent.response -->
+			            	<span data-bind="html: $data.body.replace(/\n/g,'<br>').replace(/ /g,'&nbsp;')" style="padding-left:20px;color:green;font-weight:bold;word-break:normal; width:auto; display:block; white-space:pre-wrap;word-wrap:break-word;overflow:hidden;"></span><br>
+							<!-- /ko -->
+			            </li>
+			        </ul>
+		        </div>
+            </div>
+        </div>
+    	<!-- /ko -->
+	</div>
+	<div class="col-xl-3" id="rest_menus">
+		<div class="list-group" data-bind="foreach: restfuls">
+			<a class="list-group-item list-group-item-action"
+				data-bind="attr:{'href': '#collapse' + $index(), 'aria-controls': 'collapse' + $index()},click:$parent.switchRestful">
+				<!--ko text: name--><!--/ko-->(<!--ko text: description--><!--/ko-->)
+			</a>
+		</div>
+	</div>
+</div>

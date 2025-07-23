@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.TaskMapper" >
+
+	<resultMap id="taskMap" type="Task">
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+		<result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
+		<result column="TASK_NAME" property="name" jdbcType="VARCHAR" />
+		<result column="TITLE" property="title" jdbcType="VARCHAR" />
+		<result column="TASK_PLUGIN" property="plugin" jdbcType="VARCHAR" />
+		<result column="PROGRAM_NAME" property="programName" jdbcType="VARCHAR" />
+		<result column="ALLOWED_RERUN" property="allowedRerun" jdbcType="INTEGER" />
+		<result column="PERIOD" property="period" jdbcType="VARCHAR" />
+		<result column="WORKING_DAY" property="workingDay" jdbcType="VARCHAR" />
+		<result column="ERROR_DELAY" property="errorDelay" jdbcType="INTEGER" />
+		<result column="ERROR_IGNORE" property="errorIgnore" jdbcType="INTEGER" />
+		<result column="ERROR_MAX_NUM" property="maxNumOfExeErrors" jdbcType="INTEGER" />
+		<result column="USE_JOB_DIMENSION" property="useJobDimension" jdbcType="VARCHAR" />
+		<result column="AGENT_SCOPE" property="agentScope" jdbcType="VARCHAR" />
+		<result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="CREATOR" property="creator" jdbcType="VARCHAR" />
+		<result column="POINT_X" property="pointX" jdbcType="INTEGER" />
+		<result column="POINT_Y" property="pointY" jdbcType="INTEGER" />
+  	</resultMap>
+  	
+  	<resultMap id="taskGraphMap" type="TaskGraph">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="TASK_ID" property="taskId" jdbcType="VARCHAR" />
+	    <result column="POINT_X" property="pointX" jdbcType="INTEGER"/>
+	    <result column="POINT_Y" property="pointY" jdbcType="INTEGER"/>
+  	</resultMap>
+  
+	<select id="queryTaskPage" parameterType="java.util.Map" resultMap="taskMap">
+		select * from ww_task t where 1=1
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null ">
+			and task_id = #{taskId}
+		</if>
+		<if test="lTaskId != null ">
+			and instr(task_id,#{lTaskId}) > 0
+		</if>
+		<if test="notEqTaskId != null ">
+			and task_id <![CDATA[ <> ]]> #{notEqTaskId}
+		</if>
+		<if test="taskIdNotExiTaskLean != null ">
+			and not exists (select * from ww_task_lean l where l.job_id=t.job_id and l.lean_task_id=t.task_id and (l.lean_job_id is null or l.job_id=l.lean_job_id) and l.task_id=#{taskIdNotExiTaskLean})
+		</if>
+		<if test="taskIdNotExiSpeTaskLean != null ">
+			and not exists (select * from ww_task_special_lean l where l.job_id=t.job_id and l.lean_task_id=t.task_id and (l.lean_job_id is null or l.job_id=l.lean_job_id) and l.task_id=#{taskIdNotExiSpeTaskLean})
+		</if>
+		<if test="filterSelect">
+			and not exists (select * from ww_job_exe_detail w where w.info_id=#{filterSelect} and w.task_id=t.task_id)
+		</if>
+		<if test="filterTaskId != null">
+			<![CDATA[and instr(task_id, #{filterTaskId}) < 1]]>
+		</if>
+		<if test="orderByTaskId != null">
+			order by t.task_id
+		</if>
+	</select>
+	
+	<insert id="insertTask" parameterType="Task" >
+	    insert into ww_task (job_id,task_id,task_name,title,task_plugin,program_name,allowed_rerun,period,working_day,error_delay,
+	                         error_ignore,error_max_num,use_job_dimension,agent_scope,create_time,creator,point_x,point_y)
+	    values (#{jobId,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR},#{plugin,jdbcType=VARCHAR},
+	            #{programName,jdbcType=VARCHAR}, #{allowedRerun,jdbcType=INTEGER}, #{period,jdbcType=VARCHAR}, #{workingDay,jdbcType=VARCHAR},#{errorDelay,jdbcType=INTEGER},
+	            #{errorIgnore,jdbcType=INTEGER}, #{maxNumOfExeErrors,jdbcType=INTEGER}, #{useJobDimension,jdbcType=VARCHAR}, #{agentScope,jdbcType=VARCHAR},#{dCreateTime,jdbcType=DATE},
+	            #{creator,jdbcType=VARCHAR},#{pointX,jdbcType=INTEGER},#{pointY,jdbcType=INTEGER})
+	</insert>
+	
+	<delete id="deleteTask" parameterType="java.util.Map" >
+	    delete from ww_task where 1=1 
+	    <if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null ">
+			and task_id = #{taskId}
+		</if>
+	</delete>
+	
+	<delete id="deleteTaskByProduct" parameterType="java.util.Map" >
+	    delete from ww_task 
+	    	where job_id in (select job_id from ww_job where product=#{product})
+	</delete>
+	
+	<!-- task位置坐标start -->
+	<select id="queryTaskGraph" parameterType="java.util.Map" resultMap="taskGraphMap">
+		select job_id,task_id,point_x,point_y From ww_task where 1=1
+		<if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+			and task_id = #{taskId}
+		</if>
+	</select>
+	
+	<update id="insertTaskGraph" parameterType="TaskGraph" >
+	    update ww_task
+	    set point_x = #{pointX}
+	       ,point_y = #{pointY}
+	    where 1=1
+	    <if test="jobId != null">
+		  and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+	      and task_id = #{taskId}
+		</if>
+	</update>
+	
+	<update id="deleteTaskGraph" parameterType="java.util.Map" >
+	    update ww_task
+	    set point_x = null
+	       ,point_y = null
+	    where 1=1
+	    <if test="jobId != null">
+		  and job_id = #{jobId}
+		</if>
+		<if test="taskId != null">
+	      and task_id = #{taskId}
+		</if>
+	</update>
+	
+	<select id="getMaxCorrdinate" resultMap="taskGraphMap" parameterType="java.util.Map">
+		select max(point_x) POINT_X, max(point_y) POINT_Y 
+		from ww_task
+		<if test="jobId != null">
+			where job_id = #{jobId}
+		</if>
+	</select>
+	
+	<select id="getCountByCondition" resultType="java.lang.Integer" parameterType="java.util.Map">
+		select count(1) 
+		from ww_task
+		<if test="jobId != null">
+			where job_id = #{jobId}
+		</if>
+	</select>
+	
+	<!-- 批量插入task -->
+	<insert id="batchInsertTask" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_task (job_id,task_id,task_name,title,task_plugin,program_name,allowed_rerun,period,working_day,error_delay,
+	                         error_ignore,error_max_num,use_job_dimension,agent_scope,create_time,creator,point_x,point_y)
+	    values
+	   	<foreach collection="list" item="task" index="index" separator=",">
+	   		(#{task.jobId,jdbcType=VARCHAR}, #{task.taskId,jdbcType=VARCHAR}, #{task.name,jdbcType=VARCHAR}, #{task.title,jdbcType=VARCHAR},#{task.plugin,jdbcType=VARCHAR},
+	   	 	 #{task.programName,jdbcType=VARCHAR}, #{task.allowedRerun,jdbcType=INTEGER}, #{task.period,jdbcType=VARCHAR}, #{task.workingDay,jdbcType=VARCHAR},#{task.errorDelay,jdbcType=INTEGER},
+	         #{task.errorIgnore,jdbcType=INTEGER}, #{task.maxNumOfExeErrors,jdbcType=INTEGER}, #{task.useJobDimension,jdbcType=VARCHAR}, #{task.agentScope,jdbcType=VARCHAR},#{task.dCreateTime,jdbcType=DATE},
+	         #{task.creator,jdbcType=VARCHAR},#{task.pointX,jdbcType=INTEGER},#{task.pointY,jdbcType=INTEGER})
+	   	</foreach>
+	</insert>
+	
+	<insert id="batchInsertTask" parameterType="java.util.List" databaseId="oracle">
+	   	<foreach collection="list" item="task" open="BEGIN" index="index" separator=";" close=";END;">
+	   		insert into ww_task (job_id,task_id,task_name,title,task_plugin,program_name,allowed_rerun,period,working_day,error_delay,
+	                             error_ignore,error_max_num,use_job_dimension,agent_scope,create_time,creator,point_x,point_y)
+	   		values (#{task.jobId,jdbcType=VARCHAR}, #{task.taskId,jdbcType=VARCHAR}, #{task.name,jdbcType=VARCHAR}, #{task.title,jdbcType=VARCHAR},#{task.plugin,jdbcType=VARCHAR},
+	   	 	 #{task.programName,jdbcType=VARCHAR}, #{task.allowedRerun,jdbcType=INTEGER}, #{task.period,jdbcType=VARCHAR}, #{task.workingDay,jdbcType=VARCHAR},#{task.errorDelay,jdbcType=INTEGER},
+	         #{task.errorIgnore,jdbcType=INTEGER}, #{task.maxNumOfExeErrors,jdbcType=INTEGER}, #{task.useJobDimension,jdbcType=VARCHAR}, #{task.agentScope,jdbcType=VARCHAR},#{task.dCreateTime,jdbcType=DATE},
+	         #{task.creator,jdbcType=VARCHAR},#{task.pointX,jdbcType=INTEGER},#{task.pointY,jdbcType=INTEGER})
+	   	</foreach>
+	</insert>
+	<!-- task位置坐标end -->
+  
+    <select id="getAgentScopeByJobIds" parameterType="java.util.Map" resultType="java.util.Map">
+		select distinct AGENT_SCOPE from ww_task t where 1=1
+		<if test="jobIdArr != null" >
+	      	and job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="getWorkingDayByJobIds" parameterType="java.util.Map" resultType="java.util.Map">
+		select distinct WORKING_DAY from ww_task t where 1=1
+		<if test="jobIdArr != null" >
+	      	and job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="getTaskPluginByJobIds" parameterType="java.util.Map" resultType="java.util.Map">
+		select distinct TASK_PLUGIN from ww_task t where 1=1
+		<if test="jobIdArr != null" >
+	      	and job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+</mapper>

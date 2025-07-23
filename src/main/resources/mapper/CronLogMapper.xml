@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.CronLogMapper" >
+
+	<resultMap id="cronLogMap" type="CronLog">
+		<result column="log_id" property="logId" />
+		<result column="product" property="product" />
+		<result column="agent" property="agent" />
+		<result column="job_id" property="jobId" />
+		<result column="job_result" property="result" />
+		<result column="begin_time" property="beginTime" />
+		<result column="end_time" property="endTime" />
+		<result column="spend_time" property="spendTime" />
+  	</resultMap>
+  	
+  	<resultMap id="cronLogInforMap" type="CronLog">
+  		<result column="information" property="information" />
+  	</resultMap>
+  	
+  
+	<select id="getCronLog" parameterType="java.util.Map" resultMap="cronLogMap" databaseId="oracle">
+		SELECT
+			t.log_id,
+			t.product,
+			t.agent,
+			t.job_id,
+			t.job_result,
+			t.begin_time,
+			t.end_time,
+			SUBSTR((TO_TIMESTAMP(t.end_time, 'YYYY-MM-DD HH24:MI:SS,FF') - TO_TIMESTAMP(t.begin_time, 'YYYY-MM-DD HH24:MI:SS,FF')),11,13) spend_time
+		from ww_cron_log t
+		where 1 = 1
+		<if test="jobId != null &amp;&amp; jobId != ''">
+		and t.job_id = #{jobId}
+		</if>
+		<if test="startTime != null">
+		and to_date(substr(t.begin_time,1,10),'yyyy-MM-dd') <![CDATA[ >= ]]> to_date(#{startTime},'yyyy-MM-dd')
+		</if>
+		<if test="endTime != null">
+		and to_date(substr(t.end_time,1,10),'yyyy-MM-dd') <![CDATA[ <= ]]> to_date(#{endTime},'yyyy-MM-dd')
+		</if>
+		<if test="result != null">
+		and t.job_result = #{result}
+		</if>
+		<if test="product != null">
+		and t.product = #{product}
+		</if>
+		<if test="lAgent != null">
+		and instr(t.agent, #{lAgent}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=t.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		order by t.begin_time desc
+	</select>
+	
+	<select id="getCronLog" parameterType="java.util.Map" resultMap="cronLogMap" databaseId="mysql">
+		SELECT
+			t.log_id,
+			t.product,
+			t.agent,
+			t.job_id,
+			t.job_result,
+			t.begin_time,
+			t.end_time,
+			REPLACE(SUBSTR(TIMEDIFF(REPLACE(t.end_time,',','.'),REPLACE(t.begin_time,',','.')),1,12),'.',',') spend_time
+		from ww_cron_log t
+		where 1 = 1
+		<if test="jobId != null &amp;&amp; jobId != ''">
+		and t.job_id = #{jobId}
+		</if>
+		<if test="startTime != null">
+		and DATE_FORMAT(t.begin_time,'%Y-%m-%d') <![CDATA[ >= ]]> DATE_FORMAT(#{startTime},'%Y-%m-%d')
+		</if>
+		<if test="endTime != null">
+		and DATE_FORMAT(t.end_time,'%Y-%m-%d') <![CDATA[ <= ]]> DATE_FORMAT(#{endTime},'%Y-%m-%d')
+		</if>
+		<if test="result != null">
+		and t.job_result = #{result}
+		</if>
+		<if test="product != null">
+		and t.product = #{product}
+		</if>
+		<if test="lAgent != null">
+		and instr(t.agent, #{lAgent}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=t.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		order by t.begin_time desc
+	</select>
+	
+	<delete id="deleteCronLogByProduct" parameterType="java.lang.String" >
+	    delete from ww_cron_log where product=#{product}
+	</delete>
+	
+	<select id="getCronLogInformation" parameterType="java.lang.String" resultMap="cronLogInforMap">
+		select information from ww_cron_log where log_id = #{logId}
+	</select>
+	
+</mapper>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.SysRoleMapper" >
+	
+	<resultMap id="SysRoleMap" type="SysRole">
+		<result column="ROLE_ID" property="roleId" />
+		<result column="ROLE_PID" property="rolePid" />
+		<result column="ROLE_NAME" property="roleName" />
+		<result column="ROLE_DESC" property="roleDesc" />
+		<result column="DEL_FLAG" property="delFlag" />
+		<result column="ROLE_LEVEL" property="roleLevel" />
+  	</resultMap>
+  
+	<select id="querySysRolePage" parameterType="java.util.Map" resultMap="SysRoleMap">
+		select * from ww_sys_role where 1=1
+		<if test="lRoleName != null ">
+			and instr(ROLE_NAME,#{lRoleName}) > 0
+		</if>
+		<if test="roleName != null ">
+			and ROLE_NAME = #{roleName}
+		</if>
+		<if test="lRoleId != null ">
+			and instr(ROLE_ID,#{lRoleId}) > 0
+		</if>
+		<if test="roleId != null ">
+			and ROLE_ID = #{roleId}
+		</if>
+		<if test="delFlag != null">
+			and DEL_FLAG = #{delFlag}
+		</if>
+	</select>
+
+	<insert id="insertSysRole" parameterType="SysRole" >
+	    insert into ww_sys_role (
+	    		ROLE_ID,
+	    	    ROLE_PID,
+	    	    ROLE_NAME,
+	    	    ROLE_DESC,
+	    	    DEL_FLAG,
+	    	    ROLE_LEVEL)
+	    values (
+	    		#{roleId,jdbcType=VARCHAR},
+	    		#{rolePid,jdbcType=VARCHAR},
+	    		#{roleName,jdbcType=VARCHAR},
+	    		#{roleDesc,jdbcType=VARCHAR},
+	    		#{delFlag,jdbcType=VARCHAR},
+	    		#{roleLevel,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateSysRole" parameterType="SysRole" >
+	    update ww_sys_role 
+	    set ROLE_NAME = #{roleName,jdbcType=VARCHAR}
+	       ,ROLE_PID = #{rolePid,jdbcType=VARCHAR}
+	       ,ROLE_DESC = #{roleDesc,jdbcType=VARCHAR}
+	       ,DEL_FLAG = #{delFlag,jdbcType=VARCHAR}
+	       ,ROLE_LEVEL = #{roleLevel,jdbcType=VARCHAR}
+	    where ROLE_ID = #{roleId} 
+	</update>
+
+	<insert id="insertSysRoleAuth" parameterType="java.util.Map" >
+	    insert into ww_sys_role_auth_ref (ROLE_ID, AUTH_ID)
+	    values (#{roleId,jdbcType=VARCHAR},#{authId,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteSysRoleAuth" parameterType="java.util.Map" >
+	    delete from ww_sys_role_auth_ref
+		where ROLE_ID = #{roleId}
+		<if test="authId != null">
+		and AUTH_ID = #{authId}
+		</if>
+	</delete>
+	
+	<select id="querySysRoleAuth" parameterType="java.util.Map" resultType="java.lang.String">
+		 select
+			rar.auth_id
+		 from 
+		 	ww_sys_role_auth_ref rar,ww_sys_auth a
+		 where rar.auth_id = a.id
+		<if test="roleId != null ">
+		 and rar.ROLE_ID = #{roleId}
+		</if>
+	</select>
+	
+	<!-- ww_sys_user_role_ref -->
+	<select id="getSysRoleByCondition" parameterType="java.util.Map" resultMap="SysRoleMap">
+		select r.* From ww_sys_role r,ww_sys_user_role_ref rf where r.role_id = rf.role_id
+		<if test="userId != null">
+			and rf.user_id = #{userId}
+		</if>
+		<if test="delFlag != null">
+			and r.del_flag = #{delFlag}
+		</if>
+	</select>
+	
+	<insert id="insertSysUserRoleRef" parameterType="java.util.Map" >
+	    INSERT INTO ww_sys_user_role_ref (user_id,role_id)
+	    VALUES(#{userId,jdbcType=VARCHAR},#{roleId,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteSysUserRoleRef" parameterType="java.util.Map" >
+	    DELETE FROM ww_sys_user_role_ref WHERE 1=1
+	    <if test="userId != null">
+			and user_id = #{userId}
+		</if>
+		<if test="roleId != null">
+			and role_id = #{roleId}
+		</if>
+	</delete>
+</mapper>

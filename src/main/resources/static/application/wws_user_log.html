@@ -1,0 +1,57 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">日志</li>
+    <li class="breadcrumb-item active">用户日志</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 py-2">
+			<form class="form-inline">
+				<div class="form-group mr-1 my-1">
+					<label >模块名称：</label>
+					<input type="text" name="modName" class="form-control-sm" placeholder="请输入模块名称">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >操作名称：</label>
+					<input type="text" name="optName" class="form-control-sm" placeholder="请输入操作">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >操作人：</label>
+					<input type="text" name="userId" class="form-control-sm" placeholder="请输入操作人">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >操作日期：</label>
+					<input type="date" class="form-control-sm" name="optDateStart">
+					<span>&nbsp;-&nbsp;</span>
+					<input type="date" class="form-control-sm" name="optDateEnd">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >操作结果：</label>
+					<select class="form-control-sm" name="optRst">
+					    <option  value="" selected>全部</option>
+						<option  value="成功">成功</option>
+						<option  value="失败">失败</option>
+					</select>
+				</div>
+				<div class="form-group mr-1 my-1">
+					<button type="button" id="btn_userlog_query" class="btn btn-sm btn-primary mr-1">
+						<i class="fal fa-binoculars fa-fw"></i>查询
+					</button>
+					<button type="button" id="btn_userlog_clear" class="btn btn-sm btn-primary">
+						<i class="fal fa-registered fa-fw"></i>重置
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0 pb-2">
+			<table data-toggle="table" class="table table-sm table-striped" id="tb_userLog" style="table-layout:fixed;width:100%;scroll:no;word-break:break-all;"></table>
+		</div>
+	</div>
+</div>

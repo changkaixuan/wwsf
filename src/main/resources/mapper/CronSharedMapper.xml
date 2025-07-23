@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.CronSharedMapper" >
+
+	<resultMap id="cronSharedMap" type="CronShared">
+		<result column="JOB_ID" property="jobId" jdbcType="VARCHAR"/>
+		<result column="PRODUCT" property="product" jdbcType="VARCHAR"/>
+		<result column="AGENT" property="agent" jdbcType="VARCHAR"/>
+		<result column="SHARED_JSON" property="sharedJson" jdbcType="VARCHAR"/>
+		<result column="OCCU_TIME" property="occuTime" jdbcType="VARCHAR"/>
+  	</resultMap>
+	
+	<select id="queryCronShared" parameterType="java.util.Map" resultMap="cronSharedMap">
+		select t.job_id,t.product,t.agent,t.shared_json,t.occu_time
+		  from ww_cron_shared t
+		where 1=1
+		<if test="jobId != null">
+		  and t.job_id = #{jobId}
+		</if>
+		<if test="product != null and product!=''">
+		  and t.product = #{product}
+		</if>
+		<if test="agent != null">
+		  and t.agent = #{agent}
+		</if>
+		<if test="lAgent != null and lAgent!=''">
+		  and instr(t.agent, #{lAgent}) > 0
+		</if>
+		<if test="jobIdArr != null" >
+	      	and t.job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<insert id="insertCronShared" parameterType="CronShared" >
+	     insert into ww_cron_shared(job_id,product,agent,shared_json,occu_time)
+	     values (#{jobId,jdbcType=VARCHAR},#{product,jdbcType=VARCHAR},#{agent,jdbcType=VARCHAR},#{sharedJson,jdbcType=VARCHAR},#{occuTime,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateCronShared" parameterType="CronShared" >
+	    update ww_cron_shared 
+	    set shared_json = #{sharedJson}
+	       ,occu_time = #{occuTime}
+	    where 1=1 
+	    <if test="jobId != null ">
+		  and job_id = #{jobId}
+		</if>
+		<if test="product != null ">
+		  and product = #{product}
+		</if>
+		<if test="agent != null ">
+		  and agent = #{agent}
+		</if>
+	</update>
+	
+	<delete id="deleteCronShared" parameterType="java.util.Map" >
+	    delete from ww_cron_shared where 1=1 
+		<if test="jobId != null ">
+			and job_id = #{jobId}
+		</if>
+		<if test="product != null ">
+			and product = #{product}
+		</if>
+		<if test="agent != null ">
+			and agent = #{agent}
+		</if>
+	</delete>
+	
+</mapper>

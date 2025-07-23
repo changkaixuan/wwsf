@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.JobInstanceMapper" >
+
+	<resultMap id="JobInstanceMap" type="JobInstance">
+		<result column="job_ins_id" property="jobInsId"/>
+		<result column="job_id" property="jobId"/>
+		<result column="job_state" property="state"/>
+		<result column="job_name" property="name"/>
+		<result column="job_mode" property="mode"/>
+		<result column="parameters" property="parameterJson"/>
+		<result column="properties" property="propertieJson"/>
+		<result column="accut_date" property="accutDate"/>
+		<result column="is_paused" property="pause"/>
+		<result column="init_time" property="initTime"/>
+		<result column="begin_time" property="beginTime"/>
+		<result column="init_time" property="initTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="create_time" property="createTime"/>
+		<result column="schedule_rid" property="scheduleRid"/>
+  	</resultMap>
+  	
+  	<resultMap id="JobInstanceMap2" type="JobInstance">
+		<result column="job_ins_id" property="jobInsId"/>
+		<result column="job_id" property="jobId"/>
+		<result column="job_state" property="state"/>
+		<result column="job_name" property="name"/>
+		<result column="job_mode" property="mode"/>
+		<result column="parameters" property="parameterJson"/>
+		<result column="properties" property="propertieJson"/>
+		<result column="accut_date" property="accutDate"/>
+		<result column="is_paused" property="pause"/>
+		<result column="init_time" property="initTime"/>
+		<result column="begin_time" property="beginTime"/>
+		<result column="init_time" property="initTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="create_time" property="createTime"/>
+		<result column="schedule_rid" property="scheduleRid"/>
+		<result column="count_fail_task" property="countFailTask"/>
+  	</resultMap>
+  	
+  	<resultMap id="batchStatisticVoMap" type="BatchStatisticVo">
+		<result column="PRODUCT" property="product"/>
+		<result column="BATCH" property="batch"/>
+		<result column="TOTAL_COUNT" property="taskInsTotal"/>
+		<result column="PASSED_COUNT" property="taskSuccessTotal"/>
+		<result column="ERROR_DELAY_COUNT" property="taskErrorDelayTotal"/>
+  	</resultMap>
+  
+  <sql id="jobInsList_where_clause">
+  		where
+			1=1
+		<if test="product != null &amp;&amp; product != ''">
+		and t.product = #{product}
+		</if>
+		
+		<if test="jobId != null &amp;&amp; jobId != ''">
+		and t.job_id = #{jobId}
+		</if>
+		<if test="lJobId != null &amp;&amp; lJobId != ''">
+		and instr(t.job_id, #{lJobId}) > 0
+		</if>
+		
+		<if test="jobInsId != null &amp;&amp; jobInsId != ''">
+		and t.job_ins_id = #{jobInsId}
+		</if>
+		<if test="lJobInsId != null &amp;&amp; lJobInsId != ''">
+		and instr(t.job_ins_id, #{lJobInsId}) > 0
+		</if>
+		
+		<if test="batch != null &amp;&amp; batch != ''">
+		and t.batch = #{batch}
+		</if>
+		<if test="lBatch != null &amp;&amp; lBatch != ''">
+		and instr(t.batch, #{lBatch}) > 0
+		</if>
+		
+		<if test="state != null &amp;&amp; state != ''">
+		and t.job_state = #{state}
+		</if>
+		
+		<if test="loginName != null">
+		and exists (
+      		select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+        		where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+          			and tp.p_id=t.product and tsu.login_name=#{loginName}
+		)  
+		</if>
+		order by t.begin_time desc
+  </sql>
+  
+    <select id="getJobInstance" parameterType="java.util.Map" resultMap="JobInstanceMap">
+		select 
+			t.job_ins_id,
+			t.product,
+			t.job_id,
+			t.job_state,
+			t.job_name,
+			t.job_mode,
+			t.batch,
+			t.parameters,
+			t.properties,
+			t.accut_date,
+			t.title,
+			t.is_paused,
+			t.version,
+			t.init_time,
+			t.begin_time,
+			t.end_time,
+			t.creator,
+			t.create_time,
+			t.schedule_rid
+		from ww_job_instance t
+		<include refid="jobInsList_where_clause" />
+	</select>
+  
+	<select id="jobInsList" parameterType="java.util.Map" resultMap="JobInstanceMap2" databaseId="mysql">
+		select 
+			t.job_ins_id,
+			t.product,
+			t.job_id,
+			t.job_state,
+			t.job_name,
+			t.job_mode,
+			t.batch,
+			t.parameters,
+			t.properties,
+			t.accut_date,
+			t.title,
+			t.is_paused,
+			t.version,
+			t.init_time,
+			t.begin_time,
+			t.end_time,
+			t.creator,
+			t.create_time,
+			t.schedule_rid,
+			if(t.job_state=2,(select count(1) from ww_task_instance where job_ins_id=t.job_ins_id and (task_state='14' or task_state='16')),0) count_fail_task
+		from ww_job_instance t
+		<include refid="jobInsList_where_clause" />
+	</select>
+	
+	<select id="jobInsList" parameterType="java.util.Map" resultMap="JobInstanceMap2" databaseId="oracle">
+		select 
+			t.job_ins_id,
+			t.product,
+			t.job_id,
+			t.job_state,
+			t.job_name,
+			t.job_mode,
+			t.batch,
+			t.parameters,
+			t.properties,
+			t.accut_date,
+			t.title,
+			t.is_paused,
+			t.version,
+			t.init_time,
+			t.begin_time,
+			t.end_time,
+			t.creator,
+			t.create_time,
+			t.schedule_rid,
+			decode(t.job_state,2,(select count(1) from ww_task_instance where job_ins_id=t.job_ins_id and (task_state='14' or task_state='16')),0) count_fail_task
+		from ww_job_instance t
+		<include refid="jobInsList_where_clause" />
+	</select>
+	
+	<select id="getAllBatch" parameterType="java.util.Map" resultType="java.lang.String">
+		select 
+			distinct t.batch as 'BATCH'
+		from ww_job_instance t
+		where
+			1=1
+		<if test="product != null &amp;&amp; product != ''">
+		and t.product = #{product}
+		</if>
+		<if test="lBatch != null &amp;&amp; lBatch != ''">
+		and instr(t.batch, #{lBatch}) > 0
+		</if>
+	</select>
+	
+	<delete id="delJobIns" parameterType="java.util.Map" >
+	    delete 
+	    from ww_job_instance 
+	    where 1=1
+	    <if test="jobInsId != null &amp;&amp; jobInsId != ''">
+		and job_ins_id = #{jobInsId}
+		</if>
+	    <if test="product != null &amp;&amp; product != ''">
+		and product = #{product}
+		</if>
+		<if test="batch != null &amp;&amp; batch != ''">
+		and batch = #{batch}
+		</if>
+	</delete>
+	
+	<delete id="delJobInsByBatch" parameterType="java.util.Map" >
+	    delete 
+	    from ww_job_instance 
+	    where product = #{product} and batch = #{batch}
+	</delete>
+	
+	<delete id="delJobInsByProduct" parameterType="java.util.Map" >
+	    delete 
+	    from ww_job_instance 
+	    where product = #{product}
+	</delete>
+	
+	<update id="saveJobIns" parameterType="java.util.Map" >
+	    update ww_job_instance t
+	    <set>
+	    		t.properties = #{properties,jdbcType=VARCHAR},
+	    		t.parameters = #{parameters,jdbcType=VARCHAR},
+	    		t.job_state = #{state,jdbcType=INTEGER},
+	    		t.is_paused = #{pause,jdbcType=INTEGER}
+	    </set>
+		where t.job_ins_id = #{jobInsId}
+	</update>
+	
+	<select id="redisBatchs" parameterType="java.util.Map" resultMap="batchStatisticVoMap" databaseId="mysql">
+		SELECT 
+		  j.product,j.batch,
+		  COUNT(1) AS total_count,
+		  COUNT(IF(t.task_state = 13, TRUE, NULL)) running_count,
+ 		  COUNT(IF(t.task_state = 14, TRUE, NULL)) error_delay_count,
+ 		  COUNT(IF(t.task_state = 15, TRUE, NULL)) feedback_count,
+ <![CDATA[COUNT(IF(t.task_state > 19, TRUE, NULL)) passed_count]]>
+		FROM ww_job_instance j left join ww_task_instance t on j.job_ins_id = t.job_ins_id
+		  WHERE 1=1
+		<if test="product != null">
+			and j.product = #{product}
+		</if>
+		<if test="lBatch != null">
+			and instr(j.batch, #{lBatch}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=j.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		GROUP BY j.product, j.batch
+		ORDER BY j.product, j.batch DESC
+	</select>
+	
+	<select id="redisBatchs" parameterType="java.util.Map" resultMap="batchStatisticVoMap" databaseId="oracle">
+		SELECT 
+		  j.product,j.batch,
+		  COUNT(1) AS total_count,
+		  COUNT(DECODE(SIGN(t.task_state-13),0,1, NULL)) running_count,
+		  COUNT(DECODE(SIGN(t.task_state-14),0,1, NULL)) error_delay_count,
+		  COUNT(DECODE(SIGN(t.task_state-15),0,1, NULL)) feedback_count,
+		  COUNT(DECODE(SIGN(t.task_state-19),1,1, NULL)) passed_count
+		FROM ww_job_instance j left join ww_task_instance t on j.job_ins_id = t.job_ins_id
+		  WHERE 1=1
+		<if test="product != null">
+			and j.product = #{product}
+		</if>
+		<if test="lBatch != null">
+			and instr(j.batch, #{lBatch}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=j.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		GROUP BY j.product, j.batch
+		ORDER BY j.product, j.batch DESC
+	</select>
+	
+	<select id="queryJobInstance" parameterType="java.util.Map" resultMap="JobInstanceMap">
+		select 
+			t.job_ins_id,
+			t.product,
+			t.job_id,
+			t.job_state,
+			t.job_name,
+			t.job_mode,
+			t.batch,
+			t.parameters,
+			t.properties,
+			t.accut_date,
+			t.title,
+			t.is_paused,
+			t.version,
+			t.init_time,
+			t.begin_time,
+			t.end_time,
+			t.creator,
+			t.create_time,
+			t.schedule_rid
+		  from ww_job_instance t
+		where 1=1
+		<if test="getNull != null">
+		  and 1=2
+		</if>
+		<if test="product != null">
+		  and t.product = #{product}
+		</if>
+		<if test="batch != null">
+		  and t.batch = #{batch}
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=t.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		<if test="orderBy_initTimeDesc != null">
+		  order by t.init_time desc
+		</if>
+	</select>
+	
+	<select id="getJobInstanceBatch" parameterType="java.util.Map" resultType="java.util.Map">
+		select j.batch as "BATCH",max(j.init_time) from ww_job_instance j  
+		where 1=1
+		<if test="product != null">
+		  and j.product = #{product}
+		</if>
+		group by j.batch
+		order by max(j.init_time) desc
+	</select>
+	
+	<select id="getJobInstanceCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="oracle">
+		select * from ww_job_instance where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		and rownum=1
+	</select>
+	
+	<select id="getJobInstanceCountByProduct" resultType="java.util.Map" parameterType="java.util.Map" databaseId="mysql">
+		select * from ww_ds where 1=1
+		<if test="pidArr != null" >
+	      	and product in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		limit 1
+	</select>
+	 
+</mapper>

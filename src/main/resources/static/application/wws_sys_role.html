@@ -1,0 +1,107 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">系统管理</li>
+    <li class="breadcrumb-item active">角色管理</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 py-2">
+			<form class="form-inline">
+				<div class="form-group mr-1 my-1">
+					<label >编号：</label>
+					<input type="text" name="qRoleId" class="form-control-sm" placeholder="请输入角色编号">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<label >名称：</label>
+					<input type="text" name="qRoleName" class="form-control-sm" placeholder="请输入角色名">
+				</div>
+				<div class="form-group mr-1 my-1">
+					<button type="button" id="btn_sysrole_query" class="btn btn-sm btn-primary mr-1">
+						<i class="fal fa-binoculars fa-fw"></i>查询
+					</button>
+					<button type="button" id="btn_sysrole_clear" class="btn btn-sm btn-primary">
+						<i class="fal fa-registered fa-fw"></i>重置
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="sysrole_tab_toolbar" class="btn-group">
+	<button class="btn btn-primary btn-sm" type="button" id="btn_sysrole_add">
+        <i class="fal fa-plus fa-fw"></i>新增
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_sysrole_edit">
+        <i class="fal fa-edit fa-fw"></i>修改
+    </button>
+    <button class="btn btn-primary btn-sm" type="button" id="btn_sysrole_del">
+        <i class="fal fa-minus fa-fw"></i>删除
+    </button>
+</div>
+
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0 pb-2">
+			<table data-toggle="table" class="table table-sm table-striped" id="tb_sysRole"></table>
+		</div>
+	</div>
+</div>
+
+
+<div class="modal fade in" id="modal_sysrole_edit" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content" style="width:550px;">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0" style="font-weight:bold">
+               	编辑角色
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     &times; 
+                </button>
+            </div>
+			<div class="modal-body px-3 pt-1 pb-2">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-9 p-0">
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a href="#tab_sysrole_info" data-toggle="tab" class="nav-link active mt-2 px-4" >基本信息</a>
+								</li>
+								<li class="nav-item">
+									<a href="#tab_sysrole_access" data-toggle="tab" class="nav-link mt-2 px-4" >设置权限</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-3 border-bottom p-0 clearfix" >
+							<button type="button" id="save_sysrole" class="btn btn-sm btn-outline-primary float-right py-1 mt-1" aria-hidden="true">
+								<i class="fal fa-save fa-fw"></i>保存
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="tab-content border border-top-0 p-1">
+				    <div class="tab-pane active p-2" id="tab_sysrole_info">
+				    	<form role="form">
+							<div class="form-group mb-1">
+								<label for="roleId" >编号：</label>
+								<input type="text" name="roleId" class="form-control" placeholder="请输入编号">
+							</div>
+							<div class="form-group mb-1">
+								<label for="roleName" >名称：</label>
+								<input type="text" name="roleName" class="form-control" placeholder="请输入名称">
+							</div>
+							<div class="form-group mb-1">
+								<label for="roleDesc" >描述：</label>
+								<textarea name="roleDesc" class="form-control" rows="3"></textarea>
+							</div>
+						</form>
+					</div>
+					<div class="tab-pane" id="tab_sysrole_access">
+		            	<div id="authTree"></div>
+					</div>
+				</div>
+			</div>
+		</div>					
+	</div>
+</div>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.ParameterMapper" >
+
+	<resultMap id="parameterMap" type="Parameter">
+	    <result column="JOB_ID" property="jobId" jdbcType="VARCHAR" />
+	    <result column="SOURCE_ID" property="sourceId" jdbcType="VARCHAR" />
+	    <result column="PNAME" property="name" jdbcType="VARCHAR"/>
+	    <result column="PVALUE" property="value" jdbcType="VARCHAR"/>
+	    <result column="REQUIRED" property="required" jdbcType="INTEGER"/>
+  	</resultMap>
+  	
+	<resultMap id="RM_PLU_PARAM" type="Parameter">
+	    <result column="PLUGIN_NAME" property="jobId" jdbcType="VARCHAR" />
+	    <result column="PLUGIN_NAME" property="sourceId" jdbcType="VARCHAR" />
+	    <result column="PARAM_NAME" property="name" jdbcType="VARCHAR"/>
+	    <result column="PARAM_DESC" property="desc" jdbcType="VARCHAR"/>
+	    <result column="DATA_TYPE" property="dataType" jdbcType="VARCHAR"/>
+	    <result column="DATA_RANGE" property="dataRange" jdbcType="VARCHAR"/>
+	    <result column="PARAM_DEF_VALUE" property="value" jdbcType="VARCHAR"/>
+	    <result column="IS_REQUIRED" property="required" jdbcType="INTEGER"/>
+  	</resultMap>
+  	
+  	<select id="queryParameterPage" parameterType="java.util.Map" resultMap="parameterMap">
+		select
+			p.job_id,
+			p.source_id,
+			p.name pName,
+			p.value pValue,
+			p.required
+		  from ww_parameter p
+		where 1=1
+		<if test="jobId != null">
+			and p.job_id = #{jobId}
+		</if>
+		<if test="sourceId != null">
+			and p.source_id = #{sourceId}
+		</if>
+		<if test="name != null">
+			and p.name = #{name}
+		</if>
+		<if test="jobIdEqSourceId != null">
+			and p.job_id = p.source_id
+		</if>
+		<if test="jobIdArr != null" >
+	      	and p.job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<select id="queryPluParameterDefinition" parameterType="java.util.Map" resultMap="RM_PLU_PARAM">
+		select
+			p.plugin_name,
+			p.param_name,
+			p.param_desc,
+			p.data_type,
+			p.data_range,
+			p.param_def_value,
+			p.is_required
+		 from ww_plugin_parameter p
+		where p.plugin_name = #{pluginName}
+	</select>
+	
+	<insert id="insertParameter" parameterType="Parameter" >
+	    insert into ww_parameter (job_id,source_id,name,value,required)
+	    values (#{jobId,jdbcType=VARCHAR}, #{sourceId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{value,jdbcType=VARCHAR},#{dRequired,jdbcType=INTEGER})
+	</insert>
+	
+	<update id="updateParameter" parameterType="Parameter">
+    	update ww_parameter
+    	set value = #{value,jdbcType=VARCHAR}
+    	   ,required = #{required,jdbcType=INTEGER}
+    	where job_id = #{jobId}
+			and source_id = #{sourceId}
+			and name = #{name}
+    </update>
+	
+	<delete id="deleteParameter" parameterType="java.util.Map" >
+	    delete from ww_parameter where 1=1 
+	    <if test="jobId != null">
+			and job_id = #{jobId}
+		</if>
+		<if test="sourceId != null">
+			and source_id = #{sourceId}
+		</if>
+	</delete>
+	
+	<delete id="deleteParameterByProduct" parameterType="java.util.Map" >
+	    delete from ww_parameter 
+	     where job_id in (select j.job_id from ww_job j where j.product = #{product})
+	</delete>
+	
+	<!-- <select id="getProgramNames" parameterType="java.util.Map" resultType="java.lang.String">
+		select source_id from ww_parameter where 1=1
+		<if test="pluginName != null ">
+		 and job_id = #{pluginName}
+		</if>
+		group by source_id
+	</select> -->
+	<select id="getProgramNames" parameterType="java.util.Map" resultType="java.lang.String">
+		select plugin_name from ww_plugin_parameter where 1=1
+		<if test="pluginName != null ">
+		 and plugin_name = #{pluginName}
+		</if>
+		group by plugin_name
+	</select>
+	
+	<select id="getTaskIdAndPluParValue" parameterType="java.util.Map"  resultType="java.util.Map">
+		select distinct p.value from ww_task t,ww_plugin_parameter pp,ww_parameter p 
+		  where t.task_plugin=pp.plugin_name and pp.param_name = p.name and t.job_id=p.job_id and t.task_id=p.source_id and p.job_id != p.source_id
+		<if test="jobId != null ">
+		 and p.job_id = #{jobId}
+		</if>
+		<if test="jobIdArr != null" >
+	      	and p.job_id in
+		    <foreach collection="jobIdArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+		<if test="dataType != null ">
+		 and pp.data_type = #{dataType}
+		</if>
+	</select>
+	
+	<select id="getCronIdAndPluParValue" parameterType="java.util.Map"  resultType="java.util.Map">
+		select
+			c.job_id, pd.data_type, p.value
+		from
+			ww_parameter p
+		    left join ww_cron c on p.job_id = c.job_id and p.source_id = c.job_id
+		    left join ww_plugin_parameter pd on c.plugin = pd.plugin_name and p.name = pd.param_name
+		where
+			c.job_id is not null
+		    and pd.data_type in ('JOB', 'JOBS')
+		    and (c.product is null or c.product = #{product})
+	</select>
+	
+	<insert id="batchInsertParameter" parameterType="java.util.List" databaseId="mysql">
+	    insert into ww_parameter (job_id,source_id,name,value,required)
+	    values 
+	    <foreach collection="list" item="parameter" index="index" separator=",">
+	    	(#{parameter.jobId,jdbcType=VARCHAR}, #{parameter.sourceId,jdbcType=VARCHAR}, #{parameter.name,jdbcType=VARCHAR}, #{parameter.value,jdbcType=VARCHAR},#{parameter.dRequired,jdbcType=INTEGER})
+	    </foreach>
+	</insert>
+	
+	<insert id="batchInsertParameter" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="parameter" open="BEGIN" index="index" separator=";" close=";END;">
+	        insert into ww_parameter (job_id,source_id,name,value,required)
+	    	values (#{parameter.jobId,jdbcType=VARCHAR}, #{parameter.sourceId,jdbcType=VARCHAR}, #{parameter.name,jdbcType=VARCHAR}, #{parameter.value,jdbcType=VARCHAR},#{parameter.dRequired,jdbcType=INTEGER})
+	    </foreach>
+	</insert>
+	
+	<update id="batchUpdateParameter" parameterType="java.util.List" databaseId="mysql">
+	    <foreach collection="list" item="parameter" index="index" separator=";">
+	    	update ww_parameter
+	    	set value = #{parameter.value,jdbcType=VARCHAR}
+	    	   ,required = #{parameter.dRequired,jdbcType=INTEGER}
+	    	where job_id = #{parameter.jobId}
+				and source_id = #{parameter.sourceId}
+				and name = #{parameter.name}
+	    </foreach>
+    </update>
+	
+	<update id="batchUpdateParameter" parameterType="java.util.List" databaseId="oracle">
+	    <foreach collection="list" item="parameter" open="BEGIN" index="index" separator=";" close=";END;">
+	    	update ww_parameter
+	    	set value = #{parameter.value,jdbcType=VARCHAR}
+	    	   ,required = #{parameter.dRequired,jdbcType=INTEGER}
+	    	where job_id = #{parameter.jobId}
+				and source_id = #{parameter.sourceId}
+				and name = #{parameter.name}
+	    </foreach>
+    </update>
+	
+</mapper>

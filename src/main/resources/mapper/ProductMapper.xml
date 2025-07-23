@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.ProductMapper" >
+
+	<resultMap id="productMap" type="Product">
+		<result column="P_ID" property="pId" jdbcType="VARCHAR" />
+		<result column="P_NAME" property="pName" jdbcType="VARCHAR" />
+		<result column="P_DESC" property="pDesc" jdbcType="VARCHAR" />
+		<!-- <result column="BUSI_SORT" property="busiSort" jdbcType="VARCHAR" />
+		<result column="DEV_MODE" property="devMode" jdbcType="VARCHAR" />
+		<result column="MEMO" property="memo" jdbcType="VARCHAR" />
+		<result column="TEST_MANAGER" property="testManager" jdbcType="VARCHAR" />
+		<result column="PRODUCT_MANAGER" property="productManager" jdbcType="VARCHAR" /> -->
+  	</resultMap>
+  	
+	<resultMap id="certificationMap" type="ProductCertification">
+		<result column="P_ID" property="pId" jdbcType="VARCHAR" />
+		<result column="AUTH_ID" property="authId" jdbcType="VARCHAR" />
+		<result column="PROTOCAL" property="protocal" jdbcType="VARCHAR" />
+		<result column="USER_ID" property="userId" jdbcType="VARCHAR" />
+		<result column="PUBLIC_KEY" property="publicKey" jdbcType="VARCHAR" />
+  	</resultMap>
+
+  	
+  	<select id="selectCertificationByProduct" parameterType="java.lang.String" resultMap="certificationMap">
+		SELECT * FROM ww_product_certification WHERE p_id = #{pId}
+	</select>
+	
+	<select id="queryProductCertification" parameterType="java.util.Map" resultMap="certificationMap">
+		SELECT * FROM ww_product_certification pc WHERE 1=1
+		<if test="pId !=null">
+			and p_id = #{pId}
+		</if>
+		<if test="authId !=null">
+			and auth_id = #{authId}
+		</if>
+		<if test="loginName != null">
+			and exists (
+			  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+			    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+			      and tp.p_id=pc.p_id and tsu.login_name=#{loginName}
+			) 
+		</if>
+		<if test="orderBy_authId !=null">
+			order by auth_id
+		</if>
+	</select>
+
+	<select id="selectCertificationByAuthId" parameterType="java.util.Map" resultMap="certificationMap">
+		SELECT * FROM ww_product_certification WHERE p_id = #{pId}
+		<if test="authId !=null">
+			and auth_id like '%'||#{authId}||'%'
+		</if>
+		<if test="lAuthId != null ">
+			and instr(auth_id,#{lAuthId}) > 0
+		</if>
+	</select>
+	
+  	<select id="selectCertificationByKey" parameterType="ProductCertification" resultType="ProductCertification">
+		SELECT p_id as pId,
+	    	auth_id as authId,
+	    	protocal,
+	    	user_Id as userId,
+	    	public_key as publicKey FROM ww_product_certification WHERE p_id = #{pId} and auth_id = #{authId}
+	</select>
+	
+	<insert id="insertCertification" parameterType="ProductCertification" >
+	    INSERT INTO 
+	    	ww_product_certification (
+	    	p_id,
+	    	auth_id,
+	    	protocal,
+	    	user_Id,
+	    	public_key)
+	    VALUES(
+		    #{pId,jdbcType=VARCHAR},
+		    #{authId,jdbcType=VARCHAR},
+		    #{protocal,jdbcType=VARCHAR},
+		    #{userId,jdbcType=VARCHAR},
+		    #{publicKey,jdbcType=VARCHAR})
+	</insert>
+	
+	<update id="updateCertification" parameterType="ProductCertification" >
+	    UPDATE ww_product_certification
+	    set 
+		   protocal = #{protocal,jdbcType=VARCHAR},
+		   user_Id = #{userId,jdbcType=VARCHAR},
+		   public_key = #{publicKey,jdbcType=VARCHAR}
+		WHERE p_id = #{pId} and auth_id = #{authId}
+	</update>
+	
+	<delete id="deleteCertification" parameterType="java.util.Map" >
+		DELETE FROM ww_product_certification WHERE p_id = #{pId,jdbcType=VARCHAR} and auth_id in
+		<foreach collection="authIds" item="item" index="index" open="(" close=")" separator=",">
+			#{item,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+  	
+  	<select id="selectProductByName" parameterType="java.util.Map" resultMap="productMap">
+		SELECT * FROM ww_product WHERE 1=1
+		<if test="lName != null and lName !=''">
+			and instr(p_id, #{lName}) > 0
+		</if>
+		<if test="pId != null">
+			and p_id = #{pId}
+		</if>
+	</select>
+	
+	<!-- <insert id="insertProduct" parameterType="Product" >
+	    INSERT INTO ww_product (p_id,p_name,p_desc,busi_sort,dev_mode,memo,test_manager,product_manager)
+	    VALUES(#{pId,jdbcType=VARCHAR},#{pName,jdbcType=VARCHAR},#{pDesc,jdbcType=VARCHAR},#{busiSort,jdbcType=VARCHAR},#{devMode,jdbcType=VARCHAR},
+	           #{memo,jdbcType=VARCHAR},#{testManager,jdbcType=VARCHAR},#{productManager,jdbcType=VARCHAR})
+	</insert> -->
+	<insert id="insertProduct" parameterType="Product" >
+	    INSERT INTO ww_product (p_id,p_name,p_desc)
+	    VALUES(#{pId,jdbcType=VARCHAR},#{pName,jdbcType=VARCHAR},#{pDesc,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteProduct" parameterType="java.util.Map" >
+	    DELETE FROM ww_product WHERE p_id = #{name,jdbcType=VARCHAR}
+	</delete>
+	
+	<delete id="deleteCertificationByProduct" parameterType="java.util.Map" >
+	    DELETE FROM ww_product_certification WHERE p_id = #{name,jdbcType=VARCHAR}
+	</delete>
+	
+	<!-- <update id="updateProduct" parameterType="Product" >
+	    UPDATE ww_product
+	    set 
+		   p_name = #{pName},
+		   p_desc = #{pDesc},
+		   busi_sort = #{busiSort},
+		   dev_mode = #{devMode},
+		   memo = #{memo},
+		   test_manager = #{testManager},
+		   product_manager = #{productManager}
+		WHERE p_id = #{pId}
+	</update> -->
+	<update id="updateProduct" parameterType="Product" >
+	    UPDATE ww_product
+	    set 
+		   p_name = #{pName,jdbcType=VARCHAR},
+		   p_desc = #{pDesc,jdbcType=VARCHAR}
+		WHERE p_id = #{pId}
+	</update>
+	
+	<!-- ww_sys_user_product_ref -->
+	<select id="getProductByCondition" parameterType="java.util.Map" resultMap="productMap">
+		select p.* From ww_sys_user u,ww_product p,ww_sys_user_product_ref r where u.login_name=r.user_id and p.p_id = r.product_id and u.del_flag='1'
+		<if test="userId != null">
+			and r.user_id = #{userId}
+		</if>
+		<if test="pidArr != null" >
+	      	and r.product_id in
+		    <foreach collection="pidArr" item="item" index="index" open="(" close=")" separator=",">
+				#{item}
+			</foreach>
+		</if>
+	</select>
+	
+	<insert id="insertSysUserProductRef" parameterType="java.util.Map" >
+	    INSERT INTO ww_sys_user_product_ref (user_id,product_id)
+	    VALUES(#{userId,jdbcType=VARCHAR},#{productId,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteSysUserProductRef" parameterType="java.util.Map" >
+	    DELETE FROM ww_sys_user_product_ref WHERE 1=1
+	    <if test="userId != null">
+			and user_id = #{userId}
+		</if>
+		<if test="productId != null">
+			and product_id = #{productId}
+		</if>
+	</delete>
+	
+</mapper>

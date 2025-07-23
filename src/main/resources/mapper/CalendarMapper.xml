@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.CalendarMapper" >
+	
+	<resultMap id="calendarMap" type="Calendar">
+		<result column="PRODUCT" property="product" />
+		<result column="CAL_NAME" property="calName" />
+		<result column="CAL_DESCRIPTION" property="calDescription" />
+		<result column="INCLUDE_VALUE" property="includeValue" />
+		<result column="EXCLUSION_VALUE" property="exclusionValue" />
+  	</resultMap>
+  
+	<select id="queryCalendarList" parameterType="java.util.Map" resultMap="calendarMap">
+		select 
+			t.PRODUCT,
+			t.CAL_NAME,
+			t.CAL_DESCRIPTION,
+			t.INCLUDE_VALUE,
+			t.EXCLUSION_VALUE
+		from ww_calendar t
+		where 1=1
+		<if test="product != null and product != ''">
+			and t.PRODUCT = #{product}
+		</if>
+		<if test="lCalName != null and lCalName != ''">
+			and instr(t.CAL_NAME, #{lCalName}) > 0
+		</if>
+		<if test="calName != null and calName != ''">
+			and t.CAL_NAME = #{calName}
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=t.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+	</select>
+	
+	<insert id="insertCalendar" parameterType="Calendar" >
+	    insert into ww_calendar
+	    		(PRODUCT,
+	    		CAL_NAME,
+	    		CAL_DESCRIPTION,
+	    		INCLUDE_VALUE,
+	    		EXCLUSION_VALUE)
+	    values 
+	    		(#{product,jdbcType=VARCHAR}, 
+	    		#{calName,jdbcType=VARCHAR}, 
+	    		#{calDescription,jdbcType=VARCHAR}, 
+	    		#{includeValue,jdbcType=VARCHAR},
+	    		#{exclusionValue,jdbcType=VARCHAR})
+	</insert>
+	
+	<delete id="deleteCalendar" parameterType="java.util.Map" >
+	    delete from ww_calendar
+		where product = #{product}
+		and cal_name = #{calName}
+	</delete>
+	
+	<update id="updateCalend" parameterType="Calendar" >
+	    update ww_calendar 
+	    set
+			CAL_DESCRIPTION = #{calDescription,jdbcType=VARCHAR},
+		    INCLUDE_VALUE = #{includeValue,jdbcType=VARCHAR},
+		    EXCLUSION_VALUE = #{exclusionValue,jdbcType=VARCHAR}
+	    where product = #{product}
+	    	and cal_name = #{calName}
+	</update>
+	
+	<update id="updateCalendar" parameterType="java.util.Map" >
+	    update ww_calendar 
+	    set product = #{product}
+	       <if test="calDescription != null">
+			,CAL_DESCRIPTION = #{calDescription}
+		   </if>
+		   <if test="includeValue != null">
+		   ,INCLUDE_VALUE = #{includeValue}
+		   </if>
+		   <if test="exclusionValue != null">
+		   ,EXCLUSION_VALUE = #{exclusionValue}
+		   </if>
+	    where product = #{product}
+	    and cal_name = #{calName}
+	</update>
+</mapper>

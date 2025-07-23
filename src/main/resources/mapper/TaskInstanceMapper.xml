@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bocsoft.wwsf.webconsole.mapper.TaskInstanceMapper" >
+
+	<resultMap id="TaskInstanceMap" type="TaskInstance">
+		<result column="job_ins_id" property="jobInsId"/>
+		<result column="job_id" property="jobId"/>
+		<result column="task_ins_id" property="taskInsId"/>
+		<result column="task_id" property="taskId"/>
+		<result column="task_state" property="state"/>
+		<result column="task_name" property="name"/>
+		<result column="use_job_dimension" property="useJobDimension"/>
+		<result column="task_plugin" property="plugin"/>
+		<result column="program_name" property="programName"/>
+		<result column="error_delay" property="errorDelay"/>
+		<result column="error_ignore" property="errorIgnore"/>
+		<result column="error_max_num" property="maxNumOfExeErrors"/>
+		<result column="error_current_num" property="currentErrorExeCount"/>
+		<result column="working_day" property="workingDay"/>
+		<result column="task_result" property="result"/>
+		<result column="next_execute_time" property="nextExecuteTime"/>
+		<result column="agent_scope" property="agentScope"/>
+		<result column="task_parameter" property="parameterJson"/>
+		<result column="begin_time" property="beginTime"/>
+		<result column="end_time" property="endTime"/>
+		<result column="create_time" property="createTime"/>
+  	</resultMap>
+
+	<select id="taskInsList" parameterType="java.util.Map" resultMap="TaskInstanceMap">
+		select 
+			t.job_ins_id,
+			t.job_id,
+			t.task_ins_id,
+			t.task_id,
+			t.task_state,
+			t.batch,
+			t.task_name,
+			t.use_job_dimension,
+			t.task_plugin,
+			t.program_name,
+			t.error_delay,
+			t.error_ignore,
+			t.error_max_num,
+			t.error_current_num,
+			t.period,
+			t.working_day,
+			t.task_result,
+			t.information,
+			t.next_execute_time,
+			t.agent_scope,
+			t.agent,
+			t.task_parameter,
+			t.begin_time,
+			t.end_time,
+			t.create_time,
+			t.creator,
+			t.allowed_rerun
+		from ww_task_instance t
+		where 1=1
+		<if test="jobInsId != null &amp;&amp; jobInsId != ''">
+		and t.job_ins_id = #{jobInsId}
+		</if>
+		
+		<if test="state != null &amp;&amp; state != '' &amp;&amp; state != '-1'">
+		and t.task_state = #{state}
+		</if>
+		
+		<if test="taskInsId != null &amp;&amp; taskInsId != ''">
+		and t.task_ins_id = #{taskInsId}
+		</if>
+		<if test="lTaskInsId != null &amp;&amp; lTaskInsId != ''">
+		and instr(t.task_ins_id, #{lTaskInsId}) > 0
+		</if>
+		
+		<if test="taskId != null &amp;&amp; taskId != ''">
+		and t.task_id = #{taskId}
+		</if>
+		<if test="lTaskId != null &amp;&amp; lTaskId != ''">
+		and instr(t.task_id, #{lTaskId}) > 0
+		</if>
+		order by t.begin_time desc
+	</select>
+	
+	<update id="saveTaskIns" parameterType="java.util.Map" >
+	  update ww_task_instance t
+	  <set>
+	  	<if test="errorDelay != null">
+	  		t.error_delay = #{errorDelay},
+	  	</if>
+	  	<if test="maxNumOfExeErrors != null">
+	  		t.error_max_num = #{maxNumOfExeErrors},
+	  	</if>
+	  	<if test="currentErrorExeCount != null">
+	  		t.error_current_num = #{currentErrorExeCount},
+	  	</if>
+	  	t.agent_scope = #{agentScope},
+	  	t.period = #{period},
+	  	t.working_day = #{workingDay},
+	  	t.next_execute_time = #{nextExecuteTime},
+	  	t.task_parameter = #{parameters}
+	  </set>
+	  where t.job_ins_id = #{jobInsId}
+	  and t.task_ins_id = #{taskInsId}
+	</update>
+	
+	<select id="jobInsAndTaskInsList" parameterType="java.util.Map" resultType="java.util.Map">
+		select 
+			wji.product as "product",
+			wji.batch as "batch",
+			wji.job_id as "job_id",
+			wji.job_ins_id as "job_ins_id",
+			wti.task_id as "task_id",
+			wti.task_ins_id as "task_ins_id",
+			wti.task_state as "task_state",
+			wti.title as "task_title"
+	  	from ww_job_instance wji,ww_task_instance wti 
+	    where wji.job_id = wti.job_id and wji.job_ins_id = wti.job_ins_id
+	    <if test="product != null ">
+			and wji.product = #{product}
+		</if>
+		<if test="batch != null ">
+			and wji.batch = #{batch}
+		</if>
+	    <if test="lBatch != null ">
+			and instr(wji.batch,#{lBatch}) > 0
+		</if>
+		<if test="lJobId != null ">
+			and instr(wji.job_id,#{lJobId}) > 0
+		</if>
+		<if test="lJobInsId != null ">
+			and instr(wji.job_ins_id,#{lJobInsId}) > 0
+		</if>
+		<if test="lTaskId != null ">
+			and instr(wti.task_id,#{lTaskId}) > 0
+		</if>
+		<if test="lTaskInsId != null ">
+			and instr(wti.task_ins_id,#{lTaskInsId}) > 0
+		</if>
+		<if test="taskState != null ">
+			and instr(wti.task_state,#{taskState}) > 0
+		</if>
+		<if test="taskStateNotPass != null ">
+			and wti.task_state <![CDATA[ < ]]> 20
+		</if>
+		<if test="lTaskTitle != null ">
+			and instr(wti.title,#{lTaskTitle}) > 0
+		</if>
+		<if test="loginName != null">
+		and exists (
+		  select tsupr.product_id From ww_sys_user tsu,ww_product tp,ww_sys_user_product_ref tsupr 
+		    where tsu.login_name=tsupr.user_id and tp.p_id=tsupr.product_id 
+		      and tp.p_id=wji.product and tsu.login_name=#{loginName}
+		) 
+		</if>
+		order by wji.product,wji.batch,wji.job_id,wji.job_ins_id,wti.task_id,wti.task_ins_id
+	</select>
+	
+	<delete id="delTaskInsByBatch" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance
+	    where job_ins_id in (select job_ins_id from ww_job_instance j where j.batch  = #{batch} and j.product = #{product})
+	</delete>
+	
+	<delete id="delTaskInsLeanByBatch" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance_lean
+	    where job_ins_id in (select job_ins_id from ww_job_instance j where j.batch  = #{batch} and j.product = #{product})
+	</delete>
+	
+	<delete id="delTaskInsByProduct" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance
+	    where job_ins_id in (select job_ins_id from ww_job_instance j where j.product = #{product})
+	</delete>
+	
+	<delete id="delTaskInsByJobInsId" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance
+	    where 1=1
+	    <if test="jobInsId != null &amp;&amp; jobInsId != ''">
+		and job_ins_id = #{jobInsId}
+		</if>
+	</delete>
+	
+	<delete id="delTaskInsLeanJobInsId" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance_lean
+	    where 1=1
+	    <if test="jobInsId != null &amp;&amp; jobInsId != ''">
+		and job_ins_id = #{jobInsId}
+		</if>
+	</delete>
+	
+	<delete id="delTaskInsLeanByProduct" parameterType="java.util.Map">
+	    delete 
+	    from ww_task_instance_lean
+	    where job_ins_id in (select job_ins_id from ww_job_instance j where j.product = #{product})
+	</delete>
+	
+	<select id="getTaskState" parameterType="java.util.Map" resultType="java.util.Map" databaseId="mysql">
+		select 
+	  	  j.product,j.batch,
+		  MIN(t.begin_time) begin_time,
+		  MAX(t.end_time) end_time,
+		  COUNT(1) AS total_count,
+	      COUNT(IF(t.task_state = 11, TRUE, NULL)) init_count,
+	      COUNT(IF(t.task_state = 12, TRUE, NULL)) ready_count,
+	      COUNT(IF(t.task_state = 13, TRUE, NULL)) running_count,
+	      COUNT(IF(t.task_state = 14, TRUE, NULL)) error_delay_count,
+	      COUNT(IF(t.task_state = 15, TRUE, NULL)) feedback_count,
+	      COUNT(IF(t.task_state = 16, TRUE, NULL)) failed_count,
+	      COUNT(IF(t.task_state = 17, TRUE, NULL)) manual_count,
+	      COUNT(IF(t.task_state = 18, TRUE, NULL)) period_delay_count,
+ <![CDATA[COUNT(IF(t.task_state > 19, TRUE, NULL)) passed_count]]>
+		from ww_job_instance j left join ww_task_instance t on j.job_ins_id = t.job_ins_id
+		  where 1=1
+		<if test="product != null">
+		    and j.product = #{product}
+		</if>
+	  	<if test="batch != null">
+		    and j.batch = #{batch}
+		</if>
+		group by j.product,j.batch
+	</select>
+	
+	<select id="getTaskState" parameterType="java.util.Map" resultType="java.util.Map" databaseId="oracle">
+		select 
+	  	  j.product,j.batch,
+		  MIN(t.begin_time) "begin_time",
+		  MAX(t.end_time) "end_time",
+		  COUNT(1) AS "total_count",
+	      COUNT(DECODE(t.task_state,11,1,NULL)) AS "init_count",
+	      COUNT(DECODE(t.task_state,12,1,NULL)) AS "ready_count",
+	      COUNT(DECODE(t.task_state,13,1,NULL)) AS "running_count",
+	      COUNT(DECODE(t.task_state,14,1,NULL)) AS "error_delay_count",
+	      COUNT(DECODE(t.task_state,15,1,NULL)) AS "feedback_count",
+	      COUNT(DECODE(t.task_state,16,1,NULL)) AS "failed_count",
+	      COUNT(DECODE(t.task_state,17,1,NULL)) AS "manual_count",
+	      COUNT(DECODE(t.task_state,18,1,NULL)) AS "period_delay_count",
+	      COUNT(DECODE(SIGN(t.task_state-19),1,1,NULL)) AS "passed_count"
+		from ww_job_instance j left join ww_task_instance t on j.job_ins_id = t.job_ins_id
+		  where 1=1
+		<if test="product != null">
+		    and j.product = #{product}
+		</if>
+	  	<if test="batch != null">
+		    and j.batch = #{batch}
+		</if>
+		group by j.product,j.batch
+	</select>
+	
+	<select id="getTaskInsLean" parameterType="java.util.Map" resultMap="TaskInstanceMap">
+		select 
+			t1.lean_task_ins_id task_ins_id, 
+			t2.task_state
+		from 
+			ww_task_instance_lean t1
+		left join 
+			ww_task_instance t2
+		on 
+			t1.lean_task_ins_id = t2.task_ins_id and t1.job_ins_id = t2.job_ins_id
+		where 
+			t1.job_ins_id = #{jobInsId}
+		and 
+			t1.task_ins_id = #{taskInsId}
+	</select>
+	
+	<select id="getTaskInsBeLean" parameterType="java.util.Map" resultType="java.lang.String">
+		select 
+			task_ins_id
+		from 
+			ww_task_instance_lean
+		where 
+			lean_task_ins_id = #{taskInsId} and job_ins_id = #{jobInsId}
+	</select>
+	
+	<select id="getTaskByBatchAndProduct" parameterType="java.util.Map" resultType="java.util.Map" databaseId="mysql">
+		select 
+		  IF(t.title is null or t.title = '', '其他', t.title) as 'TITLE',
+		  COUNT(1) AS 'TOTAL_COUNT',
+	      COUNT(IF(t.task_state = 16, TRUE, NULL)) as 'FAILED_COUNT',
+ <![CDATA[COUNT(IF(t.task_state > 19, TRUE, NULL)) as 'PASSED_COUNT' ]]>
+		from ww_job_instance j,ww_task_instance t
+		where j.job_ins_id = t.job_ins_id
+		  and j.product = #{product}
+		  and j.batch = #{batch}
+		group by t.title
+	</select>
+	
+	<select id="getTaskByBatchAndProduct" parameterType="java.util.Map" resultType="java.util.Map" databaseId="oracle">
+		select 
+		  DECODE(t.title,NULL,'其他','','其他',t.title) as title,
+		  COUNT(1) as total_count,
+		  COUNT(DECODE(t.task_state,16,1,NULL)) failed_count,
+		  COUNT(DECODE(SIGN(t.task_state-19),1,1,NULL)) passed_count
+		from ww_job_instance j,ww_task_instance t
+		where j.job_ins_id = t.job_ins_id
+		  and j.product = #{product}
+		  and j.batch = #{batch}
+		group by t.title
+	</select>
+	
+	<select id="getTaskInsInfo" parameterType="java.util.Map" resultType="TaskInstance">
+		select information from ww_task_instance 
+		where 1=1
+		<if test="jobInsId != null">
+		</if>
+		and job_ins_id=#{jobInsId}
+		<if test="taskInsId != null">
+		and task_ins_id=#{taskInsId}
+		</if> 
+	</select>
+	
+	<select id="selectByPrimaryKey" parameterType="java.util.Map" resultMap="TaskInstanceMap">
+	    select 
+			t.job_ins_id,
+			t.job_id,
+			t.task_ins_id,
+			t.task_id,
+			t.task_state,
+			t.batch,
+			t.task_name,
+			t.use_job_dimension,
+			t.task_plugin,
+			t.program_name,
+			t.error_delay,
+			t.error_ignore,
+			t.error_max_num,
+			t.error_current_num,
+			t.period,
+			t.working_day,
+			t.task_result,
+			t.information,
+			t.next_execute_time,
+			t.agent_scope,
+			t.agent,
+			t.task_parameter,
+			t.begin_time,
+			t.end_time,
+			t.create_time,
+			t.creator,
+			t.allowed_rerun
+	    from ww_task_instance t
+	    where t.job_ins_id = #{jobInsId,jdbcType=BIGINT} and t.task_ins_id = #{taskInsId,jdbcType=VARCHAR}
+	</select>
+</mapper>

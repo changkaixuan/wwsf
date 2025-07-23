@@ -1,0 +1,81 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+	.noMargin{
+		margin: 0px;
+	}
+	.pluginAndAgent-table > tbody > tr > td {
+	    vertical-align: middle; 
+	    padding: 6px 5px; 
+	}
+	
+	input.noborder{
+		border: 0;
+		text-align:left;
+		width:95%;
+		cursor:pointer;
+		padding:4px 0 0 5px;
+	}
+	input.noborder:focus{
+		outline:none;
+	}
+	input.radioClass{
+		border: 0;
+		text-align:center;
+		width:30%;
+		cursor:pointer;
+		padding-top:4px;
+	}
+</style>
+<ol class="breadcrumb page-breadcrumb">
+    <li class="breadcrumb-item"><a href="javascript:void(0);">分布式调度</a></li>
+    <li class="breadcrumb-item">任务管理</li>
+    <li class="breadcrumb-item active">产品插件</li>
+    <li class="position-absolute pos-top pos-right d-none d-sm-block"><span class="js-get-date"></span></li>
+</ol>
+<div class="panel mb-2">
+	<div class="panel-container">
+		<div class="panel-content px-3 pt-0">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a href="#wws_task_plugin" data-toggle="tab" class="nav-link active mt-2 px-4" >任务插件列表</a>
+				</li>
+			</ul>
+			<div class="tab-content border border-top-0 p-2">
+				<div class="tab-pane active" id="wws_task_plugin">
+					<div id="tb_plugin_toolbar" class="btn-group">
+				        <form class="form-inline">
+							<div class="form-group">
+								<input type="text" name="pluginName" class="form-control-sm mr-1" placeholder="插件名称">
+								<button type="button" id="btn_plugin_info_search" class="btn btn-sm btn-primary mr-1">
+									<i class="fal fa-binoculars fa-fw"></i>查询
+								</button>
+								<button type="button" id="btn_plugin_info_reset" class="btn btn-sm btn-primary mr-1">
+									<i class="fal fa-registered fa-fw" aria-hidden="true"></i>重置
+								</button>
+								<button type="button" id="btn_plugin_info_flush" class="btn btn-sm btn-primary">
+									<i class="fal fa-long-arrow-alt-down fa-fw"></i>同步插件信息
+								</button>
+							</div>
+						</form>
+				    </div>
+					<table id="tb_plugin" class="table table-sm table-striped"></table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--参数查看莫态框-->
+<div class="modal fade in" id="modal-redisPlugin-param" tabindex="-2" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-xl" style="min-width:780px">
+		<div class="modal-content">
+			<div class="modal-header py-2 border border-top-0 border-left-0 border-right-0">
+				<h6 class="modal-title h6">[<span id="redisPluginTitleParam"></span>]-插件参数信息列表</h6>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">
+				<table id="tb_plugin_param_defini" class="table table-md table-striped table-bordered table-hover table-condensed"></table>
+			</div>
+		</div>
+	</div>
+</div>
