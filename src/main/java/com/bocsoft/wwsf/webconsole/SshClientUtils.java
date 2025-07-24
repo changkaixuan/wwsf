@@ -35,6 +35,10 @@ public class SshClientUtils {
 	private static final String SPLIT_KV = " ";
 	private static final String space2 = "      ";
 	private static final String space4 = "            ";
+	/**
+	 * SHH 授权默认1-公钥认证方式
+	 */
+	public final static String Ssh_Default_OsSshAuth = "1";
 
 	public static String getNowTime(String format) {
 		SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -95,6 +99,11 @@ public class SshClientUtils {
 		String password = server.getOsSshPswd();
 		String ip = server.getIpAddr();
 		int port = server.getOsSshPort();
+
+		// 获取到SH认证方式、密钥路径、密钥密码
+		String sshAuth = (String) paraMap.get("sshAuth");
+		String privateKeyPath = (String)paraMap.get("privateKeyPath");
+		String passphrase = (String)paraMap.get("passphrase");
 		try {
 			logStringBuffer.append(getNowTime("yyy-MM-dd HH:mm:ss") + " 安装产品/服务器【 " + server.getProduct() + "/" + server.getServerId() + "】\r\n");
 			logStringBuffer.append("第1步 建立连接 " + userName + "/***" + "@" + ip + ":" + port + "\r\n");
@@ -113,13 +122,29 @@ public class SshClientUtils {
 				throw new Exception(userName + "@" + ip + ":" + port + " 建立连接失败.");
 			}
 			session = connectFuture.getSession();
-			session.addPasswordIdentity(password);
+
+            // SSH服务认证改造，支持公钥认证（免密）和密码认证两种方式，通过配置文件配置选择认证方式，默认公钥认证
+			String authStr = "";
+			if(Ssh_Default_OsSshAuth.equals(sshAuth)){
+				authStr = " 【公钥认证】";
+				logStringBuffer.append(" 选择【公钥认证】." + "\r\n");
+				KeyPair keyPair = loadPrivateKey(privateKeyPath,passphrase);
+				if(keyPair == null ){
+					throw new Exception("用户名：" + userName + " 无法加载私钥,验证失败.");
+				}
+				session.addPublicKeyIdentity(keyPair);
+			}else {
+				authStr = " 【密码认证】";
+				logStringBuffer.append(" 选择【密码认证】." + "\r\n");
+				session.addPasswordIdentity(password);
+			}
 			AuthFuture authTrue = session.auth();
 			authTrue.await();
 			if (!authTrue.isSuccess()) {
-				logStringBuffer.append(SshClientUtils.getLogFileRowStartError() + "用户名：" + userName + ", 密码：***" + " 验证失败." + "\r\n");
-				throw new Exception("用户名：" + userName + ", 密码：***" + " 验证失败.");
+				logStringBuffer.append(SshClientUtils.getLogFileRowStartError() + "用户名：" + userName  + authStr + " 验证失败." + "\r\n");
+				throw new Exception("用户名：" + userName   + authStr +  " 验证失败.");
 			}
+
 			//通过执行Shell命令来创建目录    /hadoop/cirrus
 			String homeDir = server.getHomeDir();//值：/hadoop/cirrus
 			//目录agentHome（/hadoop/cirrus）不存在则自动创建
@@ -312,6 +337,12 @@ public class SshClientUtils {
 		String password = server.getOsSshPswd();
 		String ip = server.getIpAddr();
 		int port = server.getOsSshPort();
+
+		// 获取到SH认证方式、密钥路径、密钥密码
+		String sshAuth = (String) paraMap.get("sshAuth");
+		String privateKeyPath = (String)paraMap.get("privateKeyPath");
+		String passphrase = (String)paraMap.get("passphrase");
+
 		try {
 			logStringBuffer.append(getNowTime("yyy-MM-dd HH:mm:ss") + " 卸载产品/服务器【" + server.getProduct() + "/" + server.getServerId() + "】\r\n");
 			logStringBuffer.append("第1步 建立连接 " + userName + "/***" + "@" + ip + ":" + port + "\r\n");
@@ -330,13 +361,30 @@ public class SshClientUtils {
 				throw new Exception(userName + "@" + ip + ":" + port + " 建立连接失败.");
 			}
 			session = connectFuture.getSession();
-			session.addPasswordIdentity(password);
+
+			// SSH服务认证改造，支持公钥认证（免密）和密码认证两种方式，通过配置文件配置选择认证方式，默认公钥认证
+			String authStr = "";
+			if(Ssh_Default_OsSshAuth.equals(sshAuth)){
+				authStr = " 【公钥认证】";
+				logStringBuffer.append(" 选择【公钥认证】." + "\r\n");
+				KeyPair keyPair = loadPrivateKey(privateKeyPath,passphrase);
+				if(keyPair == null ){
+					throw new Exception("用户名：" + userName + " 无法加载私钥,验证失败.");
+				}
+				session.addPublicKeyIdentity(keyPair);
+			}else {
+				authStr = " 【密码认证】";
+				logStringBuffer.append(" 选择【密码认证】." + "\r\n");
+				session.addPasswordIdentity(password);
+			}
+
 			AuthFuture authTrue = session.auth();
 			authTrue.await();
 			if (!authTrue.isSuccess()) {
-				logStringBuffer.append(SshClientUtils.getLogFileRowStartError() + "用户名：" + userName + ", 密码：***" + " 验证失败." + "\r\n");
-				throw new Exception("用户名：" + userName + ", 密码：***" + " 验证失败.");
+				logStringBuffer.append(SshClientUtils.getLogFileRowStartError() + "用户名：" + userName  + authStr + " 验证失败." + "\r\n");
+				throw new Exception("用户名：" + userName   + authStr +  " 验证失败.");
 			}
+
 			//通过执行Shell命令来创建目录    /hadoop/cirrus
 			String homeDir = server.getHomeDir();//值：/hadoop/cirrus
 			//目录agentHome（/hadoop/cirrus）不存在则自动创建
@@ -924,6 +972,12 @@ public class SshClientUtils {
 		String ip = server.getIpAddr();
 		int port = server.getOsSshPort();
 		StringBuffer logSb = new StringBuffer();
+
+		// 获取到SH认证方式、密钥路径、密钥密码
+		String sshAuth = (String) paraMap.get("sshAuth");
+		String privateKeyPath = (String)paraMap.get("privateKeyPath");
+		String passphrase = (String)paraMap.get("passphrase");
+
 		try{
 			client = SshClient.setUpDefaultClient();
 			client.start();
@@ -933,12 +987,27 @@ public class SshClientUtils {
 				throw new Exception(userName+"@"+ip+":"+port+" connect fail.");
 			}
 			session = connectFuture.getSession();
-			session.addPasswordIdentity(password);
+
+			// SSH服务认证改造，支持公钥认证（免密）和密码认证两种方式，通过配置文件配置选择认证方式，默认公钥认证
+			String authStr = "";
+			if(Ssh_Default_OsSshAuth.equals(sshAuth)){
+				authStr = " 【公钥认证】";
+				KeyPair keyPair = loadPrivateKey(privateKeyPath,passphrase);
+				if(keyPair == null ){
+					throw new Exception("用户名：" + userName + " 无法加载私钥,验证失败.");
+				}
+				session.addPublicKeyIdentity(keyPair);
+			}else {
+				authStr = " 【密码认证】";
+				session.addPasswordIdentity(password);
+			}
+
 			AuthFuture authTrue = session.auth();
 			authTrue.await();
-			if(!authTrue.isSuccess()){
-				throw new Exception("userName="+userName+",password="+password+" validate fail.");
+			if (!authTrue.isSuccess()) {
+				throw new Exception("用户名：" + userName   + authStr +  " 验证失败.");
 			}
+
 			//通过执行Shell命令来创建目录    /hadoop/cirrus
 			//Map<String,String> karafMap = (Map<String,String>)paraMap.get("karafMap");
 			//if(null == karafMap.get("installFileName")){
@@ -975,6 +1044,12 @@ public class SshClientUtils {
 		String ip = server.getIpAddr();
 		int port = server.getOsSshPort();
 		StringBuffer logSb = new StringBuffer();
+
+		// 获取到SH认证方式、密钥路径、密钥密码
+		String sshAuth = (String) paraMap.get("sshAuth");
+		String privateKeyPath = (String)paraMap.get("privateKeyPath");
+		String passphrase = (String)paraMap.get("passphrase");
+
 		try{
 			client = SshClient.setUpDefaultClient();
 			client.start();
@@ -984,12 +1059,26 @@ public class SshClientUtils {
 				throw new Exception(userName+"@"+ip+":"+port+" connect fail.");
 			}
 			session = connectFuture.getSession();
-			session.addPasswordIdentity(password);
+
+			// SSH服务认证改造，支持公钥认证（免密）和密码认证两种方式，通过配置文件配置选择认证方式，默认公钥认证
+			String authStr = "";
+			if(Ssh_Default_OsSshAuth.equals(sshAuth)){
+				authStr = " 【公钥认证】";
+				KeyPair keyPair = loadPrivateKey(privateKeyPath,passphrase);
+				if(keyPair == null ){
+					throw new Exception("用户名：" + userName + " 无法加载私钥,验证失败.");
+				}
+				session.addPublicKeyIdentity(keyPair);
+			}else {
+				authStr = " 【密码认证】";
+				session.addPasswordIdentity(password);
+			}
 			AuthFuture authTrue = session.auth();
 			authTrue.await();
-			if(!authTrue.isSuccess()){
-				throw new Exception("userName="+userName+",password="+password+" validate fail.");
+			if (!authTrue.isSuccess()) {
+				throw new Exception("用户名：" + userName   + authStr +  " 验证失败.");
 			}
+
 			//通过执行Shell命令来创建目录    /hadoop/cirrus
 			//Map<String,String> karafMap = (Map<String,String>)paraMap.get("karafMap");
 			//if(null == karafMap.get("installFileName")){
@@ -1087,5 +1176,33 @@ public class SshClientUtils {
 		return tFileWriter;
 	}
 
+	/**
+	 *  加载密钥对-私钥
+	 * @param privateKeyPath 私钥
+	 * @param password 加密私钥的密码
+	 * @return java识别的密钥
+	 * @throws Exception
+	 */
+	public static KeyPair loadPrivateKey(String privateKeyPath, String password ) throws Exception{
+		File privateKeyFile = new File(privateKeyPath);
+		PEMParser pemParser = new PEMParser(new FileReader(privateKeyFile));
+		Object o = pemParser.readObject();
+		JcaPEMKeyConverter converter = new JcaPEMKeyConverter().setProvider("BC");
+		if(o instanceof PEMEncryptedKeyPair){
+			if (StringUtil.isNullOrEmpty(password)){
+				throw new IllegalStateException("需要私钥密码");
+			}
+			PEMDecryptorProvider decryptorProvider = new JcePEMDecryptorProviderBuilder().build(password.toCharArray());
+			PEMKeyPair decryptKeyPair = ((PEMEncryptedKeyPair)o).decryptKeyPair(decryptorProvider);
+			return converter.getKeyPair(decryptKeyPair);
+		}
+		if(o instanceof PEMKeyPair){
+			return converter.getKeyPair((PEMKeyPair) o);
+		}
 
+		if(o instanceof KeyPair){
+			return (KeyPair)o;
+		}
+		throw  new IllegalStateException("不支持的密钥格式");
+	}
 }

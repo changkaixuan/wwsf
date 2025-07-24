@@ -84,6 +84,24 @@ public class ServerController {
 	@Value("${wws.jmx.password}")
 	private String wwsJmxPassword;
 
+	/**
+	 * SHH 授权认证方式 0-密码认证； 1-公钥认证
+	 */
+	@Value("${wws.ssh.auth}")
+	private String sshAuth;
+
+	/**
+	 * SSH私钥路径
+	 */
+	@Value("${wws.ssh.privateKeyPath}")
+	private String privateKeyPath;
+
+	/**
+	 * SSH私钥密码（是用于保护私钥文件的密码,可为空）
+	 */
+	@Value("${www.ssh.passphrase}")
+	private String passphrase;
+
 	@Autowired
 	private DbConn dbConn;
 	
@@ -343,6 +361,12 @@ public class ServerController {
 			server = (Server)resultMap.get("server");
 			server.setOsSshPswd(encryptService.decryptInfo(server.getOsSshPswd()));
 			paraMap.put("Server", server);
+
+			// 把SSH认证方式,默认密钥认证、密钥路径、密钥密码放入paraMap
+			paraMap.put("sshAuth",sshAuth);
+			paraMap.put("privateKeyPath",privateKeyPath);
+			paraMap.put("passphrase",passphrase);
+
 			Product tProduct = productService.getProduct(product);
 			if(null == tProduct) {
 				response.setSuccess(false);
@@ -408,6 +432,12 @@ public class ServerController {
 			server = (Server)serverList.get(0);
 			server.setOsSshPswd(encryptService.decryptInfo(server.getOsSshPswd()));
 			paraMap.put("Server", server);
+
+			// 把SSH认证方式,默认密钥认证、密钥路径、密钥密码放入paraMap
+			paraMap.put("sshAuth",sshAuth);
+			paraMap.put("privateKeyPath",privateKeyPath);
+			paraMap.put("passphrase",passphrase);
+
 			tServer = new Server();
 			tServer.setProduct(product);
 			tServer.setServerId(serverId);
@@ -454,6 +484,12 @@ public class ServerController {
 			Server server = serverList.get(0);
 			server.setOsSshPswd(encryptService.decryptInfo(server.getOsSshPswd()));
 			paraMap.put("Server", server);
+
+			// 把SSH认证方式,默认密钥认证、密钥路径、密钥密码放入paraMap
+			paraMap.put("sshAuth",sshAuth);
+			paraMap.put("privateKeyPath",privateKeyPath);
+			paraMap.put("passphrase",passphrase);
+
 			//Map<String,String> karafMap = PropertiesUtils.getKarafProperties(); //加载文件(karaf.properties)内容
 			//paraMap.put("karafMap", karafMap);
 			SshClientUtils.start(paraMap);
@@ -484,6 +520,12 @@ public class ServerController {
 			Server server = serverList.get(0);
 			server.setOsSshPswd(encryptService.decryptInfo(server.getOsSshPswd()));
 			paraMap.put("Server", server);
+
+			// 把SSH认证方式,默认密钥认证、密钥路径、密钥密码放入paraMap
+			paraMap.put("sshAuth",sshAuth);
+			paraMap.put("privateKeyPath",privateKeyPath);
+			paraMap.put("passphrase",passphrase);
+
 			//Map<String,String> karafMap = PropertiesUtils.getKarafProperties(); //加载文件(karaf.properties)内容
 			//paraMap.put("karafMap", karafMap);
 			SshClientUtils.stop(paraMap);
@@ -868,7 +910,12 @@ public class ServerController {
             if(connType.equals("karaf")) {
             	sshConnInfo = new SshConnInfo(server.getIpAddr(),server.getSshPort(),wwsJmxUser,DesEncrypt.decrypt(wwsJmxPassword),"UTF-8");
             }else {
-            	sshConnInfo = new SshConnInfo(server.getIpAddr(),server.getOsSshPort(),server.getOsSshUser(),encryptService.decryptInfo(server.getOsSshPswd()),null);
+            	sshConnInfo = new SshConnInfo(server.getIpAddr(),
+						                       server.getOsSshPort(),
+						                       server.getOsSshUser(),
+												encryptService.decryptInfo(server.getOsSshPswd()),
+						                       null,
+						                        sshAuth,privateKeyPath,passphrase);
             }
             response.put("sshConnInfo", sshConnInfo);
             //拼接websockeAddr地址

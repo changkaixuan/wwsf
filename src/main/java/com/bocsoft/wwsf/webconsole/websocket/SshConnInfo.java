@@ -7,7 +7,25 @@ public class SshConnInfo {
 	private String osSshUser;
 	private String osSshPswd;
 	private String charsetName;
+	/**
+	 * SHH 授权认证方式 0-密码认证； 1-公钥认证
+	 */
+	private String osSshAuth;
 
+	/**
+	 * SSH私钥路径
+	 */
+	private String privateKeyPath;
+
+	/**
+	 * SSH私钥密码（是用于保护私钥文件的密码,可为空）
+	 */
+	private String passphrase;
+
+	/**
+	 * SHH 授权默认1-公钥认证方式
+	 */
+	public final static String Ssh_Default_OsSshAuth = "1";
 	public final static String Springboot_Websocket_Name = "webssh";
 	public final static String Ssh_Default_CharsetName = "UTF-8";
 
@@ -23,6 +41,25 @@ public class SshConnInfo {
 		}else {
 			this.charsetName = charsetName;
 		}
+	}
+
+	public SshConnInfo(String ipAddr,int osSshPort,String osSshUser,String osSshPswd,String charsetName,String osSshAuth,String privateKeyPath,String passphrase){
+		this.ipAddr = ipAddr;
+		this.osSshPort = osSshPort;
+		this.osSshUser = osSshUser;
+		this.osSshPswd = osSshPswd;
+		if(null == charsetName || charsetName.trim().equals("")) {
+			this.charsetName = Ssh_Default_CharsetName;
+		}else {
+			this.charsetName = charsetName;
+		}
+		if(null == osSshAuth || osSshAuth.trim().equals("")) {
+			this.osSshAuth = Ssh_Default_OsSshAuth;
+		}else {
+			this.osSshAuth = osSshAuth;
+		}
+        this.privateKeyPath = privateKeyPath;
+		this.passphrase = passphrase;
 	}
 
 	public String getIpAddr() {
@@ -64,5 +101,28 @@ public class SshConnInfo {
 	public void setCharsetName(String charsetName) {
 		this.charsetName = charsetName;
 	}
-	
+
+	public String getOsSshAuth() {
+		return osSshAuth;
+	}
+
+	public void setOsSshAuth(String osSshAuth) {
+		this.osSshAuth = osSshAuth;
+	}
+
+	public String getPrivateKeyPath() {
+		return privateKeyPath;
+	}
+
+	public void setPrivateKeyPath(String privateKeyPath) {
+		this.privateKeyPath = privateKeyPath;
+	}
+
+	public String getPassphrase() {
+		return passphrase;
+	}
+
+	public void setPassphrase(String passphrase) {
+		this.passphrase = passphrase;
+	}
 }

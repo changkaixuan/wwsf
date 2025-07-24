@@ -3,11 +3,14 @@ package com.bocsoft.wwsf.webconsole.websocket;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.KeyPair;
 import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import javax.websocket.Session;
+
+import com.bocsoft.wwsf.webconsole.SshClientUtils;
 import org.apache.sshd.client.SshClient;
 import org.apache.sshd.client.channel.ClientChannel;
 import org.apache.sshd.client.future.AuthFuture;
@@ -44,11 +47,25 @@ public class WebsocketServiceImpl implements WebsocketService {
 				throw new Exception("连接失败");
 			}
 			clientSession = connectFuture.getSession();
-			clientSession.addPasswordIdentity(sshConnInfo.getOsSshPswd());
+
+			// SSH服务认证改造，支持公钥认证（免密）和密码认证两种方式，通过配置文件配置选择认证方式，默认公钥认证
+			String authStr = "";
+			if(SshClientUtils.Ssh_Default_OsSshAuth.equals(sshConnInfo.getOsSshAuth())){
+				authStr = " 【公钥认证】";
+				KeyPair keyPair = SshClientUtils.loadPrivateKey(sshConnInfo.getPrivateKeyPath(),sshConnInfo.getPassphrase());
+				if(keyPair == null ){
+					throw new Exception("用户名：" + sshConnInfo.getOsSshUser() + " 无法加载私钥,验证失败.");
+				}
+				clientSession.addPublicKeyIdentity(keyPair);
+			}else {
+				authStr = " 【密码认证】";
+				clientSession.addPasswordIdentity(sshConnInfo.getOsSshPswd());
+			}
+
 			AuthFuture authFuture = clientSession.auth();
 			authFuture.await();
 			if(!authFuture.isSuccess()){
-				throw new Exception("连接失败");
+				throw new Exception("用户名：" + sshConnInfo.getOsSshUser() + authStr + " 连接失败");
 			}
 		}catch(Exception e){
 			try{
