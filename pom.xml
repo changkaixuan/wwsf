@@ -19,14 +19,14 @@
 
 	<distributionManagement>
 		<repository>
-			<id>av-releases</id>
-			<name>Archiva Releases</name>
-			<url>http://22.188.12.38:9088/repository/releases</url>
+			<id>releases</id>
+			<name>Nexus Repository</name>
+			<url>http://50.131.230.47:10006/repository/maven-releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>av-snapshots</id>
-			<name>Archiva Snapshots</name>
-			<url>http://22.188.12.38:9088/repository/snapshots</url>
+			<id>snapshots</id>
+			<name>Nexus Repository</name>
+			<url>http://50.131.230.47:10006/repository/maven-snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
