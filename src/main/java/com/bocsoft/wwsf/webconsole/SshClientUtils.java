@@ -278,7 +278,7 @@ public class SshClientUtils {
 				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","mybatis.driver"," ",dbConn.getDbDriver());
 				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","mybatis.url"," ",dbConn.getDbUrl());
 				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","mybatis.username"," ",dbConn.getDbUserName());
-				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","mybatis.password"," ",dbConn.getDbPassword());
+				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","mybatis.password"," ",dbConn.getENCDbPassword());
 				//替换zookeeper命名空间
 				replaceFileContent(session,paraMap,logStringBuffer,karafHome+"/etc/wws.cfg","zoo.namespace"," ",server.getZooNamespace());
 				//替换zookeeper连接串
