@@ -1,0 +1,6 @@
+[INFO ] 2025-10-10 14:41:18,385 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[INFO ] 2025-10-10 14:42:41,121 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[INFO ] 2025-10-10 14:43:47,235 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[INFO ] 2025-10-10 14:47:17,020 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[WARN ] 2025-10-10 14:47:18,518 handleAcceptance:59 -Server at /50.131.237.165:10022 presented unverified EC key: SHA256:ylNJ7dqhnXZpXWYMqrg0XxoX7NOlkDemm2PA8iFmga8
+[WARN ] 2025-10-10 14:47:18,881 globalRequest:646 -globalRequest(ClientConnectionService[ClientSessionImpl[wwsf@/50.131.237.165:10022]])[hostkeys-00@openssh.com, want-reply=false] failed (SshException) to process: EdDSA provider not supported

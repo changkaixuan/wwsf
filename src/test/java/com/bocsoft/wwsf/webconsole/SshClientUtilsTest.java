@@ -58,7 +58,7 @@ public class SshClientUtilsTest extends TestCase {
         try {
             SshClient client = SshClient.setUpDefaultClient();
             client.start();
-            ConnectFuture connectFuture = client.connect("wwsf", "50.131.232.114", 10022);
+            ConnectFuture connectFuture = client.connect("wwsf", "50.131.241.33", 10022);
             connectFuture.await();
             if (!connectFuture.isConnected()) {
                 System.out.println("连接失败！！！！！");
@@ -67,10 +67,11 @@ public class SshClientUtilsTest extends TestCase {
                 ClientSession session = connectFuture.getSession();
 
                 // 密码认证
-                //session.addPasswordIdentity("Qw@3124!");
+                // session.addPasswordIdentity("Bocft01!");
 
                 // ======================SSH公钥认证=========================== //
-                KeyPair keyPair = loadPrivateKey("D:\\wws\\wwsf\\id_rsa","Er@4235!");
+                KeyPair keyPair = loadPrivateKey("D:\\wws\\root1\\id_rsa","Er@4235!");
+                //KeyPair keyPair = loadPrivateKey("D:\\wws\\root1\\id_rsa","Zgyhpb@@@6632");
                 if(keyPair == null ){
                     System.out.println("无法加载私钥");
                     return;
@@ -138,6 +139,11 @@ public class SshClientUtilsTest extends TestCase {
         }
         sb.append("-----\n");
         return sb.toString();
+    }
+    @Test
+    public void testStringLen(){
+        String len = "0000000ocalhost ~]$ 000000000000000000000000000000000000000000000000000000000000";
+        System.out.println(len.length());
     }
 
 

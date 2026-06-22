@@ -1,0 +1,500 @@
+[INFO ] 2025-12-04 15:51:59,947 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 15816 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2025-12-04 15:51:59,952 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[INFO ] 2025-12-04 15:52:00,038 logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2025-12-04 15:52:00,039 logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2025-12-04 15:52:01,622 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2025-12-04 15:52:01,706 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2025-12-04 15:52:01,708 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,708 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,709 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,709 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,709 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,710 makeEncryptable:39 -Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,710 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:01,733 postProcessAfterInitialization:330 -Bean 'shiroConfiguration' of type [com.bocsoft.wwsf.webconsole.bean.shiro.ShiroConfiguration$$EnhancerBySpringCGLIB$$ffffa3ba] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,257 postProcessAfterInitialization:330 -Bean 'wwsfRealm' of type [com.bocsoft.wwsf.webconsole.bean.shiro.WwsfAuthorizingRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,262 postProcessAfterInitialization:330 -Bean 'wwsfDefaultWebSessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,264 postProcessAfterInitialization:330 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,308 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2025-12-04 15:52:02,333 postProcessAfterInitialization:330 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$413f3a80] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,343 postProcessAfterInitialization:330 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:02,447 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2025-12-04 15:52:02,448 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2025-12-04 15:52:02,898 initialize:90 -Tomcat initialized with port(s): 8585 (http)
+[INFO ] 2025-12-04 15:52:02,916 log:173 -Initializing ProtocolHandler ["http-nio-8585"]
+[INFO ] 2025-12-04 15:52:02,923 log:173 -Starting service [Tomcat]
+[INFO ] 2025-12-04 15:52:02,924 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2025-12-04 15:52:03,061 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2025-12-04 15:52:03,062 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 3023 ms
+[INFO ] 2025-12-04 15:52:03,721 init:1003 -{dataSource-1} inited
+[INFO ] 2025-12-04 15:52:04,054 initCuratorFramework:44 ---Configuration of CuratorFramework-------------------------------
+[INFO ] 2025-12-04 15:52:04,055 initCuratorFramework:45 -        nameSpace : wws
+[INFO ] 2025-12-04 15:52:04,055 initCuratorFramework:46 -    connectString : 50.131.232.110:2181
+[INFO ] 2025-12-04 15:52:04,055 initCuratorFramework:47 - connectTimeoutMs : 3000
+[INFO ] 2025-12-04 15:52:04,055 initCuratorFramework:48 - sessionTimeoutMs : 5000
+[INFO ] 2025-12-04 15:52:04,113 start:235 -Starting
+[INFO ] 2025-12-04 15:52:04,119 logEnv:100 -Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[INFO ] 2025-12-04 15:52:04,119 logEnv:100 -Client environment:host.name=DESKTOP-FM8FQJG
+[INFO ] 2025-12-04 15:52:04,119 logEnv:100 -Client environment:java.version=1.8.0_211
+[INFO ] 2025-12-04 15:52:04,119 logEnv:100 -Client environment:java.vendor=Oracle Corporation
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:java.home=C:\Program Files\Java\jdk1.8.0_211\jre
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:java.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-jdbc\2.1.6.RELEASE\spring-boot-starter-jdbc-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter\2.1.6.RELEASE\spring-boot-starter-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-logging\2.1.6.RELEASE\spring-boot-starter-logging-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;D:\repository-wwsf20251203\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;D:\repository-wwsf20251203\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;D:\repository-wwsf20251203\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;D:\repository-wwsf20251203\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;D:\repository-wwsf20251203\org\springframework\spring-jdbc\5.1.8.RELEASE\spring-jdbc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-beans\5.1.8.RELEASE\spring-beans-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-thymeleaf\2.1.6.RELEASE\spring-boot-starter-thymeleaf-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\repository-wwsf20251203\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-quartz\2.1.6.RELEASE\spring-boot-starter-quartz-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context-support\5.1.8.RELEASE\spring-context-support-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context\5.1.8.RELEASE\spring-context-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-aop\5.1.8.RELEASE\spring-aop-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-expression\5.1.8.RELEASE\spring-expression-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-tx\5.1.8.RELEASE\spring-tx-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\quartz-scheduler\quartz\2.3.1\quartz-2.3.1.jar;D:\repository-wwsf20251203\com\mchange\mchange-commons-java\0.2.15\mchange-commons-java-0.2.15.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-websocket\2.1.6.RELEASE\spring-boot-starter-websocket-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\spring-boot-starter-web-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-json\2.1.6.RELEASE\spring-boot-starter-json-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.9.9\jackson-datatype-jdk8-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.9.9\jackson-datatype-jsr310-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\module\jackson-module-parameter-names\2.9.9\jackson-module-parameter-names-2.9.9.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-tomcat\2.1.6.RELEASE\spring-boot-starter-tomcat-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-core\9.0.21\tomcat-embed-core-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-el\9.0.21\tomcat-embed-el-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.21\tomcat-embed-websocket-9.0.21.jar;D:\repository-wwsf20251203\org\hibernate\validator\hibernate-validator\6.0.17.Final\hibernate-validator-6.0.17.Final.jar;D:\repository-wwsf20251203\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;D:\repository-wwsf20251203\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\repository-wwsf20251203\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;D:\repository-wwsf20251203\org\springframework\spring-web\5.1.8.RELEASE\spring-web-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-webmvc\5.1.8.RELEASE\spring-webmvc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-messaging\5.1.8.RELEASE\spring-messaging-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-websocket\5.1.8.RELEASE\spring-websocket-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-starter\2.0.1\mybatis-spring-boot-starter-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\2.0.1\mybatis-spring-boot-autoconfigure-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis\3.5.1\mybatis-3.5.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis-spring\2.0.1\mybatis-spring-2.0.1.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.12\pagehelper-spring-boot-starter-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.12\pagehelper-spring-boot-autoconfigure-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper\5.1.10\pagehelper-5.1.10.jar;D:\repository-wwsf20251203\com\github\jsqlparser\jsqlparser\2.0\jsqlparser-2.0.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.1.1\jasypt-spring-boot-starter-2.1.1.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot\2.1.1\jasypt-spring-boot-2.1.1.jar;D:\repository-wwsf20251203\com\melloware\jasypt\1.9.4\jasypt-1.9.4.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-devtools\2.1.6.RELEASE\spring-boot-devtools-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-autoconfigure\2.1.6.RELEASE\spring-boot-autoconfigure-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\repository-wwsf20251203\org\springframework\spring-core\5.1.8.RELEASE\spring-core-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-jcl\5.1.8.RELEASE\spring-jcl-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\com\alibaba\druid-spring-boot-starter\1.1.18\druid-spring-boot-starter-1.1.18.jar;D:\repository-wwsf20251203\com\alibaba\druid\1.1.18\druid-1.1.18.jar;D:\repository-wwsf20251203\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;D:\repository-wwsf20251203\com\alibaba\fastjson\1.2.58\fastjson-1.2.58.jar;D:\repository-wwsf20251203\org\apache\curator\curator-recipes\2.12.0\curator-recipes-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-framework\2.12.0\curator-framework-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-client\2.12.0\curator-client-2.12.0.jar;D:\repository-wwsf20251203\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;D:\repository-wwsf20251203\log4j\log4j\1.2.16\log4j-1.2.16.jar;D:\repository-wwsf20251203\jline\jline\0.9.94\jline-0.9.94.jar;D:\repository-wwsf20251203\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;D:\repository-wwsf20251203\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\repository-wwsf20251203\com\oracle\ojdbc6\12.0\ojdbc6-12.0.jar;D:\repository-wwsf20251203\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-core\1.7.1\shiro-core-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-web\1.7.1\shiro-web-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-spring\1.7.1\shiro-spring-1.7.1.jar;D:\repository-wwsf20251203\org\apache\sshd\sshd-core\1.6.0\sshd-core-1.6.0.jar;D:\repository-wwsf20251203\commons-net\commons-net\3.6\commons-net-3.6.jar;D:\repository-wwsf20251203\com\kjhxtc\BocLib\1.1.7-build00028\BocLib-1.1.7-build00028.jar;D:\repository-wwsf20251203\org\owasp\encoder\encoder\1.2.2\encoder-1.2.2.jar;D:\repository-wwsf20251203\org\apache\poi\poi\3.14\poi-3.14.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml\3.14\poi-ooxml-3.14.jar;D:\repository-wwsf20251203\com\github\virtuald\curvesapi\1.03\curvesapi-1.03.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml-schemas\3.14\poi-ooxml-schemas-3.14.jar;D:\repository-wwsf20251203\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\repository-wwsf20251203\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-configuration-processor\2.1.6.RELEASE\spring-boot-configuration-processor-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\bouncycastle\bcpkix-jdk15on\1.68\bcpkix-jdk15on-1.68.jar;D:\repository-wwsf20251203\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\IntelliJIDEA2022\lib\idea_rt.jar;D:\IntelliJIDEA2022\plugins\java\lib\rt\debugger-agent.jar
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMITControlCenter\;C:\Windows\SysWOW64;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\Java\jdk1.8.0_211\jre\bin;D:\apache-maven-3.6.1\bin;D:\nodejs\;C:\Users\zhxm-008\AppData\Local\Programs\Python\Python310;d:\Git\cmd;C:\Users\zhxm-008\AppData\Local\Microsoft\WindowsApps;;d:\IntelliJ IDEA 2022.2.3\bin;;C:\Users\zhxm-008\AppData\Roaming\npm;.
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:java.io.tmpdir=C:\Users\zhxm-008\AppData\Local\Temp\
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:java.compiler=<NA>
+[INFO ] 2025-12-04 15:52:04,120 logEnv:100 -Client environment:os.name=Windows 10
+[INFO ] 2025-12-04 15:52:04,121 logEnv:100 -Client environment:os.arch=amd64
+[INFO ] 2025-12-04 15:52:04,121 logEnv:100 -Client environment:os.version=10.0
+[INFO ] 2025-12-04 15:52:04,121 logEnv:100 -Client environment:user.name=zhxm-008
+[INFO ] 2025-12-04 15:52:04,121 logEnv:100 -Client environment:user.home=C:\Users\zhxm-008
+[INFO ] 2025-12-04 15:52:04,121 logEnv:100 -Client environment:user.dir=D:\suyx-1\wwsf\wwsf\wwsf-webconsole
+[INFO ] 2025-12-04 15:52:04,122 <init>:438 -Initiating client connection, connectString=50.131.232.110:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3a747cb1
+[INFO ] 2025-12-04 15:52:04,149 initCuratorFramework:105 -CuratorFramework Started
+[INFO ] 2025-12-04 15:52:04,150 logStartConnect:1032 -Opening socket connection to server 50.131.232.110/50.131.232.110:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2025-12-04 15:52:04,161 primeConnection:876 -Socket connection established to 50.131.232.110/50.131.232.110:2181, initiating session
+[INFO ] 2025-12-04 15:52:04,174 onConnected:1299 -Session establishment complete on server 50.131.232.110/50.131.232.110:2181, sessionid = 0x10000006f4a0020, negotiated timeout = 5000
+[INFO ] 2025-12-04 15:52:04,182 postState:228 -State change: CONNECTED
+[INFO ] 2025-12-04 15:52:04,564 lambda$null$2:34 -String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+[INFO ] 2025-12-04 15:52:04,571 getProperty:88 -Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+[INFO ] 2025-12-04 15:52:04,572 getProperty:88 -Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+[INFO ] 2025-12-04 15:52:04,572 getProperty:88 -Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+[INFO ] 2025-12-04 15:52:04,572 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+[INFO ] 2025-12-04 15:52:04,573 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+[INFO ] 2025-12-04 15:52:04,573 getProperty:88 -Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+[INFO ] 2025-12-04 15:52:04,574 getProperty:88 -Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+[INFO ] 2025-12-04 15:52:04,575 getProperty:88 -Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+[INFO ] 2025-12-04 15:52:04,859 initialize:171 -Initializing ExecutorService 'applicationTaskExecutor'
+[WARN ] 2025-12-04 15:52:05,018 checkTemplateLocationExists:105 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[INFO ] 2025-12-04 15:52:05,057 <init>:54 -Adding welcome page: class path resource [static/index.html]
+[INFO ] 2025-12-04 15:52:05,263 instantiate:1208 -Using default implementation for ThreadExecutor
+[INFO ] 2025-12-04 15:52:05,274 <init>:61 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2025-12-04 15:52:05,274 <init>:229 -Quartz Scheduler v.2.3.1 created.
+[INFO ] 2025-12-04 15:52:05,275 initialize:155 -RAMJobStore initialized.
+[INFO ] 2025-12-04 15:52:05,276 initialize:294 -Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2025-12-04 15:52:05,276 instantiate:1362 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2025-12-04 15:52:05,276 instantiate:1366 -Quartz scheduler version: 2.3.1
+[INFO ] 2025-12-04 15:52:05,276 setJobFactory:2293 -JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7451f145
+[INFO ] 2025-12-04 15:52:05,563 startServer:57 -LiveReload server is running on port 35729
+[INFO ] 2025-12-04 15:52:05,649 startScheduler:726 -Starting Quartz Scheduler now
+[INFO ] 2025-12-04 15:52:05,649 start:547 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2025-12-04 15:52:05,658 log:173 -Starting ProtocolHandler ["http-nio-8585"]
+[INFO ] 2025-12-04 15:52:05,719 start:202 -Tomcat started on port(s): 8585 (http) with context path ''
+[INFO ] 2025-12-04 15:52:05,722 logStarted:59 -Started Application in 6.284 seconds (JVM running for 7.958)
+[INFO ] 2025-12-04 15:52:12,848 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2025-12-04 15:52:12,941 destroy:844 -Shutting down Quartz Scheduler
+[INFO ] 2025-12-04 15:52:12,941 shutdown:666 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2025-12-04 15:52:12,941 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2025-12-04 15:52:12,942 shutdown:740 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2025-12-04 15:52:12,943 shutdown:208 -Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2025-12-04 15:52:12,945 backgroundOperationsLoop:821 -backgroundOperationsLoop exiting
+[INFO ] 2025-12-04 15:52:12,953 close:684 -Session: 0x10000006f4a0020 closed
+[INFO ] 2025-12-04 15:52:12,953 run:519 -EventThread shut down for session: 0x10000006f4a0020
+[INFO ] 2025-12-04 15:52:12,954 close:1948 -{dataSource-1} closing ...
+[INFO ] 2025-12-04 15:52:12,962 close:2020 -{dataSource-1} closed
+[INFO ] 2025-12-04 15:52:24,498 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 15800 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2025-12-04 15:52:24,502 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[INFO ] 2025-12-04 15:52:24,562 logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2025-12-04 15:52:24,562 logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2025-12-04 15:52:25,939 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2025-12-04 15:52:26,003 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2025-12-04 15:52:26,005 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,005 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,006 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,006 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,006 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,006 makeEncryptable:39 -Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,006 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 15:52:26,023 postProcessAfterInitialization:330 -Bean 'shiroConfiguration' of type [com.bocsoft.wwsf.webconsole.bean.shiro.ShiroConfiguration$$EnhancerBySpringCGLIB$$e08cda0c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,474 postProcessAfterInitialization:330 -Bean 'wwsfRealm' of type [com.bocsoft.wwsf.webconsole.bean.shiro.WwsfAuthorizingRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,479 postProcessAfterInitialization:330 -Bean 'wwsfDefaultWebSessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,483 postProcessAfterInitialization:330 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,537 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2025-12-04 15:52:26,568 postProcessAfterInitialization:330 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$21cc70d2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,581 postProcessAfterInitialization:330 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 15:52:26,686 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2025-12-04 15:52:26,688 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2025-12-04 15:52:27,138 initialize:90 -Tomcat initialized with port(s): 8585 (http)
+[INFO ] 2025-12-04 15:52:27,151 log:173 -Initializing ProtocolHandler ["http-nio-8585"]
+[INFO ] 2025-12-04 15:52:27,158 log:173 -Starting service [Tomcat]
+[INFO ] 2025-12-04 15:52:27,158 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2025-12-04 15:52:27,308 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2025-12-04 15:52:27,309 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 2746 ms
+[ERROR] 2025-12-04 15:52:27,810 init:983 -{dataSource-1} init error
+java.lang.IllegalStateException: dbType not support : null, url null
+	at com.alibaba.druid.wall.WallFilter.init(WallFilter.java:167)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:832)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1369)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1365)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:109)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseProductName(VendorDatabaseIdProvider.java:79)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseName(VendorDatabaseIdProvider.java:63)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseId(VendorDatabaseIdProvider.java:50)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:498)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:424)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:554)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202$$FastClassBySpringCGLIB$$b7a5c86d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1500)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
+	at com.bocsoft.wwsf.webconsole.Application.main(Application.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+[ERROR] 2025-12-04 15:52:27,811 getDatabaseId:52 -Could not get a databaseId from dataSource
+java.lang.IllegalStateException: dbType not support : null, url null
+	at com.alibaba.druid.wall.WallFilter.init(WallFilter.java:167)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:832)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1369)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1365)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:109)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseProductName(VendorDatabaseIdProvider.java:79)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseName(VendorDatabaseIdProvider.java:63)
+	at org.apache.ibatis.mapping.VendorDatabaseIdProvider.getDatabaseId(VendorDatabaseIdProvider.java:50)
+	at org.mybatis.spring.SqlSessionFactoryBean.buildSqlSessionFactory(SqlSessionFactoryBean.java:498)
+	at org.mybatis.spring.SqlSessionFactoryBean.afterPropertiesSet(SqlSessionFactoryBean.java:424)
+	at org.mybatis.spring.SqlSessionFactoryBean.getObject(SqlSessionFactoryBean.java:554)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration.sqlSessionFactory(MybatisAutoConfiguration.java:150)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202.CGLIB$sqlSessionFactory$1(<generated>)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202$$FastClassBySpringCGLIB$$b7a5c86d.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$54a0c202.sqlSessionFactory(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireByType(AbstractAutowireCapableBeanFactory.java:1500)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1395)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
+	at com.bocsoft.wwsf.webconsole.Application.main(Application.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+[INFO ] 2025-12-04 15:52:28,174 initCuratorFramework:44 ---Configuration of CuratorFramework-------------------------------
+[INFO ] 2025-12-04 15:52:28,174 initCuratorFramework:45 -        nameSpace : wws
+[INFO ] 2025-12-04 15:52:28,174 initCuratorFramework:46 -    connectString : 50.131.232.110:2181
+[INFO ] 2025-12-04 15:52:28,174 initCuratorFramework:47 - connectTimeoutMs : 3000
+[INFO ] 2025-12-04 15:52:28,175 initCuratorFramework:48 - sessionTimeoutMs : 5000
+[INFO ] 2025-12-04 15:52:28,232 start:235 -Starting
+[INFO ] 2025-12-04 15:52:28,239 logEnv:100 -Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[INFO ] 2025-12-04 15:52:28,239 logEnv:100 -Client environment:host.name=DESKTOP-FM8FQJG
+[INFO ] 2025-12-04 15:52:28,239 logEnv:100 -Client environment:java.version=1.8.0_211
+[INFO ] 2025-12-04 15:52:28,239 logEnv:100 -Client environment:java.vendor=Oracle Corporation
+[INFO ] 2025-12-04 15:52:28,239 logEnv:100 -Client environment:java.home=C:\Program Files\Java\jdk1.8.0_211\jre
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:java.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-jdbc\2.1.6.RELEASE\spring-boot-starter-jdbc-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter\2.1.6.RELEASE\spring-boot-starter-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-logging\2.1.6.RELEASE\spring-boot-starter-logging-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;D:\repository-wwsf20251203\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;D:\repository-wwsf20251203\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;D:\repository-wwsf20251203\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;D:\repository-wwsf20251203\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;D:\repository-wwsf20251203\org\springframework\spring-jdbc\5.1.8.RELEASE\spring-jdbc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-beans\5.1.8.RELEASE\spring-beans-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-thymeleaf\2.1.6.RELEASE\spring-boot-starter-thymeleaf-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\repository-wwsf20251203\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-quartz\2.1.6.RELEASE\spring-boot-starter-quartz-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context-support\5.1.8.RELEASE\spring-context-support-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context\5.1.8.RELEASE\spring-context-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-aop\5.1.8.RELEASE\spring-aop-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-expression\5.1.8.RELEASE\spring-expression-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-tx\5.1.8.RELEASE\spring-tx-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\quartz-scheduler\quartz\2.3.1\quartz-2.3.1.jar;D:\repository-wwsf20251203\com\mchange\mchange-commons-java\0.2.15\mchange-commons-java-0.2.15.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-websocket\2.1.6.RELEASE\spring-boot-starter-websocket-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\spring-boot-starter-web-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-json\2.1.6.RELEASE\spring-boot-starter-json-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.9.9\jackson-datatype-jdk8-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.9.9\jackson-datatype-jsr310-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\module\jackson-module-parameter-names\2.9.9\jackson-module-parameter-names-2.9.9.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-tomcat\2.1.6.RELEASE\spring-boot-starter-tomcat-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-core\9.0.21\tomcat-embed-core-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-el\9.0.21\tomcat-embed-el-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.21\tomcat-embed-websocket-9.0.21.jar;D:\repository-wwsf20251203\org\hibernate\validator\hibernate-validator\6.0.17.Final\hibernate-validator-6.0.17.Final.jar;D:\repository-wwsf20251203\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;D:\repository-wwsf20251203\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\repository-wwsf20251203\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;D:\repository-wwsf20251203\org\springframework\spring-web\5.1.8.RELEASE\spring-web-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-webmvc\5.1.8.RELEASE\spring-webmvc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-messaging\5.1.8.RELEASE\spring-messaging-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-websocket\5.1.8.RELEASE\spring-websocket-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-starter\2.0.1\mybatis-spring-boot-starter-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\2.0.1\mybatis-spring-boot-autoconfigure-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis\3.5.1\mybatis-3.5.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis-spring\2.0.1\mybatis-spring-2.0.1.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.12\pagehelper-spring-boot-starter-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.12\pagehelper-spring-boot-autoconfigure-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper\5.1.10\pagehelper-5.1.10.jar;D:\repository-wwsf20251203\com\github\jsqlparser\jsqlparser\2.0\jsqlparser-2.0.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.1.1\jasypt-spring-boot-starter-2.1.1.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot\2.1.1\jasypt-spring-boot-2.1.1.jar;D:\repository-wwsf20251203\com\melloware\jasypt\1.9.4\jasypt-1.9.4.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-devtools\2.1.6.RELEASE\spring-boot-devtools-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-autoconfigure\2.1.6.RELEASE\spring-boot-autoconfigure-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\repository-wwsf20251203\org\springframework\spring-core\5.1.8.RELEASE\spring-core-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-jcl\5.1.8.RELEASE\spring-jcl-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\com\alibaba\druid-spring-boot-starter\1.1.18\druid-spring-boot-starter-1.1.18.jar;D:\repository-wwsf20251203\com\alibaba\druid\1.1.18\druid-1.1.18.jar;D:\repository-wwsf20251203\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;D:\repository-wwsf20251203\com\alibaba\fastjson\1.2.58\fastjson-1.2.58.jar;D:\repository-wwsf20251203\org\apache\curator\curator-recipes\2.12.0\curator-recipes-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-framework\2.12.0\curator-framework-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-client\2.12.0\curator-client-2.12.0.jar;D:\repository-wwsf20251203\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;D:\repository-wwsf20251203\log4j\log4j\1.2.16\log4j-1.2.16.jar;D:\repository-wwsf20251203\jline\jline\0.9.94\jline-0.9.94.jar;D:\repository-wwsf20251203\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;D:\repository-wwsf20251203\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\repository-wwsf20251203\com\oracle\ojdbc6\12.0\ojdbc6-12.0.jar;D:\repository-wwsf20251203\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-core\1.7.1\shiro-core-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-web\1.7.1\shiro-web-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-spring\1.7.1\shiro-spring-1.7.1.jar;D:\repository-wwsf20251203\org\apache\sshd\sshd-core\1.6.0\sshd-core-1.6.0.jar;D:\repository-wwsf20251203\commons-net\commons-net\3.6\commons-net-3.6.jar;D:\repository-wwsf20251203\com\kjhxtc\BocLib\1.1.7-build00028\BocLib-1.1.7-build00028.jar;D:\repository-wwsf20251203\org\owasp\encoder\encoder\1.2.2\encoder-1.2.2.jar;D:\repository-wwsf20251203\org\apache\poi\poi\3.14\poi-3.14.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml\3.14\poi-ooxml-3.14.jar;D:\repository-wwsf20251203\com\github\virtuald\curvesapi\1.03\curvesapi-1.03.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml-schemas\3.14\poi-ooxml-schemas-3.14.jar;D:\repository-wwsf20251203\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\repository-wwsf20251203\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-configuration-processor\2.1.6.RELEASE\spring-boot-configuration-processor-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\bouncycastle\bcpkix-jdk15on\1.68\bcpkix-jdk15on-1.68.jar;D:\repository-wwsf20251203\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\IntelliJIDEA2022\lib\idea_rt.jar;D:\IntelliJIDEA2022\plugins\java\lib\rt\debugger-agent.jar
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMITControlCenter\;C:\Windows\SysWOW64;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\Java\jdk1.8.0_211\jre\bin;D:\apache-maven-3.6.1\bin;D:\nodejs\;C:\Users\zhxm-008\AppData\Local\Programs\Python\Python310;d:\Git\cmd;C:\Users\zhxm-008\AppData\Local\Microsoft\WindowsApps;;d:\IntelliJ IDEA 2022.2.3\bin;;C:\Users\zhxm-008\AppData\Roaming\npm;.
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:java.io.tmpdir=C:\Users\zhxm-008\AppData\Local\Temp\
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:java.compiler=<NA>
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:os.name=Windows 10
+[INFO ] 2025-12-04 15:52:28,240 logEnv:100 -Client environment:os.arch=amd64
+[INFO ] 2025-12-04 15:52:28,241 logEnv:100 -Client environment:os.version=10.0
+[INFO ] 2025-12-04 15:52:28,241 logEnv:100 -Client environment:user.name=zhxm-008
+[INFO ] 2025-12-04 15:52:28,241 logEnv:100 -Client environment:user.home=C:\Users\zhxm-008
+[INFO ] 2025-12-04 15:52:28,241 logEnv:100 -Client environment:user.dir=D:\suyx-1\wwsf\wwsf\wwsf-webconsole
+[INFO ] 2025-12-04 15:52:28,242 <init>:438 -Initiating client connection, connectString=50.131.232.110:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@5c4ea5f
+[INFO ] 2025-12-04 15:52:28,272 logStartConnect:1032 -Opening socket connection to server 50.131.232.110/50.131.232.110:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2025-12-04 15:52:28,272 initCuratorFramework:105 -CuratorFramework Started
+[INFO ] 2025-12-04 15:52:28,278 primeConnection:876 -Socket connection established to 50.131.232.110/50.131.232.110:2181, initiating session
+[INFO ] 2025-12-04 15:52:28,289 onConnected:1299 -Session establishment complete on server 50.131.232.110/50.131.232.110:2181, sessionid = 0x10000006f4a0021, negotiated timeout = 5000
+[INFO ] 2025-12-04 15:52:28,298 postState:228 -State change: CONNECTED
+[INFO ] 2025-12-04 15:52:28,700 lambda$null$2:34 -String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+[INFO ] 2025-12-04 15:52:28,708 getProperty:88 -Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+[INFO ] 2025-12-04 15:52:28,708 getProperty:88 -Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+[INFO ] 2025-12-04 15:52:28,708 getProperty:88 -Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+[INFO ] 2025-12-04 15:52:28,708 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+[INFO ] 2025-12-04 15:52:28,708 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+[INFO ] 2025-12-04 15:52:28,709 getProperty:88 -Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+[INFO ] 2025-12-04 15:52:28,710 getProperty:88 -Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+[INFO ] 2025-12-04 15:52:28,711 getProperty:88 -Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+[WARN ] 2025-12-04 15:52:28,726 refresh:557 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'serverController': Unsatisfied dependency expressed through field 'dbConn'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dbConn': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.datasource.url' in value "${spring.datasource.url}"
+[INFO ] 2025-12-04 15:52:28,727 backgroundOperationsLoop:821 -backgroundOperationsLoop exiting
+[INFO ] 2025-12-04 15:52:28,734 run:519 -EventThread shut down for session: 0x10000006f4a0021
+[INFO ] 2025-12-04 15:52:28,734 close:684 -Session: 0x10000006f4a0021 closed
+[INFO ] 2025-12-04 15:52:28,735 close:1948 -{dataSource-1} closing ...
+[INFO ] 2025-12-04 15:52:28,735 close:2020 -{dataSource-1} closed
+[INFO ] 2025-12-04 15:52:28,738 log:173 -Stopping service [Tomcat]
+[INFO ] 2025-12-04 15:52:28,748 logMessage:135 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2025-12-04 15:52:28,756 reportFailure:821 -Application run failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'serverController': Unsatisfied dependency expressed through field 'dbConn'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dbConn': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.datasource.url' in value "${spring.datasource.url}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:596)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:845)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:742)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:389)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1213)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1202)
+	at com.bocsoft.wwsf.webconsole.Application.main(Application.java:15)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dbConn': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.datasource.url' in value "${spring.datasource.url}"
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:380)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1411)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:592)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:277)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1251)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	... 24 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Could not resolve placeholder 'spring.datasource.url' in value "${spring.datasource.url}"
+	at org.springframework.util.PropertyPlaceholderHelper.parseStringValue(PropertyPlaceholderHelper.java:178)
+	at org.springframework.util.PropertyPlaceholderHelper.replacePlaceholders(PropertyPlaceholderHelper.java:124)
+	at org.springframework.core.env.AbstractPropertyResolver.doResolvePlaceholders(AbstractPropertyResolver.java:237)
+	at org.springframework.core.env.AbstractPropertyResolver.resolveRequiredPlaceholders(AbstractPropertyResolver.java:211)
+	at org.springframework.context.support.PropertySourcesPlaceholderConfigurer.lambda$processProperties$0(PropertySourcesPlaceholderConfigurer.java:175)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.resolveEmbeddedValue(AbstractBeanFactory.java:851)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1192)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1171)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:593)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:90)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:374)
+	... 35 common frames omitted
+[INFO ] 2025-12-04 16:22:22,417 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 20736 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2025-12-04 16:22:22,421 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[INFO ] 2025-12-04 16:22:22,484 logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2025-12-04 16:22:22,485 logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2025-12-04 16:22:24,026 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2025-12-04 16:22:24,091 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2025-12-04 16:22:24,093 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,093 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,094 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,094 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,094 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,094 makeEncryptable:39 -Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,094 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2025-12-04 16:22:24,112 postProcessAfterInitialization:330 -Bean 'shiroConfiguration' of type [com.bocsoft.wwsf.webconsole.bean.shiro.ShiroConfiguration$$EnhancerBySpringCGLIB$$832eff98] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,468 postProcessAfterInitialization:330 -Bean 'wwsfRealm' of type [com.bocsoft.wwsf.webconsole.bean.shiro.WwsfAuthorizingRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,472 postProcessAfterInitialization:330 -Bean 'wwsfDefaultWebSessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,475 postProcessAfterInitialization:330 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,527 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2025-12-04 16:22:24,555 postProcessAfterInitialization:330 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$c46e965e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,567 postProcessAfterInitialization:330 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2025-12-04 16:22:24,674 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2025-12-04 16:22:24,676 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2025-12-04 16:22:25,123 initialize:90 -Tomcat initialized with port(s): 8585 (http)
+[INFO ] 2025-12-04 16:22:25,136 log:173 -Initializing ProtocolHandler ["http-nio-8585"]
+[INFO ] 2025-12-04 16:22:25,143 log:173 -Starting service [Tomcat]
+[INFO ] 2025-12-04 16:22:25,143 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2025-12-04 16:22:25,288 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2025-12-04 16:22:25,288 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 2802 ms
+[INFO ] 2025-12-04 16:22:25,583 lambda$null$2:34 -String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+[INFO ] 2025-12-04 16:22:25,592 getProperty:88 -Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+[INFO ] 2025-12-04 16:22:25,592 getProperty:88 -Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+[INFO ] 2025-12-04 16:22:25,593 getProperty:88 -Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+[INFO ] 2025-12-04 16:22:25,593 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+[INFO ] 2025-12-04 16:22:25,593 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+[INFO ] 2025-12-04 16:22:25,593 getProperty:88 -Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+[INFO ] 2025-12-04 16:22:25,595 getProperty:88 -Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+[INFO ] 2025-12-04 16:22:25,596 getProperty:88 -Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+[INFO ] 2025-12-04 16:22:26,183 init:1003 -{dataSource-1} inited
+[INFO ] 2025-12-04 16:22:26,540 initCuratorFramework:44 ---Configuration of CuratorFramework-------------------------------
+[INFO ] 2025-12-04 16:22:26,540 initCuratorFramework:45 -        nameSpace : wws
+[INFO ] 2025-12-04 16:22:26,540 initCuratorFramework:46 -    connectString : 50.131.232.110:2181
+[INFO ] 2025-12-04 16:22:26,541 initCuratorFramework:47 - connectTimeoutMs : 3000
+[INFO ] 2025-12-04 16:22:26,541 initCuratorFramework:48 - sessionTimeoutMs : 5000
+[INFO ] 2025-12-04 16:22:26,592 start:235 -Starting
+[INFO ] 2025-12-04 16:22:26,597 logEnv:100 -Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[INFO ] 2025-12-04 16:22:26,598 logEnv:100 -Client environment:host.name=DESKTOP-FM8FQJG
+[INFO ] 2025-12-04 16:22:26,598 logEnv:100 -Client environment:java.version=1.8.0_211
+[INFO ] 2025-12-04 16:22:26,598 logEnv:100 -Client environment:java.vendor=Oracle Corporation
+[INFO ] 2025-12-04 16:22:26,598 logEnv:100 -Client environment:java.home=C:\Program Files\Java\jdk1.8.0_211\jre
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:java.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-jdbc\2.1.6.RELEASE\spring-boot-starter-jdbc-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter\2.1.6.RELEASE\spring-boot-starter-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-logging\2.1.6.RELEASE\spring-boot-starter-logging-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;D:\repository-wwsf20251203\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;D:\repository-wwsf20251203\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;D:\repository-wwsf20251203\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;D:\repository-wwsf20251203\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;D:\repository-wwsf20251203\org\springframework\spring-jdbc\5.1.8.RELEASE\spring-jdbc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-beans\5.1.8.RELEASE\spring-beans-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-thymeleaf\2.1.6.RELEASE\spring-boot-starter-thymeleaf-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\repository-wwsf20251203\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-quartz\2.1.6.RELEASE\spring-boot-starter-quartz-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context-support\5.1.8.RELEASE\spring-context-support-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context\5.1.8.RELEASE\spring-context-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-aop\5.1.8.RELEASE\spring-aop-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-expression\5.1.8.RELEASE\spring-expression-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-tx\5.1.8.RELEASE\spring-tx-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\quartz-scheduler\quartz\2.3.1\quartz-2.3.1.jar;D:\repository-wwsf20251203\com\mchange\mchange-commons-java\0.2.15\mchange-commons-java-0.2.15.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-websocket\2.1.6.RELEASE\spring-boot-starter-websocket-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\spring-boot-starter-web-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-json\2.1.6.RELEASE\spring-boot-starter-json-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.9.9\jackson-datatype-jdk8-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.9.9\jackson-datatype-jsr310-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\module\jackson-module-parameter-names\2.9.9\jackson-module-parameter-names-2.9.9.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-tomcat\2.1.6.RELEASE\spring-boot-starter-tomcat-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-core\9.0.21\tomcat-embed-core-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-el\9.0.21\tomcat-embed-el-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.21\tomcat-embed-websocket-9.0.21.jar;D:\repository-wwsf20251203\org\hibernate\validator\hibernate-validator\6.0.17.Final\hibernate-validator-6.0.17.Final.jar;D:\repository-wwsf20251203\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;D:\repository-wwsf20251203\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\repository-wwsf20251203\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;D:\repository-wwsf20251203\org\springframework\spring-web\5.1.8.RELEASE\spring-web-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-webmvc\5.1.8.RELEASE\spring-webmvc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-messaging\5.1.8.RELEASE\spring-messaging-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-websocket\5.1.8.RELEASE\spring-websocket-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-starter\2.0.1\mybatis-spring-boot-starter-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\2.0.1\mybatis-spring-boot-autoconfigure-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis\3.5.1\mybatis-3.5.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis-spring\2.0.1\mybatis-spring-2.0.1.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.12\pagehelper-spring-boot-starter-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.12\pagehelper-spring-boot-autoconfigure-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper\5.1.10\pagehelper-5.1.10.jar;D:\repository-wwsf20251203\com\github\jsqlparser\jsqlparser\2.0\jsqlparser-2.0.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.1.1\jasypt-spring-boot-starter-2.1.1.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot\2.1.1\jasypt-spring-boot-2.1.1.jar;D:\repository-wwsf20251203\com\melloware\jasypt\1.9.4\jasypt-1.9.4.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-devtools\2.1.6.RELEASE\spring-boot-devtools-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-autoconfigure\2.1.6.RELEASE\spring-boot-autoconfigure-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\repository-wwsf20251203\org\springframework\spring-core\5.1.8.RELEASE\spring-core-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-jcl\5.1.8.RELEASE\spring-jcl-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\com\alibaba\druid-spring-boot-starter\1.1.18\druid-spring-boot-starter-1.1.18.jar;D:\repository-wwsf20251203\com\alibaba\druid\1.1.18\druid-1.1.18.jar;D:\repository-wwsf20251203\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;D:\repository-wwsf20251203\com\alibaba\fastjson\1.2.58\fastjson-1.2.58.jar;D:\repository-wwsf20251203\org\apache\curator\curator-recipes\2.12.0\curator-recipes-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-framework\2.12.0\curator-framework-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-client\2.12.0\curator-client-2.12.0.jar;D:\repository-wwsf20251203\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;D:\repository-wwsf20251203\log4j\log4j\1.2.16\log4j-1.2.16.jar;D:\repository-wwsf20251203\jline\jline\0.9.94\jline-0.9.94.jar;D:\repository-wwsf20251203\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;D:\repository-wwsf20251203\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\repository-wwsf20251203\com\oracle\ojdbc6\12.0\ojdbc6-12.0.jar;D:\repository-wwsf20251203\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-core\1.7.1\shiro-core-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-web\1.7.1\shiro-web-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-spring\1.7.1\shiro-spring-1.7.1.jar;D:\repository-wwsf20251203\org\apache\sshd\sshd-core\1.6.0\sshd-core-1.6.0.jar;D:\repository-wwsf20251203\commons-net\commons-net\3.6\commons-net-3.6.jar;D:\repository-wwsf20251203\com\kjhxtc\BocLib\1.1.7-build00028\BocLib-1.1.7-build00028.jar;D:\repository-wwsf20251203\org\owasp\encoder\encoder\1.2.2\encoder-1.2.2.jar;D:\repository-wwsf20251203\org\apache\poi\poi\3.14\poi-3.14.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml\3.14\poi-ooxml-3.14.jar;D:\repository-wwsf20251203\com\github\virtuald\curvesapi\1.03\curvesapi-1.03.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml-schemas\3.14\poi-ooxml-schemas-3.14.jar;D:\repository-wwsf20251203\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\repository-wwsf20251203\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-configuration-processor\2.1.6.RELEASE\spring-boot-configuration-processor-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\bouncycastle\bcpkix-jdk15on\1.68\bcpkix-jdk15on-1.68.jar;D:\repository-wwsf20251203\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\IntelliJIDEA2022\lib\idea_rt.jar;D:\IntelliJIDEA2022\plugins\java\lib\rt\debugger-agent.jar
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMITControlCenter\;C:\Windows\SysWOW64;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\Java\jdk1.8.0_211\jre\bin;D:\apache-maven-3.6.1\bin;D:\nodejs\;C:\Users\zhxm-008\AppData\Local\Programs\Python\Python310;d:\Git\cmd;C:\Users\zhxm-008\AppData\Local\Microsoft\WindowsApps;;d:\IntelliJ IDEA 2022.2.3\bin;;C:\Users\zhxm-008\AppData\Roaming\npm;.
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:java.io.tmpdir=C:\Users\zhxm-008\AppData\Local\Temp\
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:java.compiler=<NA>
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:os.name=Windows 10
+[INFO ] 2025-12-04 16:22:26,599 logEnv:100 -Client environment:os.arch=amd64
+[INFO ] 2025-12-04 16:22:26,600 logEnv:100 -Client environment:os.version=10.0
+[INFO ] 2025-12-04 16:22:26,600 logEnv:100 -Client environment:user.name=zhxm-008
+[INFO ] 2025-12-04 16:22:26,600 logEnv:100 -Client environment:user.home=C:\Users\zhxm-008
+[INFO ] 2025-12-04 16:22:26,600 logEnv:100 -Client environment:user.dir=D:\suyx-1\wwsf\wwsf\wwsf-webconsole
+[INFO ] 2025-12-04 16:22:26,601 <init>:438 -Initiating client connection, connectString=50.131.232.110:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@470948b7
+[INFO ] 2025-12-04 16:22:26,632 initCuratorFramework:105 -CuratorFramework Started
+[INFO ] 2025-12-04 16:22:26,633 logStartConnect:1032 -Opening socket connection to server 50.131.232.110/50.131.232.110:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2025-12-04 16:22:26,638 primeConnection:876 -Socket connection established to 50.131.232.110/50.131.232.110:2181, initiating session
+[INFO ] 2025-12-04 16:22:26,648 onConnected:1299 -Session establishment complete on server 50.131.232.110/50.131.232.110:2181, sessionid = 0x10000006f4a0022, negotiated timeout = 5000
+[INFO ] 2025-12-04 16:22:26,658 postState:228 -State change: CONNECTED
+[INFO ] 2025-12-04 16:22:27,488 initialize:171 -Initializing ExecutorService 'applicationTaskExecutor'
+[WARN ] 2025-12-04 16:22:27,689 checkTemplateLocationExists:105 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[INFO ] 2025-12-04 16:22:27,730 <init>:54 -Adding welcome page: class path resource [static/index.html]
+[INFO ] 2025-12-04 16:22:27,949 instantiate:1208 -Using default implementation for ThreadExecutor
+[INFO ] 2025-12-04 16:22:27,961 <init>:61 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2025-12-04 16:22:27,961 <init>:229 -Quartz Scheduler v.2.3.1 created.
+[INFO ] 2025-12-04 16:22:27,962 initialize:155 -RAMJobStore initialized.
+[INFO ] 2025-12-04 16:22:27,963 initialize:294 -Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2025-12-04 16:22:27,963 instantiate:1362 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2025-12-04 16:22:27,963 instantiate:1366 -Quartz scheduler version: 2.3.1
+[INFO ] 2025-12-04 16:22:27,963 setJobFactory:2293 -JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6f342b09
+[INFO ] 2025-12-04 16:22:28,143 startServer:57 -LiveReload server is running on port 35729
+[INFO ] 2025-12-04 16:22:28,205 startScheduler:726 -Starting Quartz Scheduler now
+[INFO ] 2025-12-04 16:22:28,206 start:547 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2025-12-04 16:22:28,216 log:173 -Starting ProtocolHandler ["http-nio-8585"]
+[INFO ] 2025-12-04 16:22:28,299 start:202 -Tomcat started on port(s): 8585 (http) with context path ''
+[INFO ] 2025-12-04 16:22:28,302 logStarted:59 -Started Application in 6.277 seconds (JVM running for 7.586)
+[INFO ] 2025-12-04 16:22:49,262 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2025-12-04 16:22:49,264 destroy:844 -Shutting down Quartz Scheduler
+[INFO ] 2025-12-04 16:22:49,264 shutdown:666 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2025-12-04 16:22:49,264 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2025-12-04 16:22:49,265 shutdown:740 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2025-12-04 16:22:49,266 shutdown:208 -Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2025-12-04 16:22:49,267 backgroundOperationsLoop:821 -backgroundOperationsLoop exiting
+[INFO ] 2025-12-04 16:22:49,274 run:519 -EventThread shut down for session: 0x10000006f4a0022
+[INFO ] 2025-12-04 16:22:49,274 close:684 -Session: 0x10000006f4a0022 closed
+[INFO ] 2025-12-04 16:22:49,276 close:1948 -{dataSource-1} closing ...
+[INFO ] 2025-12-04 16:22:49,284 close:2020 -{dataSource-1} closed

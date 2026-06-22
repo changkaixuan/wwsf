@@ -1,0 +1,1169 @@
+[WARN ] 2026-01-06 00:47:59,260 run:1108 -Client session timed out, have not heard from server in 3607420ms for sessionid 0x30122e57b65002a
+[INFO ] 2026-01-06 00:47:59,347 run:1156 -Client session timed out, have not heard from server in 3607420ms for sessionid 0x30122e57b65002a, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 00:47:59,461 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 00:48:00,043 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 00:48:00,051 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-01-06 00:48:00,054 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x30122e57b65002a has expired
+[INFO ] 2026-01-06 00:48:00,054 postState:228 -State change: LOST
+[WARN ] 2026-01-06 00:48:00,054 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 00:48:00,054 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 00:48:00,054 run:1154 -Unable to reconnect to ZooKeeper service, session 0x30122e57b65002a has expired, closing socket connection
+[INFO ] 2026-01-06 00:48:00,077 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 00:48:00,077 run:519 -EventThread shut down for session: 0x30122e57b65002a
+[INFO ] 2026-01-06 00:48:00,088 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 00:48:00,101 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b65002b, negotiated timeout = 5000
+[INFO ] 2026-01-06 00:48:00,102 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 01:47:32,900 run:1108 -Client session timed out, have not heard from server in 3572421ms for sessionid 0x30122e57b65002b
+[INFO ] 2026-01-06 01:47:32,901 run:1156 -Client session timed out, have not heard from server in 3572421ms for sessionid 0x30122e57b65002b, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 01:47:33,366 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 01:47:34,032 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 01:47:34,214 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-01-06 01:47:34,217 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x30122e57b65002b has expired
+[INFO ] 2026-01-06 01:47:34,217 postState:228 -State change: LOST
+[WARN ] 2026-01-06 01:47:34,218 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 01:47:34,218 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 01:47:34,218 run:1154 -Unable to reconnect to ZooKeeper service, session 0x30122e57b65002b has expired, closing socket connection
+[INFO ] 2026-01-06 01:47:34,239 run:519 -EventThread shut down for session: 0x30122e57b65002b
+[INFO ] 2026-01-06 01:47:34,240 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 01:47:34,249 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 01:47:34,313 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c001e, negotiated timeout = 5000
+[INFO ] 2026-01-06 01:47:34,313 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 02:47:51,523 run:1108 -Client session timed out, have not heard from server in 3617134ms for sessionid 0x20122eb883c001e
+[INFO ] 2026-01-06 02:47:51,524 run:1156 -Client session timed out, have not heard from server in 3617134ms for sessionid 0x20122eb883c001e, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 02:47:51,750 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 02:47:52,736 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 02:47:54,571 run:1108 -Client session timed out, have not heard from server in 2822ms for sessionid 0x20122eb883c001e
+[INFO ] 2026-01-06 02:47:54,572 run:1156 -Client session timed out, have not heard from server in 2822ms for sessionid 0x20122eb883c001e, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 02:47:54,845 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 02:47:55,021 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3270)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 02:47:56,529 run:1108 -Client session timed out, have not heard from server in 1852ms for sessionid 0x20122eb883c001e
+[INFO ] 2026-01-06 02:47:56,530 run:1156 -Client session timed out, have not heard from server in 1852ms for sessionid 0x20122eb883c001e, closing socket connection and attempting reconnect
+[WARN ] 2026-01-06 02:47:57,076 checkTimeouts:219 -Connection attempt unsuccessful after 5326 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-01-06 02:47:57,444 run:519 -EventThread shut down for session: 0x20122eb883c001e
+[INFO ] 2026-01-06 02:47:57,444 close:684 -Session: 0x20122eb883c001e closed
+[INFO ] 2026-01-06 02:47:57,445 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[ERROR] 2026-01-06 02:47:58,045 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-01-06 02:47:58,050 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 02:47:58,075 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 02:47:59,756 run:1108 -Client session timed out, have not heard from server in 1682ms for sessionid 0x0
+[INFO ] 2026-01-06 02:47:59,757 run:1156 -Client session timed out, have not heard from server in 1682ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 02:47:59,863 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 02:48:00,116 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3017)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 02:48:01,287 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-01-06 02:48:01,298 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x10122ebcfcd001d, negotiated timeout = 5000
+[INFO ] 2026-01-06 02:48:01,300 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 03:47:54,776 run:1108 -Client session timed out, have not heard from server in 3585916ms for sessionid 0x10122ebcfcd001d
+[INFO ] 2026-01-06 03:47:54,777 run:1156 -Client session timed out, have not heard from server in 3585916ms for sessionid 0x10122ebcfcd001d, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 03:47:55,000 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 03:47:55,241 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 03:47:56,921 run:1108 -Client session timed out, have not heard from server in 1921ms for sessionid 0x10122ebcfcd001d
+[INFO ] 2026-01-06 03:47:56,922 run:1156 -Client session timed out, have not heard from server in 1921ms for sessionid 0x10122ebcfcd001d, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 03:47:57,463 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 03:47:57,918 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-01-06 03:47:57,922 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x10122ebcfcd001d has expired
+[INFO ] 2026-01-06 03:47:57,922 postState:228 -State change: LOST
+[INFO ] 2026-01-06 03:47:57,923 run:1154 -Unable to reconnect to ZooKeeper service, session 0x10122ebcfcd001d has expired, closing socket connection
+[WARN ] 2026-01-06 03:47:57,923 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 03:47:57,924 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 03:47:58,588 run:519 -EventThread shut down for session: 0x10122ebcfcd001d
+[INFO ] 2026-01-06 03:47:58,638 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 03:47:58,678 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 03:47:58,688 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c001f, negotiated timeout = 5000
+[INFO ] 2026-01-06 03:47:58,690 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 04:47:45,097 run:1108 -Client session timed out, have not heard from server in 3564331ms for sessionid 0x20122eb883c001f
+[INFO ] 2026-01-06 04:47:45,099 run:1156 -Client session timed out, have not heard from server in 3564331ms for sessionid 0x20122eb883c001f, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 04:47:45,287 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 04:47:46,143 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 04:47:47,843 run:1108 -Client session timed out, have not heard from server in 2556ms for sessionid 0x20122eb883c001f
+[INFO ] 2026-01-06 04:47:47,844 run:1156 -Client session timed out, have not heard from server in 2556ms for sessionid 0x20122eb883c001f, closing socket connection and attempting reconnect
+[ERROR] 2026-01-06 04:47:48,433 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3138)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 04:47:48,633 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 04:47:50,370 run:1108 -Client session timed out, have not heard from server in 2422ms for sessionid 0x20122eb883c001f
+[INFO ] 2026-01-06 04:47:50,372 run:1156 -Client session timed out, have not heard from server in 2422ms for sessionid 0x20122eb883c001f, closing socket connection and attempting reconnect
+[WARN ] 2026-01-06 04:47:50,517 checkTimeouts:219 -Connection attempt unsuccessful after 5219 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-01-06 04:47:50,864 run:519 -EventThread shut down for session: 0x20122eb883c001f
+[INFO ] 2026-01-06 04:47:50,864 close:684 -Session: 0x20122eb883c001f closed
+[INFO ] 2026-01-06 04:47:50,926 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 04:47:50,948 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 04:47:50,948 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-01-06 04:47:50,948 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 05:47:32,738 run:1108 -Client session timed out, have not heard from server in 3581791ms for sessionid 0x0
+[INFO ] 2026-01-06 05:47:32,740 run:1156 -Client session timed out, have not heard from server in 3581791ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 05:47:32,969 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 05:47:33,677 checkTimeouts:219 -Connection attempt unsuccessful after 3583042 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-01-06 05:47:34,647 run:1108 -Client session timed out, have not heard from server in 1678ms for sessionid 0x0
+[INFO ] 2026-01-06 05:47:34,752 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-01-06 05:47:34,752 close:684 -Session: 0x0 closed
+[INFO ] 2026-01-06 05:47:34,752 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 05:47:34,789 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 05:47:36,456 run:1108 -Client session timed out, have not heard from server in 1667ms for sessionid 0x0
+[INFO ] 2026-01-06 05:47:36,457 run:1156 -Client session timed out, have not heard from server in 1667ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 05:47:36,562 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 06:47:41,628 run:1108 -Client session timed out, have not heard from server in 3605065ms for sessionid 0x0
+[INFO ] 2026-01-06 06:47:41,630 run:1156 -Client session timed out, have not heard from server in 3605065ms for sessionid 0x0, closing socket connection and attempting reconnect
+[WARN ] 2026-01-06 06:47:41,910 checkTimeouts:219 -Connection attempt unsuccessful after 3608231 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-01-06 06:47:42,100 close:684 -Session: 0x0 closed
+[INFO ] 2026-01-06 06:47:42,100 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-01-06 06:47:42,101 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 06:47:43,498 postState:228 -State change: LOST
+[ERROR] 2026-01-06 06:47:43,511 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-01-06 06:47:43,524 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 06:47:43,666 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 06:47:45,262 run:1108 -Client session timed out, have not heard from server in 1668ms for sessionid 0x0
+[INFO ] 2026-01-06 06:47:45,263 run:1156 -Client session timed out, have not heard from server in 1668ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 06:47:45,368 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 06:47:47,056 run:1108 -Client session timed out, have not heard from server in 1688ms for sessionid 0x0
+[INFO ] 2026-01-06 06:47:47,056 run:1156 -Client session timed out, have not heard from server in 1688ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 06:47:47,161 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 06:52:22,593 run:1108 -Client session timed out, have not heard from server in 275432ms for sessionid 0x0
+[INFO ] 2026-01-06 06:52:22,594 run:1156 -Client session timed out, have not heard from server in 275432ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 06:52:24,016 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 06:52:24,204 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-01-06 06:52:24,212 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x10122ebcfcd001e, negotiated timeout = 5000
+[INFO ] 2026-01-06 06:52:24,213 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 07:47:57,562 run:1108 -Client session timed out, have not heard from server in 3326640ms for sessionid 0x10122ebcfcd001e
+[INFO ] 2026-01-06 07:47:57,563 run:1156 -Client session timed out, have not heard from server in 3326640ms for sessionid 0x10122ebcfcd001e, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 07:47:57,905 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 07:47:58,776 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 07:48:00,461 run:1108 -Client session timed out, have not heard from server in 2555ms for sessionid 0x10122ebcfcd001e
+[INFO ] 2026-01-06 07:48:00,462 run:1156 -Client session timed out, have not heard from server in 2555ms for sessionid 0x10122ebcfcd001e, closing socket connection and attempting reconnect
+[ERROR] 2026-01-06 07:48:01,009 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3104)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 07:48:01,105 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 07:48:01,566 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-01-06 07:48:01,571 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x10122ebcfcd001e has expired
+[INFO ] 2026-01-06 07:48:01,571 postState:228 -State change: LOST
+[INFO ] 2026-01-06 07:48:01,572 run:1154 -Unable to reconnect to ZooKeeper service, session 0x10122ebcfcd001e has expired, closing socket connection
+[WARN ] 2026-01-06 07:48:01,572 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 07:48:01,575 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 07:48:01,900 run:519 -EventThread shut down for session: 0x10122ebcfcd001e
+[INFO ] 2026-01-06 07:48:01,910 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 07:48:02,319 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 07:48:02,330 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c0021, negotiated timeout = 5000
+[INFO ] 2026-01-06 07:48:02,331 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 08:34:09,719 run:1108 -Client session timed out, have not heard from server in 2731404ms for sessionid 0x20122eb883c0021
+[INFO ] 2026-01-06 08:34:09,720 run:1156 -Client session timed out, have not heard from server in 2731404ms for sessionid 0x20122eb883c0021, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 08:34:09,882 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 08:34:10,093 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 08:34:11,287 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[WARN ] 2026-01-06 08:34:11,297 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x20122eb883c0021 has expired
+[INFO ] 2026-01-06 08:34:11,297 postState:228 -State change: LOST
+[INFO ] 2026-01-06 08:34:11,299 run:1154 -Unable to reconnect to ZooKeeper service, session 0x20122eb883c0021 has expired, closing socket connection
+[WARN ] 2026-01-06 08:34:11,376 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 08:34:11,378 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 08:34:12,339 run:519 -EventThread shut down for session: 0x20122eb883c0021
+[INFO ] 2026-01-06 08:34:12,461 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 08:34:12,646 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 08:34:12,655 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b65002c, negotiated timeout = 5000
+[INFO ] 2026-01-06 08:34:12,656 postState:228 -State change: RECONNECTED
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,068 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:30:34,069 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[WARN ] 2026-01-06 09:54:25,140 run:1108 -Client session timed out, have not heard from server in 70429ms for sessionid 0x30122e57b65002c
+[INFO ] 2026-01-06 09:54:25,141 run:1156 -Client session timed out, have not heard from server in 70429ms for sessionid 0x30122e57b65002c, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:25,269 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 09:54:26,193 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:27,879 run:1108 -Client session timed out, have not heard from server in 2612ms for sessionid 0x30122e57b65002c
+[INFO ] 2026-01-06 09:54:27,879 run:1156 -Client session timed out, have not heard from server in 2612ms for sessionid 0x30122e57b65002c, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:28,002 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 09:54:28,342 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3074)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 09:54:29,673 run:1108 -Client session timed out, have not heard from server in 1689ms for sessionid 0x30122e57b65002c
+[INFO ] 2026-01-06 09:54:29,673 run:1156 -Client session timed out, have not heard from server in 1689ms for sessionid 0x30122e57b65002c, closing socket connection and attempting reconnect
+[WARN ] 2026-01-06 09:54:30,350 checkTimeouts:219 -Connection attempt unsuccessful after 5082 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-01-06 09:54:30,455 run:519 -EventThread shut down for session: 0x30122e57b65002c
+[INFO ] 2026-01-06 09:54:30,455 close:684 -Session: 0x30122e57b65002c closed
+[INFO ] 2026-01-06 09:54:30,456 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[ERROR] 2026-01-06 09:54:30,492 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 09:54:30,493 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 09:54:30,493 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 09:54:32,164 run:1108 -Client session timed out, have not heard from server in 1672ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:32,164 run:1156 -Client session timed out, have not heard from server in 1672ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:32,269 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 09:54:33,512 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3162)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 09:54:33,947 run:1108 -Client session timed out, have not heard from server in 1678ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:33,947 run:1156 -Client session timed out, have not heard from server in 1678ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:34,051 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:35,520 checkTimeouts:219 -Connection attempt unsuccessful after 5170 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-01-06 09:54:35,730 run:1108 -Client session timed out, have not heard from server in 1679ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:35,836 close:684 -Session: 0x0 closed
+[INFO ] 2026-01-06 09:54:35,836 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-01-06 09:54:35,836 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3c528729
+[INFO ] 2026-01-06 09:54:35,849 postState:228 -State change: LOST
+[ERROR] 2026-01-06 09:54:35,849 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-01-06 09:54:35,849 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 09:54:35,849 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:37,526 run:1108 -Client session timed out, have not heard from server in 1677ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:37,526 run:1156 -Client session timed out, have not heard from server in 1677ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:37,630 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:39,305 run:1108 -Client session timed out, have not heard from server in 1675ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:39,305 run:1156 -Client session timed out, have not heard from server in 1675ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:39,410 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:41,086 run:1108 -Client session timed out, have not heard from server in 1676ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:41,086 run:1156 -Client session timed out, have not heard from server in 1676ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:42,193 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 09:54:43,873 run:1108 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0
+[INFO ] 2026-01-06 09:54:43,873 run:1156 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 09:54:43,977 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 09:54:45,055 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 09:54:45,061 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b65002e, negotiated timeout = 5000
+[INFO ] 2026-01-06 09:54:45,063 postState:228 -State change: RECONNECTED
+[INFO ] 2026-01-06 09:56:56,976 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 09:56:56,978 validateSessions:308 -Finished session validation.  [1] sessions were stopped.
+[INFO ] 2026-01-06 10:15:22,122 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2026-01-06 10:15:22,126 destroy:844 -Shutting down Quartz Scheduler
+[INFO ] 2026-01-06 10:15:22,126 shutdown:666 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2026-01-06 10:15:22,127 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2026-01-06 10:15:22,129 shutdown:740 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2026-01-06 10:15:22,133 shutdown:208 -Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2026-01-06 10:15:22,142 backgroundOperationsLoop:821 -backgroundOperationsLoop exiting
+[INFO ] 2026-01-06 10:15:22,154 run:519 -EventThread shut down for session: 0x30122e57b65002e
+[INFO ] 2026-01-06 10:15:22,154 close:684 -Session: 0x30122e57b65002e closed
+[INFO ] 2026-01-06 10:15:22,158 close:1948 -{dataSource-1} closing ...
+[INFO ] 2026-01-06 10:15:22,166 close:2020 -{dataSource-1} closed
+[INFO ] 2026-01-06 10:15:22,168 disableSessionValidation:250 -Disabled session validation scheduler.
+[INFO ] 2026-01-06 10:15:23,690 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 29524 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2026-01-06 10:15:23,690 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[WARN ] 2026-01-06 10:15:24,324 warn:44 -No MyBatis mapper was found in '[com.bocsoft.wwsf.webconsole.mapper]' package. Please check your configuration.
+[WARN ] 2026-01-06 10:15:24,361 warn:44 -No MyBatis mapper was found in '[com.bocsoft.wwsf.webconsole]' package. Please check your configuration.
+[INFO ] 2026-01-06 10:15:24,419 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,430 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:15:24,441 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2026-01-06 10:15:24,461 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2026-01-06 10:15:24,462 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2026-01-06 10:15:24,722 initialize:90 -Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2026-01-06 10:15:24,723 log:173 -Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2026-01-06 10:15:24,724 log:173 -Starting service [Tomcat]
+[INFO ] 2026-01-06 10:15:24,724 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2026-01-06 10:15:24,774 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2026-01-06 10:15:24,775 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 1080 ms
+[INFO ] 2026-01-06 10:15:24,874 initialize:171 -Initializing ExecutorService 'applicationTaskExecutor'
+[WARN ] 2026-01-06 10:15:24,914 checkTemplateLocationExists:105 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[INFO ] 2026-01-06 10:15:24,922 <init>:54 -Adding welcome page: class path resource [static/index.html]
+[INFO ] 2026-01-06 10:15:24,926 dataSource:56 -Init DruidDataSource
+[WARN ] 2026-01-06 10:15:24,971 refresh:557 -Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [com/alibaba/druid/spring/boot/autoconfigure/DruidDataSourceAutoConfigure.class]: Invocation of init method failed; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+[INFO ] 2026-01-06 10:15:24,971 shutdown:208 -Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2026-01-06 10:15:24,972 log:173 -Stopping service [Tomcat]
+[INFO ] 2026-01-06 10:15:24,983 logMessage:135 -
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[ERROR] 2026-01-06 10:15:24,994 report:40 -
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+[INFO ] 2026-01-06 10:15:47,419 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[INFO ] 2026-01-06 10:19:04,465 getOrCreateProvider:113 -getOrCreateProvider(BC) created instance of org.bouncycastle.jce.provider.BouncyCastleProvider
+[WARN ] 2026-01-06 10:19:18,260 handleAcceptance:59 -Server at /50.131.237.91:10022 presented unverified EC key: SHA256:ylNJ7dqhnXZpXWYMqrg0XxoX7NOlkDemm2PA8iFmga8
+[WARN ] 2026-01-06 10:19:34,305 globalRequest:646 -globalRequest(ClientConnectionService[ClientSessionImpl[wwsf@/50.131.237.91:10022]])[hostkeys-00@openssh.com, want-reply=false] failed (SshException) to process: EdDSA provider not supported
+[INFO ] 2026-01-06 10:22:30,343 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 16600 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2026-01-06 10:22:30,347 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[INFO ] 2026-01-06 10:22:30,412 logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2026-01-06 10:22:30,413 logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2026-01-06 10:22:31,635 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2026-01-06 10:22:31,692 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2026-01-06 10:22:31,694 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,694 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,694 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,695 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,695 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,695 makeEncryptable:39 -Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,695 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 10:22:31,710 postProcessAfterInitialization:330 -Bean 'shiroConfiguration' of type [com.bocsoft.wwsf.webconsole.bean.shiro.ShiroConfiguration$$EnhancerBySpringCGLIB$$a77ed5ef] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,055 postProcessAfterInitialization:330 -Bean 'wwsfRealm' of type [com.bocsoft.wwsf.webconsole.bean.shiro.WwsfAuthorizingRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,060 postProcessAfterInitialization:330 -Bean 'wwsfDefaultWebSessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,062 postProcessAfterInitialization:330 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,115 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2026-01-06 10:22:32,138 postProcessAfterInitialization:330 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e8be6cb5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,148 postProcessAfterInitialization:330 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 10:22:32,240 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2026-01-06 10:22:32,242 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2026-01-06 10:22:32,645 initialize:90 -Tomcat initialized with port(s): 8585 (http)
+[INFO ] 2026-01-06 10:22:32,660 log:173 -Initializing ProtocolHandler ["http-nio-8585"]
+[INFO ] 2026-01-06 10:22:32,667 log:173 -Starting service [Tomcat]
+[INFO ] 2026-01-06 10:22:32,667 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2026-01-06 10:22:32,811 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2026-01-06 10:22:32,812 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 2399 ms
+[INFO ] 2026-01-06 10:22:33,478 init:1003 -{dataSource-1} inited
+[INFO ] 2026-01-06 10:22:33,818 initCuratorFramework:44 ---Configuration of CuratorFramework-------------------------------
+[INFO ] 2026-01-06 10:22:33,819 initCuratorFramework:45 -        nameSpace : wws
+[INFO ] 2026-01-06 10:22:33,819 initCuratorFramework:46 -    connectString : 50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181
+[INFO ] 2026-01-06 10:22:33,819 initCuratorFramework:47 - connectTimeoutMs : 3000
+[INFO ] 2026-01-06 10:22:33,819 initCuratorFramework:48 - sessionTimeoutMs : 5000
+[INFO ] 2026-01-06 10:22:33,891 start:235 -Starting
+[INFO ] 2026-01-06 10:22:33,898 logEnv:100 -Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[INFO ] 2026-01-06 10:22:33,898 logEnv:100 -Client environment:host.name=DESKTOP-FM8FQJG
+[INFO ] 2026-01-06 10:22:33,898 logEnv:100 -Client environment:java.version=1.8.0_211
+[INFO ] 2026-01-06 10:22:33,898 logEnv:100 -Client environment:java.vendor=Oracle Corporation
+[INFO ] 2026-01-06 10:22:33,898 logEnv:100 -Client environment:java.home=C:\Program Files\Java\jdk1.8.0_211\jre
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:java.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-jdbc\2.1.6.RELEASE\spring-boot-starter-jdbc-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter\2.1.6.RELEASE\spring-boot-starter-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-logging\2.1.6.RELEASE\spring-boot-starter-logging-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;D:\repository-wwsf20251203\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;D:\repository-wwsf20251203\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;D:\repository-wwsf20251203\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;D:\repository-wwsf20251203\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;D:\repository-wwsf20251203\org\springframework\spring-jdbc\5.1.8.RELEASE\spring-jdbc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-beans\5.1.8.RELEASE\spring-beans-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-thymeleaf\2.1.6.RELEASE\spring-boot-starter-thymeleaf-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\repository-wwsf20251203\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-quartz\2.1.6.RELEASE\spring-boot-starter-quartz-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context-support\5.1.8.RELEASE\spring-context-support-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context\5.1.8.RELEASE\spring-context-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-aop\5.1.8.RELEASE\spring-aop-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-expression\5.1.8.RELEASE\spring-expression-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-tx\5.1.8.RELEASE\spring-tx-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\quartz-scheduler\quartz\2.3.1\quartz-2.3.1.jar;D:\repository-wwsf20251203\com\mchange\mchange-commons-java\0.2.15\mchange-commons-java-0.2.15.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-websocket\2.1.6.RELEASE\spring-boot-starter-websocket-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\spring-boot-starter-web-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-json\2.1.6.RELEASE\spring-boot-starter-json-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.9.9\jackson-datatype-jdk8-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.9.9\jackson-datatype-jsr310-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\module\jackson-module-parameter-names\2.9.9\jackson-module-parameter-names-2.9.9.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-tomcat\2.1.6.RELEASE\spring-boot-starter-tomcat-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-core\9.0.21\tomcat-embed-core-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-el\9.0.21\tomcat-embed-el-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.21\tomcat-embed-websocket-9.0.21.jar;D:\repository-wwsf20251203\org\hibernate\validator\hibernate-validator\6.0.17.Final\hibernate-validator-6.0.17.Final.jar;D:\repository-wwsf20251203\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;D:\repository-wwsf20251203\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\repository-wwsf20251203\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;D:\repository-wwsf20251203\org\springframework\spring-web\5.1.8.RELEASE\spring-web-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-webmvc\5.1.8.RELEASE\spring-webmvc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-messaging\5.1.8.RELEASE\spring-messaging-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-websocket\5.1.8.RELEASE\spring-websocket-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-starter\2.0.1\mybatis-spring-boot-starter-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\2.0.1\mybatis-spring-boot-autoconfigure-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis\3.5.1\mybatis-3.5.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis-spring\2.0.1\mybatis-spring-2.0.1.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.12\pagehelper-spring-boot-starter-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.12\pagehelper-spring-boot-autoconfigure-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper\5.1.10\pagehelper-5.1.10.jar;D:\repository-wwsf20251203\com\github\jsqlparser\jsqlparser\2.0\jsqlparser-2.0.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.1.1\jasypt-spring-boot-starter-2.1.1.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot\2.1.1\jasypt-spring-boot-2.1.1.jar;D:\repository-wwsf20251203\com\melloware\jasypt\1.9.4\jasypt-1.9.4.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-devtools\2.1.6.RELEASE\spring-boot-devtools-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-autoconfigure\2.1.6.RELEASE\spring-boot-autoconfigure-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\repository-wwsf20251203\org\springframework\spring-core\5.1.8.RELEASE\spring-core-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-jcl\5.1.8.RELEASE\spring-jcl-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\com\alibaba\druid-spring-boot-starter\1.1.18\druid-spring-boot-starter-1.1.18.jar;D:\repository-wwsf20251203\com\alibaba\druid\1.1.18\druid-1.1.18.jar;D:\repository-wwsf20251203\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;D:\repository-wwsf20251203\com\alibaba\fastjson\1.2.58\fastjson-1.2.58.jar;D:\repository-wwsf20251203\org\apache\curator\curator-recipes\2.12.0\curator-recipes-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-framework\2.12.0\curator-framework-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-client\2.12.0\curator-client-2.12.0.jar;D:\repository-wwsf20251203\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;D:\repository-wwsf20251203\log4j\log4j\1.2.16\log4j-1.2.16.jar;D:\repository-wwsf20251203\jline\jline\0.9.94\jline-0.9.94.jar;D:\repository-wwsf20251203\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;D:\repository-wwsf20251203\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\repository-wwsf20251203\com\oracle\ojdbc6\12.0\ojdbc6-12.0.jar;D:\repository-wwsf20251203\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-core\1.7.1\shiro-core-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-web\1.7.1\shiro-web-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-spring\1.7.1\shiro-spring-1.7.1.jar;D:\repository-wwsf20251203\org\apache\sshd\sshd-core\1.6.0\sshd-core-1.6.0.jar;D:\repository-wwsf20251203\commons-net\commons-net\3.6\commons-net-3.6.jar;D:\repository-wwsf20251203\com\kjhxtc\BocLib\1.1.7-build00028\BocLib-1.1.7-build00028.jar;D:\repository-wwsf20251203\org\owasp\encoder\encoder\1.2.2\encoder-1.2.2.jar;D:\repository-wwsf20251203\org\apache\poi\poi\3.14\poi-3.14.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml\3.14\poi-ooxml-3.14.jar;D:\repository-wwsf20251203\com\github\virtuald\curvesapi\1.03\curvesapi-1.03.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml-schemas\3.14\poi-ooxml-schemas-3.14.jar;D:\repository-wwsf20251203\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\repository-wwsf20251203\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-configuration-processor\2.1.6.RELEASE\spring-boot-configuration-processor-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\bouncycastle\bcpkix-jdk15on\1.68\bcpkix-jdk15on-1.68.jar;D:\repository-wwsf20251203\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\IntelliJIDEA2022\lib\idea_rt.jar;D:\IntelliJIDEA2022\plugins\java\lib\rt\debugger-agent.jar
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMITControlCenter\;C:\Windows\SysWOW64;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\Java\jdk1.8.0_211\jre\bin;D:\apache-maven-3.6.1\bin;D:\nodejs\;C:\Users\zhxm-008\AppData\Local\Programs\Python\Python310;d:\Git\cmd;C:\Users\zhxm-008\AppData\Local\Microsoft\WindowsApps;;d:\IntelliJ IDEA 2022.2.3\bin;;C:\Users\zhxm-008\AppData\Roaming\npm;.
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:java.io.tmpdir=C:\Users\zhxm-008\AppData\Local\Temp\
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:java.compiler=<NA>
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:os.name=Windows 10
+[INFO ] 2026-01-06 10:22:33,899 logEnv:100 -Client environment:os.arch=amd64
+[INFO ] 2026-01-06 10:22:33,900 logEnv:100 -Client environment:os.version=10.0
+[INFO ] 2026-01-06 10:22:33,900 logEnv:100 -Client environment:user.name=zhxm-008
+[INFO ] 2026-01-06 10:22:33,900 logEnv:100 -Client environment:user.home=C:\Users\zhxm-008
+[INFO ] 2026-01-06 10:22:33,900 logEnv:100 -Client environment:user.dir=D:\suyx-1\wwsf\wwsf\wwsf-webconsole
+[INFO ] 2026-01-06 10:22:33,901 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@3accaf5
+[INFO ] 2026-01-06 10:22:33,942 initCuratorFramework:105 -CuratorFramework Started
+[INFO ] 2026-01-06 10:22:33,943 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 10:22:33,949 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 10:22:33,970 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b65002f, negotiated timeout = 5000
+[INFO ] 2026-01-06 10:22:33,979 postState:228 -State change: CONNECTED
+[INFO ] 2026-01-06 10:22:34,395 lambda$null$2:34 -String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+[INFO ] 2026-01-06 10:22:34,402 getProperty:88 -Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+[INFO ] 2026-01-06 10:22:34,402 getProperty:88 -Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+[INFO ] 2026-01-06 10:22:34,402 getProperty:88 -Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+[INFO ] 2026-01-06 10:22:34,402 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+[INFO ] 2026-01-06 10:22:34,402 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+[INFO ] 2026-01-06 10:22:34,403 getProperty:88 -Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+[INFO ] 2026-01-06 10:22:34,403 getProperty:88 -Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+[INFO ] 2026-01-06 10:22:34,404 getProperty:88 -Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+[INFO ] 2026-01-06 10:22:34,692 initialize:171 -Initializing ExecutorService 'applicationTaskExecutor'
+[WARN ] 2026-01-06 10:22:34,847 checkTemplateLocationExists:105 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[INFO ] 2026-01-06 10:22:34,880 <init>:54 -Adding welcome page: class path resource [static/index.html]
+[INFO ] 2026-01-06 10:22:35,071 instantiate:1208 -Using default implementation for ThreadExecutor
+[INFO ] 2026-01-06 10:22:35,085 <init>:61 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2026-01-06 10:22:35,085 <init>:229 -Quartz Scheduler v.2.3.1 created.
+[INFO ] 2026-01-06 10:22:35,086 initialize:155 -RAMJobStore initialized.
+[INFO ] 2026-01-06 10:22:35,087 initialize:294 -Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2026-01-06 10:22:35,087 instantiate:1362 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2026-01-06 10:22:35,087 instantiate:1366 -Quartz scheduler version: 2.3.1
+[INFO ] 2026-01-06 10:22:35,088 setJobFactory:2293 -JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@296d99af
+[INFO ] 2026-01-06 10:22:35,241 startServer:57 -LiveReload server is running on port 35729
+[INFO ] 2026-01-06 10:22:35,291 startScheduler:726 -Starting Quartz Scheduler now
+[INFO ] 2026-01-06 10:22:35,291 start:547 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2026-01-06 10:22:35,299 log:173 -Starting ProtocolHandler ["http-nio-8585"]
+[INFO ] 2026-01-06 10:22:35,363 start:202 -Tomcat started on port(s): 8585 (http) with context path ''
+[INFO ] 2026-01-06 10:22:35,366 logStarted:59 -Started Application in 5.475 seconds (JVM running for 7.123)
+[INFO ] 2026-01-06 10:27:27,391 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2026-01-06 10:27:27,392 destroy:844 -Shutting down Quartz Scheduler
+[INFO ] 2026-01-06 10:27:27,393 shutdown:666 -Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+[INFO ] 2026-01-06 10:27:27,393 standby:585 -Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+[INFO ] 2026-01-06 10:27:27,393 shutdown:740 -Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+[INFO ] 2026-01-06 10:27:27,394 shutdown:208 -Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO ] 2026-01-06 10:27:27,396 backgroundOperationsLoop:821 -backgroundOperationsLoop exiting
+[INFO ] 2026-01-06 10:27:27,402 run:519 -EventThread shut down for session: 0x30122e57b65002f
+[INFO ] 2026-01-06 10:27:27,402 close:684 -Session: 0x30122e57b65002f closed
+[INFO ] 2026-01-06 10:27:27,403 close:1948 -{dataSource-1} closing ...
+[INFO ] 2026-01-06 10:27:27,407 close:2020 -{dataSource-1} closed
+[INFO ] 2026-01-06 12:47:49,256 logStarting:50 -Starting Application on DESKTOP-FM8FQJG with PID 44856 (D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes started by zhxm-008 in D:\suyx-1\wwsf\wwsf\wwsf-webconsole)
+[INFO ] 2026-01-06 12:47:49,259 logStartupProfileInfo:646 -No active profile set, falling back to default profiles: default
+[INFO ] 2026-01-06 12:47:49,313 logTo:225 -Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2026-01-06 12:47:49,314 logTo:225 -For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2026-01-06 12:47:50,602 postProcessBeanFactory:50 -Post-processing PropertySource instances
+[INFO ] 2026-01-06 12:47:50,665 makeEncryptable:39 -Converting PropertySource configurationProperties [org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertySource] to AOP Proxy
+[INFO ] 2026-01-06 12:47:50,666 makeEncryptable:39 -Converting PropertySource servletConfigInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,666 makeEncryptable:39 -Converting PropertySource servletContextInitParams [org.springframework.core.env.PropertySource$StubPropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,667 makeEncryptable:39 -Converting PropertySource systemProperties [org.springframework.core.env.PropertiesPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,667 makeEncryptable:39 -Converting PropertySource systemEnvironment [org.springframework.boot.env.SystemEnvironmentPropertySourceEnvironmentPostProcessor$OriginAwareSystemEnvironmentPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,667 makeEncryptable:39 -Converting PropertySource random [org.springframework.boot.env.RandomValuePropertySource] to EncryptablePropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,667 makeEncryptable:39 -Converting PropertySource applicationConfig: [classpath:/application.properties] [org.springframework.boot.env.OriginTrackedMapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,667 makeEncryptable:39 -Converting PropertySource devtools [org.springframework.core.env.MapPropertySource] to EncryptableMapPropertySourceWrapper
+[INFO ] 2026-01-06 12:47:50,682 postProcessAfterInitialization:330 -Bean 'shiroConfiguration' of type [com.bocsoft.wwsf.webconsole.bean.shiro.ShiroConfiguration$$EnhancerBySpringCGLIB$$d20a5e40] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:50,956 postProcessAfterInitialization:330 -Bean 'wwsfRealm' of type [com.bocsoft.wwsf.webconsole.bean.shiro.WwsfAuthorizingRealm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:50,960 postProcessAfterInitialization:330 -Bean 'wwsfDefaultWebSessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:50,961 postProcessAfterInitialization:330 -Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:50,995 lambda$null$2:31 -Property Filter custom Bean not found with name 'encryptablePropertyFilter'. Initializing Default Property Filter
+[INFO ] 2026-01-06 12:47:51,013 postProcessAfterInitialization:330 -Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1349f506] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:51,020 postProcessAfterInitialization:330 -Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[INFO ] 2026-01-06 12:47:51,091 lambda$null$2:31 -Property Resolver custom Bean not found with name 'encryptablePropertyResolver'. Initializing Default Property Resolver
+[INFO ] 2026-01-06 12:47:51,092 lambda$null$2:30 -Property Detector custom Bean not found with name 'encryptablePropertyDetector'. Initializing Default Property Detector
+[INFO ] 2026-01-06 12:47:51,418 initialize:90 -Tomcat initialized with port(s): 8585 (http)
+[INFO ] 2026-01-06 12:47:51,429 log:173 -Initializing ProtocolHandler ["http-nio-8585"]
+[INFO ] 2026-01-06 12:47:51,435 log:173 -Starting service [Tomcat]
+[INFO ] 2026-01-06 12:47:51,435 log:173 -Starting Servlet engine: [Apache Tomcat/9.0.21]
+[INFO ] 2026-01-06 12:47:51,543 log:173 -Initializing Spring embedded WebApplicationContext
+[INFO ] 2026-01-06 12:47:51,543 prepareWebApplicationContext:283 -Root WebApplicationContext: initialization completed in 2229 ms
+[INFO ] 2026-01-06 12:47:52,153 init:1003 -{dataSource-1} inited
+[INFO ] 2026-01-06 12:47:52,418 initCuratorFramework:44 ---Configuration of CuratorFramework-------------------------------
+[INFO ] 2026-01-06 12:47:52,419 initCuratorFramework:45 -        nameSpace : wws
+[INFO ] 2026-01-06 12:47:52,419 initCuratorFramework:46 -    connectString : 50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181
+[INFO ] 2026-01-06 12:47:52,419 initCuratorFramework:47 - connectTimeoutMs : 3000
+[INFO ] 2026-01-06 12:47:52,419 initCuratorFramework:48 - sessionTimeoutMs : 5000
+[INFO ] 2026-01-06 12:47:52,462 start:235 -Starting
+[INFO ] 2026-01-06 12:47:52,466 logEnv:100 -Client environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+[INFO ] 2026-01-06 12:47:52,466 logEnv:100 -Client environment:host.name=DESKTOP-FM8FQJG
+[INFO ] 2026-01-06 12:47:52,466 logEnv:100 -Client environment:java.version=1.8.0_211
+[INFO ] 2026-01-06 12:47:52,466 logEnv:100 -Client environment:java.vendor=Oracle Corporation
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:java.home=C:\Program Files\Java\jdk1.8.0_211\jre
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:java.class.path=C:\Program Files\Java\jdk1.8.0_211\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_211\jre\lib\rt.jar;D:\suyx-1\wwsf\wwsf\wwsf-webconsole\target\classes;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-jdbc\2.1.6.RELEASE\spring-boot-starter-jdbc-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter\2.1.6.RELEASE\spring-boot-starter-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-logging\2.1.6.RELEASE\spring-boot-starter-logging-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;D:\repository-wwsf20251203\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-to-slf4j\2.11.2\log4j-to-slf4j-2.11.2.jar;D:\repository-wwsf20251203\org\apache\logging\log4j\log4j-api\2.11.2\log4j-api-2.11.2.jar;D:\repository-wwsf20251203\org\slf4j\jul-to-slf4j\1.7.26\jul-to-slf4j-1.7.26.jar;D:\repository-wwsf20251203\javax\annotation\javax.annotation-api\1.3.2\javax.annotation-api-1.3.2.jar;D:\repository-wwsf20251203\org\yaml\snakeyaml\1.23\snakeyaml-1.23.jar;D:\repository-wwsf20251203\com\zaxxer\HikariCP\3.2.0\HikariCP-3.2.0.jar;D:\repository-wwsf20251203\org\springframework\spring-jdbc\5.1.8.RELEASE\spring-jdbc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-beans\5.1.8.RELEASE\spring-beans-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-thymeleaf\2.1.6.RELEASE\spring-boot-starter-thymeleaf-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf-spring5\3.0.11.RELEASE\thymeleaf-spring5-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\thymeleaf\3.0.11.RELEASE\thymeleaf-3.0.11.RELEASE.jar;D:\repository-wwsf20251203\org\attoparser\attoparser\2.0.5.RELEASE\attoparser-2.0.5.RELEASE.jar;D:\repository-wwsf20251203\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\thymeleaf\extras\thymeleaf-extras-java8time\3.0.4.RELEASE\thymeleaf-extras-java8time-3.0.4.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-quartz\2.1.6.RELEASE\spring-boot-starter-quartz-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context-support\5.1.8.RELEASE\spring-context-support-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-context\5.1.8.RELEASE\spring-context-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-aop\5.1.8.RELEASE\spring-aop-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-expression\5.1.8.RELEASE\spring-expression-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-tx\5.1.8.RELEASE\spring-tx-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\quartz-scheduler\quartz\2.3.1\quartz-2.3.1.jar;D:\repository-wwsf20251203\com\mchange\mchange-commons-java\0.2.15\mchange-commons-java-0.2.15.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-websocket\2.1.6.RELEASE\spring-boot-starter-websocket-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-web\2.1.6.RELEASE\spring-boot-starter-web-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-json\2.1.6.RELEASE\spring-boot-starter-json-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-databind\2.9.9\jackson-databind-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\core\jackson-core\2.9.9\jackson-core-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.9.9\jackson-datatype-jdk8-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.9.9\jackson-datatype-jsr310-2.9.9.jar;D:\repository-wwsf20251203\com\fasterxml\jackson\module\jackson-module-parameter-names\2.9.9\jackson-module-parameter-names-2.9.9.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-starter-tomcat\2.1.6.RELEASE\spring-boot-starter-tomcat-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-core\9.0.21\tomcat-embed-core-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-el\9.0.21\tomcat-embed-el-9.0.21.jar;D:\repository-wwsf20251203\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.21\tomcat-embed-websocket-9.0.21.jar;D:\repository-wwsf20251203\org\hibernate\validator\hibernate-validator\6.0.17.Final\hibernate-validator-6.0.17.Final.jar;D:\repository-wwsf20251203\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;D:\repository-wwsf20251203\org\jboss\logging\jboss-logging\3.3.2.Final\jboss-logging-3.3.2.Final.jar;D:\repository-wwsf20251203\com\fasterxml\classmate\1.4.0\classmate-1.4.0.jar;D:\repository-wwsf20251203\org\springframework\spring-web\5.1.8.RELEASE\spring-web-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-webmvc\5.1.8.RELEASE\spring-webmvc-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-messaging\5.1.8.RELEASE\spring-messaging-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-websocket\5.1.8.RELEASE\spring-websocket-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-starter\2.0.1\mybatis-spring-boot-starter-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\spring\boot\mybatis-spring-boot-autoconfigure\2.0.1\mybatis-spring-boot-autoconfigure-2.0.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis\3.5.1\mybatis-3.5.1.jar;D:\repository-wwsf20251203\org\mybatis\mybatis-spring\2.0.1\mybatis-spring-2.0.1.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-starter\1.2.12\pagehelper-spring-boot-starter-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper-spring-boot-autoconfigure\1.2.12\pagehelper-spring-boot-autoconfigure-1.2.12.jar;D:\repository-wwsf20251203\com\github\pagehelper\pagehelper\5.1.10\pagehelper-5.1.10.jar;D:\repository-wwsf20251203\com\github\jsqlparser\jsqlparser\2.0\jsqlparser-2.0.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot-starter\2.1.1\jasypt-spring-boot-starter-2.1.1.jar;D:\repository-wwsf20251203\com\github\ulisesbocchio\jasypt-spring-boot\2.1.1\jasypt-spring-boot-2.1.1.jar;D:\repository-wwsf20251203\com\melloware\jasypt\1.9.4\jasypt-1.9.4.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-devtools\2.1.6.RELEASE\spring-boot-devtools-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot\2.1.6.RELEASE\spring-boot-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-autoconfigure\2.1.6.RELEASE\spring-boot-autoconfigure-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar;D:\repository-wwsf20251203\org\springframework\spring-core\5.1.8.RELEASE\spring-core-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\org\springframework\spring-jcl\5.1.8.RELEASE\spring-jcl-5.1.8.RELEASE.jar;D:\repository-wwsf20251203\com\alibaba\druid-spring-boot-starter\1.1.18\druid-spring-boot-starter-1.1.18.jar;D:\repository-wwsf20251203\com\alibaba\druid\1.1.18\druid-1.1.18.jar;D:\repository-wwsf20251203\org\slf4j\slf4j-api\1.7.26\slf4j-api-1.7.26.jar;D:\repository-wwsf20251203\com\alibaba\fastjson\1.2.58\fastjson-1.2.58.jar;D:\repository-wwsf20251203\org\apache\curator\curator-recipes\2.12.0\curator-recipes-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-framework\2.12.0\curator-framework-2.12.0.jar;D:\repository-wwsf20251203\org\apache\curator\curator-client\2.12.0\curator-client-2.12.0.jar;D:\repository-wwsf20251203\org\apache\zookeeper\zookeeper\3.4.8\zookeeper-3.4.8.jar;D:\repository-wwsf20251203\log4j\log4j\1.2.16\log4j-1.2.16.jar;D:\repository-wwsf20251203\jline\jline\0.9.94\jline-0.9.94.jar;D:\repository-wwsf20251203\io\netty\netty\3.7.0.Final\netty-3.7.0.Final.jar;D:\repository-wwsf20251203\com\google\guava\guava\16.0.1\guava-16.0.1.jar;D:\repository-wwsf20251203\com\oracle\ojdbc6\12.0\ojdbc6-12.0.jar;D:\repository-wwsf20251203\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-core\1.7.1\shiro-core-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-web\1.7.1\shiro-web-1.7.1.jar;D:\repository-wwsf20251203\org\apache\shiro\shiro-spring\1.7.1\shiro-spring-1.7.1.jar;D:\repository-wwsf20251203\org\apache\sshd\sshd-core\1.6.0\sshd-core-1.6.0.jar;D:\repository-wwsf20251203\commons-net\commons-net\3.6\commons-net-3.6.jar;D:\repository-wwsf20251203\com\kjhxtc\BocLib\1.1.7-build00028\BocLib-1.1.7-build00028.jar;D:\repository-wwsf20251203\org\owasp\encoder\encoder\1.2.2\encoder-1.2.2.jar;D:\repository-wwsf20251203\org\apache\poi\poi\3.14\poi-3.14.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml\3.14\poi-ooxml-3.14.jar;D:\repository-wwsf20251203\com\github\virtuald\curvesapi\1.03\curvesapi-1.03.jar;D:\repository-wwsf20251203\org\apache\poi\poi-ooxml-schemas\3.14\poi-ooxml-schemas-3.14.jar;D:\repository-wwsf20251203\org\apache\xmlbeans\xmlbeans\2.6.0\xmlbeans-2.6.0.jar;D:\repository-wwsf20251203\stax\stax-api\1.0.1\stax-api-1.0.1.jar;D:\repository-wwsf20251203\org\springframework\boot\spring-boot-configuration-processor\2.1.6.RELEASE\spring-boot-configuration-processor-2.1.6.RELEASE.jar;D:\repository-wwsf20251203\org\bouncycastle\bcpkix-jdk15on\1.68\bcpkix-jdk15on-1.68.jar;D:\repository-wwsf20251203\org\bouncycastle\bcprov-jdk15on\1.68\bcprov-jdk15on-1.68.jar;D:\IntelliJIDEA2022\lib\idea_rt.jar;D:\IntelliJIDEA2022\plugins\java\lib\rt\debugger-agent.jar
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:java.library.path=C:\Program Files\Java\jdk1.8.0_211\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\CMITControlCenter\;C:\Windows\SysWOW64;C:\Program Files\Java\jdk1.8.0_211\bin;C:\Program Files\Java\jdk1.8.0_211\jre\bin;D:\apache-maven-3.6.1\bin;D:\nodejs\;C:\Users\zhxm-008\AppData\Local\Programs\Python\Python310;d:\Git\cmd;C:\Users\zhxm-008\AppData\Local\Microsoft\WindowsApps;;d:\IntelliJ IDEA 2022.2.3\bin;;C:\Users\zhxm-008\AppData\Roaming\npm;.
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:java.io.tmpdir=C:\Users\zhxm-008\AppData\Local\Temp\
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:java.compiler=<NA>
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:os.name=Windows 10
+[INFO ] 2026-01-06 12:47:52,467 logEnv:100 -Client environment:os.arch=amd64
+[INFO ] 2026-01-06 12:47:52,468 logEnv:100 -Client environment:os.version=10.0
+[INFO ] 2026-01-06 12:47:52,468 logEnv:100 -Client environment:user.name=zhxm-008
+[INFO ] 2026-01-06 12:47:52,468 logEnv:100 -Client environment:user.home=C:\Users\zhxm-008
+[INFO ] 2026-01-06 12:47:52,468 logEnv:100 -Client environment:user.dir=D:\suyx-1\wwsf\wwsf\wwsf-webconsole
+[INFO ] 2026-01-06 12:47:52,469 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 12:47:52,494 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 12:47:52,494 initCuratorFramework:105 -CuratorFramework Started
+[INFO ] 2026-01-06 12:47:52,506 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 12:47:52,514 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b650037, negotiated timeout = 5000
+[INFO ] 2026-01-06 12:47:52,519 postState:228 -State change: CONNECTED
+[INFO ] 2026-01-06 12:47:52,808 lambda$null$2:34 -String Encryptor custom Bean not found with name 'jasyptStringEncryptor'. Initializing Default String Encryptor
+[INFO ] 2026-01-06 12:47:52,813 getProperty:88 -Encryptor config not found for property jasypt.encryptor.algorithm, using default value: PBEWithMD5AndDES
+[INFO ] 2026-01-06 12:47:52,813 getProperty:88 -Encryptor config not found for property jasypt.encryptor.keyObtentionIterations, using default value: 1000
+[INFO ] 2026-01-06 12:47:52,814 getProperty:88 -Encryptor config not found for property jasypt.encryptor.poolSize, using default value: 1
+[INFO ] 2026-01-06 12:47:52,814 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerName, using default value: null
+[INFO ] 2026-01-06 12:47:52,814 getProperty:88 -Encryptor config not found for property jasypt.encryptor.providerClassName, using default value: null
+[INFO ] 2026-01-06 12:47:52,814 getProperty:88 -Encryptor config not found for property jasypt.encryptor.saltGeneratorClassname, using default value: org.jasypt.salt.RandomSaltGenerator
+[INFO ] 2026-01-06 12:47:52,815 getProperty:88 -Encryptor config not found for property jasypt.encryptor.ivGeneratorClassname, using default value: org.jasypt.salt.NoOpIVGenerator
+[INFO ] 2026-01-06 12:47:52,815 getProperty:88 -Encryptor config not found for property jasypt.encryptor.stringOutputType, using default value: base64
+[INFO ] 2026-01-06 12:47:53,065 initialize:171 -Initializing ExecutorService 'applicationTaskExecutor'
+[WARN ] 2026-01-06 12:47:53,207 checkTemplateLocationExists:105 -Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+[INFO ] 2026-01-06 12:47:53,234 <init>:54 -Adding welcome page: class path resource [static/index.html]
+[INFO ] 2026-01-06 12:47:53,379 instantiate:1208 -Using default implementation for ThreadExecutor
+[INFO ] 2026-01-06 12:47:53,387 <init>:61 -Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+[INFO ] 2026-01-06 12:47:53,387 <init>:229 -Quartz Scheduler v.2.3.1 created.
+[INFO ] 2026-01-06 12:47:53,387 initialize:155 -RAMJobStore initialized.
+[INFO ] 2026-01-06 12:47:53,388 initialize:294 -Scheduler meta-data: Quartz Scheduler (v2.3.1) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+[INFO ] 2026-01-06 12:47:53,388 instantiate:1362 -Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+[INFO ] 2026-01-06 12:47:53,388 instantiate:1366 -Quartz scheduler version: 2.3.1
+[INFO ] 2026-01-06 12:47:53,388 setJobFactory:2293 -JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@7d12fb98
+[INFO ] 2026-01-06 12:47:53,499 startServer:57 -LiveReload server is running on port 35729
+[INFO ] 2026-01-06 12:47:53,537 startScheduler:726 -Starting Quartz Scheduler now
+[INFO ] 2026-01-06 12:47:53,537 start:547 -Scheduler quartzScheduler_$_NON_CLUSTERED started.
+[INFO ] 2026-01-06 12:47:53,543 log:173 -Starting ProtocolHandler ["http-nio-8585"]
+[INFO ] 2026-01-06 12:47:53,587 start:202 -Tomcat started on port(s): 8585 (http) with context path ''
+[INFO ] 2026-01-06 12:47:53,590 logStarted:59 -Started Application in 4.758 seconds (JVM running for 8.245)
+[INFO ] 2026-01-06 12:47:59,297 log:173 -Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2026-01-06 12:47:59,297 initServletBean:524 -Initializing Servlet 'dispatcherServlet'
+[INFO ] 2026-01-06 12:47:59,306 initServletBean:546 -Completed initialization in 9 ms
+[INFO ] 2026-01-06 12:47:59,318 enableSessionValidation:233 -Enabling session validation scheduler...
+[WARN ] 2026-01-06 12:48:41,441 run:1108 -Client session timed out, have not heard from server in 10924ms for sessionid 0x30122e57b650037
+[INFO ] 2026-01-06 12:48:41,443 run:1156 -Client session timed out, have not heard from server in 10924ms for sessionid 0x30122e57b650037, closing socket connection and attempting reconnect
+[ERROR] 2026-01-06 12:48:41,445 getPluginQueueInfo:718 -/zoo/getPluginQueueInfo
+java.rmi.ConnectException: Connection refused to host: 127.0.0.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2430)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:308)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:270)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.getJmxClient(WwseService.java:84)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.jmxCall(WwseService.java:93)
+	at com.bocsoft.wwsf.webconsole.service.impl.WwseServiceImpl.pluginExecutorInfo(WwseServiceImpl.java:35)
+	at com.bocsoft.wwsf.webconsole.control.ServerController.getPluginQueueInfo(ServerController.java:697)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$FastClassBySpringCGLIB$$9f6744bb.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$EnhancerBySpringCGLIB$$944268ac.getPluginQueueInfo(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at com.bocsoft.wwsf.webconsole.bean.shiro.AddPrincipalToSessionFilter.doFilterInternal(AddPrincipalToSessionFilter.java:66)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:450)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 90 common frames omitted
+[INFO ] 2026-01-06 12:48:41,548 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 12:48:42,315 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 12:48:42,318 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-01-06 12:48:42,322 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x30122e57b650037 has expired
+[INFO ] 2026-01-06 12:48:42,322 postState:228 -State change: LOST
+[INFO ] 2026-01-06 12:48:42,322 run:1154 -Unable to reconnect to ZooKeeper service, session 0x30122e57b650037 has expired, closing socket connection
+[WARN ] 2026-01-06 12:48:42,322 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 12:48:42,322 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 12:48:42,330 run:519 -EventThread shut down for session: 0x30122e57b650037
+[INFO ] 2026-01-06 12:48:42,331 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 12:48:42,334 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 12:48:42,341 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c0026, negotiated timeout = 5000
+[INFO ] 2026-01-06 12:48:42,342 postState:228 -State change: RECONNECTED
+[ERROR] 2026-01-06 12:48:45,594 getScheduleResourceInfo:788 -/server/getScheduleResourceInfo
+java.rmi.ConnectException: Connection refused to host: 127.0.0.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2430)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:308)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:270)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.getJmxClient(WwseService.java:84)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.jmxCall(WwseService.java:93)
+	at com.bocsoft.wwsf.webconsole.service.impl.WwseServiceImpl.scheduleResourceInfo(WwseServiceImpl.java:263)
+	at com.bocsoft.wwsf.webconsole.control.ServerController.getScheduleResourceInfo(ServerController.java:763)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$FastClassBySpringCGLIB$$9f6744bb.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$EnhancerBySpringCGLIB$$944268ac.getScheduleResourceInfo(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at com.bocsoft.wwsf.webconsole.bean.shiro.AddPrincipalToSessionFilter.doFilterInternal(AddPrincipalToSessionFilter.java:66)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:450)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 90 common frames omitted
+[ERROR] 2026-01-06 12:48:47,658 getScheduleInitQueueResourceInfo:823 -/server/getScheduleInitQueueResourceInfo
+java.rmi.ConnectException: Connection refused to host: 127.0.0.1; nested exception is: 
+	java.net.ConnectException: Connection refused: connect
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:619)
+	at sun.rmi.transport.tcp.TCPChannel.createConnection(TCPChannel.java:216)
+	at sun.rmi.transport.tcp.TCPChannel.newConnection(TCPChannel.java:202)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:129)
+	at javax.management.remote.rmi.RMIServerImpl_Stub.newClient(Unknown Source)
+	at javax.management.remote.rmi.RMIConnector.getConnection(RMIConnector.java:2430)
+	at javax.management.remote.rmi.RMIConnector.connect(RMIConnector.java:308)
+	at javax.management.remote.JMXConnectorFactory.connect(JMXConnectorFactory.java:270)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.getJmxClient(WwseService.java:84)
+	at com.bocsoft.wwsf.webconsole.service.WwseService.jmxCall(WwseService.java:93)
+	at com.bocsoft.wwsf.webconsole.service.impl.WwseServiceImpl.scheduleInitQueueResourceInfo(WwseServiceImpl.java:267)
+	at com.bocsoft.wwsf.webconsole.control.ServerController.getScheduleInitQueueResourceInfo(ServerController.java:801)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$FastClassBySpringCGLIB$$9f6744bb.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.bocsoft.wwsf.webconsole.control.ServerController$$EnhancerBySpringCGLIB$$944268ac.getScheduleInitQueueResourceInfo(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:104)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:892)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1039)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:942)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1005)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:897)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:882)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:61)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at com.bocsoft.wwsf.webconsole.bean.shiro.AddPrincipalToSessionFilter.doFilterInternal(AddPrincipalToSessionFilter.java:66)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AdviceFilter.executeChain(AdviceFilter.java:108)
+	at org.apache.shiro.web.servlet.AdviceFilter.doFilterInternal(AdviceFilter.java:137)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.shiro.web.servlet.ProxiedFilterChain.doFilter(ProxiedFilterChain.java:66)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.executeChain(AbstractShiroFilter.java:450)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter$1.call(AbstractShiroFilter.java:365)
+	at org.apache.shiro.subject.support.SubjectCallable.doCall(SubjectCallable.java:90)
+	at org.apache.shiro.subject.support.SubjectCallable.call(SubjectCallable.java:83)
+	at org.apache.shiro.subject.support.DelegatingSubject.execute(DelegatingSubject.java:387)
+	at org.apache.shiro.web.servlet.AbstractShiroFilter.doFilterInternal(AbstractShiroFilter.java:362)
+	at org.apache.shiro.web.servlet.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:125)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:92)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:200)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:109)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:490)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:408)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:853)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1587)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:211)
+	at sun.rmi.transport.proxy.RMIDirectSocketFactory.createSocket(RMIDirectSocketFactory.java:40)
+	at sun.rmi.transport.proxy.RMIMasterSocketFactory.createSocket(RMIMasterSocketFactory.java:148)
+	at sun.rmi.transport.tcp.TCPEndpoint.newSocket(TCPEndpoint.java:613)
+	... 90 common frames omitted
+[INFO ] 2026-01-06 13:47:59,341 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 13:47:59,354 validateSessions:308 -Finished session validation.  [1] sessions were stopped.
+[INFO ] 2026-01-06 14:47:59,327 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 14:47:59,330 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 15:47:59,329 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 15:47:59,335 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[WARN ] 2026-01-06 16:27:40,650 run:1108 -Client session timed out, have not heard from server in 532818ms for sessionid 0x20122eb883c0026
+[INFO ] 2026-01-06 16:27:40,650 run:1156 -Client session timed out, have not heard from server in 532818ms for sessionid 0x20122eb883c0026, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 16:27:40,764 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 16:27:41,521 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 16:27:41,531 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-01-06 16:27:41,537 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x20122eb883c0026 has expired
+[INFO ] 2026-01-06 16:27:41,537 postState:228 -State change: LOST
+[WARN ] 2026-01-06 16:27:41,537 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 16:27:41,538 run:1154 -Unable to reconnect to ZooKeeper service, session 0x20122eb883c0026 has expired, closing socket connection
+[INFO ] 2026-01-06 16:27:41,538 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 16:27:41,666 run:519 -EventThread shut down for session: 0x20122eb883c0026
+[INFO ] 2026-01-06 16:27:41,695 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 16:27:41,704 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 16:27:41,711 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c0029, negotiated timeout = 5000
+[INFO ] 2026-01-06 16:27:41,712 postState:228 -State change: RECONNECTED
+[INFO ] 2026-01-06 16:56:51,410 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 16:56:51,410 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 17:47:59,319 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 17:47:59,320 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 18:47:59,328 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 18:47:59,332 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 19:47:59,332 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 19:47:59,336 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[INFO ] 2026-01-06 20:47:59,330 validateSessions:275 -Validating all active sessions...
+[INFO ] 2026-01-06 20:47:59,333 validateSessions:308 -Finished session validation.  No sessions were stopped.
+[WARN ] 2026-01-06 21:49:52,284 run:1108 -Client session timed out, have not heard from server in 3006783ms for sessionid 0x20122eb883c0029
+[INFO ] 2026-01-06 21:49:52,292 run:1156 -Client session timed out, have not heard from server in 3006783ms for sessionid 0x20122eb883c0029, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 21:49:53,018 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 21:49:53,741 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 21:49:55,457 run:1108 -Client session timed out, have not heard from server in 2446ms for sessionid 0x20122eb883c0029
+[INFO ] 2026-01-06 21:49:55,459 run:1156 -Client session timed out, have not heard from server in 2446ms for sessionid 0x20122eb883c0029, closing socket connection and attempting reconnect
+[ERROR] 2026-01-06 21:49:56,125 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3044)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-01-06 21:49:56,659 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 21:49:58,141 checkTimeouts:219 -Connection attempt unsuccessful after 5120 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-01-06 21:49:58,147 run:1108 -Client session timed out, have not heard from server in 2007ms for sessionid 0x20122eb883c0029
+[INFO ] 2026-01-06 21:49:58,258 close:684 -Session: 0x20122eb883c0029 closed
+[INFO ] 2026-01-06 21:49:58,259 run:519 -EventThread shut down for session: 0x20122eb883c0029
+[INFO ] 2026-01-06 21:49:58,260 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 21:49:59,692 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-01-06 21:49:59,696 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-01-06 21:49:59,698 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-01-06 22:49:49,895 run:1108 -Client session timed out, have not heard from server in 3590203ms for sessionid 0x0
+[INFO ] 2026-01-06 22:49:49,897 run:1156 -Client session timed out, have not heard from server in 3590203ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 22:49:50,360 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-01-06 22:49:50,810 checkTimeouts:219 -Connection attempt unsuccessful after 3592667 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-01-06 22:49:51,464 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-01-06 22:49:51,471 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x10122ebcfcd0027, negotiated timeout = 5000
+[INFO ] 2026-01-06 22:49:51,485 run:519 -EventThread shut down for session: 0x10122ebcfcd0027
+[INFO ] 2026-01-06 22:49:51,485 close:684 -Session: 0x10122ebcfcd0027 closed
+[INFO ] 2026-01-06 22:49:51,487 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 22:49:51,532 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 22:49:51,541 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-01-06 22:49:51,548 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x30122e57b650039, negotiated timeout = 5000
+[INFO ] 2026-01-06 22:49:51,548 postState:228 -State change: RECONNECTED
+[WARN ] 2026-01-06 23:49:59,432 run:1108 -Client session timed out, have not heard from server in 3607872ms for sessionid 0x30122e57b650039
+[INFO ] 2026-01-06 23:49:59,433 run:1156 -Client session timed out, have not heard from server in 3607872ms for sessionid 0x30122e57b650039, closing socket connection and attempting reconnect
+[INFO ] 2026-01-06 23:49:59,559 postState:228 -State change: SUSPENDED
+[INFO ] 2026-01-06 23:50:00,284 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 23:50:00,292 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[WARN ] 2026-01-06 23:50:00,299 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x30122e57b650039 has expired
+[INFO ] 2026-01-06 23:50:00,299 postState:228 -State change: LOST
+[INFO ] 2026-01-06 23:50:00,299 run:1154 -Unable to reconnect to ZooKeeper service, session 0x30122e57b650039 has expired, closing socket connection
+[WARN ] 2026-01-06 23:50:00,299 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-01-06 23:50:00,299 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@7fe16e53
+[INFO ] 2026-01-06 23:50:00,322 run:519 -EventThread shut down for session: 0x30122e57b650039
+[INFO ] 2026-01-06 23:50:00,497 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-01-06 23:50:00,503 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-01-06 23:50:00,523 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x20122eb883c002b, negotiated timeout = 5000
+[INFO ] 2026-01-06 23:50:00,523 postState:228 -State change: RECONNECTED

@@ -1,0 +1,810 @@
+[WARN ] 2026-02-07 00:10:23,920 run:1108 -Client session timed out, have not heard from server in 3593871ms for sessionid 0x0
+[INFO ] 2026-02-07 00:10:23,940 run:1156 -Client session timed out, have not heard from server in 3593871ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 00:10:24,053 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 00:10:25,726 run:1108 -Client session timed out, have not heard from server in 1674ms for sessionid 0x0
+[INFO ] 2026-02-07 00:10:25,726 run:1156 -Client session timed out, have not heard from server in 1674ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 00:10:25,831 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 00:10:27,748 run:1108 -Client session timed out, have not heard from server in 1917ms for sessionid 0x0
+[INFO ] 2026-02-07 00:10:27,749 run:1156 -Client session timed out, have not heard from server in 1917ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 00:10:28,970 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 00:10:30,720 run:1108 -Client session timed out, have not heard from server in 2769ms for sessionid 0x0
+[INFO ] 2026-02-07 00:10:30,720 run:1156 -Client session timed out, have not heard from server in 2769ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 00:10:30,825 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 00:10:30,937 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 00:10:30,942 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b004c, negotiated timeout = 5000
+[INFO ] 2026-02-07 00:10:30,942 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 01:11:09,487 run:1108 -Client session timed out, have not heard from server in 3024497ms for sessionid 0x302f85ef55b004c
+[INFO ] 2026-02-07 01:11:09,489 run:1156 -Client session timed out, have not heard from server in 3024497ms for sessionid 0x302f85ef55b004c, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 01:11:09,599 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 01:11:09,939 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 01:11:09,992 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 01:11:10,010 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b004c has expired
+[INFO ] 2026-02-07 01:11:10,010 postState:228 -State change: LOST
+[INFO ] 2026-02-07 01:11:10,011 run:1154 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b004c has expired, closing socket connection
+[WARN ] 2026-02-07 01:11:10,011 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 01:11:10,012 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 01:11:10,121 run:519 -EventThread shut down for session: 0x302f85ef55b004c
+[INFO ] 2026-02-07 01:11:10,190 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 01:11:10,216 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 01:11:10,231 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180040, negotiated timeout = 5000
+[INFO ] 2026-02-07 01:11:10,232 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 02:11:15,754 run:1108 -Client session timed out, have not heard from server in 3605093ms for sessionid 0x202f8653d180040
+[INFO ] 2026-02-07 02:11:15,755 run:1156 -Client session timed out, have not heard from server in 3605093ms for sessionid 0x202f8653d180040, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:15,931 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 02:11:16,468 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:18,153 run:1108 -Client session timed out, have not heard from server in 2222ms for sessionid 0x202f8653d180040
+[INFO ] 2026-02-07 02:11:18,153 run:1156 -Client session timed out, have not heard from server in 2222ms for sessionid 0x202f8653d180040, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:18,508 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 02:11:18,978 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3047)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 02:11:20,179 run:1108 -Client session timed out, have not heard from server in 1921ms for sessionid 0x202f8653d180040
+[INFO ] 2026-02-07 02:11:20,179 run:1156 -Client session timed out, have not heard from server in 1921ms for sessionid 0x202f8653d180040, closing socket connection and attempting reconnect
+[WARN ] 2026-02-07 02:11:20,982 checkTimeouts:219 -Connection attempt unsuccessful after 5051 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 02:11:21,713 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:21,955 run:1108 -Client session timed out, have not heard from server in 1671ms for sessionid 0x202f8653d180040
+[INFO ] 2026-02-07 02:11:22,062 run:519 -EventThread shut down for session: 0x202f8653d180040
+[INFO ] 2026-02-07 02:11:22,062 close:684 -Session: 0x202f8653d180040 closed
+[INFO ] 2026-02-07 02:11:22,062 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[ERROR] 2026-02-07 02:11:22,070 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-02-07 02:11:22,070 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 02:11:22,070 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 02:11:23,743 run:1108 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:23,743 run:1156 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:23,850 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 02:11:24,078 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3096)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 02:11:25,628 run:1108 -Client session timed out, have not heard from server in 1778ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:25,628 run:1156 -Client session timed out, have not heard from server in 1778ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:25,733 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:26,081 checkTimeouts:219 -Connection attempt unsuccessful after 5099 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-02-07 02:11:27,402 run:1108 -Client session timed out, have not heard from server in 1669ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:27,508 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-02-07 02:11:27,508 close:684 -Session: 0x0 closed
+[INFO ] 2026-02-07 02:11:27,510 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 02:11:27,524 postState:228 -State change: LOST
+[INFO ] 2026-02-07 02:11:27,525 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 02:11:27,525 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 02:11:27,525 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 02:11:29,193 run:1108 -Client session timed out, have not heard from server in 1669ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:29,193 run:1156 -Client session timed out, have not heard from server in 1669ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:29,300 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:30,985 run:1108 -Client session timed out, have not heard from server in 1685ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:30,985 run:1156 -Client session timed out, have not heard from server in 1685ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:31,091 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:32,769 run:1108 -Client session timed out, have not heard from server in 1678ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:32,769 run:1156 -Client session timed out, have not heard from server in 1678ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:33,876 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:35,547 run:1108 -Client session timed out, have not heard from server in 2672ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:35,547 run:1156 -Client session timed out, have not heard from server in 2672ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:35,652 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:37,326 run:1108 -Client session timed out, have not heard from server in 1674ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:37,327 run:1156 -Client session timed out, have not heard from server in 1674ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:37,436 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:39,109 run:1108 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:39,109 run:1156 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:40,218 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:41,892 run:1108 -Client session timed out, have not heard from server in 2677ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:41,892 run:1156 -Client session timed out, have not heard from server in 2677ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:41,997 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 02:11:43,769 run:1108 -Client session timed out, have not heard from server in 1772ms for sessionid 0x0
+[INFO ] 2026-02-07 02:11:43,769 run:1156 -Client session timed out, have not heard from server in 1772ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 02:11:43,874 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 02:11:44,992 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 02:11:44,997 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b004d, negotiated timeout = 5000
+[INFO ] 2026-02-07 02:11:44,997 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 03:11:44,186 run:1108 -Client session timed out, have not heard from server in 3000649ms for sessionid 0x302f85ef55b004d
+[INFO ] 2026-02-07 03:11:44,187 run:1156 -Client session timed out, have not heard from server in 3000649ms for sessionid 0x302f85ef55b004d, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 03:11:44,293 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 03:11:45,297 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 03:11:45,313 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[WARN ] 2026-02-07 03:11:45,322 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b004d has expired
+[INFO ] 2026-02-07 03:11:45,322 postState:228 -State change: LOST
+[WARN ] 2026-02-07 03:11:45,323 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 03:11:45,323 run:1154 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b004d has expired, closing socket connection
+[INFO ] 2026-02-07 03:11:45,323 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 03:11:45,339 run:519 -EventThread shut down for session: 0x302f85ef55b004d
+[INFO ] 2026-02-07 03:11:45,354 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 04:11:44,045 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-02-07 04:11:45,039 checkTimeouts:219 -Connection attempt unsuccessful after 3599716 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-02-07 04:11:45,726 run:1108 -Client session timed out, have not heard from server in 1681ms for sessionid 0x0
+[INFO ] 2026-02-07 04:11:45,831 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-02-07 04:11:45,831 close:684 -Session: 0x0 closed
+[INFO ] 2026-02-07 04:11:45,832 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 04:11:45,968 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 04:11:45,976 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 04:11:45,983 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004a, negotiated timeout = 5000
+[INFO ] 2026-02-07 04:11:45,983 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 05:11:54,460 run:1108 -Client session timed out, have not heard from server in 3604861ms for sessionid 0x102f8652d8b004a
+[INFO ] 2026-02-07 05:11:54,461 run:1156 -Client session timed out, have not heard from server in 3604861ms for sessionid 0x102f8652d8b004a, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 05:11:54,574 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 05:11:55,450 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 05:11:55,461 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 05:11:55,465 postState:228 -State change: LOST
+[WARN ] 2026-02-07 05:11:55,465 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004a has expired
+[WARN ] 2026-02-07 05:11:55,465 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 05:11:55,466 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004a has expired, closing socket connection
+[INFO ] 2026-02-07 05:11:55,466 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 05:11:55,479 run:519 -EventThread shut down for session: 0x102f8652d8b004a
+[INFO ] 2026-02-07 05:11:55,480 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 05:11:55,487 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 05:11:55,496 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180041, negotiated timeout = 5000
+[INFO ] 2026-02-07 05:11:55,497 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 06:12:02,037 run:1108 -Client session timed out, have not heard from server in 3606458ms for sessionid 0x202f8653d180041
+[INFO ] 2026-02-07 06:12:02,038 run:1156 -Client session timed out, have not heard from server in 3606458ms for sessionid 0x202f8653d180041, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 06:12:02,145 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 06:12:02,225 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 06:12:03,281 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[WARN ] 2026-02-07 06:12:03,316 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180041 has expired
+[INFO ] 2026-02-07 06:12:03,317 postState:228 -State change: LOST
+[WARN ] 2026-02-07 06:12:03,317 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 06:12:03,317 run:1154 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180041 has expired, closing socket connection
+[INFO ] 2026-02-07 06:12:03,317 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 06:12:03,868 run:519 -EventThread shut down for session: 0x202f8653d180041
+[INFO ] 2026-02-07 06:12:03,870 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 06:12:03,957 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 06:12:03,967 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180042, negotiated timeout = 5000
+[INFO ] 2026-02-07 06:12:03,968 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 07:12:05,695 run:1108 -Client session timed out, have not heard from server in 3598174ms for sessionid 0x202f8653d180042
+[INFO ] 2026-02-07 07:12:05,696 run:1156 -Client session timed out, have not heard from server in 3598174ms for sessionid 0x202f8653d180042, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 07:12:05,805 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 07:12:06,688 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:12:13,455 run:1108 -Client session timed out, have not heard from server in 3607650ms for sessionid 0x202f8653d180042
+[INFO ] 2026-02-07 08:12:13,456 run:1156 -Client session timed out, have not heard from server in 3607650ms for sessionid 0x202f8653d180042, closing socket connection and attempting reconnect
+[WARN ] 2026-02-07 08:12:13,773 checkTimeouts:219 -Connection attempt unsuccessful after 3607968 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 08:12:13,891 close:684 -Session: 0x202f8653d180042 closed
+[INFO ] 2026-02-07 08:12:13,892 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 08:12:13,893 run:519 -EventThread shut down for session: 0x202f8653d180042
+[INFO ] 2026-02-07 08:12:14,372 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 08:12:14,379 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 08:12:14,391 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004b, negotiated timeout = 5000
+[INFO ] 2026-02-07 08:12:14,391 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 08:15:25,794 run:1108 -Client session timed out, have not heard from server in 189397ms for sessionid 0x102f8652d8b004b
+[INFO ] 2026-02-07 08:15:25,795 run:1156 -Client session timed out, have not heard from server in 189397ms for sessionid 0x102f8652d8b004b, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:15:25,938 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 08:15:26,265 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 08:15:26,387 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 08:15:26,395 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004b has expired
+[INFO ] 2026-02-07 08:15:26,395 postState:228 -State change: LOST
+[WARN ] 2026-02-07 08:15:26,395 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 08:15:26,395 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004b has expired, closing socket connection
+[INFO ] 2026-02-07 08:15:26,395 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 08:15:26,409 run:519 -EventThread shut down for session: 0x102f8652d8b004b
+[INFO ] 2026-02-07 08:15:26,414 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 08:15:26,424 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 08:15:26,434 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b004e, negotiated timeout = 5000
+[INFO ] 2026-02-07 08:15:26,434 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 08:50:32,439 run:1108 -Client session timed out, have not heard from server in 2105475ms for sessionid 0x302f85ef55b004e
+[INFO ] 2026-02-07 08:50:32,439 run:1156 -Client session timed out, have not heard from server in 2105475ms for sessionid 0x302f85ef55b004e, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:32,553 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 08:50:32,843 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:34,518 run:1108 -Client session timed out, have not heard from server in 1965ms for sessionid 0x302f85ef55b004e
+[INFO ] 2026-02-07 08:50:34,518 run:1156 -Client session timed out, have not heard from server in 1965ms for sessionid 0x302f85ef55b004e, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:35,418 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 08:50:35,568 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3015)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 08:50:37,090 run:1108 -Client session timed out, have not heard from server in 2467ms for sessionid 0x302f85ef55b004e
+[INFO ] 2026-02-07 08:50:37,090 run:1156 -Client session timed out, have not heard from server in 2467ms for sessionid 0x302f85ef55b004e, closing socket connection and attempting reconnect
+[WARN ] 2026-02-07 08:50:37,574 checkTimeouts:219 -Connection attempt unsuccessful after 5021 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 08:50:38,092 close:684 -Session: 0x302f85ef55b004e closed
+[INFO ] 2026-02-07 08:50:38,092 run:519 -EventThread shut down for session: 0x302f85ef55b004e
+[INFO ] 2026-02-07 08:50:38,093 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[ERROR] 2026-02-07 08:50:38,109 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 08:50:38,109 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-02-07 08:50:38,109 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:39,780 run:1108 -Client session timed out, have not heard from server in 1671ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:39,780 run:1156 -Client session timed out, have not heard from server in 1671ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:39,886 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 08:50:41,129 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3555)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 08:50:41,565 run:1108 -Client session timed out, have not heard from server in 1679ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:41,565 run:1156 -Client session timed out, have not heard from server in 1679ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:41,671 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:43,129 checkTimeouts:219 -Connection attempt unsuccessful after 5555 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-02-07 08:50:43,339 run:1108 -Client session timed out, have not heard from server in 1668ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:43,444 close:684 -Session: 0x0 closed
+[INFO ] 2026-02-07 08:50:43,444 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-02-07 08:50:43,444 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 08:50:43,453 postState:228 -State change: LOST
+[INFO ] 2026-02-07 08:50:43,454 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 08:50:43,454 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 08:50:43,454 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 08:50:45,126 run:1108 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:45,126 run:1156 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:45,232 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:46,913 run:1108 -Client session timed out, have not heard from server in 1681ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:46,913 run:1156 -Client session timed out, have not heard from server in 1681ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:47,018 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:48,686 run:1108 -Client session timed out, have not heard from server in 1668ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:48,686 run:1156 -Client session timed out, have not heard from server in 1668ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:49,798 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:51,473 run:1108 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:51,473 run:1156 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:51,579 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:53,252 run:1108 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:53,252 run:1156 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:53,358 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:55,030 run:1108 -Client session timed out, have not heard from server in 1672ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:55,030 run:1156 -Client session timed out, have not heard from server in 1672ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:56,143 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:57,817 run:1108 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:57,817 run:1156 -Client session timed out, have not heard from server in 2682ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:57,922 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 08:50:59,593 run:1108 -Client session timed out, have not heard from server in 1671ms for sessionid 0x0
+[INFO ] 2026-02-07 08:50:59,593 run:1156 -Client session timed out, have not heard from server in 1671ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 08:50:59,698 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 08:50:59,704 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 08:50:59,712 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180043, negotiated timeout = 5000
+[INFO ] 2026-02-07 08:50:59,713 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 10:15:30,747 run:1108 -Client session timed out, have not heard from server in 3016031ms for sessionid 0x202f8653d180043
+[INFO ] 2026-02-07 10:15:30,748 run:1156 -Client session timed out, have not heard from server in 3016031ms for sessionid 0x202f8653d180043, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 10:15:30,851 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 10:15:30,865 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 10:15:30,871 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-02-07 10:15:30,874 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180043 has expired
+[INFO ] 2026-02-07 10:15:30,874 postState:228 -State change: LOST
+[INFO ] 2026-02-07 10:15:30,874 run:1154 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180043 has expired, closing socket connection
+[WARN ] 2026-02-07 10:15:30,874 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 10:15:30,874 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 10:15:30,889 run:519 -EventThread shut down for session: 0x202f8653d180043
+[INFO ] 2026-02-07 10:15:30,895 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 10:15:30,903 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 10:15:30,908 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b004f, negotiated timeout = 5000
+[INFO ] 2026-02-07 10:15:30,909 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 11:15:51,340 run:1108 -Client session timed out, have not heard from server in 3620423ms for sessionid 0x302f85ef55b004f
+[INFO ] 2026-02-07 11:15:51,340 run:1156 -Client session timed out, have not heard from server in 3620423ms for sessionid 0x302f85ef55b004f, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 11:15:51,449 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 11:15:51,843 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 11:15:53,450 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 11:15:53,450 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 12:15:27,482 run:1108 -Client session timed out, have not heard from server in 3576033ms for sessionid 0x302f85ef55b004f
+[INFO ] 2026-02-07 12:15:27,482 run:1156 -Client session timed out, have not heard from server in 3576033ms for sessionid 0x302f85ef55b004f, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 12:15:28,019 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 12:15:28,482 checkTimeouts:219 -Connection attempt unsuccessful after 3577033 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 12:15:29,058 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 12:15:29,063 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b004f has expired
+[INFO ] 2026-02-07 12:15:29,063 run:519 -EventThread shut down for session: 0x302f85ef55b004f
+[INFO ] 2026-02-07 12:15:29,177 close:684 -Session: 0x302f85ef55b004f closed
+[INFO ] 2026-02-07 12:15:29,177 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 12:15:29,269 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 12:15:29,281 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 12:15:29,288 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004c, negotiated timeout = 5000
+[INFO ] 2026-02-07 12:15:29,288 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 12:18:28,859 run:1108 -Client session timed out, have not heard from server in 175901ms for sessionid 0x102f8652d8b004c
+[INFO ] 2026-02-07 12:18:28,859 run:1156 -Client session timed out, have not heard from server in 175901ms for sessionid 0x102f8652d8b004c, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 12:18:28,967 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 12:18:29,889 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 12:18:29,898 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 12:18:29,901 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004c has expired
+[INFO ] 2026-02-07 12:18:29,901 postState:228 -State change: LOST
+[INFO ] 2026-02-07 12:18:29,901 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004c has expired, closing socket connection
+[WARN ] 2026-02-07 12:18:29,901 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 12:18:29,902 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 12:18:29,916 run:519 -EventThread shut down for session: 0x102f8652d8b004c
+[INFO ] 2026-02-07 12:18:29,972 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 12:18:29,982 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 12:18:29,987 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b0050, negotiated timeout = 5000
+[INFO ] 2026-02-07 12:18:29,987 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 13:29:55,354 run:1108 -Client session timed out, have not heard from server in 3010913ms for sessionid 0x302f85ef55b0050
+[INFO ] 2026-02-07 13:29:55,354 run:1156 -Client session timed out, have not heard from server in 3010913ms for sessionid 0x302f85ef55b0050, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 13:29:55,486 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 13:29:55,541 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 13:29:55,656 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[WARN ] 2026-02-07 13:29:55,659 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0050 has expired
+[INFO ] 2026-02-07 13:29:55,659 postState:228 -State change: LOST
+[WARN ] 2026-02-07 13:29:55,659 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 13:29:55,659 run:1154 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0050 has expired, closing socket connection
+[INFO ] 2026-02-07 13:29:55,659 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 13:29:55,676 run:519 -EventThread shut down for session: 0x302f85ef55b0050
+[INFO ] 2026-02-07 13:29:55,722 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 13:29:55,832 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 13:29:55,838 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004d, negotiated timeout = 5000
+[INFO ] 2026-02-07 13:29:55,838 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 14:30:11,737 run:1108 -Client session timed out, have not heard from server in 3614861ms for sessionid 0x102f8652d8b004d
+[INFO ] 2026-02-07 14:30:11,738 run:1156 -Client session timed out, have not heard from server in 3614861ms for sessionid 0x102f8652d8b004d, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 14:30:11,900 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 14:30:11,994 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 14:30:12,034 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 14:30:12,043 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004d has expired
+[INFO ] 2026-02-07 14:30:12,043 postState:228 -State change: LOST
+[WARN ] 2026-02-07 14:30:12,043 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 14:30:12,043 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 14:30:12,043 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004d has expired, closing socket connection
+[INFO ] 2026-02-07 14:30:12,201 run:519 -EventThread shut down for session: 0x102f8652d8b004d
+[INFO ] 2026-02-07 14:30:12,216 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 14:30:12,231 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 14:30:12,238 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180044, negotiated timeout = 5000
+[INFO ] 2026-02-07 14:30:12,239 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 15:24:40,177 run:1108 -Client session timed out, have not heard from server in 3267934ms for sessionid 0x202f8653d180044
+[INFO ] 2026-02-07 15:24:40,178 run:1156 -Client session timed out, have not heard from server in 3267934ms for sessionid 0x202f8653d180044, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:40,536 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 15:24:40,658 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 15:24:42,348 run:1108 -Client session timed out, have not heard from server in 1810ms for sessionid 0x202f8653d180044
+[INFO ] 2026-02-07 15:24:42,349 run:1156 -Client session timed out, have not heard from server in 1810ms for sessionid 0x202f8653d180044, closing socket connection and attempting reconnect
+[ERROR] 2026-02-07 15:24:42,545 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 15:24:42,546 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-02-07 15:24:43,449 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 15:24:43,545 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3009)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 15:24:43,564 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3028)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 15:24:45,128 run:1108 -Client session timed out, have not heard from server in 2673ms for sessionid 0x202f8653d180044
+[INFO ] 2026-02-07 15:24:45,128 run:1156 -Client session timed out, have not heard from server in 2673ms for sessionid 0x202f8653d180044, closing socket connection and attempting reconnect
+[WARN ] 2026-02-07 15:24:45,550 checkTimeouts:219 -Connection attempt unsuccessful after 5014 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 15:24:46,363 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 15:24:46,903 run:1108 -Client session timed out, have not heard from server in 1670ms for sessionid 0x202f8653d180044
+[INFO ] 2026-02-07 15:24:47,008 run:519 -EventThread shut down for session: 0x202f8653d180044
+[INFO ] 2026-02-07 15:24:47,008 close:684 -Session: 0x202f8653d180044 closed
+[INFO ] 2026-02-07 15:24:47,008 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 15:24:47,123 postState:228 -State change: LOST
+[ERROR] 2026-02-07 15:24:47,123 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-02-07 15:24:47,123 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 15:24:47,124 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 15:24:47,124 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[ERROR] 2026-02-07 15:24:47,124 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 15:24:48,796 run:1108 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:48,796 run:1156 -Client session timed out, have not heard from server in 1673ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:48,901 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 15:24:49,144 checkTimeouts:228 -Connection timed out for connection string (50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181) and timeout (3000) / elapsed (3594)
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.ConnectionState.checkTimeouts(ConnectionState.java:225)
+	at org.apache.curator.ConnectionState.getZooKeeper(ConnectionState.java:94)
+	at org.apache.curator.CuratorZookeeperClient.getZooKeeper(CuratorZookeeperClient.java:117)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:835)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 15:24:50,571 run:1108 -Client session timed out, have not heard from server in 1670ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:50,571 run:1156 -Client session timed out, have not heard from server in 1670ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:50,676 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 15:24:51,158 checkTimeouts:219 -Connection attempt unsuccessful after 5608 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[WARN ] 2026-02-07 15:24:52,345 run:1108 -Client session timed out, have not heard from server in 1669ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:52,452 run:519 -EventThread shut down for session: 0x0
+[INFO ] 2026-02-07 15:24:52,452 close:684 -Session: 0x0 closed
+[INFO ] 2026-02-07 15:24:52,452 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[ERROR] 2026-02-07 15:24:52,466 logError:557 -Background operation retry gave up
+org.apache.zookeeper.KeeperException$ConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.zookeeper.KeeperException.create(KeeperException.java:99)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.checkBackgroundRetry(CuratorFrameworkImpl.java:728)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:857)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[INFO ] 2026-02-07 15:24:52,466 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[ERROR] 2026-02-07 15:24:52,466 logError:557 -Background retry gave up
+org.apache.curator.CuratorConnectionLossException: KeeperErrorCode = ConnectionLoss
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.performBackgroundOperation(CuratorFrameworkImpl.java:838)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.backgroundOperationsLoop(CuratorFrameworkImpl.java:809)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl.access$300(CuratorFrameworkImpl.java:64)
+	at org.apache.curator.framework.imps.CuratorFrameworkImpl$4.call(CuratorFrameworkImpl.java:267)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+[WARN ] 2026-02-07 15:24:54,133 run:1108 -Client session timed out, have not heard from server in 1667ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:54,133 run:1156 -Client session timed out, have not heard from server in 1667ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:54,239 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 15:24:55,915 run:1108 -Client session timed out, have not heard from server in 1676ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:55,915 run:1156 -Client session timed out, have not heard from server in 1676ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:56,021 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 15:24:57,702 run:1108 -Client session timed out, have not heard from server in 1682ms for sessionid 0x0
+[INFO ] 2026-02-07 15:24:57,702 run:1156 -Client session timed out, have not heard from server in 1682ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 15:24:58,815 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 15:24:58,822 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 15:24:58,828 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004e, negotiated timeout = 5000
+[INFO ] 2026-02-07 15:24:58,829 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 16:29:47,441 run:1108 -Client session timed out, have not heard from server in 2873247ms for sessionid 0x102f8652d8b004e
+[INFO ] 2026-02-07 16:29:47,442 run:1156 -Client session timed out, have not heard from server in 2873247ms for sessionid 0x102f8652d8b004e, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 16:29:47,609 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 16:29:48,007 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 16:29:48,012 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 16:29:48,015 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004e has expired
+[INFO ] 2026-02-07 16:29:48,015 postState:228 -State change: LOST
+[WARN ] 2026-02-07 16:29:48,015 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 16:29:48,015 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004e has expired, closing socket connection
+[INFO ] 2026-02-07 16:29:48,015 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 16:29:48,146 run:519 -EventThread shut down for session: 0x102f8652d8b004e
+[INFO ] 2026-02-07 16:29:48,225 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 16:29:48,363 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 16:29:48,367 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b004f, negotiated timeout = 5000
+[INFO ] 2026-02-07 16:29:48,368 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 17:07:34,236 run:1108 -Client session timed out, have not heard from server in 2265619ms for sessionid 0x102f8652d8b004f
+[INFO ] 2026-02-07 17:07:34,237 run:1156 -Client session timed out, have not heard from server in 2265619ms for sessionid 0x102f8652d8b004f, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 17:07:34,577 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 17:07:35,617 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 17:07:36,041 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 17:07:36,049 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004f has expired
+[INFO ] 2026-02-07 17:07:36,049 postState:228 -State change: LOST
+[WARN ] 2026-02-07 17:07:36,049 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 17:07:36,049 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b004f has expired, closing socket connection
+[INFO ] 2026-02-07 17:07:36,049 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 17:07:36,108 run:519 -EventThread shut down for session: 0x102f8652d8b004f
+[INFO ] 2026-02-07 17:07:36,147 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 17:07:36,162 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 17:07:36,175 onConnected:1299 -Session establishment complete on server 50.131.237.153/50.131.237.153:2181, sessionid = 0x102f8652d8b0050, negotiated timeout = 5000
+[INFO ] 2026-02-07 17:07:36,175 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 17:30:15,098 run:1108 -Client session timed out, have not heard from server in 1329736ms for sessionid 0x102f8652d8b0050
+[INFO ] 2026-02-07 17:30:15,098 run:1156 -Client session timed out, have not heard from server in 1329736ms for sessionid 0x102f8652d8b0050, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 17:30:15,230 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 17:30:15,859 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 17:30:15,864 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[WARN ] 2026-02-07 17:30:15,867 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b0050 has expired
+[INFO ] 2026-02-07 17:30:15,867 postState:228 -State change: LOST
+[WARN ] 2026-02-07 17:30:15,867 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 17:30:15,867 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 17:30:15,867 run:1154 -Unable to reconnect to ZooKeeper service, session 0x102f8652d8b0050 has expired, closing socket connection
+[INFO ] 2026-02-07 17:30:15,884 run:519 -EventThread shut down for session: 0x102f8652d8b0050
+[INFO ] 2026-02-07 17:30:15,899 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 17:30:15,905 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 17:30:15,910 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b0051, negotiated timeout = 5000
+[INFO ] 2026-02-07 17:30:15,911 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 18:29:56,769 run:1108 -Client session timed out, have not heard from server in 3580536ms for sessionid 0x302f85ef55b0051
+[INFO ] 2026-02-07 18:29:56,769 run:1156 -Client session timed out, have not heard from server in 3580536ms for sessionid 0x302f85ef55b0051, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 18:29:56,982 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 18:29:57,933 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 18:29:57,991 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 18:29:57,996 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0051 has expired
+[INFO ] 2026-02-07 18:29:57,996 postState:228 -State change: LOST
+[WARN ] 2026-02-07 18:29:57,996 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 18:29:57,996 run:1154 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0051 has expired, closing socket connection
+[INFO ] 2026-02-07 18:29:57,996 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 18:29:58,359 run:519 -EventThread shut down for session: 0x302f85ef55b0051
+[INFO ] 2026-02-07 18:29:58,499 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 18:29:58,507 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 18:29:58,513 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b0052, negotiated timeout = 5000
+[INFO ] 2026-02-07 18:29:58,513 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 19:30:15,898 run:1108 -Client session timed out, have not heard from server in 3613167ms for sessionid 0x302f85ef55b0052
+[INFO ] 2026-02-07 19:30:15,898 run:1156 -Client session timed out, have not heard from server in 3613167ms for sessionid 0x302f85ef55b0052, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 19:30:16,068 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 19:30:16,726 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 20:30:02,726 run:1108 -Client session timed out, have not heard from server in 3586658ms for sessionid 0x302f85ef55b0052
+[INFO ] 2026-02-07 20:30:02,727 run:1156 -Client session timed out, have not heard from server in 3586658ms for sessionid 0x302f85ef55b0052, closing socket connection and attempting reconnect
+[WARN ] 2026-02-07 20:30:03,124 checkTimeouts:219 -Connection attempt unsuccessful after 3587055 (greater than max timeout of 5000). Resetting connection and trying again with a new connection.
+[INFO ] 2026-02-07 20:30:03,565 close:684 -Session: 0x302f85ef55b0052 closed
+[INFO ] 2026-02-07 20:30:03,565 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 20:30:03,566 run:519 -EventThread shut down for session: 0x302f85ef55b0052
+[INFO ] 2026-02-07 20:30:04,395 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[WARN ] 2026-02-07 21:30:01,838 run:1108 -Client session timed out, have not heard from server in 3597443ms for sessionid 0x0
+[INFO ] 2026-02-07 21:30:01,839 run:1156 -Client session timed out, have not heard from server in 3597443ms for sessionid 0x0, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 21:30:02,194 logStartConnect:1032 -Opening socket connection to server 50.131.237.155/50.131.237.155:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 21:30:02,240 primeConnection:876 -Socket connection established to 50.131.237.155/50.131.237.155:2181, initiating session
+[INFO ] 2026-02-07 21:30:02,247 onConnected:1299 -Session establishment complete on server 50.131.237.155/50.131.237.155:2181, sessionid = 0x302f85ef55b0053, negotiated timeout = 5000
+[INFO ] 2026-02-07 21:30:02,251 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 22:29:56,045 run:1108 -Client session timed out, have not heard from server in 3585778ms for sessionid 0x302f85ef55b0053
+[INFO ] 2026-02-07 22:29:56,046 run:1156 -Client session timed out, have not heard from server in 3585778ms for sessionid 0x302f85ef55b0053, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 22:29:56,259 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 22:29:56,453 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 22:29:56,460 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[WARN ] 2026-02-07 22:29:56,467 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0053 has expired
+[INFO ] 2026-02-07 22:29:56,467 postState:228 -State change: LOST
+[WARN ] 2026-02-07 22:29:56,468 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 22:29:56,468 run:1154 -Unable to reconnect to ZooKeeper service, session 0x302f85ef55b0053 has expired, closing socket connection
+[INFO ] 2026-02-07 22:29:56,468 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 22:29:56,487 run:519 -EventThread shut down for session: 0x302f85ef55b0053
+[INFO ] 2026-02-07 22:29:56,503 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 22:29:56,513 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 22:29:56,518 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180045, negotiated timeout = 5000
+[INFO ] 2026-02-07 22:29:56,519 postState:228 -State change: RECONNECTED
+[WARN ] 2026-02-07 23:29:47,984 run:1108 -Client session timed out, have not heard from server in 3591464ms for sessionid 0x202f8653d180045
+[INFO ] 2026-02-07 23:29:47,985 run:1156 -Client session timed out, have not heard from server in 3591464ms for sessionid 0x202f8653d180045, closing socket connection and attempting reconnect
+[INFO ] 2026-02-07 23:29:48,312 postState:228 -State change: SUSPENDED
+[INFO ] 2026-02-07 23:29:48,994 logStartConnect:1032 -Opening socket connection to server 50.131.237.153/50.131.237.153:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 23:29:49,131 primeConnection:876 -Socket connection established to 50.131.237.153/50.131.237.153:2181, initiating session
+[INFO ] 2026-02-07 23:29:49,133 postState:228 -State change: LOST
+[WARN ] 2026-02-07 23:29:49,133 onConnected:1285 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180045 has expired
+[WARN ] 2026-02-07 23:29:49,133 handleExpiredSession:336 -Session expired event received
+[INFO ] 2026-02-07 23:29:49,133 run:1154 -Unable to reconnect to ZooKeeper service, session 0x202f8653d180045 has expired, closing socket connection
+[INFO ] 2026-02-07 23:29:49,133 <init>:438 -Initiating client connection, connectString=50.131.237.153:2181,50.131.237.154:2181,50.131.237.155:2181 sessionTimeout=5000 watcher=org.apache.curator.ConnectionState@2294224b
+[INFO ] 2026-02-07 23:29:49,441 run:519 -EventThread shut down for session: 0x202f8653d180045
+[INFO ] 2026-02-07 23:29:49,707 logStartConnect:1032 -Opening socket connection to server 50.131.237.154/50.131.237.154:2181. Will not attempt to authenticate using SASL (unknown error)
+[INFO ] 2026-02-07 23:29:49,730 primeConnection:876 -Socket connection established to 50.131.237.154/50.131.237.154:2181, initiating session
+[INFO ] 2026-02-07 23:29:49,739 onConnected:1299 -Session establishment complete on server 50.131.237.154/50.131.237.154:2181, sessionid = 0x202f8653d180046, negotiated timeout = 5000
+[INFO ] 2026-02-07 23:29:49,740 postState:228 -State change: RECONNECTED

@@ -124,7 +124,7 @@ public class WebsocketServiceImpl implements WebsocketService {
 	private void sendMessage(Session session, byte[] buffer) throws IOException {
 		//输入：Ctrl+C,会返回^C，替换掉^C
 		String retValue = Xterm.replaceString(buffer,charsetName);
-		//logger.info(session.getId()+"/ return: "+retValue);
+		logger.info(session.getId()+"/ return: "+retValue);
 		session.getBasicRemote().sendText(retValue);
     }
 	
